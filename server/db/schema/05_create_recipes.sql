@@ -10,6 +10,7 @@ CREATE TABLE recipes (
   prep_time VARCHAR(255),
   cook_time VARCHAR(255),
   saved BOOLEAN DEFAULT false,
+  note TEXT,
   user_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
   food_item_id INTEGER REFERENCES food_items(id) ON DELETE CASCADE
 );
