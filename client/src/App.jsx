@@ -2,14 +2,16 @@ import { useState } from "react";
 import "./App.css";
 //import axios from "axios";
 
-import Login from'./components/Login'
+import Login from './components/Login'
+import Logout from './components/Logout'
 
 function App() {
+  const [user, setUser] = useState(true)
 
 
   return (
     <div className="App">
-      <button href={<Login />}>Login</button>
+      {user ? <Logout /> : <Login />}
       <h1>Hello</h1>
     </div>
   );
