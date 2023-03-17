@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "start": "node ./bin/www",
+    "devStart": "nodemon ./bin/www",
     "db:reset": "node db/scripts/resetdb.js"
   },
   "dependencies": {
@@ -14,5 +15,8 @@
     "express": "~4.16.1",
     "morgan": "~1.9.1",
     "pg": "^8.10.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.21"
   }
 }
