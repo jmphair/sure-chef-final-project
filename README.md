@@ -9,12 +9,26 @@ Ashley Ure - https://github.com/dorreb
 Jonathan Phair - https://github.com/jmphair
 
 ## Project Description
-
 - TBD
 
 ## Why SureChef?
-
 - TBD
+
+## Commands
+# Run front end (vite)
+npm run dev
+
+# Run back end
+npm start
+
+# Enter psql final as labber
+psql -U labber -d final
+**OR**
+psql
+\c final labber
+
+# Seed db (in server!)
+npm run db:reset
 
 ## Page Demo Details
 
