@@ -4,9 +4,12 @@ DROP TABLE IF EXISTS recipes CASCADE;
 CREATE TABLE recipes (
   id SERIAL PRIMARY KEY,
   name VARCHAR(255) NOT NULL,
-  quantity INTEGER NOT NULL,
-  category VARCHAR(255) NOT NULL,
-  storage_location VARCHAR(255)
-  kitchen_inventory_id INTEGER REFERENCES kitchen_inventories(id) ON DELETE CASCADE,
-  grocery_list_id INTEGER REFERENCES grocery_list(id) ON DELETE CASCADE
+  instructions TEXT NOT NULL,
+  servings INTEGER,
+  storage_location VARCHAR(255),
+  prep_time VARCHAR(255),
+  cook_time VARCHAR(255),
+  saved BOOLEAN,
+  user_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
+  food_item_id INTEGER REFERENCES food_items(id) ON DELETE CASCADE
 );
