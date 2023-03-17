@@ -1,11 +1,13 @@
 import { useState } from "react";
 import "./App.css";
+import Homepage from "./components/Homepage";
 //import axios from "axios";
 
 import Login from "./components/Login";
 import Logout from "./components/Logout";
 import Signup from "./components/Signup";
 import Homepage from "./components/Homepage";
+import MyKitchen from "./components/MyKitchen"
 
 function App() {
   const [user, setUser] = useState(false);
@@ -19,6 +21,7 @@ function App() {
 
   return (
     <div className="App">
+      <MyKitchen />
       <Homepage />
       {isLoggedIn()}
     </div>
