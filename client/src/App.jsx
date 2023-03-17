@@ -7,7 +7,10 @@ import Login from "./components/Login";
 import Logout from "./components/Logout";
 import Signup from "./components/Signup";
 import Homepage from "./components/Homepage";
+<<<<<<< HEAD
 import MyKitchen from "./components/MyKitchen";
+=======
+>>>>>>> main
 
 function App() {
   const [user, setUser] = useState(false);
@@ -22,7 +25,10 @@ function App() {
   return (
     <div className="App">
       <Homepage />
+<<<<<<< HEAD
       <MyKitchen />
+=======
+>>>>>>> main
       {isLoggedIn()}
     </div>
   );
