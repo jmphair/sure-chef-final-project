@@ -4,14 +4,21 @@ import "./App.css";
 
 import Login from "./components/Login";
 import Logout from "./components/Logout";
+import Signup from "./components/Signup";
 
 function App() {
-  const [user, setUser] = useState(true);
+  const [user, setUser] = useState(false);
+
+  const isLoggedIn = () => {
+    if (user) {
+      return <Logout /> 
+    }
+    return <><Login /><Signup /></>
+  }
 
   return (
     <div className="App">
-      {user ? <Logout /> : <Login />}
-      <h1>Hello</h1>
+      {isLoggedIn()}
     </div>
   );
 }
