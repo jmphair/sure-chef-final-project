@@ -3,7 +3,7 @@ import "./App.css";
 import axios from "axios";
 
 function App() {
-  console.log('hi')
+  console.log("hi");
   axios
     .get("http://localhost:8080/users")
     .then((response) => {
