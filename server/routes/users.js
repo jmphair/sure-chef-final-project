@@ -30,4 +30,12 @@ router.get("/logout", (req, res) => {
   })
 });
 
+/* GET signup */
+// router.post("/signup", (req, res) => {
+//   users.addUser.then(data => {
+//     console.log('hi', data);
+//     res.json({id: data})
+//   })
+// });
+
 module.exports = router;
