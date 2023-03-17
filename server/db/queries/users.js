@@ -9,7 +9,7 @@ const getAllUsers = () => {
 }
 
 const getUserById = id => {
-	return db.query("SELECT * FROM users; WHERE id = $1", [id]).then(data => {
+	return db.query("SELECT * FROM users WHERE id = $1;", [id]).then(data => {
 		return data.rows;
 	})
 }

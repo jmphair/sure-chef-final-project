@@ -12,4 +12,22 @@ router.get('/', (req, res) => {
   })
 });
 
+/* GET user login */
+router.get("/login", (req, res) => {
+  users.getUserById(1)
+  .then(data => {
+    console.log(data);
+    res.json({id: data})
+  })
+});
+
+/* GET logout */
+router.get("/logout", (req, res) => {
+  users.getUserById(null)
+  .then(data => {
+    console.log('hi', data);
+    res.json({id: data})
+  })
+});
+
 module.exports = router;
