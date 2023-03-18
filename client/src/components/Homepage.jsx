@@ -1,7 +1,11 @@
+import MyKitchen from './MyKitchen'
 
 const Homepage = () => {
   return (
-    <div>Homepage</div>
+    <div>
+      <p>Homepage</p>
+      <MyKitchen />
+    </div>
   )
 }
 

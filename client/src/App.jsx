@@ -12,22 +12,25 @@ import Userfront from "@userfront/react";
 import Login from "./components/Login";
 import Logout from "./components/Logout";
 import Signup from "./components/Signup";
+import PasswordReset from "./components/PasswordReset";
 import Homepage from "./components/Homepage";
-import MyKitchen from "./components/MyKitchen"
 
 function App() {
-  const [user, setUser] = useState(true);
+  const [user, setUser] = useState(false);
 
   const isLoggedIn = () => {
     if (user) {
       return <Logout /> 
     }
-    return <><Login /><Signup /></>
+    return (<>
+              <Login />
+              <Signup />
+              <PasswordReset />
+            </>)
   }
 
   return (
     <div className="App">
-      <MyKitchen />
       <Homepage />
       {isLoggedIn()}
     </div>
