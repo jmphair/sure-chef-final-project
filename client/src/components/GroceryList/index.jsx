@@ -1,5 +1,10 @@
 const GroceryList = () => {
-  return <div>GroceryList</div>;
+  return (
+    <div>
+      <FoodItemList />
+      <Form />
+    </div>
+  );
 };
 
 export default GroceryList;
