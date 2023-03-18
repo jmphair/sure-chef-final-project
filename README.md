@@ -15,20 +15,27 @@ Jonathan Phair - https://github.com/jmphair
 - TBD
 
 ## Commands
-# Run front end (vite)
-npm run dev
 
-# Run back end
-npm start
+Run front end (client)
 
-# Enter psql final as labber
-psql -U labber -d final
-**OR**
-psql
-\c final labber
+- npm run dev
 
-# Seed db (in server!)
-npm run db:reset
+Run back end (server)
+
+- npm start
+
+Enter psql final as labber
+
+- psql -U labber -d final
+
+or
+
+- psql
+- \c final labber
+
+Seed db (in server!)
+
+- npm run db:reset
 
 ## Page Demo Details
 
