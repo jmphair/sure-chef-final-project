@@ -27,7 +27,16 @@ ul.menu a {
   text-align: left;
 }
 
+.button-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
 button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   background-color: #6200ee;
   color: #ffffff;
   border: none;

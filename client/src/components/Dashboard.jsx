@@ -13,10 +13,10 @@ const Dashboard = () => {
 
   return (
     <main>
-      {activeSection === "Dashboard" && <div>
-      <button onClick={() => handleSectionClick("mykitchen")}>My Kitchen</button>
-      <button onClick={() => handleSectionClick("groceryList")}>My Grocery List</button>
-      <button onClick={() => handleSectionClick("recipe")}>My Recipes</button>
+      {activeSection === "Dashboard" && <div className='button-container'>
+        <button onClick={() => handleSectionClick("mykitchen")}>My Kitchen</button>
+        <button onClick={() => handleSectionClick("groceryList")}>My Grocery List</button>
+        <button onClick={() => handleSectionClick("recipe")}>My Recipes</button>
       </div>}
       {activeSection === "mykitchen" && <MyKitchen />}
       {activeSection === "groceryList" && <GroceryList />}
