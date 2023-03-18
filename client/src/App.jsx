@@ -16,7 +16,7 @@ import Homepage from "./components/Homepage";
 import MyKitchen from "./components/MyKitchen"
 
 function App() {
-  const [user, setUser] = useState(false);
+  const [user, setUser] = useState(true);
 
   const isLoggedIn = () => {
     if (user) {
