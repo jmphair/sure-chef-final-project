@@ -1,12 +1,7 @@
 import { useState } from "react";
 import "./App.css";
 //import axios from "axios";
-import { 
-  BrowserRouter as Router, 
-  Routes, 
-  Route, 
-  Link 
-} from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import Userfront from "@userfront/react";
 
 import Login from "./components/Login";
@@ -20,14 +15,16 @@ function App() {
 
   const isLoggedIn = () => {
     if (user) {
-      return <Logout /> 
+      return <Logout />;
     }
-    return (<>
-              <Login />
-              <Signup />
-              <PasswordReset />
-            </>)
-  }
+    return (
+      <>
+        <Login />
+        <Signup />
+        <PasswordReset />
+      </>
+    );
+  };
 
   return (
     <div className="App">
