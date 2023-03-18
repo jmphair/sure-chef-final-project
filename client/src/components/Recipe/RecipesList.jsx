@@ -1,7 +1,13 @@
 import RecipesListItem from "./RecipesListItem";
 
 const RecipesList = () => {
-  return <div>RecipesList</div>;
+  return (
+    <div>
+      <div>Recipe list:</div>
+      <RecipesListItem />
+      <RecipesListItem />
+    </div>
+  );
 };
 
 export default RecipesList;
