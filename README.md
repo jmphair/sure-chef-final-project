@@ -22,7 +22,8 @@ Run front end (client)
 
 Run back end (server)
 
-- npm start
+- npm start (production)
+- npm run devStart (development)
 
 Enter psql final as labber
 
