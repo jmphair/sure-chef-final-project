@@ -46,14 +46,13 @@ const getUserData = () => {
 function App() {
 
   return (
-    <div className="App">
-
-          <RequireAuth>
-            <Dashboard />
-            <Logout />
-            {getUserData()}
-          </RequireAuth>
-    </div>
+    <main className="App">
+      <RequireAuth>
+        <Dashboard />
+        <Logout />
+        {getUserData()}
+      </RequireAuth>
+    </main>
   );
 }
 
