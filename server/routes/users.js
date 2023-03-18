@@ -12,8 +12,14 @@ router.get('/', (req, res) => {
   })
 });
 
+/* PUT users listing. */
+router.put('/', (req, res) => {
+  console.log(req.body, typeof(req.body), req.body.email)
+});
+
 /* GET user login */
 router.get("/login", (req, res) => {
+  console.log('test')
   users.getUserById(1)
   .then(data => {
     console.log(data);
@@ -29,6 +35,8 @@ router.get("/logout", (req, res) => {
     res.json({id: data})
   })
 });
+
+
 
 /* GET signup */
 // router.post("/signup", (req, res) => {
