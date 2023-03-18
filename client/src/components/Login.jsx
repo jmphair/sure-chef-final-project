@@ -1,8 +1,15 @@
+import Userfront from "@userfront/react";
+
+Userfront.init("wbmy6rvb");
+
+const LoginForm = Userfront.build({
+  toolId: "baaormn"
+});
 
 const Login = () => {
   return (
     <div>
-     <button>Login</button>
+     <LoginForm />
     </div>
   )
 }
