@@ -1,12 +1,12 @@
 import React from 'react'
-import FoodItem from './FoodItem'
+import KitchenItem from './KitchenItem'
 
 const FoodItemList = () => {
   return (
     <div>
-      <div>Food item list:</div>
-      <FoodItem />
-      <FoodItem />
+      <div>Kitchen item list:</div>
+      <KitchenItem />
+      <KitchenItem />
     </div>
   )
 }

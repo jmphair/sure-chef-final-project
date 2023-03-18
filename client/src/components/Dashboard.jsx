@@ -1,12 +1,17 @@
 import MyKitchen from './MyKitchen'
+import GroceryList from './GroceryList'
+import Recipe from './Recipe'
+import './Dashboard.css'
 
-const Homepage = () => {
+const Dashboard = () => {
   return (
-    <div>
-      <p>Homepage</p>
+    <main className='page'>
+      <p>Dashboard</p>
       <MyKitchen />
-    </div>
+      <GroceryList />
+      <Recipe />
+    </main>
   )
 }
 
-export default Homepage
+export default Dashboard

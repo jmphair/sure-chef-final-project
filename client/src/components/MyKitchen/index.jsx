@@ -1,15 +1,15 @@
 import React from 'react'
 
 import Form from './Form'
-import FoodItemList from './FoodItemList'
+import KitchenItemList from './KitchenItemList'
 
-const Index = () => {
+const MyKitchen = () => {
   return (
     <div>
-      <FoodItemList />
+      <KitchenItemList />
       <Form />
     </div>
   )
 }
 
-export default Index
+export default MyKitchen;

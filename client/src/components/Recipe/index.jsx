@@ -1,9 +1,9 @@
-import RecipesList from "./RecipesListItem";
+import RecipeItemList from "./RecipeItemList";
 
 const Recipe = () => {
   return (
     <div>
-      <RecipesList />
+      <RecipeItemList />
     </div>
   );
 };

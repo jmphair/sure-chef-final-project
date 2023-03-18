@@ -10,7 +10,7 @@ const LogoutButton = Userfront.build({
 function Logout() {
   return (
     <div>
-     <LogoutButton />;
+     <LogoutButton />
     </div>
   )
 }
