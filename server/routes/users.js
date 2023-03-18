@@ -14,6 +14,7 @@ router.get('/', (req, res) => {
 
 /* GET user login */
 router.get("/login", (req, res) => {
+  console.log('test')
   users.getUserById(1)
   .then(data => {
     console.log(data);
