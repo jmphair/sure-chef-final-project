@@ -1,4 +1,6 @@
 import { useState } from 'react'
+
+import Navigation from './Navigation'
 import MyKitchen from './MyKitchen'
 import GroceryList from './GroceryList'
 import Recipe from './Recipe'
@@ -13,6 +15,7 @@ const Dashboard = () => {
 
   return (
     <main>
+      <Navigation />
       {activeSection === "Dashboard" && <div className='button-container'>
         <button onClick={() => handleSectionClick("mykitchen")}>My Kitchen</button>
         <button onClick={() => handleSectionClick("groceryList")}>My Grocery List</button>
