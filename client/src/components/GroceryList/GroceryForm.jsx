@@ -12,26 +12,28 @@ const GroceryForm = () => {
   };
 
   return (
-    <form className='grocery-main' onSubmit={handleSubmit}>
-      <label>
-        Name:
-        <input type="text" value={name} onChange={(event) => setName(event.target.value)} />
-      </label>
-      <label>
-        Quantity:
-        <input type="number" value={quantity} onChange={(event) => setQuantity(event.target.value)} />
-      </label>
-      <label>
-        <p>Storage Location:</p>
-        <select value={storageLocation} onChange={(event) => setStorageLocation(event.target.value)}>
-          <option value="">Select a storage location</option>
-          <option value="Refrigerator">Refrigerator</option>
-          <option value="Freezer">Freezer</option>
-          <option value="Pantry">Pantry</option>
-        </select>
-      </label>
-      <button type="submit">Add Item</button>
-    </form>
+    <section>
+      <form className='grocery-main' onSubmit={handleSubmit}>
+        <label>
+          Name:
+          <input type="text" value={name} onChange={(event) => setName(event.target.value)} />
+        </label>
+        <label>
+          Quantity:
+          <input type="number" value={quantity} onChange={(event) => setQuantity(event.target.value)} />
+        </label>
+        <label>
+          <p>Storage Location:</p>
+          <select value={storageLocation} onChange={(event) => setStorageLocation(event.target.value)}>
+            <option value="">Select a storage location</option>
+            <option value="Refrigerator">Refrigerator</option>
+            <option value="Freezer">Freezer</option>
+            <option value="Pantry">Pantry</option>
+          </select>
+        </label>
+        <button type="submit">Add Item</button>
+      </form>
+    </section>
   );
 };
 
