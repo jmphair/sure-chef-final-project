@@ -1,5 +1,7 @@
 import { useState } from "react";
-
+import "bootstrap/dist/css/bootstrap.min.css";
+import Container from "react-bootstrap/Container";
+import Button from "react-bootstrap/Button";
 import Form from "./Form";
 import KitchenItemList from "./KitchenItemList";
 
@@ -11,16 +13,22 @@ const MyKitchen = () => {
   };
 
   return (
-    <div>
+    <Container>
       <KitchenItemList />
-      {!showForm && <button onClick={handleAddItem}>Add Item</button>}
+      {!showForm && (
+        <Button variant="primary" onClick={handleAddItem}>
+          Add Item
+        </Button>
+      )}
       {showForm && (
         <div className="kitchen-main">
           <Form />
-          <button onClick={handleAddItem}>Cancel</button>
+          <Button variant="danger" onClick={handleAddItem}>
+            Cancel
+          </Button>
         </div>
       )}
-    </div>
+    </Container>
   );
 };
 

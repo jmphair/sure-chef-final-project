@@ -1,12 +1,15 @@
 import GroceryItem from "./GroceryItem";
+import { Container, CardGroup } from "react-bootstrap";
 
 const GroceryItemList = () => {
   return (
-    <div>
+    <Container>
       <div>Grocery item list:</div>
-      <GroceryItem />
-      <GroceryItem />
-    </div>
+      <CardGroup>
+        <GroceryItem />
+        <GroceryItem />
+      </CardGroup>
+    </Container>
   );
 };
 

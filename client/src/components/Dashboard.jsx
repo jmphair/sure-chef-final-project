@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Container, ButtonGroup, Button } from 'react-bootstrap'
 
 import Navigation from './Navigation'
 import MyKitchen from './MyKitchen'
@@ -16,11 +17,13 @@ const Dashboard = () => {
   return (
     <main>
       <Navigation onClick={handleSectionClick} />
-      {activeSection === "Dashboard" && <div className='button-container'>
-        <button onClick={() => handleSectionClick("mykitchen")}>My Kitchen</button>
-        <button onClick={() => handleSectionClick("groceryList")}>My Grocery List</button>
-        <button onClick={() => handleSectionClick("recipe")}>My Recipes</button>
-      </div>}
+      {activeSection === "Dashboard" && <Container className='my-3'>
+        <ButtonGroup>
+          <Button onClick={() => handleSectionClick("mykitchen")}>My Kitchen</Button>
+          <Button onClick={() => handleSectionClick("groceryList")}>My Grocery List</Button>
+          <Button onClick={() => handleSectionClick("recipe")}>My Recipes</Button>
+        </ButtonGroup>
+      </Container>}
       {activeSection === "mykitchen" && <MyKitchen />}
       {activeSection === "groceryList" && <GroceryList />}
       {activeSection === "recipe" && <Recipe />}
