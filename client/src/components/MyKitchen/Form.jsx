@@ -1,5 +1,6 @@
 import React from "react";
 import { useState } from "react";
+import "./styles.css";
 
 const Form = () => {
   const [name, setName] = useState("");
@@ -13,7 +14,7 @@ const Form = () => {
 
   return (
     <section>
-      <form className="grocery-main" onSubmit={handleSubmit}>
+      <form className="kitchen-main" onSubmit={handleSubmit}>
         <label>
           Name:
           <input
