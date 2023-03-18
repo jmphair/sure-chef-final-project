@@ -15,7 +15,7 @@ const Dashboard = () => {
 
   return (
     <main>
-      <Navigation />
+      <Navigation onClick={handleSectionClick} />
       {activeSection === "Dashboard" && <div className='button-container'>
         <button onClick={() => handleSectionClick("mykitchen")}>My Kitchen</button>
         <button onClick={() => handleSectionClick("groceryList")}>My Grocery List</button>
