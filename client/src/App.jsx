@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./App.css";
 import axios from "axios";
-import { BrowserRouter as Router, Routes, Route, Link , useLocation, Navigate} from "react-router-dom";
+// import { BrowserRouter as Router, Routes, Route, Link , useLocation, Navigate} from "react-router-dom";
 import Userfront from "@userfront/react";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -58,7 +58,6 @@ function App() {
     <main className="App">
       <RequireAuth>
         <Dashboard user={user} />
-        <Logout />
       </RequireAuth>
     </main>
   );
