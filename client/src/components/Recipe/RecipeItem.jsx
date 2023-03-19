@@ -7,7 +7,8 @@ const RecipeItem = () => {
         <Card.Title>Recipe Item Name</Card.Title>
         <Card.Text>Ingredients: </Card.Text>
         <Card.Text>Directions: </Card.Text>
-        <Button variant="primary">Edit</Button>{' '}
+        <Card.Text>Note: </Card.Text>
+        <Button variant="primary">Edit Note</Button>{' '}
         <Button variant="danger">Delete</Button>{' '}
         <Button variant="success">Cook</Button>
       </Card.Body>
