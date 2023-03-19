@@ -2,9 +2,15 @@ import { Button, Container, Nav, Navbar, Offcanvas } from 'react-bootstrap';
 import Logout from './Logout';
 
 function Navigation(props) {
+  
+  const navigateToDashboard = () => {
+    window.location.href = '/dashboard';
+  }
+
   return (
     <Navbar bg="light" expand={false} className="mb-3">
       <Container fluid>
+        <Navbar.Brand href="#">SureChef</Navbar.Brand>
         <Navbar.Toggle aria-controls="offcanvasNavbar" />
         <Navbar.Offcanvas
           id="offcanvasNavbar"
@@ -19,13 +25,15 @@ function Navigation(props) {
               <Button onClick={() => props.onClick("mykitchen")}>My Kitchen</Button>
               <Button onClick={() => props.onClick("groceryList")}>Grocery List</Button>
               <Button onClick={() => props.onClick("recipe")}>Recipes</Button>
-              {/* <Button onClick={() => props.onClick("dashboard")}>Dashboard</Button> */}
+              <Button onClick={navigateToDashboard}>Dashboard</Button>
               <Logout />
             </Nav>
           </Offcanvas.Body>
         </Navbar.Offcanvas>
       </Container>
-    </Navbar>);
+    </Navbar>
+  );
 }
 
 export default Navigation;
+
