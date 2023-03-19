@@ -4,7 +4,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 
 const GroceryItemList = () => {
-  const [items, setItems] = useState({ingredients: [{name: 'test', quantity: 4}]})
+  const [items, setItems] = useState({ingredients: []})
 
   useEffect(() => {
       axios.get("http://localhost:8080/foodItems/groceryList")
