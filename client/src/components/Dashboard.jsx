@@ -24,7 +24,7 @@ const Dashboard = (props) => {
       {activeSection === "Dashboard" && <Container className='my-3'>
         <ButtonGroup>
           { sayHello(props.user) }
-        <Button onClick={() => handleSectionClick("mykitchen")}>My Kitchen</Button>
+          <Button onClick={() => handleSectionClick("mykitchen")}>My Kitchen</Button>
           <Button onClick={() => handleSectionClick("groceryList")}>My Grocery List</Button>
           <Button onClick={() => handleSectionClick("recipe")}>My Recipes</Button>
         </ButtonGroup>

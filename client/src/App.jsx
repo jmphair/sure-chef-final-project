@@ -58,7 +58,6 @@ function App() {
     <main className="App">
       <RequireAuth>
         <Dashboard user={user} />
-        <Logout />
       </RequireAuth>
     </main>
   );
