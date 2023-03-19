@@ -10,11 +10,11 @@ const Dashboard = (props) => {
   function handleSectionClick(sectionName) {
     setActiveSection(sectionName);
   }
-  
+
   return (
     <main>
       {activeSection === "Dashboard" && <div className='button-container'>
-        { props.name }
+        { props.user }
         <button onClick={() => handleSectionClick("mykitchen")}>My Kitchen</button>
         <button onClick={() => handleSectionClick("groceryList")}>My Grocery List</button>
         <button onClick={() => handleSectionClick("recipe")}>My Recipes</button>

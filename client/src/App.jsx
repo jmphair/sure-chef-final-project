@@ -27,7 +27,7 @@ function RequireAuth({ children }) {
 //send user.id to database requests after auth
 
 function App() {
-  const [name, setName] = useState(null);
+  const [user, setUser] = useState(null);
 
   
   //runs a GET request to get the logged in user data from 3rd part auth userFront
@@ -47,7 +47,7 @@ function App() {
           name: response.data.name,
           email: response.data.email,
           })
-          setName(response.data.name);
+          setUser(response.data.name);
         })
       .catch((err) => console.error(err));
   }
@@ -55,7 +55,7 @@ function App() {
   return (
     <main className="App">
       <RequireAuth>
-        <Dashboard name={name} />
+        <Dashboard user={user} />
         <Logout />
         {addUserData()}
       </RequireAuth>
