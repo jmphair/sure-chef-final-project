@@ -17,7 +17,7 @@ const GroceryItemList = () => {
           }))
         })
       console.log(items)
-  }, [items]) //issue deep equal?
+  }, []) //issue deep equal?
 
   const groceryItems = items.ingredients.map(item => {
     console.log(item)
