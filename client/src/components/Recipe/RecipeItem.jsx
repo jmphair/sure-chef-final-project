@@ -12,7 +12,8 @@ const RecipeItem = (props) => {
         <Card.Text>Cook time: {props.cookTime}</Card.Text>
         <Card.Text>Ingredients: </Card.Text>
         <Card.Text>Directions:{props.instructions} </Card.Text>
-        <Button variant="primary">Edit</Button>{" "}
+        <Card.Text>Note: </Card.Text>
+        <Button variant="primary">Edit Note</Button>{" "}
         <Button variant="danger">Delete</Button>{" "}
         <Button variant="success">Cook</Button>
       </Card.Body>
