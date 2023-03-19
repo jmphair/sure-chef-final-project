@@ -39,9 +39,9 @@ function App() {
       }
     };
 
-    //adds new users to database and saves username state client side
     axios.get("https://api.userfront.com/v0/self", options)
       .then((response) => {
+        //adds new users to database and saves username state client side
         axios.put("http://localhost:8080/users", {
           id: response.data.userId,
           name: response.data.name,
@@ -51,13 +51,13 @@ function App() {
         })
       .catch((err) => console.error(err));
   }
-
+  
+  addUserData()
   return (
     <main className="App">
       <RequireAuth>
         <Dashboard user={user} />
         <Logout />
-        {addUserData()}
       </RequireAuth>
     </main>
   );
