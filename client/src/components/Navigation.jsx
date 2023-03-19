@@ -2,10 +2,6 @@ import { Button, Container, Nav, Navbar, Offcanvas } from 'react-bootstrap';
 import Logout from './Logout';
 
 function Navigation(props) {
-  
-  // const navigateToDashboard = () => {
-  //   window.location.href = '/dashboard';
-  // }
 
   return (
     <Navbar bg="light" expand={false} className="mb-3">

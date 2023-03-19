@@ -8,7 +8,7 @@ import Recipe from "./Recipe";
 import "./Dashboard.css";
 
 const Dashboard = (props) => {
-  const [activeSection, setActiveSection] = useState("Dashboard");
+  const [activeSection, setActiveSection] = useState("dashboard");
 
   function handleSectionClick(sectionName) {
     setActiveSection(sectionName);
