@@ -7,6 +7,7 @@ const logger = require("morgan");
 
 const indexRouter = require("./routes/index");
 const usersRouter = require("./routes/users");
+const recipesRouter = require("./routes/recipes");
 
 const app = express();
 app.use(cors());
@@ -22,5 +23,7 @@ app.use("/users", usersRouter);
 app.use("/users/login", usersRouter);
 app.use("/users/logout", usersRouter);
 //app.use("/users/signup", userRouter);
+
+app.use("/recipes", recipesRouter);
 
 module.exports = app;
