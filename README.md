@@ -62,4 +62,4 @@ Hi! I'm a placeholder gif! Check back soon for a page demo!
 
 ## THANK YOU
 
-We appreciate you taking the time to look at this project.
+We appreciate you taking the time to look at this project!
