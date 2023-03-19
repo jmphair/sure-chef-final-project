@@ -11,7 +11,7 @@ router.get('/kitchen_items', (req, res) => {
   })
 });
 
-router.get('/grocery_list', (req, res) => {
+router.get('/groceryList', (req, res) => {
   foodItems.getAllGroceryItemsByUserId(1).then(data => {
     console.log(data);
     res.json({foodItems: data});

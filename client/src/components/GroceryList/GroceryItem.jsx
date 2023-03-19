@@ -2,13 +2,13 @@ import React from 'react';
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 
-const GroceryItem = () => {
+const GroceryItem = (props) => {
   return (
     <Card>
       <Card.Body>
-        <Card.Title>Grocery Item</Card.Title>
+        <Card.Title>{props.name}</Card.Title>
         <Card.Text>
-          This is a description of the grocery item.
+          {props.quantity}
         </Card.Text>
         <Button variant="primary">Edit</Button>{' '}
         <Button variant="danger">Delete</Button>

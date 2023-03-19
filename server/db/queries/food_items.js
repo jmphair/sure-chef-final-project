@@ -38,4 +38,24 @@ const getAllGroceryItemsByUserId = (user_id) => {
     .catch((error) => console.log(error));
 };
 
-module.exports = { getAllKitchenItemsByUserId, getAllGroceryItemsByUserId };
+const addFoodItem = (name, quantity, kitchen_inventory_id, grocery_list_id) => {
+  return db
+    .query(
+      `
+  INSERT INTO food_items (name, quantity, kitchen_inventory_id, grocery_list_id)
+  VALUES ($1, $2, $3, $4)
+  RETURNING *
+  `,
+      [name, quantity, kitchen_inventory_id, grocery_list_id]
+    )
+    .then((item) => {
+      return item.rows[0];
+    })
+    .catch((error) => console.log(error));
+};
+
+module.exports = {
+  getAllKitchenItemsByUserId,
+  getAllGroceryItemsByUserId,
+  addFoodItem,
+};
