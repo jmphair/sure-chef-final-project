@@ -21,6 +21,7 @@ const RecipeItemList = () => {
         instructions={recipe.instructions}
         servings={recipe.servings}
         prepTime={recipe.prep_time}
+        cookTime={recipe.cook_time}
       />
     );
   });
