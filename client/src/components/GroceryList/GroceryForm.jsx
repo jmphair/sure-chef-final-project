@@ -1,7 +1,5 @@
 import { useState } from "react";
-import Form from "react-bootstrap/Form";
-import Button from "react-bootstrap/Button";
-import "./styles.css";
+import { Form, Button } from "react-bootstrap";
 
 const GroceryForm = () => {
   const [name, setName] = useState("");
