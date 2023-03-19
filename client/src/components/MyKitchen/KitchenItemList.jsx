@@ -1,14 +1,17 @@
-import React from 'react'
-import KitchenItem from './KitchenItem'
+import React from "react";
+import KitchenItem from "./KitchenItem";
+import { Container, CardGroup } from "react-bootstrap";
 
-const FoodItemList = () => {
+const KitchenItemList = () => {
   return (
-    <div>
+    <Container>
       <div>Kitchen item list:</div>
-      <KitchenItem />
-      <KitchenItem />
-    </div>
-  )
-}
+      <CardGroup>
+        <KitchenItem />
+        <KitchenItem />
+      </CardGroup>
+    </Container>
+  );
+};
 
-export default FoodItemList
+export default KitchenItemList;

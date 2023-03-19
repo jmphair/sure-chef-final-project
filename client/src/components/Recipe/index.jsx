@@ -1,10 +1,11 @@
 import RecipeItemList from "./RecipeItemList";
+import { Container } from 'react-bootstrap';
 
 const Recipe = () => {
   return (
-    <div>
+    <Container className='my-3'>
       <RecipeItemList />
-    </div>
+    </Container>
   );
 };
 

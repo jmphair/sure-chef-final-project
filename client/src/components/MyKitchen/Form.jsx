@@ -1,8 +1,11 @@
 import React from "react";
 import { useState } from "react";
-import "./styles.css";
+import "bootstrap/dist/css/bootstrap.min.css";
+import Container from "react-bootstrap/Container";
+import Button from "react-bootstrap/Button";
+import Form from "react-bootstrap/Form";
 
-const Form = () => {
+const KitchenForm = () => {
   const [name, setName] = useState("");
   const [quantity, setQuantity] = useState("");
   const [storageLocation, setStorageLocation] = useState("");
@@ -13,27 +16,32 @@ const Form = () => {
   };
 
   return (
-    <section>
-      <form className="kitchen-main" onSubmit={handleSubmit}>
-        <label>
-          Name:
-          <input
+    <Container>
+      <Form onSubmit={handleSubmit}>
+        <Form.Group controlId="name">
+          <Form.Label>Name:</Form.Label>
+          <Form.Control
             type="text"
+            placeholder="Enter item name"
             value={name}
             onChange={(event) => setName(event.target.value)}
           />
-        </label>
-        <label>
-          Quantity:
-          <input
+        </Form.Group>
+
+        <Form.Group controlId="quantity">
+          <Form.Label>Quantity:</Form.Label>
+          <Form.Control
             type="number"
+            placeholder="Enter quantity"
             value={quantity}
             onChange={(event) => setQuantity(event.target.value)}
           />
-        </label>
-        <label>
-          <p>Storage Location:</p>
-          <select
+        </Form.Group>
+
+        <Form.Group controlId="storageLocation">
+          <Form.Label>Storage Location:</Form.Label>
+          <Form.Control
+            as="select"
             value={storageLocation}
             onChange={(event) => setStorageLocation(event.target.value)}
           >
@@ -41,12 +49,15 @@ const Form = () => {
             <option value="Refrigerator">Refrigerator</option>
             <option value="Freezer">Freezer</option>
             <option value="Pantry">Pantry</option>
-          </select>
-        </label>
-        <button type="submit">Add Item</button>
-      </form>
-    </section>
+          </Form.Control>
+        </Form.Group>
+
+        <Button variant="primary" type="submit">
+          Add Item
+        </Button>
+      </Form>
+    </Container>
   );
 };
 
-export default Form;
+export default KitchenForm;

@@ -1,10 +1,12 @@
 import { useState } from "react";
-import './styles.css';
+import Form from "react-bootstrap/Form";
+import Button from "react-bootstrap/Button";
+import "./styles.css";
 
 const GroceryForm = () => {
-  const [name, setName] = useState('');
-  const [quantity, setQuantity] = useState('');
-  const [storageLocation, setStorageLocation] = useState('');
+  const [name, setName] = useState("");
+  const [quantity, setQuantity] = useState("");
+  const [storageLocation, setStorageLocation] = useState("");
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -13,26 +15,38 @@ const GroceryForm = () => {
 
   return (
     <section>
-      <form className='grocery-main' onSubmit={handleSubmit}>
-        <label>
-          Name:
-          <input type="text" value={name} onChange={(event) => setName(event.target.value)} />
-        </label>
-        <label>
-          Quantity:
-          <input type="number" value={quantity} onChange={(event) => setQuantity(event.target.value)} />
-        </label>
-        <label>
-          <p>Storage Location:</p>
-          <select value={storageLocation} onChange={(event) => setStorageLocation(event.target.value)}>
+      <Form className="grocery-main" onSubmit={handleSubmit}>
+        <Form.Group>
+          <Form.Label>Name:</Form.Label>
+          <Form.Control
+            type="text"
+            value={name}
+            onChange={(event) => setName(event.target.value)}
+          />
+        </Form.Group>
+        <Form.Group>
+          <Form.Label>Quantity:</Form.Label>
+          <Form.Control
+            type="number"
+            value={quantity}
+            onChange={(event) => setQuantity(event.target.value)}
+          />
+        </Form.Group>
+        <Form.Group>
+          <Form.Label>Storage Location:</Form.Label>
+          <Form.Control
+            as="select"
+            value={storageLocation}
+            onChange={(event) => setStorageLocation(event.target.value)}
+          >
             <option value="">Select a storage location</option>
             <option value="Refrigerator">Refrigerator</option>
             <option value="Freezer">Freezer</option>
             <option value="Pantry">Pantry</option>
-          </select>
-        </label>
-        <button type="submit">Add Item</button>
-      </form>
+          </Form.Control>
+        </Form.Group>
+        <Button type="submit">Add Item</Button>
+      </Form>
     </section>
   );
 };

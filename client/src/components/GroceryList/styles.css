@@ -1,4 +1,4 @@
-.grocery-main {
+/* .grocery-main {
   height: 100%;
   width: 100%;
   background-color: #282c34;
@@ -7,7 +7,6 @@
   align-items: center;
   justify-content: space-between;
   color: white;
-  /* padding: 0.5rem 1rem; */
 }
 
 ul.menu {
@@ -69,4 +68,4 @@ button:hover {
 .warning h2 {
   font-size: 36px;
   text-transform: uppercase;
-}
+} */
