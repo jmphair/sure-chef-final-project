@@ -4,20 +4,20 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 
 const GroceryItemList = () => {
-  const [items, setItems] = useState({ingredients: []})
+  const [items, setItems] = useState({ingredients: [{name: 'test', quantity: 4}]})
 
   useEffect(() => {
       axios.get("http://localhost:8080/foodItems/groceryList")
         .then(res => {
-        const ingredients = res.data.foodItems
-        console.log(ingredients)
-        setItems((prev) => ({
-          ...prev,
-          ingredients: ingredients
-        }))
-      })
+          const ingredients = res.data.foodItems
+          console.log(ingredients)
+          setItems((prev) => ({
+            ...prev,
+            ingredients: ingredients
+          }))
+        })
       console.log(items)
-  }, [])
+  }, [items]) //issue deep equal?
 
   const groceryItems = items.ingredients.map(item => {
     console.log(item)
@@ -26,6 +26,7 @@ const GroceryItemList = () => {
   
   return (
     <Container>
+      {console.log('hey')}
       <div>Grocery item list:</div>
       <CardGroup>
         {groceryItems}
