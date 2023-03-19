@@ -29,6 +29,6 @@ VALUES
     '10 minutes',
     '30 minutes',
     true,
-    2,
+    1,
     2
   );
