@@ -1,9 +1,5 @@
-import React from "react";
 import { useState } from "react";
-import "bootstrap/dist/css/bootstrap.min.css";
-import Container from "react-bootstrap/Container";
-import Button from "react-bootstrap/Button";
-import Form from "react-bootstrap/Form";
+import { Container, Button, Form } from "react-bootstrap";
 
 const KitchenForm = () => {
   const [name, setName] = useState("");

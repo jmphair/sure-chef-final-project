@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import GroceryForm from './GroceryForm'
 import GroceryItemList from './GroceryItemList'
-import { Button } from 'react-bootstrap';
+import { Button, Container } from 'react-bootstrap';
 
 const GroceryList = () => {
   const [showForm, setShowForm] = useState(false);
@@ -11,7 +11,7 @@ const GroceryList = () => {
   }
 
   return (
-    <div>
+    <Container>
       <GroceryItemList />
         {!showForm && <Button onClick={handleAddItem}>Add Item</Button>}
         {showForm && (
@@ -20,7 +20,7 @@ const GroceryList = () => {
             <Button variant='secondary' onClick={handleAddItem} className='mt-3'>Cancel</Button>
           </div>
         )}
-    </div>
+    </Container>
   );
 };
 

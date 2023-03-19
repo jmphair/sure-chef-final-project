@@ -1,6 +1,4 @@
-import React from "react";
-import Card from "react-bootstrap/Card";
-import Button from "react-bootstrap/Button";
+import { Card, Button } from "react-bootstrap";
 
 const KitchenItem = () => {
   return (
@@ -9,7 +7,9 @@ const KitchenItem = () => {
         <Card.Title>Kitchen Item Name</Card.Title>
         <Card.Text>Quantity: 1</Card.Text>
         <Card.Text>Storage Location: Pantry</Card.Text>
-        <Button variant="danger">Delete</Button>
+        <Button variant="primary">Edit</Button>{' '}
+        <Button variant="danger">Delete</Button>{' '}
+        <Button variant="success">Select</Button>
       </Card.Body>
     </Card>
   );
