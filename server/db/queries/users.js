@@ -39,7 +39,11 @@ const addUser = (id, name, email) => {
     .then((user) => {
       return user.rows[0];
     })
-    .catch((error) => console.log(error));
+    .catch((error) => {
+      if (error.code !== '23505') {
+      console.log(error)
+      }
+    });
 };
 
 

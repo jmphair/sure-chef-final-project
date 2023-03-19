@@ -20,7 +20,9 @@ router.put('/', (req, res) => {
 
   users.addUser(id, name, email)
     .then(data => {
-      console.log(data)
+      if (!data) {
+        console.log(`Welcome, ${name}!`)
+      }
     })
     .catch(e => console.log(e));
 });
@@ -29,10 +31,10 @@ router.put('/', (req, res) => {
 router.get("/login", (req, res) => {
   console.log('test')
   users.getUserById(1)
-  .then(data => {
-    console.log(data);
-    res.json({id: data})
-  })
+    .then(data => {
+      console.log(data);
+      res.json({id: data})
+    })
 });
 
 /* GET logout */
