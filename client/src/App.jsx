@@ -24,37 +24,40 @@ function RequireAuth({ children }) {
   return children;
 }
 
-const getUserData = () => {
-  const options = {
-    headers: { 
-      Accept: "*/*",
-      Authorization: `Bearer ${Userfront.tokens.accessToken}`
-    }
-  };
-  
-  axios.get("https://api.userfront.com/v0/self", options)
-    .then((response) => {
-      console.log('user id: ', response.data.userId, response.data.name, 'user: ', response.data.email)
-      console.log(response.data)
-      axios.put("http://localhost:8080/users", {
-        id: response.data.userId,
-        name: response.data.name,
-        email: response.data.email,
-        })
-      })
-    .catch((err) => console.error(err));
-  }
-
 //send user.id to database requests after auth
 
 function App() {
+  const [name, setName] = useState(null);
+
+  
+  //runs a GET request to get the logged in user data from 3rd part auth userFront
+  const addUserData = () => {
+    const options = {
+      headers: { 
+        Accept: "*/*",
+        Authorization: `Bearer ${Userfront.tokens.accessToken}`
+      }
+    };
+
+    //adds new users to database and saves username state client side
+    axios.get("https://api.userfront.com/v0/self", options)
+      .then((response) => {
+        axios.put("http://localhost:8080/users", {
+          id: response.data.userId,
+          name: response.data.name,
+          email: response.data.email,
+          })
+          setName(response.data.name);
+        })
+      .catch((err) => console.error(err));
+  }
 
   return (
     <main className="App">
       <RequireAuth>
-        <Dashboard />
+        <Dashboard name={name} />
         <Logout />
-        {getUserData()}
+        {addUserData()}
       </RequireAuth>
     </main>
   );
