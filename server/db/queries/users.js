@@ -26,20 +26,24 @@ const getUserByEmail = (email) => {
     .catch((error) => console.log(error));
 };
 
-const addUser = (username, email, password) => {
+const addUser = (id, name, email) => {
   return db
     .query(
       `
-  INSERT INTO users (username, email, password)
+  INSERT INTO users (id, name, email)
   VALUES ($1, $2, $3)
   RETURNING *
   `,
-      [username, email, password]
+      [id, name, email]
     )
     .then((user) => {
       return user.rows[0];
     })
-    .catch((error) => console.log(error));
+    .catch((error) => {
+      if (error.code !== '23505') {
+      console.log(error)
+      }
+    });
 };
 
 

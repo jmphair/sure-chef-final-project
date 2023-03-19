@@ -7,11 +7,15 @@ import GroceryList from './GroceryList'
 import Recipe from './Recipe'
 import './Dashboard.css'
 
-const Dashboard = () => {
+const Dashboard = (props) => {
   const [activeSection, setActiveSection] = useState("Dashboard");
 
   function handleSectionClick(sectionName) {
     setActiveSection(sectionName);
+  }
+
+  const sayHello = (user) => {
+    return `Hello, ${user}. Whatcha' making?`
   }
 
   return (
@@ -19,7 +23,8 @@ const Dashboard = () => {
       <Navigation onClick={handleSectionClick} />
       {activeSection === "Dashboard" && <Container className='my-3'>
         <ButtonGroup>
-          <Button onClick={() => handleSectionClick("mykitchen")}>My Kitchen</Button>
+          { sayHello(props.user) }
+        <Button onClick={() => handleSectionClick("mykitchen")}>My Kitchen</Button>
           <Button onClick={() => handleSectionClick("groceryList")}>My Grocery List</Button>
           <Button onClick={() => handleSectionClick("recipe")}>My Recipes</Button>
         </ButtonGroup>

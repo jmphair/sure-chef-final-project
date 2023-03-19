@@ -1,5 +1,5 @@
 -- seeds/01_users.sql
 -- users seeds
 
-INSERT INTO users (id, username, email, password) VALUES (1, 'zelda', 'link@yahoo.com', 'hyrule');
-INSERT INTO users (id, username, email, password) VALUES (2, 'ihatewario', 'mario@mushroomkindom.jp', 'plumber79');
+INSERT INTO users (id, name, email) VALUES (1, 'link', 'link@yahoo.com');
+INSERT INTO users (id, name, email) VALUES (2, 'mario', 'mario@mushroomkindom.jp');
