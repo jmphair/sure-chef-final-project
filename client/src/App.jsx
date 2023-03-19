@@ -34,9 +34,13 @@ const getUserData = () => {
   
   axios.get("https://api.userfront.com/v0/self", options)
     .then((response) => {
-      console.log('user id: ', response.data.userId, 'user: ', response.data.email)
+      console.log('user id: ', response.data.userId, response.data.name, 'user: ', response.data.email)
       console.log(response.data)
-      axios.put("http://localhost:8080/users", {email: response.data.email})
+      axios.put("http://localhost:8080/users", {
+        id: response.data.userId,
+        name: response.data.name,
+        email: response.data.email,
+        })
       })
     .catch((err) => console.error(err));
   }

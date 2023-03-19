@@ -14,7 +14,15 @@ router.get('/', (req, res) => {
 
 /* PUT users listing. */
 router.put('/', (req, res) => {
-  console.log(req.body, typeof(req.body), req.body.email)
+  const id = req.body.id;
+  const name = req.body.name;
+  const email = req.body.email;
+
+  users.addUser(id, name, email)
+    .then(data => {
+      console.log(data)
+    })
+    .catch(e => console.log(e));
 });
 
 /* GET user login */
@@ -32,7 +40,6 @@ router.get("/logout", (req, res) => {
   users.getUserById(null)
   .then(data => {
     console.log('hi', data);
-    res.json({id: data})
   })
 });
 
