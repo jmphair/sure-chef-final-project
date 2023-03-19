@@ -25,7 +25,7 @@ function Navigation(props) {
               <Button onClick={() => props.onClick("mykitchen")}>My Kitchen</Button>
               <Button onClick={() => props.onClick("groceryList")}>Grocery List</Button>
               <Button onClick={() => props.onClick("recipe")}>Recipes</Button>
-              {/* <Button onClick={navigateToDashboard}>Dashboard</Button> */}
+              <Button onClick={() => props.onClick("dashboard")}>Dashboard</Button>
               <Logout />
             </Nav>
           </Offcanvas.Body>

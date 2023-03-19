@@ -21,7 +21,7 @@ const Dashboard = (props) => {
   return (
     <main>
       <Navigation onClick={handleSectionClick} />
-      {activeSection === "Dashboard" && (
+      {activeSection === "dashboard" && (
         <Container className="my-3">
           <ButtonGroup>
             {sayHello(props.user)}
