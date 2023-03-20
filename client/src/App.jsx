@@ -63,14 +63,4 @@ function App() {
   );
 }
 
-
-// axios
-//   .get("http://localhost:8080/users")
-//   .then((response) => {
-//     console.log(response.data.users);
-//   })
-//   .catch((error) => {
-//     console.log(error);
-//   });
-
 export default App;

@@ -1,35 +1,29 @@
 import GroceryItem from "./GroceryItem";
 import { Container, CardGroup } from "react-bootstrap";
-import axios from "axios";
-import { useEffect, useState } from "react";
+
+import { getGroceryItemsForUsers } from "../../helpers/selectors";
+import useGroceryItemData from "../../hooks/useGroceryListItemData.jsx"
 
 const GroceryItemList = () => {
-  const [items, setItems] = useState({ingredients: []})
+  const { groceryItems, currentGroceryItem } = useGroceryItemData();
 
-  useEffect(() => {
-      axios.get("http://localhost:8080/foodItems/groceryList")
-        .then(res => {
-          const ingredients = res.data.foodItems
-          console.log(ingredients)
-          setItems((prev) => ({
-            ...prev,
-            ingredients: ingredients
-          }))
-        })
-      console.log(items)
-  }, []) //issue deep equal?
+  const userGroceries = groceryItems.length > 0 ? getGroceryItemsForUsers({ groceryItems }, 1) : [];
 
-  const groceryItems = items.ingredients.map(item => {
-    console.log(item)
-    return (<GroceryItem name={item.name} quantity={item.quantity} />)
-  })
-  
+  const groceryItemList = userGroceries.map((groceryItem) => {
+    return (
+      <GroceryItem
+        name={groceryItem.name}
+        quantity={groceryItem.quantity}
+      />
+    );
+  });
+
   return (
     <Container>
       {console.log('hey')}
       <div>Grocery item list:</div>
       <CardGroup>
-        {groceryItems}
+        {groceryItemList}
       </CardGroup>
     </Container>
   );
