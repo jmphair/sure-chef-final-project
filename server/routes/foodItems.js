@@ -23,7 +23,7 @@ router.put('/kitchenItemList', (req, res) => {
     .then(dbRes => {
       const kitchenId = dbRes.id;
       foodItems.addKitchenItem(foodItemName, foodItemQuantity, storageLocation, kitchenId);
-      res.json({ res: 'hi' });
+      res.json({ res: dbRes });
     });
 });
 
@@ -47,7 +47,7 @@ router.put('/groceryItemList', (req, res) => {
     .then(dbRes => {
       const groceryId = dbRes.id;
       foodItems.addGroceryItem(foodItemName, foodItemQuantity, storageLocation, groceryId);
-      res.json({ res: 'hi' });
+      res.json({ res: dbRes });
     });
 });
 
