@@ -30,7 +30,7 @@ router.put('/', (req, res) => {
 /* GET user login */
 router.get("/login", (req, res) => {
   console.log('test')
-  users.getUserById(1)
+  users.getUserById(16)
     .then(data => {
       console.log(data);
       res.json({id: data})

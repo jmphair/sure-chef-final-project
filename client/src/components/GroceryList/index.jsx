@@ -3,7 +3,7 @@ import GroceryForm from './GroceryForm'
 import GroceryItemList from './GroceryItemList'
 import { Button, Container } from 'react-bootstrap';
 
-const GroceryList = () => {
+const GroceryList = (props) => {
   const [showForm, setShowForm] = useState(false);
 
   const handleAddItem = (event) => {
@@ -16,7 +16,7 @@ const GroceryList = () => {
         {!showForm && <Button onClick={handleAddItem}>Add Item</Button>}
         {showForm && (
           <div className='bg-light p-3 mt-3'>
-            <GroceryForm />
+            <GroceryForm user={props.user} />
             <Button variant='secondary' onClick={handleAddItem} className='mt-3'>Cancel</Button>
           </div>
         )}

@@ -9,7 +9,7 @@ const KitchenItemList = () => {
   const { kitchenItems, currentKitchenItem } = useKitchenListItemData();
 
   const userKitchenItems =
-    kitchenItems.length > 0 ? getKitchenItemsForUsers({ kitchenItems }, 1) : [];
+    kitchenItems.length > 0 ? getKitchenItemsForUsers({ kitchenItems }, 16) : [];
 
   const kitchenItemList = userKitchenItems.map((kitchenItem) => {
     return (

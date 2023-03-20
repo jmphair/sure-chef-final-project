@@ -15,7 +15,7 @@ const Dashboard = (props) => {
   }
 
   const sayHello = (user) => {
-    return `Hello, ${user}. Whatcha' making?`;
+    return `Hello, ${user.name}. Whatcha' making?`;
   };
 
   return (
@@ -38,7 +38,7 @@ const Dashboard = (props) => {
         </Container>
       )}
       {activeSection === "mykitchen" && <MyKitchen />}
-      {activeSection === "groceryList" && <GroceryList />}
+      {activeSection === "groceryList" && <GroceryList user={props.user} />}
       {activeSection === "recipe" && <Recipe />}
     </main>
   );

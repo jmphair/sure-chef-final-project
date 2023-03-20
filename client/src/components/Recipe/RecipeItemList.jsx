@@ -10,7 +10,7 @@ const RecipeItemList = () => {
 
   // Get the recipes for a specific user (in this case, user ID 1) using the getRecipesForUsers function
   const userRecipes =
-    recipes.length > 0 ? getRecipesForUsers({ recipes }, 1) : [];
+    recipes.length > 0 ? getRecipesForUsers({ recipes }, 16) : [];
   // Map over the userRecipes array to create a Recipe component for each recipe
   const recipeList = userRecipes.map((recipe) => {
     return (
