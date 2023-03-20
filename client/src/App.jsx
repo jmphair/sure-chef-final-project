@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./App.css";
 import axios from "axios";
 // import { BrowserRouter as Router, Routes, Route, Link , useLocation, Navigate} from "react-router-dom";
@@ -28,11 +28,15 @@ function RequireAuth({ children }) {
 //send user.id to database requests after auth
 
 function App() {
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState({
+    id: '',
+    name: '',
+    email: ''
+  });
 
   
   //runs a GET request to get the logged in user data from 3rd part auth userFront
-  const addUserData = () => {
+  useEffect(() => {
     const options = {
       headers: { 
         Accept: "*/*",
@@ -48,16 +52,20 @@ function App() {
           name: response.data.name,
           email: response.data.email,
           })
-          setUser(response.data.name);
+        setUser({
+          id: response.data.userId,
+          name: response.data.name,
+          email: response.data.email,
+        });
         })
       .catch((err) => console.error(err));
-  }
+  }, [])
   
-  addUserData()
+  // addUserData()
   return (
     <main className="App">
       <RequireAuth>
-        <Dashboard user={user} />
+        <Dashboard user={user.name} />
       </RequireAuth>
     </main>
   );
