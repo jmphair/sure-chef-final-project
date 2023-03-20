@@ -5,7 +5,6 @@ import { getRecipesForUsers } from "../../helpers/selectors";
 import useRecipeData from "../../hooks/useRecipeData";
 
 const RecipeItemList = () => {
-  console.log("DO I EXIST IN RecipeItemList COMPONENT");
   // Use the useRecipeData hook to get the recipes and currentRecipe from state
   const { recipes, currentRecipe } = useRecipeData();
 

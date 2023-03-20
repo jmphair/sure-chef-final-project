@@ -10,3 +10,9 @@ export function getKitchenItemsForUsers(state, user_id) {
   );
   return kitchenItems;
 }
+
+export function getGroceryItemsForUsers(state, user_id) {
+  const groceryItems = state.groceryItems.filter(
+    (groceryItems) => groceryItems.user_id === user_id);
+  return groceryItems;
+}

@@ -11,13 +11,11 @@ export default function useRecipeData() {
   });
 
   useEffect(() => {
-    console.log("Fetching recipe data...");
     axios
       .get("http://localhost:8080/recipes")
       .then((response) => {
         setRecipes(response.data.recipes);
         setCurrentRecipe(response.data.recipes[0]);
-        console.log("Got the recipe data:", response);
       })
       .catch((err) => console.error(err));
   }, []);

@@ -6,6 +6,7 @@ const getAllKitchenItemsByUserId = (user_id) => {
   return db
     .query(
       `SELECT food_items.name as name,
+        food_items.id as id,
         quantity,
         storage_location,
         users.id as user_id
@@ -25,8 +26,10 @@ const getAllGroceryItemsByUserId = (user_id) => {
   return db
     .query(
       `SELECT food_items.name as name,
+        food_items.id as id,
         quantity,
-        storage_location
+        storage_location,
+        users.id as user_id
         FROM food_items
         INNER JOIN grocery_lists ON food_items.grocery_list_id = grocery_lists.id
         INNER JOIN users ON grocery_lists.user_id = users.id
