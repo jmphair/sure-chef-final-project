@@ -5,6 +5,6 @@ export function getRecipesForUsers(state, user_id) {
 }
 
 export function getGroceryItemsForUsers(state, user_id) {
-  const foodItems = state.recipes.filter((foodItem) => foodItem.user_id === user_id);
+  const foodItems = state.groceryItems.filter((foodItem) => foodItem.user_id === user_id);
   return foodItems;
 }
