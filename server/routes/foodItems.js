@@ -24,9 +24,10 @@ router.put('/groceryItemList', (req, res) => {
   const storageLocation = req.body.storageLocation;
 
   foodItems.getGroceryIdByUserId(userId)
-    .then(res => {
-      const groceryId = res.id
+    .then(dbRes => {
+      const groceryId = dbRes.id
       foodItems.addGroceryItem(foodItemName, foodItemQuantity, storageLocation, groceryId)
+      res.json({res: 'hi'})
     })
 })
 

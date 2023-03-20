@@ -10,14 +10,15 @@ const GroceryForm = (props) => {
   const handleSubmit = (event) => {
     event.preventDefault();
     // Handle form submission here
+    axios.put('http://localhost:8080/foodItems/groceryItemList', {
+      name: name,
+      quantity: quantity,
+      storageLocation: storageLocation,
+      userId: props.user.id
+      })
   };
 
-  axios.put('http://localhost:8080/foodItems/groceryItemList', {
-    name: 'bread',
-    quantity: 5,
-    storageLocation: 'pantry',
-    userId: props.user.id
-    })
+
   // setUser({
   //   id: response.data.userId,
   //   name: response.data.name,
