@@ -1,19 +1,21 @@
 import KitchenItem from "./KitchenItem";
 import { Container, CardGroup } from "react-bootstrap";
 
-import { getFoodItemsForUsers } from "../../helpers/selectors";
-import useFoodItemData from "../../hooks/useFoodItemData.jsx"
+import { getKitchenItemsForUsers } from "../../helpers/selectors";
+import useKitchenListItemData from "../../hooks/useKitchenListItemData"
 
 const KitchenItemList = () => {
-  const { foodItems, currentFoodItem } = useFoodItemData();
+  console.log("DO I EXIST IN KitchenItemList COMPONENT");
 
-  const userFoodItems = foodItems.length > 0 ? getFoodItemsForUsers({ foodItems }, 1) : [];
+  const { kitchenItems, currentKitchenItem } = useKitchenListItemData();
 
-  const foodItemList = userFoodItems.map((foodItem) => {
+  const userKitchenItems = kitchenItems.length > 0 ? getKitchenItemsForUsers({ kitchenItems }, 1) : [];
+
+  const kitchenItemList = userKitchenItems.map((kitchenItem) => {
     return (
       <KitchenItem
-        name={foodItem.name}
-        quantity={foodItem.quantity}
+        name={kitchenItem.name}
+        quantity={kitchenItem.quantity}
       />
     );
   });
@@ -23,7 +25,7 @@ const KitchenItemList = () => {
       {console.log('hey')}
       <div>My Kitchen:</div>
       <CardGroup>
-        {foodItemList}
+        {kitchenItemList}
       </CardGroup>
     </Container>
   );

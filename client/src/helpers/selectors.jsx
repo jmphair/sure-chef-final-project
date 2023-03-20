@@ -14,7 +14,7 @@ export function getRecipesForUsers(state, user_id) {
 
 
 
-export function getFoodItemsForUsers(state, user_id) {
-  const foodItems = state.foodItems.filter((foodItem) => foodItem.user_id === user_id);
-  return foodItems;
+export function getKitchenItemsForUsers(state, user_id) {
+  const kitchenItems = state.kitchenItems.filter((kitchenItem) => kitchenItem.user_id === user_id);
+  return kitchenItems;
 }

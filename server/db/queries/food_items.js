@@ -2,7 +2,7 @@
 
 const db = require("../../configs/db.config");
 
-const getAllFoodItemsByUserId = (user_id) => {
+const getAllKitchenItemsByUserId = (user_id) => {
   return db
     .query(
       `SELECT food_items.name as name,
@@ -11,6 +11,24 @@ const getAllFoodItemsByUserId = (user_id) => {
         FROM food_items
         INNER JOIN kitchen_inventories ON food_items.kitchen_inventory_id = kitchen_inventories.id
         INNER JOIN users ON kitchen_inventories.user_id = users.id
+        WHERE users.id = $1;`,
+      [user_id]
+    )
+    .then((data) => {
+      return data.rows;
+    })
+    .catch((error) => console.log(error));
+};
+
+const getAllGroceryItemsByUserId = (user_id) => {
+  return db
+    .query(
+      `SELECT food_items.name as name,
+        quantity,
+        storage_location
+        FROM food_items
+        INNER JOIN grocery_lists ON food_items.grocery_list_id = grocery_lists.id
+        INNER JOIN users ON grocery_lists.user_id = users.id
         WHERE users.id = $1;`,
       [user_id]
     )
@@ -37,6 +55,7 @@ const addFoodItem = (name, quantity, kitchen_inventory_id, grocery_list_id) => {
 };
 
 module.exports = {
-  getAllFoodItemsByUserId,
+  getAllKitchenItemsByUserId,
+  getAllGroceryItemsByUserId,
   addFoodItem,
 };
