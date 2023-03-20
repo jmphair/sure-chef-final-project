@@ -4,17 +4,9 @@ export function getRecipesForUsers(state, user_id) {
   return recipes;
 }
 
-
-
-
-
-
-
-
-
-
-
 export function getKitchenItemsForUsers(state, user_id) {
-  const kitchenItems = state.kitchenItems.filter((kitchenItem) => kitchenItem.user_id === user_id);
+  const kitchenItems = state.kitchenItems.filter(
+    (kitchenItem) => kitchenItem.user_id === user_id
+  );
   return kitchenItems;
 }
