@@ -7,7 +7,7 @@ const GroceryItemList = () => {
   const [items, setItems] = useState({ingredients: []})
 
   useEffect(() => {
-      axios.get("http://localhost:8080/foodItems/groceryList")
+      axios.get("http://localhost:8080/foodItems/groceryItemList")
         .then(res => {
           const ingredients = res.data.foodItems
           console.log(ingredients)

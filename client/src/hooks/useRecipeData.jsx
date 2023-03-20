@@ -17,7 +17,7 @@ export default function useRecipeData() {
       .then((response) => {
         setRecipes(response.data.recipes);
         setCurrentRecipe(response.data.recipes[0]);
-        console.log("Got the data:", response);
+        console.log("Got the recipe data:", response);
       })
       .catch((err) => console.error(err));
   }, []);

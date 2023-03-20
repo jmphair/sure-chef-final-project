@@ -7,7 +7,8 @@ const getAllKitchenItemsByUserId = (user_id) => {
     .query(
       `SELECT food_items.name as name,
         quantity,
-        storage_location
+        storage_location,
+        users.id as user_id
         FROM food_items
         INNER JOIN kitchen_inventories ON food_items.kitchen_inventory_id = kitchen_inventories.id
         INNER JOIN users ON kitchen_inventories.user_id = users.id
