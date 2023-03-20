@@ -13,7 +13,7 @@ const KitchenItemList = () => {
 
   const kitchenItemList = userKitchenItems.map((kitchenItem) => {
     return (
-      <KitchenItem key={kitchenItem.id} name={kitchenItem.name} quantity={kitchenItem.quantity} />
+      <KitchenItem key={kitchenItem.id} id={kitchenItem.id} name={kitchenItem.name} quantity={kitchenItem.quantity} />
     );
   });
 

@@ -1,6 +1,20 @@
 import { Card, Button } from 'react-bootstrap';
+import axios from 'axios';
 
 const KitchenItem = (props) => {
+
+  console.log('kitchenitem', props);
+
+  const handleDelete = (event) => {
+    event.preventDefault();
+    // Handle item removal here
+    axios.delete("http://localhost:8080/foodItems/kitchenItemList", {
+      data: {
+        id: props.id,
+      }
+    })
+  };
+  
   return (
     <Card>
       <Card.Body>
@@ -9,7 +23,7 @@ const KitchenItem = (props) => {
           {props.quantity}
         </Card.Text>
         <Button variant="primary">Edit</Button>{' '}
-        <Button variant="danger">Delete</Button>{' '}
+        <Button onClick={handleDelete} variant="danger">Delete</Button>{' '}
         <Button variant="success">Select</Button>
       </Card.Body>
     </Card>
