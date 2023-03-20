@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { Container, Button, Form } from "react-bootstrap";
+import axios from "axios";
 
-const KitchenForm = () => {
+const KitchenForm = (props) => {
   const [name, setName] = useState("");
   const [quantity, setQuantity] = useState("");
   const [storageLocation, setStorageLocation] = useState("");
@@ -9,6 +10,12 @@ const KitchenForm = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
     // Handle form submission here
+    axios.put("http://localhost:8080/foodItems/kitchenItemList", {
+      name: name,
+      quantity: quantity,
+      storageLocation: storageLocation,
+      userId: props.user.id,
+    });
   };
 
   return (

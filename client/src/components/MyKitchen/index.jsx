@@ -4,7 +4,7 @@ import RecipeGenerator from "../RecipeGenerator";
 import Form from "./Form";
 import KitchenItemList from "./KitchenItemList";
 
-const MyKitchen = () => {
+const MyKitchen = (props) => {
   const [showForm, setShowForm] = useState(false);
 
   const handleAddItem = (event) => {
@@ -13,21 +13,25 @@ const MyKitchen = () => {
 
   const handleSelectAll = (event) => {
     /* Implement here */
-  }
+  };
 
   return (
     <Container>
       <KitchenItemList />
       {!showForm && (
         <>
-        <Button variant="primary" onClick={handleAddItem}>Add Item</Button>
-        <Button variant="primary" onClick={handleSelectAll}>Select All</Button>
-        <RecipeGenerator />
+          <Button variant="primary" onClick={handleAddItem}>
+            Add Item
+          </Button>
+          <Button variant="primary" onClick={handleSelectAll}>
+            Select All
+          </Button>
+          <RecipeGenerator />
         </>
       )}
       {showForm && (
         <div className="kitchen-main">
-          <Form />
+          <Form user={props.user} />
           <Button variant="danger" onClick={handleAddItem}>
             Cancel
           </Button>

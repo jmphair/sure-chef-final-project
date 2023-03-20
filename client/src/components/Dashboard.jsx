@@ -37,7 +37,7 @@ const Dashboard = (props) => {
           </ButtonGroup>
         </Container>
       )}
-      {activeSection === "mykitchen" && <MyKitchen />}
+      {activeSection === "mykitchen" && <MyKitchen user={props.user} />}
       {activeSection === "groceryList" && <GroceryList user={props.user} />}
       {activeSection === "recipe" && <Recipe />}
     </main>
