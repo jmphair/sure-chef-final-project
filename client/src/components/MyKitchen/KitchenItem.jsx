@@ -3,8 +3,6 @@ import axios from 'axios';
 
 const KitchenItem = (props) => {
 
-  console.log('kitchenitem', props);
-
   const handleDelete = (event) => {
     event.preventDefault();
     // Handle item removal here

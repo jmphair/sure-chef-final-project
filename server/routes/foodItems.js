@@ -30,8 +30,6 @@ router.put('/kitchenItemList', (req, res) => {
 router.delete('/kitchenItemList', (req, res) => {
   const foodId = req.body.id;
 
-  console.log(foodId);
-
   foodItems.getByFoodItemId(foodId)
     .then(dbRes => {
       const id = dbRes.id;
@@ -68,9 +66,10 @@ router.put('/groceryItemList', (req, res) => {
 router.delete('/groceryItemList', (req, res) => {
   const foodId = req.body.id;
 
-  foodItems.getGroceryIdByUserId(foodId)
+  foodItems.getByFoodItemId(foodId)
     .then(dbRes => {
-      const kitchenId = dbRes.id;
+      const id = dbRes.id;
+      console.log(dbRes)
       foodItems.removeFoodItem(id);
       res.json({ res: dbRes });
     });
