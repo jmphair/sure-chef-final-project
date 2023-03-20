@@ -19,7 +19,7 @@ VALUES
     '10 minutes',
     '25 minutes',
     true,
-    1,
+    16,
     1
   ),
   (
@@ -29,6 +29,6 @@ VALUES
     '10 minutes',
     '30 minutes',
     true,
-    1,
+    16,
     2
   );

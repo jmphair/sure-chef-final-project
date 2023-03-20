@@ -65,7 +65,7 @@ function App() {
   return (
     <main className="App">
       <RequireAuth>
-        <Dashboard user={user.name} />
+        <Dashboard user={user} />
       </RequireAuth>
     </main>
   );

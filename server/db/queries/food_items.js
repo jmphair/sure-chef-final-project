@@ -42,15 +42,57 @@ const getAllGroceryItemsByUserId = (user_id) => {
     .catch((error) => console.log(error));
 };
 
-const addFoodItem = (name, quantity, kitchen_inventory_id, grocery_list_id) => {
+const getGroceryIdByUserId =(user_id) => {
+  return db.query(
+    `SELECT * FROM grocery_lists
+    WHERE user_id = $1;
+  `, [user_id]
+  )
+  .then((data) => {
+    console.log(data.rows[0])
+    return data.rows[0]
+  })
+  .catch((error) => console.log(error));
+}
+
+const getKitchenIdByUserId =(user_id) => {
+  return db.query(
+    `SELECT * FROM kitchen_inventories
+    WHERE user_id = $1;
+  `, [user_id]
+  )
+  .then((data) => {
+    console.log(data.rows[0])
+    return data.rows[0]
+  })
+  .catch((error) => console.log(error));
+}
+
+const addGroceryItem = (name, quantity, storage_location, grocery_list_id) => {
   return db
     .query(
       `
-  INSERT INTO food_items (name, quantity, kitchen_inventory_id, grocery_list_id)
+  INSERT INTO food_items (name, quantity, storage_location, grocery_list_id)
   VALUES ($1, $2, $3, $4)
-  RETURNING *
+  RETURNING *;
   `,
-      [name, quantity, kitchen_inventory_id, grocery_list_id]
+      [name, quantity, storage_location, grocery_list_id]
+    )
+    .then((item) => {
+      return item.rows[0];
+    })
+    .catch((error) => console.log(error));
+};
+
+const addKitchenItem = (name, quantity, storage_location, kitchen_inventory_id) => {
+  return db
+    .query(
+      `
+  INSERT INTO food_items (name, quantity, storage_location, kitchen_inventory_id)
+  VALUES ($1, $2, $3, $4)
+  RETURNING *;
+  `,
+      [name, quantity, storage_location, kitchen_inventory_id]
     )
     .then((item) => {
       return item.rows[0];
@@ -61,5 +103,8 @@ const addFoodItem = (name, quantity, kitchen_inventory_id, grocery_list_id) => {
 module.exports = {
   getAllKitchenItemsByUserId,
   getAllGroceryItemsByUserId,
-  addFoodItem,
+  getKitchenIdByUserId,
+  getGroceryIdByUserId,
+  addGroceryItem,
+  addKitchenItem
 };

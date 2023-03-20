@@ -7,7 +7,7 @@ import useGroceryItemData from "../../hooks/useGroceryListItemData.jsx"
 const GroceryItemList = () => {
   const { groceryItems, currentGroceryItem } = useGroceryItemData();
 
-  const userGroceries = groceryItems.length > 0 ? getGroceryItemsForUsers({ groceryItems }, 1) : [];
+  const userGroceries = groceryItems.length > 0 ? getGroceryItemsForUsers({ groceryItems }, 16) : [];
 
   const groceryItemList = userGroceries.map((groceryItem) => {
     return (
