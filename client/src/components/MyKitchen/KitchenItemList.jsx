@@ -9,7 +9,8 @@ const KitchenItemList = () => {
 
   const { kitchenItems, currentKitchenItem } = useKitchenListItemData();
 
-  const userKitchenItems = kitchenItems.length > 0 ? getKitchenItemsForUsers({ kitchenItems }, 1) : [];
+  const userKitchenItems = 
+    kitchenItems.length > 0 ? getKitchenItemsForUsers({ kitchenItems }, 1) : [];
 
   const kitchenItemList = userKitchenItems.map((kitchenItem) => {
     return (
@@ -21,11 +22,10 @@ const KitchenItemList = () => {
   });
 
   return (
-    <Container>
-      {console.log('hey')}
-      <div>My Kitchen:</div>
+    <Container className="my-3">
+      <h3 className="my-3">My Kitchen:</h3>
       <CardGroup>
-        {kitchenItemList}
+        <>{kitchenItemList}{console.log('tell my whyyyyyy')}</>
       </CardGroup>
     </Container>
   );
