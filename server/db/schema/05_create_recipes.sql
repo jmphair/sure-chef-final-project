@@ -12,5 +12,5 @@ CREATE TABLE recipes (
   saved BOOLEAN DEFAULT false,
   note TEXT,
   user_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
-  food_item_id INTEGER REFERENCES food_items(id) ON DELETE CASCADE
+  food_item_id INTEGER
 );

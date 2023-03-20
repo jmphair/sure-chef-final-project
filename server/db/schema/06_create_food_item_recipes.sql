@@ -3,6 +3,6 @@ DROP TABLE IF EXISTS food_item_recipes CASCADE;
 -- CREATE Food item recipes joining LISTS
 CREATE TABLE food_item_recipes (
   id SERIAL PRIMARY KEY,
-  food_item_id INTEGER REFERENCES food_items(id) ON DELETE CASCADE,
-  recipe_id INTEGER REFERENCES recipes(id) ON DELETE CASCADE
+  food_item_id INTEGER,
+  recipe_id INTEGER
 );
