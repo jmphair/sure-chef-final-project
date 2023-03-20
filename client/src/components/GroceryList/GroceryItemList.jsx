@@ -13,6 +13,7 @@ const GroceryItemList = () => {
     return (
       <GroceryItem
         key={groceryItem.id}
+        id={groceryItem.id}
         name={groceryItem.name}
         quantity={groceryItem.quantity}
       />
