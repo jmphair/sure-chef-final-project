@@ -18,7 +18,6 @@ router.get('/groceryItemList', (req, res) => {
 });
 
 router.put('/groceryItemList', (req, res) => {
-  console.log(req.body)
   const userId = req.body.userId;
   const foodItemName = req.body.name;
   const foodItemQuantity = req.body.quantity;
@@ -26,10 +25,21 @@ router.put('/groceryItemList', (req, res) => {
 
   foodItems.getGroceryIdByUserId(userId)
     .then(res => {
+      const groceryId = res.id
+      foodItems.addGroceryItem(foodItemName, foodItemQuantity, storageLocation, groceryId)
+    })
+})
+
+router.put('/kitchenItemList', (req, res) => {
+  const userId = req.body.userId;
+  const foodItemName = req.body.name;
+  const foodItemQuantity = req.body.quantity;
+  const storageLocation = req.body.storageLocation;
+
+  foodItems.getKitchenIdByUserId(userId)
+    .then(res => {
       const kitchenId = res.id
-      console.log(res)
-      console.log(userId, foodItemName, foodItemQuantity, storageLocation)
-      foodItems.addGroceryItem(foodItemName, foodItemQuantity, storageLocation, res.id)
+      foodItems.addKitchenItem(foodItemName, foodItemQuantity, storageLocation, kitchenId)
     })
 })
 
