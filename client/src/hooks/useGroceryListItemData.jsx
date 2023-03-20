@@ -9,13 +9,11 @@ export default function useRecipeData() {
   });
 
   useEffect(() => {
-    console.log("Fetching recipe data...");
     axios
-      .get("http://localhost:8080/foodItems/groceryList")
+      .get("http://localhost:8080/foodItems/groceryItemList")
       .then((response) => {
-        setGroceryItems(response.data.groceryItems);
-        setCurrentGroceryItem(response.data.groceryItems[0]);
-        console.log("Got the data:", response);
+        setGroceryItems(response.data.foodItems);
+        setCurrentGroceryItem(response.data.foodItems[0]);
       })
       .catch((err) => console.error(err));
   }, []);

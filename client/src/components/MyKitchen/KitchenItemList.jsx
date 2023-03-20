@@ -5,7 +5,6 @@ import { getKitchenItemsForUsers } from "../../helpers/selectors";
 import useKitchenListItemData from "../../hooks/useKitchenListItemData";
 
 const KitchenItemList = () => {
-  console.log("DO I EXIST IN KitchenItemList COMPONENT");
 
   const { kitchenItems, currentKitchenItem } = useKitchenListItemData();
 
@@ -13,9 +12,8 @@ const KitchenItemList = () => {
     kitchenItems.length > 0 ? getKitchenItemsForUsers({ kitchenItems }, 1) : [];
 
   const kitchenItemList = userKitchenItems.map((kitchenItem) => {
-    console.log("KITCHEN ITEM: ", kitchenItem);
     return (
-      <KitchenItem name={kitchenItem.name} quantity={kitchenItem.quantity} />
+      <KitchenItem key={kitchenItem.id} name={kitchenItem.name} quantity={kitchenItem.quantity} />
     );
   });
 
@@ -25,7 +23,6 @@ const KitchenItemList = () => {
       <CardGroup>
         <>
           {kitchenItemList}
-          {console.log("tell my whyyyyyy")}
         </>
       </CardGroup>
     </Container>

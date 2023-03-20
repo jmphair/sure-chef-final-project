@@ -12,6 +12,7 @@ const GroceryItemList = () => {
   const groceryItemList = userGroceries.map((groceryItem) => {
     return (
       <GroceryItem
+        key={groceryItem.id}
         name={groceryItem.name}
         quantity={groceryItem.quantity}
       />
@@ -20,7 +21,6 @@ const GroceryItemList = () => {
 
   return (
     <Container>
-      {console.log('hey')}
       <div>Grocery item list:</div>
       <CardGroup>
         {groceryItemList}

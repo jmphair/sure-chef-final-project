@@ -10,7 +10,7 @@ const KitchenItem = (props) => {
         </Card.Text>
         <Button variant="primary">Edit</Button>{' '}
         <Button variant="danger">Delete</Button>{' '}
-        <Button variant="success">Purchased</Button>
+        <Button variant="success">Select</Button>
       </Card.Body>
     </Card>
   );
