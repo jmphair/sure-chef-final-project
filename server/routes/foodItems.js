@@ -20,9 +20,10 @@ router.put('/kitchenItemList', (req, res) => {
   const storageLocation = req.body.storageLocation;
 
   foodItems.getKitchenIdByUserId(userId)
-    .then(res => {
-      const kitchenId = res.id;
+    .then(dbRes => {
+      const kitchenId = dbRes.id;
       foodItems.addKitchenItem(foodItemName, foodItemQuantity, storageLocation, kitchenId);
+      res.json({ res: 'hi' });
     });
 });
 
