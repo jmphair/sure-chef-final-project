@@ -20,8 +20,8 @@ const GroceryItemList = () => {
   });
 
   return (
-    <Container>
-      <div>Grocery item list:</div>
+    <Container className="my-3">
+      <h3 className="my-3">Grocery item list:</h3>
       <CardGroup>
         {groceryItemList}
       </CardGroup>

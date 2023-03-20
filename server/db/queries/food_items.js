@@ -100,11 +100,40 @@ const addKitchenItem = (name, quantity, storage_location, kitchen_inventory_id) 
     .catch((error) => console.log(error));
 };
 
+const getByFoodItemId =(id) => {
+  return db.query(
+    `SELECT * FROM food_items
+    WHERE id = $1;
+  `, [id]
+  )
+  .then((data) => {
+    console.log(data.rows[0])
+    return data.rows[0]
+  })
+  .catch((error) => console.log(error));
+}
+
+const removeFoodItem = (id) => {
+  return db
+    .query(
+      `
+      DELETE FROM food_items WHERE id = $1
+      `, 
+        [id]
+    )
+    .then((item) => {
+      return item.rows[0];
+    })
+    .catch((error) => console.log(error));
+}
+
 module.exports = {
   getAllKitchenItemsByUserId,
   getAllGroceryItemsByUserId,
   getKitchenIdByUserId,
   getGroceryIdByUserId,
   addGroceryItem,
-  addKitchenItem
+  addKitchenItem,
+  getByFoodItemId,
+  removeFoodItem,
 };

@@ -27,6 +27,20 @@ router.put('/kitchenItemList', (req, res) => {
     });
 });
 
+router.delete('/kitchenItemList', (req, res) => {
+  const foodId = req.body.id;
+
+  console.log(foodId);
+
+  foodItems.getByFoodItemId(foodId)
+    .then(dbRes => {
+      const id = dbRes.id;
+      console.log(dbRes)
+      foodItems.removeFoodItem(id);
+      res.json({ res: dbRes });
+    });
+});
+
 /* ----------------------------------------------------------------------------------- */
 
 
@@ -47,6 +61,17 @@ router.put('/groceryItemList', (req, res) => {
     .then(dbRes => {
       const groceryId = dbRes.id;
       foodItems.addGroceryItem(foodItemName, foodItemQuantity, storageLocation, groceryId);
+      res.json({ res: dbRes });
+    });
+});
+
+router.delete('/groceryItemList', (req, res) => {
+  const foodId = req.body.id;
+
+  foodItems.getGroceryIdByUserId(foodId)
+    .then(dbRes => {
+      const kitchenId = dbRes.id;
+      foodItems.removeFoodItem(id);
       res.json({ res: dbRes });
     });
 });
