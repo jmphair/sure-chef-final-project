@@ -1,15 +1,16 @@
-import { Card, Button } from "react-bootstrap";
+import { Card, Button } from 'react-bootstrap';
 
-const KitchenItem = () => {
+const KitchenItem = (props) => {
   return (
     <Card>
       <Card.Body>
-        <Card.Title>Kitchen Item Name</Card.Title>
-        <Card.Text>Quantity: 1</Card.Text>
-        <Card.Text>Storage Location: Pantry</Card.Text>
+        <Card.Title>{props.name}</Card.Title>
+        <Card.Text>
+          {props.quantity}
+        </Card.Text>
         <Button variant="primary">Edit</Button>{' '}
         <Button variant="danger">Delete</Button>{' '}
-        <Button variant="success">Select</Button>
+        <Button variant="success">Purchased</Button>
       </Card.Body>
     </Card>
   );
