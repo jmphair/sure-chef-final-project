@@ -1,4 +1,4 @@
-// routes/users.js
+// routes/groceryItems-api.js
 const express = require('express');
 const router = express.Router();
 const foodItems = require('../db/queries/food_items');
@@ -24,7 +24,7 @@ router.post('/', (req, res) => {
       return foodItems.addGroceryItem(foodItemName, foodItemQuantity, storageLocation, groceryId);
     })
     .then((foodItem) => {
-
+      console.log(foodItem)
       res.json({ res: foodItem });
     });
 });

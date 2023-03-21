@@ -21,6 +21,23 @@ const GroceryItem = (props) => {
       .catch((err) => console.log(err));
   };
 
+  const handleTransfer = (event) => {
+    event.preventDefault();
+    console.log('props user: ', props.user, 'props grocery id: ', props.groceryListId)
+      axios
+      .put(`/api/foodItems/update`, {
+        data: {
+          id: props.id,
+          groceryListId: null,
+          kitchenListId: props.user.id
+        },
+      })
+      .then(() => {
+        props.handleShowDelete(props.id)
+      })
+      .catch((err) => console.log(err));
+  }
+
   const handleEdit = (event) => {
     setShowForm(!showForm);
   };
@@ -42,7 +59,7 @@ const GroceryItem = (props) => {
             <Button onClick={handleDelete} variant="danger">
               Delete
             </Button>{" "}
-            <Button variant="success">Purchased</Button>
+            <Button variant="success" onClick={handleTransfer}>Purchased</Button>
           </>
         )}
         {showForm && (
