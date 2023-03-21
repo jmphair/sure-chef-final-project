@@ -16,7 +16,7 @@ export default function useKitchenListItemData() {
         setCurrentKitchenItem(response.data.foodItems[0]);
       })
       .catch((err) => console.error(err));
-  }, []);
+  }, []); //deleted state shows if I add kitchenItems as dependency
 
-  return { kitchenItems, currentKitchenItem };
+  return { kitchenItems, currentKitchenItem, setKitchenItems };
 }
