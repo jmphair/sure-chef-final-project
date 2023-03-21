@@ -7,6 +7,8 @@ import GroceryList from "./GroceryList";
 import Recipe from "./Recipe";
 import "./Dashboard.css";
 import RobotChef from "./RobotChef";
+import { welcomeMessage } from "../helpers/welcomeMessage"
+
 
 const Dashboard = (props) => {
   const [activeSection, setActiveSection] = useState("dashboard");
@@ -15,17 +17,13 @@ const Dashboard = (props) => {
     setActiveSection(sectionName);
   }
 
-  const sayHello = (user) => {
-    return `Hello, ${user.name}. Whatcha' making?`;
-  };
-
   return (
     <main>
       <Navigation onClick={handleSectionClick} />
       {activeSection === "dashboard" && (
         <Container className="my-3">
           <CardGroup>
-            {sayHello(props.user)}
+            {welcomeMessage(props.user.name)}
             <Card>
               <Button onClick={() => handleSectionClick("mykitchen")}>
                 My Kitchen

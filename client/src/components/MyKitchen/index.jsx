@@ -8,7 +8,7 @@ import { getKitchenItemsForUsers } from "../../helpers/selectors";
 
 const MyKitchen = (props) => {
   const [showForm, setShowForm] = useState(false);
-  const { kitchenItems, setKitchenItems } = useKitchenListItemData(props);
+  const { kitchenItems, setKitchenItems } = useKitchenListItemData();
 
   const handleAddItem = (event) => {
     setShowForm(!showForm);
