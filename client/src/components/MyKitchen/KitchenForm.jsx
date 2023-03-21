@@ -6,28 +6,33 @@ const KitchenForm = (props) => {
   const [name, setName] = useState("");
   const [quantity, setQuantity] = useState("");
   const [storageLocation, setStorageLocation] = useState("");
+  const [storageLocationError, setStorageLocationError] = useState(false);
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    // Handle form submission here
-    axios
-      .post("/api/kitchenItems", {
-        name: name,
-        quantity: quantity,
-        storageLocation: storageLocation,
-        userId: props.user.id,
-      })
-      .then((res) => {
-        props.showOnAdd({
-          name,
-          quantity,
-          storage_location: storageLocation,
-          id: res.data.res.id,
-          user_id: props.user.id,
-        });
-        props.handleAddItem();
-      })
-      .catch((err) => console.log(err));
+    if (storageLocation === "") {
+      setStorageLocationError(true);
+    } else {
+      // Handle form submission here
+      axios
+        .post("/api/kitchenItems", {
+          name: name,
+          quantity: quantity,
+          storageLocation: storageLocation,
+          userId: props.user.id,
+        })
+        .then((res) => {
+          props.showOnAdd({
+            name,
+            quantity,
+            storage_location: storageLocation,
+            id: res.data.res.id,
+            user_id: props.user.id,
+          });
+          props.handleAddItem();
+        })
+        .catch((err) => console.log(err));
+    }
   };
 
   return (
@@ -65,6 +70,11 @@ const KitchenForm = (props) => {
             <option value="Freezer">Freezer</option>
             <option value="Pantry">Pantry</option>
           </Form.Control>
+          {storageLocationError && (
+            <Form.Text className="text-danger">
+              Please select a storage location.
+            </Form.Text>
+          )}
         </Form.Group>
 
         <Button variant="primary" type="submit">
