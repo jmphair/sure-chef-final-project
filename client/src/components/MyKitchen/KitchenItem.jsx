@@ -51,6 +51,7 @@ const KitchenItem = (props) => {
               name={props.name}
               quantity={props.quantity}
               id={props.id}
+              handleEdit={handleEdit}
             />
             <Button variant="danger" onClick={handleRevealForm}>
               Cancel

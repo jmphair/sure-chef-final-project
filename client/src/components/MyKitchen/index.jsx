@@ -38,6 +38,7 @@ const MyKitchen = (props) => {
       <KitchenItemList
         onDelete={handleDelete}
         userKitchenItems={userKitchenItems}
+        handleAddItem={handleAddItem}
       />
       {!showForm && (
         <>

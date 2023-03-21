@@ -10,12 +10,16 @@ const EditItemForm = (props) => {
   const handleEdit = (event) => {
     event.preventDefault();
     // Handle item removal here
-    axios.put("/api/kitchenItems/update", {
-      id: props.id,
-      name: name,
-      quantity: quantity,
-      storage_location: storageLocation,
-    });
+    axios
+      .put("/api/kitchenItems/update", {
+        id: props.id,
+        name: name,
+        quantity: quantity,
+        storage_location: storageLocation,
+      })
+      .then(() => {
+        props.handleEdit();
+      });
   };
 
   return (
