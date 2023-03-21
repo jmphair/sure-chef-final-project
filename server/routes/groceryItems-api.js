@@ -5,8 +5,9 @@ const foodItems = require('../db/queries/food_items');
 
 /* ----------------------------------------------------------------------------------- */
 
-router.get('/', (req, res) => {
-  foodItems.getAllGroceryItemsByUserId(16).then(data => {
+router.get('/:id', (req, res) => {
+  const userId = req.params.id;
+  foodItems.getAllGroceryItemsByUserId(userId).then(data => {
     res.json({ foodItems: data });
   });
 });
@@ -16,10 +17,11 @@ router.post('/', (req, res) => {
   const foodItemName = req.body.name;
   const foodItemQuantity = req.body.quantity;
   const storageLocation = req.body.storageLocation;
+  console.log(req.body.userId)
 
   foodItems.getGroceryIdByUserId(userId)
     .then(dbRes => {
-
+      console.log(dbRes)
       const groceryId = dbRes.id;
       return foodItems.addGroceryItem(foodItemName, foodItemQuantity, storageLocation, groceryId);
     })
