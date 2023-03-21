@@ -7,9 +7,10 @@ const logger = require("morgan");
 
 const indexRouter = require("./routes/index-api");
 const usersRouter = require("./routes/users-api");
-const groceryItemsRouter = require("./routes/groceryItems-api")
-const kitchenItemsRouter = require("./routes/kitchenItems-api")
+const groceryItemsRouter = require("./routes/groceryItems-api");
+const kitchenItemsRouter = require("./routes/kitchenItems-api");
 const recipesRouter = require("./routes/recipes-api");
+const openaiRouter = require("./routes/openai-api");
 
 const app = express();
 app.use(cors());
@@ -25,5 +26,6 @@ app.use("/api/users", usersRouter);
 app.use("/api/groceryItems", groceryItemsRouter)
 app.use("/api/kitchenItems", kitchenItemsRouter)
 app.use("/api/recipes", recipesRouter);
+app.use("/api/openai", openaiRouter )
 
 module.exports = app;
