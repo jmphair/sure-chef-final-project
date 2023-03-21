@@ -3,8 +3,6 @@ import { Container, Button, Form } from "react-bootstrap";
 import axios from "axios";
 
 const EditItemForm = (props) => {
-  console.log(props);
-
   const [name, setName] = useState(props.name);
   const [quantity, setQuantity] = useState(props.quantity);
   const [storageLocation, setStorageLocation] = useState(props.storageLocation);
@@ -20,8 +18,7 @@ const EditItemForm = (props) => {
         storage_location: storageLocation,
       })
       .then(() => {
-        console.log("HELLLLLOOO?????");
-        props.handleAddItem();
+        props.handleEdit();
       })
       .catch((error) => {
         console.log(error);
