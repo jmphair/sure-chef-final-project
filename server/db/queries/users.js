@@ -46,6 +46,46 @@ const addUser = (id, name, email) => {
     });
 };
 
+const addGroceryList = (id, user_id) => {
+  return db
+    .query(
+      `
+  INSERT INTO grocery_lists (id, user_id)
+  VALUES ($1, $2)
+  RETURNING *
+  `,
+      [id, user_id]
+    )
+    .then((grocery) => {
+      return grocery.rows[0];
+    })
+    .catch((error) => {
+      if (error.code !== '23505') {
+      console.log(error)
+      }
+    });
+};
+
+const addKitchenInventory = (id, user_id) => {
+  return db
+    .query(
+      `
+  INSERT INTO kitchen_inventories (id, user_id)
+  VALUES ($1, $2)
+  RETURNING *
+  `,
+      [id, user_id]
+    )
+    .then((kitchen) => {
+      return kitchen.rows[0];
+    })
+    .catch((error) => {
+      if (error.code !== '23505') {
+      console.log(error)
+      }
+    });
+};
 
 
-module.exports = { getAllUsers, getUserById, getUserByEmail, addUser };
+
+module.exports = { getAllUsers, getUserById, getUserByEmail, addUser, addGroceryList, addKitchenInventory };

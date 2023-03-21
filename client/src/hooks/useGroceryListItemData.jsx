@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
+import Userfront from "@userfront/react";
+
 
 export default function useRecipeData() {
   const [groceryItems, setGroceryItems] = useState([]);
@@ -8,11 +10,18 @@ export default function useRecipeData() {
     quantity: "",
   });
 
+  const options = {
+    headers: { 
+      Accept: "*/*",
+      Authorization: `Bearer ${Userfront.tokens.accessToken}`
+    }
+  };
+
   useEffect(() => {
     axios
-      .get("/api/groceryItems")
+      .get("https://api.userfront.com/v0/self", options)
+      .then(response => axios.get(`/api/groceryItems/${response.data.userId}`))
       .then((response) => {
-        console.log(response)
         setGroceryItems(response.data.foodItems);
         setCurrentGroceryItem(response.data.foodItems[0]);
       })
@@ -21,3 +30,5 @@ export default function useRecipeData() {
 
   return { groceryItems, currentGroceryItem, setGroceryItems };
 }
+
+
