@@ -21,6 +21,7 @@ const KitchenItem = (props) => {
       .catch((err) => console.log(err));
   };
 
+  /* function to remove the form from view after hitting edit item */
   const handleEdit = (event) => {
     setShowForm(!showForm);
   };
