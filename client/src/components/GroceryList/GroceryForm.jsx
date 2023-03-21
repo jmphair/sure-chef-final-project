@@ -26,6 +26,7 @@ const GroceryForm = (props) => {
           groceryListId: props.userGroceries[0].grocery_id,
           user_id: props.user.id,
         });
+        props.handleAddItem();
       })
       .catch((err) => console.log(err));
   };
