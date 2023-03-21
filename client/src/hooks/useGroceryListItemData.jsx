@@ -18,5 +18,5 @@ export default function useRecipeData() {
       .catch((err) => console.error(err));
   }, []);
 
-  return { groceryItems, currentGroceryItem };
+  return { groceryItems, currentGroceryItem, setGroceryItems };
 }
