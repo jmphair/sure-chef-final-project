@@ -6,6 +6,7 @@ import MyKitchen from "./MyKitchen";
 import GroceryList from "./GroceryList";
 import Recipe from "./Recipe";
 import "./Dashboard.css";
+import RobotChef from "./RobotChef";
 
 const Dashboard = (props) => {
   const [activeSection, setActiveSection] = useState("dashboard");
@@ -46,6 +47,7 @@ const Dashboard = (props) => {
       {activeSection === "mykitchen" && <MyKitchen user={props.user} />}
       {activeSection === "groceryList" && <GroceryList user={props.user} />}
       {activeSection === "recipe" && <Recipe />}
+      <>🥔<RobotChef /></>
     </main>
   );
 };
