@@ -1,4 +1,4 @@
-// routes/users.js
+// routes/groceryItems-api.js
 const express = require('express');
 const router = express.Router();
 const foodItems = require('../db/queries/food_items');

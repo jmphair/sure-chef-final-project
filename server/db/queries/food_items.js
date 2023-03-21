@@ -143,6 +143,22 @@ const editFoodItem = (name, quantity, storage_location, id) => {
     .catch((error) => console.log(error));
 };
 
+const updateItemLocation = (id, grocery_list_id, kitchen_inventory_id) => {
+  return db
+    .query(
+      `
+  UPDATE food_items SET grocery_list_id=$2, kitchen_inventory_id=$3
+  WHERE id = $1
+  RETURNING *;
+  `,
+      [id, grocery_list_id, kitchen_inventory_id]
+    )
+    .then((item) => {
+      return item.rows[0];
+    })
+    .catch((error) => console.log(error));
+};
+
 module.exports = {
   getAllKitchenItemsByUserId,
   getAllGroceryItemsByUserId,
@@ -152,5 +168,6 @@ module.exports = {
   addKitchenItem,
   getByFoodItemId,
   removeFoodItem,
-  editFoodItem
+  editFoodItem,
+  updateItemLocation
 };
