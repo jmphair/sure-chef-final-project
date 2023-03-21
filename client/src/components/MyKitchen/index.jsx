@@ -52,7 +52,11 @@ const MyKitchen = (props) => {
       )}
       {showForm && (
         <div className="kitchen-main">
-          <KitchenForm user={props.user} showOnAdd={showOnAdd} />
+          <KitchenForm
+            user={props.user}
+            showOnAdd={showOnAdd}
+            handleAddItem={handleAddItem}
+          />
           <Button variant="danger" onClick={handleAddItem}>
             Cancel
           </Button>

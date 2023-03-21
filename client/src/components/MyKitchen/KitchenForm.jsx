@@ -25,6 +25,7 @@ const KitchenForm = (props) => {
           id: res.data.res.id,
           user_id: props.user.id,
         });
+        props.handleAddItem();
       })
       .catch((err) => console.log(err));
   };
