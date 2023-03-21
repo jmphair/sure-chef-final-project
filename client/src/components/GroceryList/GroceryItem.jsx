@@ -16,7 +16,7 @@ const GroceryItem = (props) => {
         },
       })
       .then(() => {
-        props.onDelete(props.id);
+        props.handleShowDelete(props.id);
       })
       .catch((err) => console.log(err));
   };

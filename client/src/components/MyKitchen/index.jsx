@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Container, Button } from "react-bootstrap";
 import RecipeGenerator from "../RecipeGenerator";
 import Form from "./Form";
@@ -30,14 +30,8 @@ const MyKitchen = (props) => {
 
   /* function used in Form component to update the state after an item is added  */
   const showOnAdd = (newItem) => {
-    console.log("new item:", newItem);
     setKitchenItems((prevItems) => [...prevItems, newItem]);
   };
-  console.log("othe kitch:", kitchenItems);
-
-  useEffect(() => {
-    console.log("kitch: ", kitchenItems);
-  }, [kitchenItems]);
 
   return (
     <Container>

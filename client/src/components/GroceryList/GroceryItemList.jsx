@@ -1,31 +1,31 @@
 import GroceryItem from "./GroceryItem";
 import { Container, CardGroup } from "react-bootstrap";
 
-import { getGroceryItemsForUsers } from "../../helpers/selectors";
-import useGroceryItemData from "../../hooks/useGroceryListItemData.jsx";
+// import { getGroceryItemsForUsers } from "../../helpers/selectors";
+// import useGroceryItemData from "../../hooks/useGroceryListItemData.jsx";
 
-const GroceryItemList = () => {
-  const { groceryItems, currentGroceryItem, setGroceryItems } =
-    useGroceryItemData();
+const GroceryItemList = (props) => {
+  // const { groceryItems, currentGroceryItem, setGroceryItems } =
+  //   useGroceryItemData();
 
-  const userGroceries =
-    groceryItems.length > 0
-      ? getGroceryItemsForUsers({ groceryItems }, 16)
-      : [];
+  // const userGroceries =
+  //   groceryItems.length > 0
+  //     ? getGroceryItemsForUsers({ groceryItems }, 16)
+  //     : [];
 
-  /* function used in GroceryItem component to update the state after an item is deleted  */
-  const handleDelete = (id) => {
-    setGroceryItems((prev) => prev.filter((item) => item.id !== id));
-  };
+  // /* function used in GroceryItem component to update the state after an item is deleted  */
+  // const handleDelete = (id) => {
+  //   setGroceryItems((prev) => prev.filter((item) => item.id !== id));
+  // };
 
-  const groceryItemList = userGroceries.map((groceryItem) => {
+  const groceryItemList = props.userGroceries.map((groceryItem) => {
     return (
       <GroceryItem
         key={groceryItem.id}
         id={groceryItem.id}
         name={groceryItem.name}
         quantity={groceryItem.quantity}
-        onDelete={handleDelete}
+        handleShowDelete={props.handleShowDelete}
       />
     );
   });
