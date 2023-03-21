@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Container, ButtonGroup, Button } from "react-bootstrap";
+import { Container, Button, CardGroup, Card } from "react-bootstrap";
 
 import Navigation from "./Navigation";
 import MyKitchen from "./MyKitchen";
@@ -23,18 +23,24 @@ const Dashboard = (props) => {
       <Navigation onClick={handleSectionClick} />
       {activeSection === "dashboard" && (
         <Container className="my-3">
-          <ButtonGroup>
+          <CardGroup>
             {sayHello(props.user)}
-            <Button onClick={() => handleSectionClick("mykitchen")}>
-              My Kitchen
-            </Button>
-            <Button onClick={() => handleSectionClick("groceryList")}>
-              My Grocery List
-            </Button>
-            <Button onClick={() => handleSectionClick("recipe")}>
-              My Recipes
-            </Button>
-          </ButtonGroup>
+            <Card>
+              <Button onClick={() => handleSectionClick("mykitchen")}>
+                My Kitchen
+              </Button>
+            </Card>
+            <Card>
+              <Button onClick={() => handleSectionClick("groceryList")}>
+                My Grocery List
+              </Button>
+            </Card>
+            <Card>
+              <Button onClick={() => handleSectionClick("recipe")}>
+                My Recipes
+              </Button>
+            </Card>
+          </CardGroup>
         </Container>
       )}
       {activeSection === "mykitchen" && <MyKitchen user={props.user} />}
