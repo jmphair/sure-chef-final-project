@@ -127,6 +127,22 @@ const removeFoodItem = (id) => {
     .catch((error) => console.log(error));
 }
 
+const editFoodItem = (name, quantity, storage_location, id) => {
+  return db
+    .query(
+      `
+  UPDATE food_items SET name=$1, quantity=$2, storage_location=$3
+  WHERE id = $4
+  RETURNING *;
+  `,
+      [name, quantity, storage_location, id]
+    )
+    .then((item) => {
+      return item.rows[0];
+    })
+    .catch((error) => console.log(error));
+};
+
 module.exports = {
   getAllKitchenItemsByUserId,
   getAllGroceryItemsByUserId,
@@ -136,4 +152,5 @@ module.exports = {
   addKitchenItem,
   getByFoodItemId,
   removeFoodItem,
+  editFoodItem
 };
