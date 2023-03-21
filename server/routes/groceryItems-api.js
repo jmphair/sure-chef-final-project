@@ -24,7 +24,7 @@ router.post('/', (req, res) => {
       return foodItems.addGroceryItem(foodItemName, foodItemQuantity, storageLocation, groceryId);
     })
     .then((foodItem) => {
-
+      console.log(foodItem)
       res.json({ res: foodItem });
     });
 });

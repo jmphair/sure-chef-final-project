@@ -9,8 +9,8 @@ const GroceryItemList = (props) => {
         id={groceryItem.id}
         name={groceryItem.name}
         quantity={groceryItem.quantity}
-        groceryListId={1}
-        kitchenListId={1}
+        groceryListId={groceryItem.grocery_id}
+        kitchenListId={groceryItem.kitchen_id}
         handleShowDelete={props.handleShowDelete}
       />
     );

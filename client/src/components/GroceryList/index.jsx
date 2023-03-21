@@ -38,7 +38,7 @@ const GroceryList = (props) => {
       {!showForm && <Button onClick={handleAddItem}>Add Item</Button>}
       {showForm && (
         <div className="bg-light p-3 mt-3">
-          <GroceryForm user={props.user} showOnAdd={showOnAdd} />
+          <GroceryForm userGroceries={userGroceries} user={props.user} showOnAdd={showOnAdd} />
           <Button variant="secondary" onClick={handleAddItem} className="mt-3">
             Cancel
           </Button>

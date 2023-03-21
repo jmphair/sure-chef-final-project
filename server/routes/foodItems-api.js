@@ -5,13 +5,17 @@ const foodItems = require("../db/queries/food_items");
 /* ----------------------------------------------------------------------------------- */
 
 router.put("/update", (req, res) => {
-  const foodItemId = req.body.id;
-  const groceryListId = req.body.groceryListId;
-  const kitchenListId = req.body.kitchenListId;
+  console.log(req.body)
+  const foodItemId = req.body.data.id;
+  const groceryListId = req.body.data.groceryListId;
+  const kitchenListId = req.body.data.kitchenListId;
+  console.log('fooditemid: ', foodItemId, "grocery: ", groceryListId, "kitchen: ", kitchenListId)
 
   foodItems
     .updateItemLocation(foodItemId, groceryListId, kitchenListId)
-    .then((dbRes) => res.json({ res: dbRes }))
+    .then((dbRes) => {
+      console.log(dbRes)
+      res.json({ res: dbRes })})
     .catch((e) => console.log(e));
 });
 

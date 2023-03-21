@@ -7,6 +7,7 @@ const getAllKitchenItemsByUserId = (user_id) => {
     .query(
       `SELECT food_items.name as name,
         food_items.id as id,
+        kitchen_inventories.id as kitchen_id,
         quantity,
         storage_location,
         users.id as user_id
@@ -27,6 +28,7 @@ const getAllGroceryItemsByUserId = (user_id) => {
     .query(
       `SELECT food_items.name as name,
         food_items.id as id,
+        grocery_lists.id as grocery_id,
         quantity,
         storage_location,
         users.id as user_id

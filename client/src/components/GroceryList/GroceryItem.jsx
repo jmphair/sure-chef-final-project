@@ -21,22 +21,20 @@ const GroceryItem = (props) => {
       .catch((err) => console.log(err));
   };
 
-  // const handleTransfer = (event) => {
-  //   event.preventDefault();
-  //     axios
-  //     .put(`/api/foodItems/update`, {
-  //       data: {
-  //         id: props.id,
-  //         groceryListId: null,
-  //         kitchenListId: props.groceryListId
-  //       },
-  //     })
-  //     .then(() => {
-  //       props.handleShowDelete(props.id);
-  //     })
-  //     .catch((err) => console.log(err));
-
-  // }
+  const handleTransfer = (event) => {
+    event.preventDefault();
+      axios
+      .put(`/api/foodItems/update`, {
+        data: {
+          id: props.id,
+          groceryListId: null,
+          kitchenListId: props.groceryListId
+        },
+      })
+      .then(() => {
+      })
+      .catch((err) => console.log(err));
+  }
 
   const handleEdit = (event) => {
     setShowForm(!showForm);
@@ -59,7 +57,7 @@ const GroceryItem = (props) => {
             <Button onClick={handleDelete} variant="danger">
               Delete
             </Button>{" "}
-            <Button variant="success" onClick={handleTransfer} >Purchased</Button>
+            <Button variant="success" onClick={handleTransfer}>Purchased</Button>
           </>
         )}
         {showForm && (

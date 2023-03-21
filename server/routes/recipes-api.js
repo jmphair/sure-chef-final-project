@@ -9,4 +9,12 @@ router.get('/', (req, res) => {
   });
 });
 
+router.post('/', (req, res) => {
+  req.
+  recipes.getSavedRecipesByUser(16).then(data => {
+    console.log(data);
+    res.json({ recipes: data });
+  });
+});
+
 module.exports = router;
