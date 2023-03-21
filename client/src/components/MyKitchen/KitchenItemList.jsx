@@ -13,6 +13,7 @@ const KitchenItemList = () => {
       ? getKitchenItemsForUsers({ kitchenItems }, 16)
       : [];
 
+  /* function used in KitchenItem component to update the state after an item is deleted  */
   const handleDelete = (id) => {
     setKitchenItems((prev) => prev.filter((item) => item.id !== id));
   };
