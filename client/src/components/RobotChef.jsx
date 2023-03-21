@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Container } from 'react-bootstrap';
 import LightSwitchButton from './LightSwitchButton';
-import axios from 'axios';
 import useAiPrompt from '../hooks/useAiPrompt';
 
 function RobotChef() {
