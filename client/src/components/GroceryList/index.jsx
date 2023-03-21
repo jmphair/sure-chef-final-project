@@ -12,7 +12,7 @@ const GroceryList = (props) => {
 
   const userGroceries =
     groceryItems.length > 0
-      ? getGroceryItemsForUsers({ groceryItems }, 16)
+      ? getGroceryItemsForUsers({ groceryItems }, props.user.id)
       : [];
 
   /* function used in GroceryItem component to update the state after an item is deleted  */

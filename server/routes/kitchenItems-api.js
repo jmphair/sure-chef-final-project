@@ -5,8 +5,9 @@ const foodItems = require('../db/queries/food_items');
 
 /* ----------------------------------------------------------------------------------- */
 
-router.get('/', (req, res) => {
-  foodItems.getAllKitchenItemsByUserId(16).then(data => {
+router.get('/:id', (req, res) => {
+  const userId = req.params.id
+  foodItems.getAllKitchenItemsByUserId(userId).then(data => {
     res.json({ foodItems: data });
   });
 });
