@@ -5,15 +5,27 @@ import { getKitchenItemsForUsers } from "../../helpers/selectors";
 import useKitchenListItemData from "../../hooks/useKitchenListItemData";
 
 const KitchenItemList = () => {
-
-  const { kitchenItems, currentKitchenItem } = useKitchenListItemData();
+  const { kitchenItems, currentKitchenItem, setKitchenItems } =
+    useKitchenListItemData();
 
   const userKitchenItems =
-    kitchenItems.length > 0 ? getKitchenItemsForUsers({ kitchenItems }, 16) : [];
+    kitchenItems.length > 0
+      ? getKitchenItemsForUsers({ kitchenItems }, 16)
+      : [];
+
+  const handleDelete = (id) => {
+    setKitchenItems((prev) => prev.filter((item) => item.id !== id));
+  };
 
   const kitchenItemList = userKitchenItems.map((kitchenItem) => {
     return (
-      <KitchenItem key={kitchenItem.id} id={kitchenItem.id} name={kitchenItem.name} quantity={kitchenItem.quantity} />
+      <KitchenItem
+        key={kitchenItem.id}
+        id={kitchenItem.id}
+        name={kitchenItem.name}
+        quantity={kitchenItem.quantity}
+        onDelete={handleDelete}
+      />
     );
   });
 
@@ -21,9 +33,7 @@ const KitchenItemList = () => {
     <Container className="my-3">
       <h3 className="my-3">My Kitchen:</h3>
       <CardGroup>
-        <>
-          {kitchenItemList}
-        </>
+        <>{kitchenItemList}</>
       </CardGroup>
     </Container>
   );
