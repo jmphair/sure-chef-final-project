@@ -2,6 +2,7 @@ import KitchenItem from "./KitchenItem";
 import { Container, CardGroup } from "react-bootstrap";
 
 const KitchenItemList = (props) => {
+  console.log(props.userKitchenItems);
   const kitchenItemList = props.userKitchenItems.map((kitchenItem) => {
     return (
       <KitchenItem

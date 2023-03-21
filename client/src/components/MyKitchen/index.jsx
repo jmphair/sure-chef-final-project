@@ -30,8 +30,10 @@ const MyKitchen = (props) => {
 
   /* function used in Form component to update the state after an item is added  */
   const showOnAdd = (newItem) => {
+    console.log("new item:", newItem);
     setKitchenItems((prevItems) => [...prevItems, newItem]);
   };
+  console.log("othe kitch:", kitchenItems);
 
   useEffect(() => {
     console.log("kitch: ", kitchenItems);

@@ -22,8 +22,11 @@ router.post('/', (req, res) => {
   foodItems.getKitchenIdByUserId(userId)
     .then(dbRes => {
       const kitchenId = dbRes.id;
-      foodItems.addKitchenItem(foodItemName, foodItemQuantity, storageLocation, kitchenId);
-      res.json({ res: dbRes });
+      return foodItems.addKitchenItem(foodItemName, foodItemQuantity, storageLocation, kitchenId);
+    })
+    .then((foodItem) => {
+      console.log(foodItem);
+      res.json({ res: foodItem });
     });
 });
 
@@ -33,7 +36,7 @@ router.delete('/delete', (req, res) => {
   foodItems.getByFoodItemId(foodId)
     .then(dbRes => {
       const id = dbRes.id;
-      console.log(dbRes)
+      console.log(dbRes);
       foodItems.removeFoodItem(id);
       res.json({ res: dbRes });
     });
@@ -45,11 +48,11 @@ router.put('/update', (req, res) => {
   const foodItemQuantity = req.body.quantity;
   const storageLocation = req.body.storageLocation;
 
-  console.log(req.body)
+  console.log(req.body);
 
   foodItems.getByFoodItemId(foodId)
     .then(dbRes => {
-      console.log(dbRes)
+      console.log(dbRes);
       const id = dbRes.id;
       foodItems.editFoodItem(foodItemName, foodItemQuantity, storageLocation, id);
       res.json({ res: dbRes });

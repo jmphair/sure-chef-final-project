@@ -17,9 +17,15 @@ const KitchenForm = (props) => {
         storageLocation: storageLocation,
         userId: props.user.id,
       })
-      .then(() => {
-        // console.log("THIS IS RESPONSE: ", name, quantity, storageLocation);
-        props.showOnAdd({ name, quantity, storageLocation });
+      .then((res) => {
+        console.log("THIS IS RESPONSE: ", res);
+        props.showOnAdd({
+          name,
+          quantity,
+          storage_location: storageLocation,
+          id: res.data.res.id,
+          user_id: props.user.id,
+        });
       })
       .catch((err) => console.log(err));
   };
