@@ -34,6 +34,7 @@ const GroceryList = (props) => {
       <GroceryItemList
         userGroceries={userGroceries}
         handleShowDelete={handleShowDelete}
+        user={props.user}
       />
       {!showForm && <Button onClick={handleAddItem}>Add Item</Button>}
       {showForm && (
