@@ -8,7 +8,7 @@ const logger = require("morgan");
 const indexRouter = require("./routes/index-api");
 const usersRouter = require("./routes/users-api");
 const groceryItemsRouter = require("./routes/groceryItems-api")
-const kitchenItemsRoutes = require("./router/kitchenItems-api")
+const kitchenItemsRouter = require("./routes/kitchenItems-api")
 const recipesRouter = require("./routes/recipes-api");
 
 const app = express();

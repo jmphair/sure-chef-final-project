@@ -5,7 +5,7 @@ const foodItems = require('../db/queries/food_items');
 
 /* ----------------------------------------------------------------------------------- */
 
-router.get('/kitchenItemList', (req, res) => {
+router.get('/', (req, res) => {
   foodItems.getAllKitchenItemsByUserId(16).then(data => {
     console.log(data);
     res.json({ foodItems: data });
@@ -13,7 +13,7 @@ router.get('/kitchenItemList', (req, res) => {
 });
 
 
-router.post('/kitchenItemList', (req, res) => {
+router.post('/', (req, res) => {
   const userId = req.body.userId;
   const foodItemName = req.body.name;
   const foodItemQuantity = req.body.quantity;
@@ -27,7 +27,7 @@ router.post('/kitchenItemList', (req, res) => {
     });
 });
 
-router.delete('/kitchenItemList/delete', (req, res) => {
+router.delete('/delete', (req, res) => {
   const foodId = req.body.id;
 
   foodItems.getByFoodItemId(foodId)
@@ -39,7 +39,7 @@ router.delete('/kitchenItemList/delete', (req, res) => {
     });
 });
 
-router.put('/kitchenItemList/update', (req, res) => {
+router.put('/update', (req, res) => {
   const foodId = req.body.id;
   const foodItemName = req.body.name;
   const foodItemQuantity = req.body.quantity;

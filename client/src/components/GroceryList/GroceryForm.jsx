@@ -10,7 +10,7 @@ const GroceryForm = (props) => {
   const handleSubmit = (event) => {
     event.preventDefault();
     // Handle form submission here
-    axios.post('http://localhost:8080/foodItems/groceryItemList', {
+    axios.post('http://localhost:8080/groceryItems', {
       name: name,
       quantity: quantity,
       storageLocation: storageLocation,
