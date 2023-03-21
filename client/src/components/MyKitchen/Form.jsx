@@ -10,7 +10,7 @@ const KitchenForm = (props) => {
   const handleSubmit = (event) => {
     event.preventDefault();
     // Handle form submission here
-    axios.put("http://localhost:8080/foodItems/kitchenItemList", {
+    axios.post("http://localhost:8080/foodItems/kitchenItemList", {
       name: name,
       quantity: quantity,
       storageLocation: storageLocation,

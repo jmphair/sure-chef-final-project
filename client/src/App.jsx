@@ -47,7 +47,7 @@ function App() {
     axios.get("https://api.userfront.com/v0/self", options)
       .then((response) => {
         //adds new users to database and saves username state client side
-        axios.put("http://localhost:8080/users", {
+        axios.post("http://localhost:8080/users", {
           id: response.data.userId,
           name: response.data.name,
           email: response.data.email,
