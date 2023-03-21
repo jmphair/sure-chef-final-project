@@ -5,11 +5,9 @@ const foodItems = require("../db/queries/food_items");
 /* ----------------------------------------------------------------------------------- */
 
 router.put("/update", (req, res) => {
-  console.log(req.body)
   const foodItemId = req.body.data.id;
   const groceryListId = req.body.data.groceryListId;
   const kitchenListId = req.body.data.kitchenListId;
-  console.log('fooditemid: ', foodItemId, "grocery: ", groceryListId, "kitchen: ", kitchenListId)
 
   foodItems
     .updateItemLocation(foodItemId, groceryListId, kitchenListId)

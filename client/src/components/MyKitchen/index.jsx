@@ -8,7 +8,7 @@ import { getKitchenItemsForUsers } from "../../helpers/selectors";
 
 const MyKitchen = (props) => {
   const [showForm, setShowForm] = useState(false);
-  const { kitchenItems, setKitchenItems } = useKitchenListItemData();
+  const { kitchenItems, setKitchenItems } = useKitchenListItemData(props);
 
   const handleAddItem = (event) => {
     setShowForm(!showForm);
@@ -20,7 +20,7 @@ const MyKitchen = (props) => {
 
   const userKitchenItems =
     kitchenItems.length > 0
-      ? getKitchenItemsForUsers({ kitchenItems }, 16)
+      ? getKitchenItemsForUsers({ kitchenItems }, props.user.id)
       : [];
 
   /* function used in KitchenItem component to update the state after an item is deleted  */

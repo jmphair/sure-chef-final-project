@@ -23,7 +23,7 @@ const GroceryForm = (props) => {
           quantity,
           storage_location: storageLocation,
           id: res.data.res.id,
-          groceryListId: props.userGroceries[0].grocery_id,
+          groceryListId: props.user.id,
           user_id: props.user.id,
         });
       })
