@@ -7,7 +7,6 @@ const foodItems = require('../db/queries/food_items');
 
 router.get('/', (req, res) => {
   foodItems.getAllGroceryItemsByUserId(16).then(data => {
-    console.log(data);
     res.json({ foodItems: data });
   });
 });
@@ -20,9 +19,13 @@ router.post('/', (req, res) => {
 
   foodItems.getGroceryIdByUserId(userId)
     .then(dbRes => {
+
       const groceryId = dbRes.id;
-      foodItems.addGroceryItem(foodItemName, foodItemQuantity, storageLocation, groceryId);
-      res.json({ res: dbRes });
+      return foodItems.addGroceryItem(foodItemName, foodItemQuantity, storageLocation, groceryId);
+    })
+    .then((foodItem) => {
+
+      res.json({ res: foodItem });
     });
 });
 
@@ -32,7 +35,6 @@ router.delete('/delete', (req, res) => {
   foodItems.getByFoodItemId(foodId)
     .then(dbRes => {
       const id = dbRes.id;
-      console.log(dbRes)
       foodItems.removeFoodItem(id);
       res.json({ res: dbRes });
     });
@@ -44,11 +46,8 @@ router.put('/update', (req, res) => {
   const foodItemQuantity = req.body.quantity;
   const storageLocation = req.body.storageLocation;
 
-  console.log(req.body)
-
   foodItems.getByFoodItemId(foodId)
     .then(dbRes => {
-      console.log(dbRes)
       const id = dbRes.id;
       foodItems.editFoodItem(foodItemName, foodItemQuantity, storageLocation, id);
       res.json({ res: dbRes });
