@@ -11,7 +11,7 @@ const KitchenForm = (props) => {
     event.preventDefault();
     // Handle form submission here
     axios
-      .put("http://localhost:8080/foodItems/kitchenItemList", {
+      .post("/api/kitchenItems", {
         name: name,
         quantity: quantity,
         storageLocation: storageLocation,

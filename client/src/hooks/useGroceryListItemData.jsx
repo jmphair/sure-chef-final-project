@@ -10,7 +10,7 @@ export default function useRecipeData() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:8080/foodItems/groceryItemList")
+      .get("/api/groceryItems")
       .then((response) => {
         setGroceryItems(response.data.foodItems);
         setCurrentGroceryItem(response.data.foodItems[0]);
