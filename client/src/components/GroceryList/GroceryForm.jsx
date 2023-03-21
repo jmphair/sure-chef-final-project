@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Form, Button } from "react-bootstrap";
-import axios from 'axios'
+import axios from "axios";
 
 const GroceryForm = (props) => {
   const [name, setName] = useState("");
@@ -10,21 +10,19 @@ const GroceryForm = (props) => {
   const handleSubmit = (event) => {
     event.preventDefault();
     // Handle form submission here
-    axios.post('/api/groceryItems', {
+    axios.post("/api/groceryItems", {
       name: name,
       quantity: quantity,
-      storageLocation: storageLocation,
-      userId: props.user.id
-      })
+      storage_location: storageLocation,
+      user_id: props.user.id,
+    });
   };
-
 
   // setUser({
   //   id: response.data.userId,
   //   name: response.data.name,
   //   email: response.data.email,
   // });
-
 
   return (
     <section>

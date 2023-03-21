@@ -7,7 +7,6 @@ const EditItemForm = (props) => {
   const [quantity, setQuantity] = useState(props.quantity);
   const [storageLocation, setStorageLocation] = useState(props.storageLocation);
 
-
   const handleEdit = (event) => {
     event.preventDefault();
     // Handle item removal here
@@ -15,8 +14,8 @@ const EditItemForm = (props) => {
       id: props.id,
       name: name,
       quantity: quantity,
-      storageLocation: storageLocation,
-    })
+      storage_location: storageLocation,
+    });
   };
 
   return (
