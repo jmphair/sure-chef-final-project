@@ -21,9 +21,9 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 
 app.use("/", indexRouter);
-app.use("/users", usersRouter);
-app.use("/groceryItems", groceryItemsRouter)
-app.use("/kitchenItems", kitchenItemsRouter)
-app.use("/recipes", recipesRouter);
+app.use("/api/users", usersRouter);
+app.use("/api/groceryItems", groceryItemsRouter)
+app.use("/api/kitchenItems", kitchenItemsRouter)
+app.use("/api/recipes", recipesRouter);
 
 module.exports = app;

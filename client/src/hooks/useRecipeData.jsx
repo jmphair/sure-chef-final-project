@@ -12,7 +12,7 @@ export default function useRecipeData() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:8080/recipes")
+      .get("/api/recipes")
       .then((response) => {
         setRecipes(response.data.recipes);
         setCurrentRecipe(response.data.recipes[0]);

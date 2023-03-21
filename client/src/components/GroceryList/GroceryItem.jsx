@@ -9,7 +9,7 @@ const GroceryItem = (props) => {
   const handleDelete = (event) => {
     event.preventDefault();
     // Handle item removal here
-    axios.delete(`http://localhost:8080/groceryItems/delete`, {
+    axios.delete(`/api/groceryItems/delete`, {
       data: {
         id: props.id,
       }
