@@ -12,11 +12,12 @@ export default function useRecipeData() {
     axios
       .get("/api/groceryItems")
       .then((response) => {
+        console.log(response)
         setGroceryItems(response.data.foodItems);
         setCurrentGroceryItem(response.data.foodItems[0]);
       })
       .catch((err) => console.error(err));
   }, []);
 
-  return { groceryItems, currentGroceryItem };
+  return { groceryItems, currentGroceryItem, setGroceryItems };
 }

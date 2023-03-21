@@ -7,6 +7,7 @@ const logger = require("morgan");
 
 const indexRouter = require("./routes/index-api");
 const usersRouter = require("./routes/users-api");
+const foodItemsRouter = require("./routes/foodItems-api")
 const groceryItemsRouter = require("./routes/groceryItems-api");
 const kitchenItemsRouter = require("./routes/kitchenItems-api");
 const recipesRouter = require("./routes/recipes-api");
@@ -23,6 +24,7 @@ app.use(express.static(path.join(__dirname, "public")));
 
 app.use("/", indexRouter);
 app.use("/api/users", usersRouter);
+app.use("/api/foodItems", foodItemsRouter)
 app.use("/api/groceryItems", groceryItemsRouter)
 app.use("/api/kitchenItems", kitchenItemsRouter)
 app.use("/api/recipes", recipesRouter);

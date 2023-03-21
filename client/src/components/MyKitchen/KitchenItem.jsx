@@ -10,7 +10,7 @@ const KitchenItem = (props) => {
     event.preventDefault();
     // Handle item removal here
     axios
-      .delete("http://localhost:8080/foodItems/kitchenItemList/delete", {
+      .delete("/api/kitchenItems/delete", {
         data: {
           id: props.id,
         },
