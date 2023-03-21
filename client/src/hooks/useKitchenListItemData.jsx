@@ -14,6 +14,7 @@ export default function useKitchenListItemData() {
       .then((response) => {
         setKitchenItems(response.data.foodItems);
         setCurrentKitchenItem(response.data.foodItems[0]);
+        console.log("render");
       })
       .catch((err) => console.error(err));
   }, []);

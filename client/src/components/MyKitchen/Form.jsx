@@ -10,12 +10,18 @@ const KitchenForm = (props) => {
   const handleSubmit = (event) => {
     event.preventDefault();
     // Handle form submission here
-    axios.put("http://localhost:8080/foodItems/kitchenItemList", {
-      name: name,
-      quantity: quantity,
-      storageLocation: storageLocation,
-      userId: props.user.id,
-    });
+    axios
+      .put("http://localhost:8080/foodItems/kitchenItemList", {
+        name: name,
+        quantity: quantity,
+        storageLocation: storageLocation,
+        userId: props.user.id,
+      })
+      .then(() => {
+        // console.log("THIS IS RESPONSE: ", name, quantity, storageLocation);
+        props.showOnAdd({ name, quantity, storageLocation });
+      })
+      .catch((err) => console.log(err));
   };
 
   return (
