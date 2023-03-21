@@ -9,6 +9,7 @@ import {
   CardGroup,
 } from "react-bootstrap";
 import Logout from "./Logout";
+import RobotChef from "./RobotChef";
 
 function Navigation(props) {
   const [open, setOpen] = useState(false);
@@ -59,6 +60,7 @@ function Navigation(props) {
                 </Card>
               </CardGroup>
               <Logout />
+              <RobotChef />
             </Nav>
           </Offcanvas.Body>
         </Navbar.Offcanvas>

@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Container } from 'react-bootstrap';
 import LightSwitchButton from './LightSwitchButton';
+import axios from 'axios';
 
 function RobotChef() {
   
@@ -50,27 +51,27 @@ function RobotChef() {
 
   return (
     <Container>
-    <div className="app">
-    <div className={`app ${dark}`}>
-      <div className="app-container">
-        <div className="spotlight_wrapper">
-          <section>
-            <LightSwitchButton light={light} switchLight={switchLight}/>
-          </section>
-        </div>
-        <div className="spotlight__wrapper">
-          <input
-            type="text"
-            className="spotlight__input"
-            disabled={loading}
-            onChange={(e) => updatePrompt(e.target.value)}
-            onKeyDown={(e) => sendPrompt(e)}
-          />
-          <div className="spotlight__answer">{answer && <p>{answer}</p>}</div>          
+      <div className="app">
+      <div className={`app ${dark}`}>
+        <div className="app-container">
+          <div className="spotlight_wrapper">
+            <section>
+              <LightSwitchButton light={light} switchLight={switchLight}/>
+            </section>
+          </div>
+          <div className="spotlight__wrapper">
+            <input
+              type="text"
+              className="spotlight__input"
+              disabled={loading}
+              onChange={(e) => updatePrompt(e.target.value)}
+              onKeyDown={(e) => sendPrompt(e)}
+            />
+            <div className="spotlight__answer">{answer && <p>{answer}</p>}</div>          
+          </div>
         </div>
       </div>
     </div>
-  </div>
   </Container>
   );
 }

@@ -9,8 +9,6 @@ import Logout from "./components/Logout";
 import Signup from "./components/Signup";
 import PasswordReset from "./components/PasswordReset";
 import Dashboard from "./components/Dashboard";
-import RobotChef from "./components/RobotChef";
-import { Container } from "react-bootstrap";
 
 function RequireAuth({ children }) {
   if (!Userfront.tokens.accessToken) {
@@ -68,7 +66,6 @@ function App() {
     <main className="App">
       <RequireAuth>
         <Dashboard user={user} />
-        <RobotChef />
       </RequireAuth>
 
     </main>
