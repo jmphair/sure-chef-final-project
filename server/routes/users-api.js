@@ -13,7 +13,7 @@ router.get('/', (req, res) => {
 });
 
 /* PUT users listing. */
-router.put('/', (req, res) => {
+router.post('/', (req, res) => {
   const id = req.body.id;
   const name = req.body.name;
   const email = req.body.email;
@@ -26,33 +26,5 @@ router.put('/', (req, res) => {
     })
     .catch(e => console.log(e));
 });
-
-/* GET user login */
-router.get("/login", (req, res) => {
-  console.log('test')
-  users.getUserById(16)
-    .then(data => {
-      console.log(data);
-      res.json({id: data})
-    })
-});
-
-/* GET logout */
-router.get("/logout", (req, res) => {
-  users.getUserById(null)
-  .then(data => {
-    console.log('hi', data);
-  })
-});
-
-
-
-/* GET signup */
-// router.post("/signup", (req, res) => {
-//   users.addUser.then(data => {
-//     console.log('hi', data);
-//     res.json({id: data})
-//   })
-// });
 
 module.exports = router;

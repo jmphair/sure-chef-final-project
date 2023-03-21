@@ -10,7 +10,7 @@ export default function useKitchenListItemData() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:8080/foodItems/kitchenItemList")
+      .get("/api/kitchenItems")
       .then((response) => {
         setKitchenItems(response.data.foodItems);
         setCurrentKitchenItem(response.data.foodItems[0]);
@@ -18,5 +18,5 @@ export default function useKitchenListItemData() {
       .catch((err) => console.error(err));
   }, []);
 
-  return { kitchenItems, currentKitchenItem };
+  return { kitchenItems, currentKitchenItem, setKitchenItems };
 }

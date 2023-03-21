@@ -5,10 +5,11 @@ const path = require("path");
 const cookieParser = require("cookie-parser");
 const logger = require("morgan");
 
-const indexRouter = require("./routes/index");
-const usersRouter = require("./routes/users");
-const foodItemsRouter = require("./routes/foodItems")
-const recipesRouter = require("./routes/recipes");
+const indexRouter = require("./routes/index-api");
+const usersRouter = require("./routes/users-api");
+const groceryItemsRouter = require("./routes/groceryItems-api")
+const kitchenItemsRouter = require("./routes/kitchenItems-api")
+const recipesRouter = require("./routes/recipes-api");
 
 const app = express();
 app.use(cors());
@@ -20,12 +21,9 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 
 app.use("/", indexRouter);
-app.use("/users", usersRouter);
-app.use("/users/login", usersRouter);
-app.use("/users/logout", usersRouter);
-app.use("/foodItems", foodItemsRouter)
-//app.use("/users/signup", userRouter);
-
-app.use("/recipes", recipesRouter);
+app.use("/api/users", usersRouter);
+app.use("/api/groceryItems", groceryItemsRouter)
+app.use("/api/kitchenItems", kitchenItemsRouter)
+app.use("/api/recipes", recipesRouter);
 
 module.exports = app;
