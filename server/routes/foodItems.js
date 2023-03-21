@@ -27,7 +27,7 @@ router.put('/kitchenItemList', (req, res) => {
     });
 });
 
-router.delete('/kitchenItemList', (req, res) => {
+router.delete('/kitchenItemList/delete', (req, res) => {
   const foodId = req.body.id;
 
   foodItems.getByFoodItemId(foodId)
@@ -35,6 +35,23 @@ router.delete('/kitchenItemList', (req, res) => {
       const id = dbRes.id;
       console.log(dbRes)
       foodItems.removeFoodItem(id);
+      res.json({ res: dbRes });
+    });
+});
+
+router.put('/kitchenItemList/update', (req, res) => {
+  const foodId = req.body.id;
+  const foodItemName = req.body.name;
+  const foodItemQuantity = req.body.quantity;
+  const storageLocation = req.body.storageLocation;
+
+  console.log(req.body)
+
+  foodItems.getByFoodItemId(foodId)
+    .then(dbRes => {
+      console.log(dbRes)
+      const id = dbRes.id;
+      foodItems.editFoodItem(foodItemName, foodItemQuantity, storageLocation, id);
       res.json({ res: dbRes });
     });
 });
@@ -63,7 +80,7 @@ router.put('/groceryItemList', (req, res) => {
     });
 });
 
-router.delete('/groceryItemList', (req, res) => {
+router.delete('/groceryItemList/delete', (req, res) => {
   const foodId = req.body.id;
 
   foodItems.getByFoodItemId(foodId)
@@ -71,6 +88,23 @@ router.delete('/groceryItemList', (req, res) => {
       const id = dbRes.id;
       console.log(dbRes)
       foodItems.removeFoodItem(id);
+      res.json({ res: dbRes });
+    });
+});
+
+router.put('/groceryItemList/update', (req, res) => {
+  const foodId = req.body.id;
+  const foodItemName = req.body.name;
+  const foodItemQuantity = req.body.quantity;
+  const storageLocation = req.body.storageLocation;
+
+  console.log(req.body)
+
+  foodItems.getByFoodItemId(foodId)
+    .then(dbRes => {
+      console.log(dbRes)
+      const id = dbRes.id;
+      foodItems.editFoodItem(foodItemName, foodItemQuantity, storageLocation, id);
       res.json({ res: dbRes });
     });
 });
