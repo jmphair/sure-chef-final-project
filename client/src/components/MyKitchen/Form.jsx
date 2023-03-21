@@ -18,7 +18,6 @@ const KitchenForm = (props) => {
         userId: props.user.id,
       })
       .then((res) => {
-        console.log("THIS IS RESPONSE: ", res);
         props.showOnAdd({
           name,
           quantity,

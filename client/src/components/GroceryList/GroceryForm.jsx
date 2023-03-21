@@ -10,19 +10,24 @@ const GroceryForm = (props) => {
   const handleSubmit = (event) => {
     event.preventDefault();
     // Handle form submission here
-    axios.post("/api/groceryItems", {
-      name: name,
-      quantity: quantity,
-      storage_location: storageLocation,
-      user_id: props.user.id,
-    });
+    axios
+      .post("/api/groceryItems", {
+        name: name,
+        quantity: quantity,
+        storage_location: storageLocation,
+        userId: props.user.id,
+      })
+      .then((res) => {
+        props.showOnAdd({
+          name,
+          quantity,
+          storage_location: storageLocation,
+          id: res.data.res.id,
+          user_id: props.user.id,
+        });
+      })
+      .catch((err) => console.log(err));
   };
-
-  // setUser({
-  //   id: response.data.userId,
-  //   name: response.data.name,
-  //   email: response.data.email,
-  // });
 
   return (
     <section>

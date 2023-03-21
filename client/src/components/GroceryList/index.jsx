@@ -20,6 +20,11 @@ const GroceryList = (props) => {
     setGroceryItems((prev) => prev.filter((item) => item.id !== id));
   };
 
+  /* function used in Form component to update the state after an item is added  */
+  const showOnAdd = (newItem) => {
+    setGroceryItems((prevItems) => [...prevItems, newItem]);
+  };
+
   const handleAddItem = (event) => {
     setShowForm(!showForm);
   };
@@ -33,7 +38,7 @@ const GroceryList = (props) => {
       {!showForm && <Button onClick={handleAddItem}>Add Item</Button>}
       {showForm && (
         <div className="bg-light p-3 mt-3">
-          <GroceryForm user={props.user} />
+          <GroceryForm user={props.user} showOnAdd={showOnAdd} />
           <Button variant="secondary" onClick={handleAddItem} className="mt-3">
             Cancel
           </Button>
