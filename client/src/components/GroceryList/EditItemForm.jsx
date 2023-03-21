@@ -12,9 +12,7 @@ const EditItemForm = (props) => {
     event.preventDefault();
     if (storageLocation === "") {
       setStorageLocationError(true);
-      // return;
     } else {
-      // setStorageLocationError(false);
       // Handle item removal here
       axios
         .put("/api/groceryItems/update", {
