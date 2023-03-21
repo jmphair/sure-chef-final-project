@@ -13,6 +13,7 @@ const GroceryItemList = () => {
       ? getGroceryItemsForUsers({ groceryItems }, 16)
       : [];
 
+  /* function used in GroceryItem component to update the state after an item is deleted  */
   const handleDelete = (id) => {
     setGroceryItems((prev) => prev.filter((item) => item.id !== id));
   };
