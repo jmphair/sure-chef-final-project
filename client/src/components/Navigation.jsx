@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Button, Container, Nav, Navbar, Offcanvas } from 'react-bootstrap';
+import { Button, Container, Nav, Navbar, Offcanvas, Card, CardGroup } from 'react-bootstrap';
 import Logout from './Logout';
 
 function Navigation(props) {
@@ -25,10 +25,20 @@ function Navigation(props) {
           </Offcanvas.Header>
           <Offcanvas.Body>
             <Nav className="justify-content-end flex-grow-1 pe-3">
-              <Button onClick={() => handleClick("mykitchen")}>My Kitchen</Button>
-              <Button onClick={() => handleClick("groceryList")}>Grocery List</Button>
-              <Button onClick={() => handleClick("recipe")}>Recipes</Button>
-              <Button onClick={() => handleClick("dashboard")}>Dashboard</Button>
+              <CardGroup>
+                <Card>
+                  <Button onClick={() => handleClick("mykitchen")}>My Kitchen</Button>
+                </Card>
+                <Card>
+                  <Button onClick={() => handleClick("groceryList")}>Grocery List</Button>
+                </Card>
+                <Card>
+                  <Button onClick={() => handleClick("recipe")}>Recipes</Button>
+                </Card>
+                <Card>
+                  <Button onClick={() => handleClick("dashboard")}>Dashboard</Button>
+                </Card>
+              </CardGroup>
               <Logout />
             </Nav>
           </Offcanvas.Body>
