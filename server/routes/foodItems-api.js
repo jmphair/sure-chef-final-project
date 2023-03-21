@@ -4,7 +4,7 @@ const foodItems = require("../db/queries/food_items");
 
 /* ----------------------------------------------------------------------------------- */
 
-router.post("/", (req, res) => {
+router.put("/update", (req, res) => {
   const foodItemId = req.body.id;
   const groceryListId = req.body.groceryListId;
   const kitchenListId = req.body.kitchenListId;
@@ -14,3 +14,5 @@ router.post("/", (req, res) => {
     .then((dbRes) => res.json({ res: dbRes }))
     .catch((e) => console.log(e));
 });
+
+module.exports = router;
