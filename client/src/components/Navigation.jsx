@@ -51,11 +51,23 @@ function Navigation(props) {
                   </Button>
                 </Card>
                 <Card>
-                  <Button onClick={() => handleClick("recipe")}>Recipes</Button>
+                  <Button onClick={() => handleClick("recipe")}>
+                    Recipes
+                  </Button>
                 </Card>
                 <Card>
                   <Button onClick={() => handleClick("dashboard")}>
                     Dashboard
+                  </Button>
+                </Card>
+                <Card>
+                  <Button onClick={() => handleClick("saverecipe")}>
+                    TEMP Save Recipe
+                  </Button>
+                </Card>
+                <Card>
+                  <Button onClick={() => handleClick("loadingrecipe")}>
+                    TEMP Loading Recipe
                   </Button>
                 </Card>
               </CardGroup>
