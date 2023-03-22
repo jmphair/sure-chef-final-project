@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Container, Button } from "react-bootstrap";
 import RecipeGenerator from "../RecipeGenerator";
 import KitchenForm from "./KitchenForm";
@@ -8,7 +8,12 @@ import { getKitchenItemsForUsers } from "../../helpers/selectors";
 
 const MyKitchen = (props) => {
   const [showForm, setShowForm] = useState(false);
-  const { kitchenItems, setKitchenItems } = useKitchenListItemData();
+  const {
+    kitchenItems,
+    setKitchenItems,
+    currentKitchenItem,
+    setCurrentKitchenItem,
+  } = useKitchenListItemData();
 
   const handleAddItem = (event) => {
     setShowForm(!showForm);
@@ -33,11 +38,21 @@ const MyKitchen = (props) => {
     setKitchenItems((prevItems) => [...prevItems, newItem]);
   };
 
+  /* function used in EditForm component to update the state after an item is edited  */
+  const showOnEdit = (editedItem) => {
+    const updatedItems = kitchenItems.map((item) =>
+      item.id === editedItem.id ? editedItem : item
+    );
+    setKitchenItems(updatedItems);
+  };
+
   return (
     <Container>
       <KitchenItemList
         onDelete={handleDelete}
         userKitchenItems={userKitchenItems}
+        showOnEdit={showOnEdit}
+        user={props.user}
       />
       {!showForm && (
         <>

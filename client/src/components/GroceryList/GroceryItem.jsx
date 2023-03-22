@@ -23,12 +23,7 @@ const GroceryItem = (props) => {
 
   const handleTransfer = (event) => {
     event.preventDefault();
-    console.log(
-      "props user: ",
-      props.user,
-      "props grocery id: ",
-      props.groceryListId
-    );
+
     axios
       .put(`/api/foodItems/update`, {
         data: {
@@ -43,10 +38,6 @@ const GroceryItem = (props) => {
       .catch((err) => console.log(err));
   };
 
-  const handleEdit = (event) => {
-    setShowForm(!showForm);
-  };
-
   const handleRevealForm = (event) => {
     setShowForm(!showForm);
   };
@@ -58,7 +49,7 @@ const GroceryItem = (props) => {
           <>
             <Card.Title>{props.name}</Card.Title>
             <Card.Text>{props.quantity}</Card.Text>
-            <Button onClick={handleEdit} variant="primary">
+            <Button onClick={handleRevealForm} variant="primary">
               Edit
             </Button>{" "}
             <Button onClick={handleDelete} variant="danger">
@@ -75,7 +66,9 @@ const GroceryItem = (props) => {
               name={props.name}
               quantity={props.quantity}
               id={props.id}
-              handleEdit={handleEdit}
+              handleRevealForm={handleRevealForm}
+              showOnEdit={props.showOnEdit}
+              user={props.user}
             />
             <Button variant="danger" onClick={handleRevealForm}>
               Cancel

@@ -13,6 +13,7 @@ const GroceryItemList = (props) => {
         kitchenListId={groceryItem.kitchen_id}
         user={props.user}
         handleShowDelete={props.handleShowDelete}
+        showOnEdit={props.showOnEdit}
       />
     );
   });

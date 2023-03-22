@@ -18,14 +18,14 @@ const KitchenForm = (props) => {
         .post("/api/kitchenItems", {
           name: name,
           quantity: quantity,
-          storageLocation: storageLocation,
+          storage_location: storageLocation,
           userId: props.user.id,
         })
         .then((res) => {
           props.showOnAdd({
             name,
             quantity,
-            storageLocation: storageLocation,
+            storage_location: storageLocation,
             id: res.data.res.id,
             user_id: props.user.id,
           });

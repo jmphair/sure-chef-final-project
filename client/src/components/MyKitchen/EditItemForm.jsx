@@ -19,10 +19,18 @@ const EditItemForm = (props) => {
           id: props.id,
           name: name,
           quantity: quantity,
-          storageLocation: storageLocation,
+          storage_location: storageLocation,
         })
-        .then(() => {
-          props.handleEdit();
+        .then((res) => {
+          props.showOnEdit({
+            name,
+            quantity,
+            storage_location: storageLocation,
+            id: res.data.res.id,
+            kitchen_inventory_id: res.data.res.kitchen_inventory_id,
+            user_id: props.user.id,
+          });
+          props.handleRevealForm();
         });
     }
   };

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import GroceryForm from "./GroceryForm";
 import GroceryItemList from "./GroceryItemList";
 import { Button, Container } from "react-bootstrap";
@@ -25,6 +25,14 @@ const GroceryList = (props) => {
     setGroceryItems((prevItems) => [...prevItems, newItem]);
   };
 
+  /* function used in EditForm component to update the state after an item is edited  */
+  const showOnEdit = (editedItem) => {
+    const updatedItems = groceryItems.map((item) =>
+      item.id === editedItem.id ? editedItem : item
+    );
+    setGroceryItems(updatedItems);
+  };
+
   const handleAddItem = (event) => {
     setShowForm(!showForm);
   };
@@ -35,6 +43,7 @@ const GroceryList = (props) => {
         userGroceries={userGroceries}
         handleShowDelete={handleShowDelete}
         user={props.user}
+        showOnEdit={showOnEdit}
       />
       {!showForm && <Button onClick={handleAddItem}>Add Item</Button>}
       {showForm && (

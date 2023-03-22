@@ -21,8 +21,16 @@ const EditItemForm = (props) => {
           quantity: quantity,
           storage_location: storageLocation,
         })
-        .then(() => {
-          props.handleEdit();
+        .then((res) => {
+          props.showOnEdit({
+            name,
+            quantity,
+            storage_location: storageLocation,
+            id: res.data.res.id,
+            grocery_id: res.data.res.grocery_list_id,
+            user_id: props.user.id,
+          });
+          props.handleRevealForm();
         })
         .catch((error) => {
           console.log(error);

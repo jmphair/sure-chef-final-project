@@ -6,7 +6,7 @@ const foodItems = require('../db/queries/food_items');
 /* ----------------------------------------------------------------------------------- */
 
 router.get('/:id', (req, res) => {
-  const userId = req.params.id
+  const userId = req.params.id;
   foodItems.getAllKitchenItemsByUserId(userId).then(data => {
     res.json({ foodItems: data });
   });
@@ -17,7 +17,7 @@ router.post('/', (req, res) => {
   const userId = req.body.userId;
   const foodItemName = req.body.name;
   const foodItemQuantity = req.body.quantity;
-  const storageLocation = req.body.storageLocation;
+  const storageLocation = req.body.storage_location;
 
   foodItems.getKitchenIdByUserId(userId)
     .then(dbRes => {
@@ -44,7 +44,7 @@ router.put('/update', (req, res) => {
   const foodId = req.body.id;
   const foodItemName = req.body.name;
   const foodItemQuantity = req.body.quantity;
-  const storageLocation = req.body.storageLocation;
+  const storageLocation = req.body.storage_location;
 
 
   foodItems.getByFoodItemId(foodId)

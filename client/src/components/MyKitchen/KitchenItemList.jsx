@@ -10,6 +10,8 @@ const KitchenItemList = (props) => {
         name={kitchenItem.name}
         quantity={kitchenItem.quantity}
         onDelete={props.onDelete}
+        showOnEdit={props.showOnEdit}
+        user={props.user}
       />
     );
   });

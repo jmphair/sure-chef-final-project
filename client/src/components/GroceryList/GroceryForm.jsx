@@ -18,7 +18,7 @@ const GroceryForm = (props) => {
         .post("/api/groceryItems", {
           name: name,
           quantity: quantity,
-          storageLocation: storageLocation,
+          storage_location: storageLocation,
           userId: props.user.id,
         })
         .then((res) => {
