@@ -67,6 +67,7 @@ const EditItemForm = (props) => {
             <option value="Refrigerator">Refrigerator</option>
             <option value="Freezer">Freezer</option>
             <option value="Pantry">Pantry</option>
+            <option value="Other">Other</option>
           </Form.Control>
           {storageLocationError && (
             <Form.Text className="text-danger">
