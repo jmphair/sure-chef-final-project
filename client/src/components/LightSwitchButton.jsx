@@ -1,17 +1,19 @@
-import React from "react";
+import useLightSwitch from "../hooks/useLightSwitch";
 
 function LightSwitchButton(props){
-  
-  const {light, switchLight} = props;
 
-  const handleClick = () => switchLight();
+  const { dark, handleClick } = useLightSwitch();
 
   return (
     <div>
-      <label className="switch">
-        <input onClick={handleClick} className="LightSwitchButton" type="checkbox"/>
-        <span className="slider round"></span>
-      </label>
+      <div className="app">
+        <div className={`app ${dark}`}>
+          <label className="switch">
+            <input onClick={handleClick} className="LightSwitchButton" type="checkbox"/>
+            <span className="slider round"></span>
+          </label>
+        </div>
+      </div>
     </div>
   );
 }

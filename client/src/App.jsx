@@ -64,7 +64,6 @@ function App() {
       <RequireAuth>
         <Dashboard user={user} />
       </RequireAuth>
-
     </main>
   );
 }
