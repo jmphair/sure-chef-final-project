@@ -7,7 +7,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Login from "./components/Login";
 import Logout from "./components/Logout";
 import Signup from "./components/Signup";
-import PasswordReset from "./components/PasswordReset";
 import Dashboard from "./components/Dashboard";
 
 function RequireAuth({ children }) {
@@ -15,9 +14,9 @@ function RequireAuth({ children }) {
     // Redirect to the /login page
     return (
       <>
+        <h1>SureChef</h1>
         <Login />
         <Signup />
-        <PasswordReset />
       </>);
   }
 
@@ -59,8 +58,6 @@ function App() {
         })
       .catch((err) => console.error(err));
   }, [])
-  
-  // addUserData()
 
   return (
     <main className="App">
