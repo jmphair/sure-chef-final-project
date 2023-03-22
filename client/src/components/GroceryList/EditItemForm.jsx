@@ -84,10 +84,20 @@ const EditItemForm = (props) => {
             </Form.Text>
           )}
         </Form.Group>
-
-        <Button variant="primary" type="submit">
-          Edit Item
-        </Button>
+        <div
+          style={{
+            paddingTop: "10px",
+            display: "flex",
+            justifyContent: "space-between",
+          }}
+        >
+          <Button variant="primary" type="submit">
+            Confirm
+          </Button>
+          <Button variant="danger" onClick={props.handleRevealForm}>
+            Cancel
+          </Button>
+        </div>
       </Form>
     </Container>
   );

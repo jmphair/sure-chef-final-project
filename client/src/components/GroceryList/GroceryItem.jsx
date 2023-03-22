@@ -3,6 +3,9 @@ import { Card, Button } from "react-bootstrap";
 import axios from "axios";
 import EditItemForm from "./EditItemForm";
 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPencil, faTrash } from "@fortawesome/free-solid-svg-icons";
+
 const GroceryItem = (props) => {
   const [showForm, setShowForm] = useState(false);
 
@@ -49,12 +52,26 @@ const GroceryItem = (props) => {
           <>
             <Card.Title>{props.name}</Card.Title>
             <Card.Text>{props.quantity}</Card.Text>
-            <Button onClick={handleRevealForm} variant="primary">
-              Edit
-            </Button>{" "}
-            <Button onClick={handleDelete} variant="danger">
-              Delete
-            </Button>{" "}
+            <div
+              style={{
+                position: "absolute",
+                bottom: "0",
+                right: "0",
+                margin: "10px",
+              }}
+            >
+              <FontAwesomeIcon
+                icon={faPencil}
+                size="sm"
+                onClick={handleRevealForm}
+                style={{ marginRight: "10px" }}
+              />
+              <FontAwesomeIcon
+                icon={faTrash}
+                size="sm"
+                onClick={handleDelete}
+              />
+            </div>
             <Button variant="success" onClick={handleTransfer}>
               Purchased
             </Button>
@@ -70,9 +87,6 @@ const GroceryItem = (props) => {
               showOnEdit={props.showOnEdit}
               user={props.user}
             />
-            <Button variant="danger" onClick={handleRevealForm}>
-              Cancel
-            </Button>
           </div>
         )}
       </Card.Body>
