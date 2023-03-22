@@ -1,5 +1,5 @@
 import KitchenItem from "./KitchenItem";
-import { Container, CardGroup, Accordion } from "react-bootstrap";
+import { Container, CardGroup, Accordion, Button } from "react-bootstrap";
 import RecipeGenerator from "../RecipeGenerator";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -45,6 +45,12 @@ const KitchenItemList = (props) => {
           onClick={props.handleAddItem}
         />
       </div>
+      <div style={{ textAlign: "center" }}>
+        <Button variant="outline-dark" onClick={props.handleAddItem}>
+          Add New Item
+        </Button>
+      </div>
+
       <div style={{ marginBottom: "20px", marginTop: "20px" }}>
         <RecipeGenerator />
       </div>
