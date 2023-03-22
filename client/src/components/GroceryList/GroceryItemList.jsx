@@ -41,7 +41,7 @@ const GroceryItemList = (props) => {
         </Accordion.Item>
         <Accordion.Item eventKey="3">
           <Accordion.Header>Other</Accordion.Header>
-          <Accordion.Body>{groceryItemsSort(null)}</Accordion.Body>
+          <Accordion.Body>{groceryItemsSort("Other")}</Accordion.Body>
         </Accordion.Item>
       </Accordion>
     </Container>

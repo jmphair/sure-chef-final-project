@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Container, Button } from "react-bootstrap";
-import RecipeGenerator from "../RecipeGenerator";
+
+// import RecipeGenerator from "../RecipeGenerator";
 import KitchenForm from "./KitchenForm";
 import KitchenItemList from "./KitchenItemList";
 import useKitchenListItemData from "../../hooks/useKitchenListItemData";
@@ -50,21 +51,11 @@ const MyKitchen = (props) => {
     <Container>
       <KitchenItemList
         onDelete={handleDelete}
+        handleAddItem={handleAddItem}
         userKitchenItems={userKitchenItems}
         showOnEdit={showOnEdit}
         user={props.user}
       />
-      {!showForm && (
-        <>
-          <Button variant="primary" onClick={handleAddItem}>
-            Add Item
-          </Button>
-          <Button variant="primary" onClick={handleSelectAll}>
-            Select All
-          </Button>
-          <RecipeGenerator />
-        </>
-      )}
       {showForm && (
         <div className="kitchen-main">
           <KitchenForm

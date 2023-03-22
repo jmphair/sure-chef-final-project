@@ -1,10 +1,14 @@
 import { useState } from "react";
-import { Card, Button } from "react-bootstrap";
+import { Card, Button, Form } from "react-bootstrap";
 import axios from "axios";
 import EditItemForm from "./EditItemForm";
 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPencil, faTrash } from "@fortawesome/free-solid-svg-icons";
+
 const KitchenItem = (props) => {
   const [showForm, setShowForm] = useState(false);
+  const [isSelected, setIsSelected] = useState(false);
 
   const handleDelete = (event) => {
     event.preventDefault();
@@ -26,20 +30,52 @@ const KitchenItem = (props) => {
     setShowForm(!showForm);
   };
 
+  const handleCheckboxChange = () => {
+    setIsSelected(!isSelected);
+  };
+
   return (
     <Card>
       <Card.Body>
         {!showForm && (
           <>
-            <Card.Title>{props.name}</Card.Title>
-            <Card.Text>{props.quantity}</Card.Text>
-            <Button onClick={handleRevealForm} variant="primary">
-              Edit
-            </Button>{" "}
-            <Button onClick={handleDelete} variant="danger">
-              Delete
-            </Button>{" "}
-            <Button variant="success">Select</Button>
+            <div>
+              <Card.Title>{props.name}</Card.Title>
+              <Card.Text>{props.quantity}</Card.Text>
+            </div>
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                marginLeft: "10px",
+              }}
+            >
+              <Form.Check
+                type="checkbox"
+                checked={isSelected}
+                onChange={handleCheckboxChange}
+              />
+            </div>
+            <div
+              style={{
+                position: "absolute",
+                bottom: "0",
+                right: "0",
+                margin: "10px",
+              }}
+            >
+              <FontAwesomeIcon
+                icon={faPencil}
+                size="sm"
+                onClick={handleRevealForm}
+                style={{ marginRight: "10px" }}
+              />
+              <FontAwesomeIcon
+                icon={faTrash}
+                size="sm"
+                onClick={handleDelete}
+              />
+            </div>
           </>
         )}
         {showForm && (
@@ -52,9 +88,6 @@ const KitchenItem = (props) => {
               showOnEdit={props.showOnEdit}
               user={props.user}
             />
-            <Button variant="danger" onClick={handleRevealForm}>
-              Cancel
-            </Button>
           </div>
         )}
       </Card.Body>
