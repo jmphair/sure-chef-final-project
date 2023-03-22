@@ -5,6 +5,8 @@ import Navigation from "./Navigation";
 import MyKitchen from "./MyKitchen";
 import GroceryList from "./GroceryList";
 import Recipe from "./Recipe";
+import LoadingRecipe from "./Recipe/LoadingRecipe";
+import SaveRecipe from "./Recipe/SaveRecipe";
 import "./Dashboard.css";
 import RobotChef from "./RobotChef";
 import { welcomeMessage } from "../helpers/welcomeMessage"
@@ -58,6 +60,8 @@ const Dashboard = (props) => {
       {activeSection === "mykitchen" && <MyKitchen user={props.user} />}
       {activeSection === "groceryList" && <GroceryList user={props.user} />}
       {activeSection === "recipe" && <Recipe />}
+      {activeSection === "saverecipe" && <SaveRecipe />}
+      {activeSection === "loadingrecipe" && <LoadingRecipe />}
     </main>
   );
 };
