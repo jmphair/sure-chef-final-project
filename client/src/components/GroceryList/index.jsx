@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import GroceryForm from "./GroceryForm";
 import GroceryItemList from "./GroceryItemList";
 import { Button, Container } from "react-bootstrap";
 import useGroceryItemData from "../../hooks/useGroceryListItemData.jsx";
@@ -44,21 +43,10 @@ const GroceryList = (props) => {
         handleShowDelete={handleShowDelete}
         user={props.user}
         showOnEdit={showOnEdit}
+        showForm={showForm}
+        handleAddItem={handleAddItem}
+        showOnAdd={showOnAdd}
       />
-      {!showForm && <Button onClick={handleAddItem}>Add Item</Button>}
-      {showForm && (
-        <div className="bg-light p-3 mt-3">
-          <GroceryForm
-            userGroceries={userGroceries}
-            user={props.user}
-            showOnAdd={showOnAdd}
-            handleAddItem={handleAddItem}
-          />
-          <Button variant="secondary" onClick={handleAddItem} className="mt-3">
-            Cancel
-          </Button>
-        </div>
-      )}
     </Container>
   );
 };

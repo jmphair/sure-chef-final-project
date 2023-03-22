@@ -1,5 +1,7 @@
 import GroceryItem from "./GroceryItem";
-import { Container, CardGroup, Accordion } from "react-bootstrap";
+import GroceryForm from "./GroceryForm";
+
+import { Container, CardGroup, Accordion, Button } from "react-bootstrap";
 
 const GroceryItemList = (props) => {
   const groceryItemsSort = (storageLocation) => {
@@ -25,7 +27,32 @@ const GroceryItemList = (props) => {
 
   return (
     <Container className="my-3">
-      <h3 className="my-3">Grocery Item List:</h3>
+      <h3
+        className="my-3"
+        style={{
+          textDecoration: "underline",
+          fontWeight: "bold",
+          textAlign: "center",
+        }}
+      >
+        Grocery List
+      </h3>
+      {props.showForm ? (
+        <div className="kitchen-main" style={{ marginBottom: "20px" }}>
+          <GroceryForm
+            userGroceries={props.userGroceries}
+            user={props.user}
+            showOnAdd={props.showOnAdd}
+            handleAddItem={props.handleAddItem}
+          />
+        </div>
+      ) : (
+        <div style={{ textAlign: "center", marginBottom: "20px" }}>
+          <Button variant="outline-dark" onClick={props.handleAddItem}>
+            Add New Item
+          </Button>
+        </div>
+      )}
       <Accordion>
         <Accordion.Item eventKey="0">
           <Accordion.Header>Refrigerator</Accordion.Header>
