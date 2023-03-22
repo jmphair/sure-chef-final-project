@@ -5,7 +5,6 @@ const GroceryItemList = (props) => {
 
   const groceryItemsSort = (storageLocation) => {
     const groceryItemList = props.userGroceries.map((groceryItem) => {
-      console.log(groceryItem.storage_location)
       if(storageLocation === groceryItem.storage_location) {
         return (
           <GroceryItem
