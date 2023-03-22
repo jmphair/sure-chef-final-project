@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import "./App.css";
 import axios from "axios";
 import Userfront from "@userfront/react";
+import { Button, Container } from "react-bootstrap";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import Login from "./components/Login";
@@ -10,13 +11,34 @@ import Signup from "./components/Signup";
 import Dashboard from "./components/Dashboard";
 
 function RequireAuth({ children }) {
+  const [activeSection, setActiveSection] = useState("login")
+
+  function handleSectionClick(sectionName) {
+    setActiveSection(sectionName);
+  }
+
   if (!Userfront.tokens.accessToken) {
     // Redirect to the /login page
     return (
       <>
         <h1>SureChef</h1>
-        <Login />
-        <Signup />
+        {activeSection === 'login' && (
+        <Container >  
+          <Login />
+          <div className="d-grid gap-2">
+            <Button onClick={() => handleSectionClick("signup")} variant="primary" size="lg">
+                  Sign up
+            </Button>
+          </div>
+        </Container>)}
+        {activeSection === 'signup' && (
+          <Container>
+            <Signup />
+            <Button onClick={() => handleSectionClick("login")}>
+              Login
+            </Button>
+          </Container>
+        )}
       </>);
   }
 
@@ -31,7 +53,6 @@ function App() {
     name: '',
     email: ''
   });
-
   
   //runs a GET request to get the logged in user data from 3rd part auth userFront
   useEffect(() => {
