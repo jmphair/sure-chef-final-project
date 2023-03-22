@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Container, Button, CardGroup, Card } from "react-bootstrap";
+import { Container, Button, CardGroup, Card, Modal } from "react-bootstrap";
 
 import Navigation from "./Navigation";
 import MyKitchen from "./MyKitchen";
@@ -12,6 +12,10 @@ import { welcomeMessage } from "../helpers/welcomeMessage"
 
 const Dashboard = (props) => {
   const [activeSection, setActiveSection] = useState("dashboard");
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
 
   function handleSectionClick(sectionName) {
     setActiveSection(sectionName);
@@ -40,12 +44,20 @@ const Dashboard = (props) => {
               </Button>
             </Card>
           </CardGroup>
+          <span style={{cursor: "pointer"}} variant="primary" onClick={handleShow}>🥔</span>
+          <Modal show={show} onHide={handleClose}>
+            <Modal.Header closeButton>
+              <Modal.Title>Oh heyyyyy, ask me anything!</Modal.Title>
+            </Modal.Header>
+              <Modal.Body>
+                <RobotChef />
+              </Modal.Body>
+          </Modal>
         </Container>
       )}
       {activeSection === "mykitchen" && <MyKitchen user={props.user} />}
       {activeSection === "groceryList" && <GroceryList user={props.user} />}
       {activeSection === "recipe" && <Recipe />}
-      <>🥔<RobotChef /></>
     </main>
   );
 };

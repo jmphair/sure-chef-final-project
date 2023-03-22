@@ -23,6 +23,7 @@ export default function useKitchenListItemData() {
         axios.get(`/api/kitchenItems/${response.data.userId}`)
       )
       .then((response) => {
+        console.log(response.data)
         setKitchenItems(response.data.foodItems);
         setCurrentKitchenItem(response.data.foodItems[0]);
       })
