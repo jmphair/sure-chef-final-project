@@ -25,7 +25,7 @@ const KitchenForm = (props) => {
           props.showOnAdd({
             name,
             quantity,
-            storage_location: storageLocation,
+            storageLocation: storageLocation,
             id: res.data.res.id,
             user_id: props.user.id,
           });

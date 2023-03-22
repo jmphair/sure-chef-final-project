@@ -19,7 +19,7 @@ const EditItemForm = (props) => {
           id: props.id,
           name: name,
           quantity: quantity,
-          storage_location: storageLocation,
+          storageLocation: storageLocation,
         })
         .then(() => {
           props.handleEdit();
