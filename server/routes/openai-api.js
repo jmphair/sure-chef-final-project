@@ -2,25 +2,17 @@ const express = require('express');
 const router = express.Router();
 require("dotenv").config();
 const { Configuration, OpenAIApi } = require("openai");
+const destr = require('destr');
 
 
 const recipePrompt = (ingredients) => {
   // [{ingredient: 'pizza slice', quantity: 1}, {ingredient: 'mustard', quantity: 1}, {ingredient: 'beer', quantity: 1}]
-  const prompt = `Give me a recipe with only the following ingredients: ${ingredients}, in the following format: {
-    recipeName: 'string',
-    instructions: 'array',
-    servings: 'string',
-    prep_time: 'string',
-    cook_time: 'string',
-    total_time: 'string',
-    ingredients: 'array'
-  }` 
+  const prompt = `Give me a recipe with only the following ingredients: ${ingredients}, in the following format as a JSON object: {"recipeName":"string", "instructions":"array", "servings":"string", "prep_time":"string", "cook_time":"string", "total_time":"string", "ingredients":"array"}` 
 
   return prompt
 }
 
 router.post("/ask", (req, res) => {
-  console.log(req.body)
   const prompt = recipePrompt(req.body.prompt);
 
   if (prompt == null) {
@@ -36,6 +28,10 @@ router.post("/ask", (req, res) => {
 
   responsePromise.then((response) => {
     const completion = response.data.choices[0].text;
+    const completionObj = destr(completion, { strict: true })
+    console.log(completionObj.recipeName)
+    console.log(destr(completionObj))
+
     return res.status(200).json({
       success: true,
       message: completion,
