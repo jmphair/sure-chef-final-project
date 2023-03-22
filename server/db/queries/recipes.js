@@ -8,15 +8,16 @@ const getSavedRecipesByUser = (id) => {
 
 };
 
-const addRecipe = (name, instructions, servings, prep_time, cook_time, saved, user_id, food_item_id) => {
+const addRecipe = (name, ingredients, instructions, servings, prep_time, cook_time, total_time, saved, user_id) => {
+  console.log('yes we made it this far')
   return db
     .query(
       `
-  INSERT INTO recipes (name, instructions, servings, prep_time, cook_time, saved, user_id, food_item_id)
-  VALUES ($1, $2, $3, $4, $5, $6, $7, $8)
+  INSERT INTO recipes (name, ingredients, instructions, servings, prep_time, cook_time, total_time, saved, user_id)
+  VALUES ($1, $2, ARRAY[$3], $4, $5, $6, $7, $8, $9)
   RETURNING *;
   `,
-      [name, instructions, servings, prep_time, cook_time, saved, user_id, food_item_id]
+      [name, ingredients, instructions, servings, prep_time, cook_time, total_time, saved, user_id]
     )
     .then((user) => {
       return user.rows[0];
