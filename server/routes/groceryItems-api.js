@@ -16,17 +16,17 @@ router.post('/', (req, res) => {
   const userId = req.body.userId;
   const foodItemName = req.body.name;
   const foodItemQuantity = req.body.quantity;
-  const storageLocation = req.body.storageLocation;
-  console.log(req.body.userId)
+  const storageLocation = req.body.storage_location;
+  console.log(req.body.userId);
 
   foodItems.getGroceryIdByUserId(userId)
     .then(dbRes => {
-      console.log(dbRes)
+      console.log(dbRes);
       const groceryId = dbRes.id;
       return foodItems.addGroceryItem(foodItemName, foodItemQuantity, storageLocation, groceryId);
     })
     .then((foodItem) => {
-      console.log(foodItem)
+      console.log(foodItem);
       res.json({ res: foodItem });
     });
 });
@@ -46,7 +46,7 @@ router.put('/update', (req, res) => {
   const foodId = req.body.id;
   const foodItemName = req.body.name;
   const foodItemQuantity = req.body.quantity;
-  const storageLocation = req.body.storageLocation;
+  const storageLocation = req.body.storage_location;
 
   foodItems.getByFoodItemId(foodId)
     .then(dbRes => {
