@@ -1,5 +1,9 @@
 import KitchenItem from "./KitchenItem";
 import { Container, CardGroup, Accordion } from "react-bootstrap";
+import RecipeGenerator from "../RecipeGenerator";
+
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCirclePlus } from "@fortawesome/free-solid-svg-icons";
 
 const KitchenItemList = (props) => {
   const kitchenItemsSort = (storageLocation) => {
@@ -23,7 +27,28 @@ const KitchenItemList = (props) => {
 
   return (
     <Container className="my-3">
-      <h3 className="my-3">My Kitchen:</h3>
+      <h3
+        className="my-3"
+        style={{
+          textDecoration: "underline",
+          fontWeight: "bold",
+          textAlign: "center",
+        }}
+      >
+        My Kitchen
+      </h3>
+      <div style={{ textAlign: "center" }}>
+        <FontAwesomeIcon
+          icon={faCirclePlus}
+          size="3x"
+          style={{ "--fa-secondary-color": "#3d81f5" }}
+          onClick={props.handleAddItem}
+        />
+      </div>
+      <div style={{ marginBottom: "20px", marginTop: "20px" }}>
+        <RecipeGenerator />
+      </div>
+
       <Accordion>
         <Accordion.Item eventKey="0">
           <Accordion.Header>Refrigerator</Accordion.Header>

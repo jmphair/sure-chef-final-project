@@ -1,10 +1,7 @@
 import { useState, useEffect } from "react";
 import { Container, Button } from "react-bootstrap";
 
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCirclePlus } from "@fortawesome/free-solid-svg-icons";
-
-import RecipeGenerator from "../RecipeGenerator";
+// import RecipeGenerator from "../RecipeGenerator";
 import KitchenForm from "./KitchenForm";
 import KitchenItemList from "./KitchenItemList";
 import useKitchenListItemData from "../../hooks/useKitchenListItemData";
@@ -54,23 +51,11 @@ const MyKitchen = (props) => {
     <Container>
       <KitchenItemList
         onDelete={handleDelete}
+        handleAddItem={handleAddItem}
         userKitchenItems={userKitchenItems}
         showOnEdit={showOnEdit}
         user={props.user}
       />
-      {!showForm && (
-        <>
-          {/* <Button variant="primary" onClick={handleAddItem}> */}
-          <FontAwesomeIcon
-            icon={faCirclePlus}
-            size="3x"
-            style={{ "--fa-secondary-color": "#3d81f5" }}
-            onClick={handleAddItem}
-          />
-          {/* </Button> */}
-          <RecipeGenerator />
-        </>
-      )}
       {showForm && (
         <div className="kitchen-main">
           <KitchenForm
