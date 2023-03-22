@@ -5,17 +5,42 @@ import axios from "axios";
 const EditItemForm = (props) => {
   const [name, setName] = useState(props.name);
   const [quantity, setQuantity] = useState(props.quantity);
-  const [storageLocation, setStorageLocation] = useState(props.storageLocation);
+  const [storageLocation, setStorageLocation] = useState("");
+  const [storageLocationError, setStorageLocationError] = useState(false);
 
   const handleEdit = (event) => {
     event.preventDefault();
-    // Handle item removal here
-    axios.put("/api/groceryItems/update", {
-      id: props.id,
-      name: name,
-      quantity: quantity,
-      storage_location: storageLocation,
-    });
+    if (storageLocation === "") {
+      setStorageLocationError(true);
+    } else {
+      // Handle item removal here
+      axios
+        .put("/api/groceryItems/update", {
+          id: props.id,
+          name: name,
+          quantity: quantity,
+          storage_location: storageLocation,
+        })
+        .then((res) => {
+          props.showOnEdit({
+            name,
+            quantity,
+            storage_location: storageLocation,
+            id: res.data.res.id,
+            grocery_id: res.data.res.grocery_list_id,
+            user_id: props.user.id,
+          });
+          props.handleRevealForm();
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    }
+  };
+
+  const handleSelectChange = (event) => {
+    setStorageLocation(event.target.value);
+    setStorageLocationError(false);
   };
 
   return (
@@ -44,13 +69,19 @@ const EditItemForm = (props) => {
           <Form.Control
             as="select"
             value={storageLocation}
-            onChange={(event) => setStorageLocation(event.target.value)}
+            onChange={handleSelectChange}
+            isInvalid={storageLocationError}
           >
             <option value="">Select a storage location</option>
             <option value="Refrigerator">Refrigerator</option>
             <option value="Freezer">Freezer</option>
             <option value="Pantry">Pantry</option>
           </Form.Control>
+          {storageLocationError && (
+            <Form.Text className="text-danger">
+              Please select a storage location.
+            </Form.Text>
+          )}
         </Form.Group>
 
         <Button variant="primary" type="submit">

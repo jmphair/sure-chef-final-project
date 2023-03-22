@@ -21,10 +21,7 @@ const KitchenItem = (props) => {
       .catch((err) => console.log(err));
   };
 
-  const handleEdit = (event) => {
-    setShowForm(!showForm);
-  };
-
+  /* function to remove the form from view after pressing buttons */
   const handleRevealForm = (event) => {
     setShowForm(!showForm);
   };
@@ -36,7 +33,7 @@ const KitchenItem = (props) => {
           <>
             <Card.Title>{props.name}</Card.Title>
             <Card.Text>{props.quantity}</Card.Text>
-            <Button onClick={handleEdit} variant="primary">
+            <Button onClick={handleRevealForm} variant="primary">
               Edit
             </Button>{" "}
             <Button onClick={handleDelete} variant="danger">
@@ -51,6 +48,9 @@ const KitchenItem = (props) => {
               name={props.name}
               quantity={props.quantity}
               id={props.id}
+              handleRevealForm={handleRevealForm}
+              showOnEdit={props.showOnEdit}
+              user={props.user}
             />
             <Button variant="danger" onClick={handleRevealForm}>
               Cancel
