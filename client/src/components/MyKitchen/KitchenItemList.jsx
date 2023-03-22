@@ -41,6 +41,12 @@ const KitchenItemList = (props) => {
             {kitchenItemsSort('Pantry')}
           </Accordion.Body>
         </Accordion.Item>
+        <Accordion.Item eventKey="3">
+          <Accordion.Header>Other</Accordion.Header>
+          <Accordion.Body>
+            {kitchenItemsSort(null)}
+          </Accordion.Body>
+        </Accordion.Item>
       </Accordion>
     </Container>
   );
