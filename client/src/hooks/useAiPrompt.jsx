@@ -17,7 +17,7 @@ export default function useAiPrompt() {
       return Promise.resolve();
     }
   
-    // setLoading(true);
+    setLoading(true);
   
     const requestOptions = {
       headers: { "Content-Type": "application/json" },
