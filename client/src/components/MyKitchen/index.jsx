@@ -1,5 +1,9 @@
 import { useState, useEffect } from "react";
 import { Container, Button } from "react-bootstrap";
+
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCirclePlus } from "@fortawesome/free-solid-svg-icons";
+
 import RecipeGenerator from "../RecipeGenerator";
 import KitchenForm from "./KitchenForm";
 import KitchenItemList from "./KitchenItemList";
@@ -56,12 +60,14 @@ const MyKitchen = (props) => {
       />
       {!showForm && (
         <>
-          <Button variant="primary" onClick={handleAddItem}>
-            Add Item
-          </Button>
-          <Button variant="primary" onClick={handleSelectAll}>
-            Select All
-          </Button>
+          {/* <Button variant="primary" onClick={handleAddItem}> */}
+          <FontAwesomeIcon
+            icon={faCirclePlus}
+            size="3x"
+            style={{ "--fa-secondary-color": "#3d81f5" }}
+            onClick={handleAddItem}
+          />
+          {/* </Button> */}
           <RecipeGenerator />
         </>
       )}

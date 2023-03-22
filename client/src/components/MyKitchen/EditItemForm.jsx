@@ -77,7 +77,7 @@ const EditItemForm = (props) => {
         </Form.Group>
 
         <Button variant="primary" type="submit">
-          Edit Item
+          Confirm
         </Button>
       </Form>
     </Container>
