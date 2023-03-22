@@ -4,6 +4,11 @@ export function getRecipesForUsers(state, user_id) {
   return recipes;
 }
 
+export function getNewRecipeForUsers(state, user_id, saved) {
+  const newRecipe = state.recipes.filter((recipe) => recipe.user_id === user_id && recipe.saved === false);
+  return newRecipe;
+}
+
 export function getKitchenItemsForUsers(state, user_id) {
   const kitchenItems = state.kitchenItems.filter(
     (kitchenItem) => kitchenItem.user_id === user_id

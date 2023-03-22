@@ -20,5 +20,5 @@ export default function useRecipeData() {
       .catch((err) => console.error(err));
   }, []);
 
-  return { recipes, currentRecipe };
+  return { recipes, currentRecipe, setRecipes, setCurrentRecipe };
 }

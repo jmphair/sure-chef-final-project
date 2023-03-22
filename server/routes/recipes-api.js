@@ -3,7 +3,7 @@ const router = express.Router();
 const recipes = require('../db/queries/recipes');
 
 router.get('/', (req, res) => {
-  recipes.getSavedRecipesByUser(16).then(data => {
+  recipes.getUnsavedRecipesByUser(16).then(data => {
     console.log(data);
     res.json({ recipes: data });
   });

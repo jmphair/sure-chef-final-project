@@ -18,6 +18,7 @@ const RecipeItemList = () => {
         key={recipe.id}
         name={recipe.name}
         instructions={recipe.instructions}
+        ingredients={recipe.ingredients}
         servings={recipe.servings}
         prepTime={recipe.prep_time}
         cookTime={recipe.cook_time}
