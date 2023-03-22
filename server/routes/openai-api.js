@@ -3,8 +3,25 @@ const router = express.Router();
 require("dotenv").config();
 const { Configuration, OpenAIApi } = require("openai");
 
+
+const recipePrompt = (ingredients) => {
+  // [{ingredient: 'pizza slice', quantity: 1}, {ingredient: 'mustard', quantity: 1}, {ingredient: 'beer', quantity: 1}]
+  const prompt = `Give me a recipe with only the following ingredients: ${ingredients}, in the following format: {
+    recipeName: 'string',
+    instructions: 'array',
+    servings: 'string',
+    prep_time: 'string',
+    cook_time: 'string',
+    total_time: 'string',
+    ingredients: 'array'
+  }` 
+
+  return prompt
+}
+
 router.post("/ask", (req, res) => {
-  const prompt = req.body.prompt;
+  console.log(req.body)
+  const prompt = recipePrompt(req.body.prompt);
 
   if (prompt == null) {
     throw new Error("Uh oh, no prompt was provided");
