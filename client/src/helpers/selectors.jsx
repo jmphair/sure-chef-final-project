@@ -5,6 +5,7 @@ export function getRecipesForUsers(state, user_id) {
 }
 
 export function getNewRecipeForUsers(state, user_id) {
+
   const newRecipe = state.recipes.filter((recipe) => recipe.user_id === user_id && recipe.saved !== true);
   return newRecipe;
 }
