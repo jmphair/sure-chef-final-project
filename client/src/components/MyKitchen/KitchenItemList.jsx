@@ -9,7 +9,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCirclePlus } from "@fortawesome/free-solid-svg-icons";
 
 const KitchenItemList = (props) => {
-  const { recipeIngredients, setRecipeIngredients, addIngredient, removeIngredient } = recipeGenerator()
+  const { generateRecipe, addIngredient, removeIngredient } = recipeGenerator()
 
 
   const kitchenItemsSort = (storageLocation) => {
@@ -78,7 +78,7 @@ const KitchenItemList = (props) => {
       {/* hide recipe generator button when add item form is opened */}
       {!props.showForm && (
         <div style={{ marginBottom: "20px", marginTop: "20px" }}>
-          <RecipeGenerator />
+          <RecipeGenerator generateRecipe={generateRecipe} />
         </div>
       )}
 
