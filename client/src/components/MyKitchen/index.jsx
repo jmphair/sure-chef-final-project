@@ -55,6 +55,7 @@ const MyKitchen = (props) => {
         showOnEdit={showOnEdit}
         user={props.user}
         showForm={showForm}
+        showOnAdd={showOnAdd}
       />
     </Container>
   );
