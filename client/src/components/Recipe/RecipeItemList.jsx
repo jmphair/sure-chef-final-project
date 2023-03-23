@@ -54,8 +54,10 @@ const RecipeItemList = (props) => {
         prepTime={recipe.prep_time}
         cookTime={recipe.cook_time}
         note={recipe.note}
+        saved={recipe.saved}
         showOnEdit={showOnEdit}
         onDelete={handleDelete}
+        handleSectionClick={props.handleSectionClick}
       />
     );
   });

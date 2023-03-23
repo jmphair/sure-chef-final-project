@@ -26,10 +26,26 @@ const RecipeItem = (props) => {
       .catch((err) => console.log(err));
   };
 
+  const handleSave = (event) => {
+    event.preventDefault();
+
+    axios
+      .put("/api/recipes/save", {
+        id: props.id,
+        saved: true
+      })
+      .then(() => {
+        props.handleSectionClick("recipe")
+      })
+      .catch((err) => console.log(err));
+  };
+
   /* function to remove the form from view after pressing buttons */
   const handleRevealForm = (event) => {
     setShowForm(!showForm);
   };
+
+  console.log(props.saved)
 
   return (
     <Card className="my-3">
@@ -43,13 +59,13 @@ const RecipeItem = (props) => {
           <Card.Text>Directions: {props.instructions} </Card.Text>
           <Card.Text>Note: {props.note} </Card.Text>
 
-          {props.saved !== undefined ? (
+          {!props.saved ? (
             <>
               <Button variant="primary" onClick={handleRevealForm}>
                 Add Note
               </Button>{" "}
               <Button variant="danger" onClick={handleDelete}>Delete Recipe</Button>{" "}
-              <Button variant="success">Save Recipe</Button>
+              <Button variant="success"onClick={handleSave}>Save Recipe</Button>
             </>
           ) : (
             <>

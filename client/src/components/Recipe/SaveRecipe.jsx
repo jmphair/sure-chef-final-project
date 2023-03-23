@@ -48,6 +48,7 @@ const SaveRecipe = (props) => {
         note={recipe.note}
         saved={recipe.saved}
         showOnEdit={showOnEdit}
+        handleSectionClick={props.handleSectionClick}
       />
     );
   });

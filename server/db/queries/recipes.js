@@ -42,6 +42,15 @@ const updateRecipeNote = (note, id) => {
     .catch(err => console.log(err));
 };
 
+const saveRecipe = (saved, id) => {
+  return db.query('UPDATE recipes SET saved = $1 WHERE id = $2 RETURNING *;', [saved, id])
+    .then(res => {
+      console.log(res.rows)
+      return res.rows[0];
+    })
+    .catch(err => console.log(err));
+};
+
 const removeRecipe = (id) => {
   return db
     .query(
@@ -56,5 +65,5 @@ const removeRecipe = (id) => {
     .catch((error) => console.log(error));
 }
 
-module.exports = { getAllRecipesByUser, updateRecipeSaveState, addRecipe, updateRecipeNote, removeRecipe };
+module.exports = { getAllRecipesByUser, updateRecipeSaveState, addRecipe, updateRecipeNote, removeRecipe, saveRecipe };
 

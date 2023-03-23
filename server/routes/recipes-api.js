@@ -22,6 +22,16 @@ router.put('/update', (req, res) => {
     }) 
 });
 
+router.put('/save', (req, res) => {
+  const recipeId = req.body.id;
+  const saved = req.body.saved;
+
+  recipes.saveRecipe(saved, recipeId)
+    .then((dbRes) => {
+      res.json({ res: dbRes });
+    }) 
+});
+
 router.delete('/delete', (req, res) => {
   const recipeId = req.body.id;
 
@@ -30,5 +40,7 @@ router.delete('/delete', (req, res) => {
       res.json({ res: dbRes });
     }) 
 });
+
+
 
 module.exports = router;

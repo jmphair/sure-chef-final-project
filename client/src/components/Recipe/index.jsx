@@ -9,7 +9,7 @@ const Recipe = (props) => {
 
   return (
     <Container className="my-3">
-      <RecipeItemList user={props.user} showForm={showForm} />
+      <RecipeItemList user={props.user} showForm={showForm} handleSectionClick={props.handleSectionClick}/>
     </Container>
   );
 };
