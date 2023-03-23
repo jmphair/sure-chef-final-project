@@ -55,6 +55,7 @@ const RecipeItem = (props) => {
           <Card.Text>Servings: {props.servings}</Card.Text>
           <Card.Text>Prep time: {props.prepTime}</Card.Text>
           <Card.Text>Cook time: {props.cookTime}</Card.Text>
+          <Card.Text>Total time: {props.totalTime}</Card.Text>
           <Card.Text>Ingredients: {props.ingredients}</Card.Text>
           <Card.Text>Directions: {props.instructions} </Card.Text>
           <Card.Text>Note: {props.note} </Card.Text>
