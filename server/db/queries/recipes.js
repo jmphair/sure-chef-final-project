@@ -33,13 +33,37 @@ const addRecipe = (name, ingredients, instructions, servings, prep_time, cook_ti
     .catch((error) => console.log(error));
 };
 
-const updateRecipeNote = (id, note) => {
-  return db.query('UPDATE recipes SET note = $2 WHERE id = $1 RETURNING *;', [id, note])
+const updateRecipeNote = (note, id) => {
+  return db.query('UPDATE recipes SET note = $1 WHERE id = $2 RETURNING *;', [note, id])
     .then(res => {
+      console.log(res.rows)
       return res.rows[0];
     })
     .catch(err => console.log(err));
 };
 
-module.exports = { getAllRecipesByUser, updateRecipeSaveState, addRecipe, updateRecipeNote };
+const saveRecipe = (saved, id) => {
+  return db.query('UPDATE recipes SET saved = $1 WHERE id = $2 RETURNING *;', [saved, id])
+    .then(res => {
+      console.log(res.rows)
+      return res.rows[0];
+    })
+    .catch(err => console.log(err));
+};
+
+const removeRecipe = (id) => {
+  return db
+    .query(
+      `
+      DELETE FROM recipes WHERE id = $1;
+      `, 
+        [id]
+    )
+    .then(res => {
+      return res.rows[0];
+    })
+    .catch((error) => console.log(error));
+}
+
+module.exports = { getAllRecipesByUser, updateRecipeSaveState, addRecipe, updateRecipeNote, removeRecipe, saveRecipe };
 

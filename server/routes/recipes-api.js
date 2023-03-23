@@ -13,15 +13,34 @@ router.get('/:id', (req, res) => {
 });
 
 router.put('/update', (req, res) => {
-  const userId = req.body.id;
+  const recipeId = req.body.id;
   const recipeNote = req.body.note;
 
-  recipes.getAllRecipesByUser(userId)
-    .then(dbRes => {
-      const id = dbRes.id;
-      recipes.updateRecipeNote(recipeNote);
+  recipes.updateRecipeNote(recipeNote, recipeId)
+    .then((dbRes) => {
       res.json({ res: dbRes });
-    });
+    }) 
 });
+
+router.put('/save', (req, res) => {
+  const recipeId = req.body.id;
+  const saved = req.body.saved;
+
+  recipes.saveRecipe(saved, recipeId)
+    .then((dbRes) => {
+      res.json({ res: dbRes });
+    }) 
+});
+
+router.delete('/delete', (req, res) => {
+  const recipeId = req.body.id;
+
+  recipes.removeRecipe(recipeId)
+    .then((dbRes) => {
+      res.json({ res: dbRes });
+    }) 
+});
+
+
 
 module.exports = router;
