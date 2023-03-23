@@ -17,6 +17,11 @@ const RecipeItemList = (props) => {
     setRecipes(updatedNotes);
   };
 
+  /* function used in KitchenItem component to update the state after an item is deleted  */
+  const handleDelete = (id) => {
+    setRecipes((prev) => prev.filter((recipe) => recipe.id !== id));
+  };
+
   // Get the recipes for a specific user (in this case, user ID 1) using the getRecipesForUsers function
   const userRecipes =
     recipes.length > 0 ? getRecipesForUsers({ recipes }, props.user.id) : [];
@@ -50,6 +55,7 @@ const RecipeItemList = (props) => {
         cookTime={recipe.cook_time}
         note={recipe.note}
         showOnEdit={showOnEdit}
+        onDelete={handleDelete}
       />
     );
   });

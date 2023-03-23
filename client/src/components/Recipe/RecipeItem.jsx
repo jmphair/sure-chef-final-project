@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Card, Button } from "react-bootstrap";
 import useRecipeData from "../../hooks/useRecipeData";
 import RecipeNoteForm from "./RecipeNoteForm";
+import axios from "axios";
 
 //props are coming from RecipeItemList component
 
@@ -9,6 +10,21 @@ const RecipeItem = (props) => {
   const [showForm, setShowForm] = useState(false);
 
   const { recipes } = useRecipeData();
+
+  const handleDelete = (event) => {
+    event.preventDefault();
+    // Handle item removal here
+    axios
+      .delete("/api/recipes/delete", {
+        data: {
+          id: props.id,
+        },
+      })
+      .then(() => {
+        props.onDelete(props.id);
+      })
+      .catch((err) => console.log(err));
+  };
 
   /* function to remove the form from view after pressing buttons */
   const handleRevealForm = (event) => {
@@ -32,7 +48,7 @@ const RecipeItem = (props) => {
               <Button variant="primary" onClick={handleRevealForm}>
                 Add Note
               </Button>{" "}
-              <Button variant="danger">Delete Recipe</Button>{" "}
+              <Button variant="danger" onClick={handleDelete}>Delete Recipe</Button>{" "}
               <Button variant="success">Save Recipe</Button>
             </>
           ) : (
@@ -40,7 +56,7 @@ const RecipeItem = (props) => {
               <Button variant="primary" onClick={handleRevealForm}>
                 Edit Note
               </Button>{" "}
-              <Button variant="danger">Delete Recipe</Button>{" "}
+              <Button variant="danger" onClick={handleDelete}>Delete Recipe</Button>{" "}
               <Button variant="success">Cook</Button>
             </>
           )}
@@ -51,6 +67,7 @@ const RecipeItem = (props) => {
           <RecipeNoteForm
             handleRevealForm={handleRevealForm}
             showOnEdit={props.showOnEdit}
+            onDelete={props.onDelete}
             id={props.id}
             name={props.name}
           />

@@ -22,5 +22,13 @@ router.put('/update', (req, res) => {
     }) 
 });
 
+router.delete('/delete', (req, res) => {
+  const recipeId = req.body.id;
+
+  recipes.removeRecipe(recipeId)
+    .then((dbRes) => {
+      res.json({ res: dbRes });
+    }) 
+});
 
 module.exports = router;

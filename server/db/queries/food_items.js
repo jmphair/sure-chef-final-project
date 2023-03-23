@@ -119,7 +119,7 @@ const removeFoodItem = (id) => {
   return db
     .query(
       `
-      DELETE FROM food_items WHERE id = $1
+      DELETE FROM food_items WHERE id = $1;
       `, 
         [id]
     )
