@@ -77,10 +77,20 @@ const KitchenForm = (props) => {
             </Form.Text>
           )}
         </Form.Group>
-
-        <Button variant="primary" type="submit">
-          Add Item
-        </Button>
+        <div
+          style={{
+            paddingTop: "10px",
+            display: "flex",
+            justifyContent: "space-between",
+          }}
+        >
+          <Button variant="primary" type="submit">
+            Add Item
+          </Button>
+          <Button variant="danger" onClick={props.handleAddItem}>
+            Cancel
+          </Button>
+        </div>
       </Form>
     </Container>
   );

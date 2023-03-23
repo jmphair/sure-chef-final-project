@@ -1,6 +1,7 @@
 import KitchenItem from "./KitchenItem";
 import { Container, CardGroup, Accordion, Button } from "react-bootstrap";
 import RecipeGenerator from "../RecipeGenerator";
+import KitchenForm from "./KitchenForm";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCirclePlus } from "@fortawesome/free-solid-svg-icons";
@@ -37,23 +38,40 @@ const KitchenItemList = (props) => {
       >
         My Kitchen
       </h3>
-      <div style={{ textAlign: "center" }}>
-        <FontAwesomeIcon
-          icon={faCirclePlus}
-          size="3x"
-          style={{ "--fa-secondary-color": "#3d81f5" }}
-          onClick={props.handleAddItem}
-        />
-      </div>
-      <div style={{ textAlign: "center" }}>
-        <Button variant="outline-dark" onClick={props.handleAddItem}>
-          Add New Item
-        </Button>
-      </div>
+      {props.showForm ? (
+        <div className="kitchen-main" style={{ marginBottom: "20px" }}>
+          <KitchenForm
+            user={props.user}
+            showOnAdd={props.showOnAdd}
+            handleAddItem={props.handleAddItem}
+            onClick={props.handleAddItem}
+          />
+        </div>
+      ) : (
+        <div style={{ textAlign: "center" }}>
+          <Button variant="outline-dark" onClick={props.handleAddItem}>
+            Add New Item
+          </Button>
+        </div>
 
-      <div style={{ marginBottom: "20px", marginTop: "20px" }}>
-        <RecipeGenerator />
-      </div>
+        // ADD ICON IF WE WANT INSTEAD OF BUTTON
+
+        // <div style={{ textAlign: "center" }}>
+        //   <FontAwesomeIcon
+        //     icon={faCirclePlus}
+        //     size="3x"
+        //     style={{ "--fa-secondary-color": "#3d81f5" }}
+        //     onClick={props.handleAddItem}
+        //   />
+        // </div>
+      )}
+
+      {/* hide recipe generator button when add item form is opened */}
+      {!props.showForm && (
+        <div style={{ marginBottom: "20px", marginTop: "20px" }}>
+          <RecipeGenerator />
+        </div>
+      )}
 
       <Accordion>
         <Accordion.Item eventKey="0">
