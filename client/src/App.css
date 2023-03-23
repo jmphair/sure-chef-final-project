@@ -40,3 +40,26 @@
 .read-the-docs {
   color: #888;
 } */
+
+.login-button {
+  background-color: #5e72e4;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  width: 300px;
+  margin: 20px;
+  padding: 10px;
+}
+
+.login-button:hover {
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+.landing-hero {
+  margin: 20px;
+}
+
+.landing-div {
+  margin: auto;
+  text-align: center;
+}
