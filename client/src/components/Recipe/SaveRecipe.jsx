@@ -13,7 +13,6 @@ const SaveRecipe = (props) => {
     recipes.length > 0 ? getNewRecipeForUsers({ recipes }, props.user.id) : [];
 
   const recipeList = userRecipes.map((recipe) => {
-    console.log("recipe", recipe);
     let ingredients = "";
     recipe.ingredients.forEach((ingredient) => {
       ingredients += Object.keys(ingredient)[0] + " x ";

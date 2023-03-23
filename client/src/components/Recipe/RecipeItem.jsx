@@ -2,12 +2,11 @@ import { useState } from "react";
 import { Card, Button } from "react-bootstrap";
 import useRecipeData from "../../hooks/useRecipeData";
 import RecipeNoteForm from "./RecipeNoteForm";
+
 //props are coming from RecipeItemList component
 
 const RecipeItem = (props) => {
   const [showForm, setShowForm] = useState(false);
-
-  console.log("WHERE IS THE RecipeItem PROP", props)
 
   const { recipes } = useRecipeData();
 

@@ -5,8 +5,6 @@ import axios from "axios";
 const RecipeNoteForm = (props) => {
   const [note, setNote] = useState("");
 
-  console.log("RECIPE NOTE PROPS IS HERE!!!!", props)
-
   const handleEdit = (event) => {
     event.preventDefault();
       axios
@@ -15,7 +13,6 @@ const RecipeNoteForm = (props) => {
           note: note
         })
         .then((res) => {
-          console.log("what am I getting here?", res)
           props.showOnEdit({
             cook_time: res.data.res.cook_time,
             id: res.data.res.id,

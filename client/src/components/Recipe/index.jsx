@@ -12,13 +12,8 @@ const Recipe = (props) => {
     const updatedNotes = recipes.map((recipe) =>
       recipe.id === updatedNote.id ? updatedNote : recipe
     );
-    console.log("updated note:", updatedNote);
     setRecipes(updatedNotes);
   };
-
-  useEffect(() => {
-    console.log("RECIPE STATE: ", recipes);
-  }, [recipes]);
 
   // /* function used in GroceryItem component to update the state after an item is deleted  */
   // const handleShowDelete = (id) => {
