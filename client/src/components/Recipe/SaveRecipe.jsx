@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Card, Button, Container } from "react-bootstrap";
+import { Container, CardGroup } from "react-bootstrap";
 import { getNewRecipeForUsers } from "../../helpers/selectors";
 import useRecipeData from "../../hooks/useRecipeData";
 import RecipeItem from "./RecipeItem";
@@ -40,17 +40,16 @@ const SaveRecipe = (props) => {
         cookTime={recipe.cook_time}
         note={recipe.note}
         saved={recipe.saved}
+        showOnEdit={props.showOnEdit}
       />
     );
   });
   return (
     <Container>
-      <Card className="my-3">
-        <Card.Body>
-          <Card.Title>Mmmmmmmm... should we save it?</Card.Title>
-          <>{recipeList}</>
-        </Card.Body>
-      </Card>
+      <h3>Mmmmmmmm... should we save it?</h3>
+      <CardGroup>
+        <>{recipeList}</>
+      </CardGroup>
     </Container>
   );
 };

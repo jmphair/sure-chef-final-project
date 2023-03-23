@@ -29,14 +29,14 @@ const RecipeItem = (props) => {
 
         {props.saved !== undefined ? (
           <>
-            <Button variant="primary"  onClick={handleRevealForm}>Add Note</Button>
-            <Button variant="danger" >Delete Recipe</Button>
+            <Button variant="primary"  onClick={handleRevealForm}>Add Note</Button>{' '}
+            <Button variant="danger" >Delete Recipe</Button>{' '}
             <Button variant="success">Save Recipe</Button>
           </>
         ) : (
           <>
-            <Button variant="primary"  onClick={handleRevealForm}>Edit Note</Button>
-            <Button variant="danger">Delete Recipe</Button>
+            <Button variant="primary"  onClick={handleRevealForm}>Edit Note</Button>{' '}
+            <Button variant="danger">Delete Recipe</Button>{' '}
             <Button variant="success">Cook</Button>
           </>
         )}
