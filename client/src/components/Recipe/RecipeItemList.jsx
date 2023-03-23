@@ -35,13 +35,14 @@ const RecipeItemList = (props) => {
     return (
       <RecipeItem
         key={recipe.id}
-        recipe_id={recipe.id}
+        id={recipe.id}
         name={recipe.name}
         instructions={instructions}
         ingredients={ingredients}
         servings={recipe.servings}
         prepTime={recipe.prep_time}
         cookTime={recipe.cook_time}
+        note={recipe.note}
         showOnEdit={props.showOnEdit}
       />
     );

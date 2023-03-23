@@ -48,7 +48,7 @@ const RecipeItem = (props) => {
           <RecipeNoteForm 
           handleRevealForm={handleRevealForm}
           showOnEdit={props.showOnEdit}
-          recipe_id={props.recipe_id}
+          id={props.id}
           />
         </Card.Body>
       )}

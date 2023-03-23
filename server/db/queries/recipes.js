@@ -33,9 +33,10 @@ const addRecipe = (name, ingredients, instructions, servings, prep_time, cook_ti
     .catch((error) => console.log(error));
 };
 
-const updateRecipeNote = (id, note) => {
-  return db.query('UPDATE recipes SET note = $2 WHERE id = $1 RETURNING *;', [id, note])
+const updateRecipeNote = (note, id) => {
+  return db.query('UPDATE recipes SET note = $1 WHERE id = $2 RETURNING *;', [note, id])
     .then(res => {
+      console.log(res.rows)
       return res.rows[0];
     })
     .catch(err => console.log(err));

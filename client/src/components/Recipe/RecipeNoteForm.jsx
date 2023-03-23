@@ -11,11 +11,11 @@ const RecipeNoteForm = (props) => {
     event.preventDefault();
       axios
         .put("/api/recipes/update", {
-          id: props.recipe_id,
+          id: props.id,
           note: note
         })
         .then((res) => {
-          console.log(res)
+          console.log("what am I getting here?", res)
           props.showOnEdit({
             cook_time: res.data.res.cook_time,
             id: res.data.res.id,
