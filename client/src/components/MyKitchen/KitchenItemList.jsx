@@ -1,12 +1,17 @@
+import { useState } from 'react'
 import KitchenItem from "./KitchenItem";
 import { Container, CardGroup, Accordion, Button } from "react-bootstrap";
 import RecipeGenerator from "../RecipeGenerator";
 import KitchenForm from "./KitchenForm";
+import recipeGenerator from "../../hooks/recipeGenerator";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCirclePlus } from "@fortawesome/free-solid-svg-icons";
 
 const KitchenItemList = (props) => {
+  const { recipeIngredients, setRecipeIngredients, addIngredient, removeIngredient } = recipeGenerator()
+
+
   const kitchenItemsSort = (storageLocation) => {
     const kitchenItemList = props.userKitchenItems.map((kitchenItem) => {
       if (storageLocation === kitchenItem.storage_location) {
@@ -19,12 +24,16 @@ const KitchenItemList = (props) => {
             onDelete={props.onDelete}
             showOnEdit={props.showOnEdit}
             user={props.user}
+            addIngredient={addIngredient}
+            removeIngredient={removeIngredient}
           />
         );
       }
     });
     return kitchenItemList;
   };
+
+  //////
 
   return (
     <Container className="my-3">
