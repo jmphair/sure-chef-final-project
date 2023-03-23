@@ -5,15 +5,10 @@ import RecipeItem from "./RecipeItem";
 
 const SaveRecipe = (props) => {
 
-  const {recipes, currentRecipe, setRecipes, setCurrentRecipe} = useRecipeData();
-
-  // const newRecipe = recipes.length > 0
-  //   ? getNewRecipeForUsers({ recipes }, props)
-  //   : [];
+  const {recipes} = useRecipeData();
 
   const userRecipes =
   recipes.length > 0 ? getNewRecipeForUsers({ recipes }, 16) : [];
-
 
   const recipeList = userRecipes.map((recipe) => {
     
@@ -49,11 +44,11 @@ const SaveRecipe = (props) => {
     <Container>
       <Card className="my-3">
         <Card.Body>
-          <>{recipeList}</>
-        <Card.Text>Note: </Card.Text>
-        <Button variant="primary">Add Note</Button>{" "}
-        <Button variant="danger">Delete</Button>{" "}
-        <Button variant="success">Save</Button>
+          <Card.Title>Mmmmmmmm... should we save it?</Card.Title>
+            <>{recipeList}</>
+          <Button variant="primary">Add Note</Button>{" "}
+          <Button variant="danger">Delete</Button>{" "}
+          <Button variant="success">Save</Button>
         </Card.Body>
       </Card>
     </Container>
