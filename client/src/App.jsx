@@ -26,9 +26,9 @@ function RequireAuth({ children }) {
         <Container >  
           <Login />
           <div className="d-grid gap-2">
-            <Button onClick={() => handleSectionClick("signup")} variant="primary" size="lg">
+            <button className="login-button" onClick={() => handleSectionClick("signup")}>
                   Sign up
-            </Button>
+            </button>
           </div>
         </Container>)}
         {activeSection === 'signup' && (
