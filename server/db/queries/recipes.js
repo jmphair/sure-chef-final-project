@@ -30,7 +30,7 @@ const addRecipe = (name, ingredients, instructions, servings, prep_time, cook_ti
     .query(
       `
   INSERT INTO recipes (name, ingredients, instructions, servings, prep_time, cook_time, total_time, saved, user_id)
-  VALUES ($1, $2, ARRAY[$3], $4, $5, $6, $7, $8, $9)
+  VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9)
   RETURNING *;
   `,
       [name, ingredients, instructions, servings, prep_time, cook_time, total_time, saved, user_id]

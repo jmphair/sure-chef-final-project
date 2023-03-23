@@ -9,7 +9,7 @@ const destr = require('destr');
 
 const recipePrompt = (ingredients) => {
   // [{ingredient: 'pizza slice', quantity: 1}, {ingredient: 'mustard', quantity: 1}, {ingredient: 'beer', quantity: 1}]
-  const prompt = `Give me a recipe with only the following ingredients: ${ingredients}, in the following format as a JSON object: {"recipeName":"string", "instructions":"array", "servings":"string", "prep_time":"string", "cook_time":"string", "total_time":"string", "ingredients":[{"ingredient": quantity}]}` 
+  const prompt = `Give me a recipe that includes the following ingredients: ${ingredients}, in the following format as a JSON object and add extra ingredients to the ingredients value: {"name":"string", "instructions":array, "servings":"string", "prep_time":"string", "cook_time":"string", "total_time":"string", "ingredients":[{"ingredient": "quantity as string"}]}`
 
   return prompt
 }
@@ -34,7 +34,9 @@ router.post("/ask", (req, res) => {
     const recipeObj = destr(completion)
     //turns ingredients array into json to store in database
     const ingredients = JSON.stringify(recipeObj.ingredients)
-    recipes.addRecipe(recipeObj.recipeName, ingredients, recipeObj.instructions, recipeObj.servings, recipeObj.prep_time, recipeObj.cook_time, recipeObj.total_time, false, 16)
+    console.log(recipeObj)
+    console.log(recipeObj)
+    recipes.addRecipe(recipeObj.name, ingredients, recipeObj.instructions, recipeObj.servings, recipeObj.prep_time, recipeObj.cook_time, recipeObj.total_time, false, 16)
                     //(name, ingredients, instructions, servings, prep_time, cook_time, total_time, saved, user_id)
 
     return res.status(200).json({

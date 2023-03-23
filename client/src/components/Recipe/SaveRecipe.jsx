@@ -16,18 +16,35 @@ const SaveRecipe = (props) => {
 
 
   const recipeList = userRecipes.map((recipe) => {
+    
+    let ingredients = ""
+    recipe.ingredients.forEach(ingredient => {
+      ingredients += Object.keys(ingredient)[0] + ' x '
+      ingredients += Object.values(ingredient)[0] + ', '
+    })
+
+    ingredients = ingredients.slice(0, -2);
+    
+
+    let instructions = ""
+    recipe.instructions.forEach(instruction => {
+      instructions += instruction + `\n`
+    });
+
+    instructions = instructions.slice(0, -2);
+
     return (
-        <RecipeItem
+      <RecipeItem
         key={recipe.id}
         name={recipe.name}
-        instructions={recipe.instructions}
-        ingredients={recipe.ingredients}
+        instructions={instructions}
+        ingredients={ingredients}
         servings={recipe.servings}
         prepTime={recipe.prep_time}
         cookTime={recipe.cook_time}
       />
-    )
-  })
+    );
+  });
   return (
     <Container>
       <Card className="my-3">

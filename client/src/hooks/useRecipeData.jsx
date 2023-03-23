@@ -6,6 +6,7 @@ export default function useRecipeData() {
   const [currentRecipe, setCurrentRecipe] = useState({
     name: "",
     instructions: "",
+    ingredients: "",
     servings: "",
     prep_time: "",
   });
