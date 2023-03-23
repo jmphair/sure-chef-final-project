@@ -3,7 +3,6 @@ import { Container, Button, Form } from "react-bootstrap";
 import axios from "axios";
 
 const RecipeNoteForm = (props) => {
-  console.log("PROPS IN FORM: ", props);
   const [note, setNote] = useState("");
 
   const handleEdit = (event) => {
@@ -35,10 +34,10 @@ const RecipeNoteForm = (props) => {
     <Container>
       <Form onSubmit={handleEdit}>
         <Form.Group controlId="name">
-          <Form.Label>Recipe Note:</Form.Label>
+          <Form.Label>{props.name}</Form.Label>
           <Form.Control
             type="text"
-            placeholder="Anything to add?"
+            placeholder="Add a note?"
             value={note}
             onChange={(event) => setNote(event.target.value)}
           />

@@ -2,36 +2,14 @@ import { useState, useEffect } from "react";
 import { Container, Button } from "react-bootstrap";
 import RecipeItemList from "./RecipeItemList";
 import useRecipeData from "../../hooks/useRecipeData";
+import { getRecipesForUsers } from "../../helpers/selectors";
 
 const Recipe = (props) => {
   const [showForm, setShowForm] = useState(false);
-  const { recipes, setRecipes } = useRecipeData();
-
-  /* function used in EditForm component to update the state after an item is edited  */
-  const showOnEdit = (updatedNote) => {
-    console.log("Updated Note: ", updatedNote);
-    const updatedNotes = recipes.map((recipe) =>
-      recipe.id === updatedNote.id ? updatedNote : recipe
-    );
-    setRecipes(updatedNotes);
-  };
-
-  useEffect(() => {
-    console.log("Recipes State: ", recipes);
-  }, [recipes]);
-
-  // /* function used in GroceryItem component to update the state after an item is deleted  */
-  // const handleShowDelete = (id) => {
-  //   setGroceryItems((prev) => prev.filter((item) => item.id !== id));
-  // };
 
   return (
     <Container className="my-3">
-      <RecipeItemList
-        user={props.user}
-        showOnEdit={showOnEdit}
-        showForm={showForm}
-      />
+      <RecipeItemList user={props.user} showForm={showForm} />
     </Container>
   );
 };
