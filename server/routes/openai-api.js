@@ -7,15 +7,23 @@ const { Configuration, OpenAIApi } = require("openai");
 const destr = require('destr');
 
 
-const recipePrompt = (ingredients) => {
+const recipePrompt = (ingredients, type) => {
   // [{ingredient: 'pizza slice', quantity: 1}, {ingredient: 'mustard', quantity: 1}, {ingredient: 'beer', quantity: 1}]
-  const prompt = `Give me a recipe that includes the following ingredients: ${ingredients}, in the following format as a JSON object and add extra ingredients to the ingredients value: {"name":"string", "instructions":array, "servings":"string", "prep_time":"string", "cook_time":"string", "total_time":"string", "ingredients":[{"ingredient": "quantity as string"}]}`
+  let prompt = ''
+
+  if (type === 'flexible') {
+    prompt = `Give me a recipe that includes the following ingredients: ${ingredients}, in the following format as a JSON object and add extra ingredients to the ingredients value: {"name":"string", "instructions":array, "servings":"string", "prep_time":"string", "cook_time":"string", "total_time":"string", "ingredients":[{"ingredient": "quantity as string"}]}`
+  }
+  if (type === 'strict') {
+    prompt = `Give me a recipe that includes only the following ingredients: ${ingredients}, in the following format as a JSON objects: {"name":"string", "instructions":array, "servings":"string", "prep_time":"string", "cook_time":"string", "total_time":"string", "ingredients":[{"ingredient": "quantity as string"}]}`
+
+  }
 
   return prompt
 }
 
 router.post("/ask", (req, res) => {
-  const prompt = recipePrompt(req.body.prompt);
+  const prompt = recipePrompt(req.body.prompt, req.body.type);
   console.log('This is the prompt: ', prompt)
 
   if (prompt == null) {

@@ -20,7 +20,6 @@ export default function recipeGenerator() {
 
   const removeIngredient = (item) => {
     const newIngredientList = []
-    console.log('trying to remove')
     recipeIngredients.forEach(ingredient => {
       if (!ingredient.hasOwnProperty(item)) {
         newIngredientList.push(ingredient)
@@ -41,16 +40,14 @@ export default function recipeGenerator() {
     return stringPrompt
   }
 
-  const generateRecipe = () => {
-    console.log('hi')
+  const generateRecipe = (restrictions) => {
     setLoading(true);
     const requestOptions = {
       headers: { "Content-Type": "application/json" },
     };
     const prompt = stringifyIngredients(recipeIngredients)
-    console.log(prompt)
     return axios
-      .post("/api/openai/ask", { prompt, type: 'recipe' }, requestOptions)
+      .post("/api/openai/ask", { prompt, type: restrictions }, requestOptions)
       .then((res) => {
         // if (!res) {
         //   throw new Error("Something went wrong");
