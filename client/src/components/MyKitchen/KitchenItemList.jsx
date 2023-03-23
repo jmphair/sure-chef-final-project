@@ -4,12 +4,17 @@ import { Container, CardGroup, Accordion, Button } from "react-bootstrap";
 import RecipeGenerator from "../RecipeGenerator";
 import KitchenForm from "./KitchenForm";
 import recipeGenerator from "../../hooks/recipeGenerator";
+import RecipeItem from "../Recipe/RecipeItem"
+import { ingredientParser, instructionParser } from '../../helpers/dataParsers'
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCirclePlus } from "@fortawesome/free-solid-svg-icons";
 
 const KitchenItemList = (props) => {
-  const { generateRecipe, addIngredient, removeIngredient } = recipeGenerator()
+  const [show, setShow] = useState(true);
+
+  const handleClose = () => setShow(false);
+  const { generateRecipe, addIngredient, removeIngredient, loading, answer } = recipeGenerator()
 
 
   const kitchenItemsSort = (storageLocation) => {
@@ -32,6 +37,7 @@ const KitchenItemList = (props) => {
     });
     return kitchenItemList;
   };
+  
 
   //////
 
@@ -80,6 +86,30 @@ const KitchenItemList = (props) => {
         <div style={{ marginBottom: "20px", marginTop: "20px" }}>
           <RecipeGenerator generateRecipe={generateRecipe} />
         </div>
+      )}
+      {loading && (
+        <Modal show={true}>
+          <Modal.Header>
+            Cookin' something up!
+          </Modal.Header>
+          <Modal.Body>
+            <LoadingRecipe />
+          </Modal.Body>
+        </Modal>)
+      }
+      {answer && (
+        <Modal show={show} onHide={handleClose}>
+          <Modal.Header closeButton> To save the recipe go to your recipes page </Modal.Header>
+        <RecipeItem
+          key={answer.id}
+          name={answer.name}
+          instructions={instructionParser(answer.instructions)}
+          ingredients={ingredientParser(answer.ingredients)}
+          servings={answer.servings}
+          prepTime={answer.prep_time}
+          cookTime={answer.cook_time}
+      />
+      </ Modal>
       )}
 
       <Accordion>
