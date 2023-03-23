@@ -12,6 +12,9 @@
     "@fortawesome/fontawesome-svg-core": "^6.3.0",
     "@fortawesome/free-solid-svg-icons": "^6.3.0",
     "@fortawesome/react-fontawesome": "^0.2.0",
+    "@react-spring/three": "^9.7.1",
+    "@react-three/drei": "^9.58.2",
+    "@react-three/fiber": "^8.12.0",
     "@userfront/core": "^0.5.5",
     "@userfront/react": "^0.3.2",
     "axios": "^1.3.4",
@@ -20,7 +23,12 @@
     "react-bootstrap": "^2.7.2",
     "react-bootstrap-icons": "^1.10.2",
     "react-dom": "^18.2.0",
-    "react-router-dom": "^6.9.0"
+    "react-router-dom": "^6.9.0",
+    "react-scripts": "^5.0.1",
+    "react-three-fiber": "^6.0.13",
+    "three": "^0.150.1",
+    "three-instanced-uniforms-mesh": "^0.47.0",
+    "troika-three-utils": "^0.47.0"
   },
   "devDependencies": {
     "@types/react": "^18.0.28",
