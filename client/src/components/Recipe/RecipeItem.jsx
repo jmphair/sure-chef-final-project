@@ -20,13 +20,13 @@ const RecipeItem = (props) => {
         {props.saved !== undefined ? (
           <>
             <Button variant="primary">Add Note</Button>
-            <Button variant="danger">Delete</Button>
-            <Button variant="success">Save</Button>
+            <Button variant="danger">Delete Recipe</Button>
+            <Button variant="success">Save Recipe</Button>
           </>
         ) : (
           <>
             <Button variant="primary">Edit Note</Button>
-            <Button variant="danger">Delete</Button>
+            <Button variant="danger">Delete Recipe</Button>
             <Button variant="success">Cook</Button>
           </>
         )}
