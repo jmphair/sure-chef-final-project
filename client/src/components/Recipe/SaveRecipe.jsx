@@ -7,25 +7,24 @@ import RecipeItem from "./RecipeItem";
 const SaveRecipe = (props) => {
   const [showForm, setShowForm] = useState(false);
 
-  const {recipes} = useRecipeData();
+  const { recipes } = useRecipeData();
 
   const userRecipes =
-  recipes.length > 0 ? getNewRecipeForUsers({ recipes }, props.user.id) : [];
+    recipes.length > 0 ? getNewRecipeForUsers({ recipes }, props.user.id) : [];
 
   const recipeList = userRecipes.map((recipe) => {
-    
-    let ingredients = ""
-    recipe.ingredients.forEach(ingredient => {
-      ingredients += Object.keys(ingredient)[0] + ' x '
-      ingredients += Object.values(ingredient)[0] + ', '
-    })
+    console.log("recipe", recipe);
+    let ingredients = "";
+    recipe.ingredients.forEach((ingredient) => {
+      ingredients += Object.keys(ingredient)[0] + " x ";
+      ingredients += Object.values(ingredient)[0] + ", ";
+    });
 
     ingredients = ingredients.slice(0, -2);
-    
 
-    let instructions = ""
-    recipe.instructions.forEach(instruction => {
-      instructions += instruction + `\n`
+    let instructions = "";
+    recipe.instructions.forEach((instruction) => {
+      instructions += instruction + `\n`;
     });
 
     instructions = instructions.slice(0, -2);
@@ -39,6 +38,7 @@ const SaveRecipe = (props) => {
         servings={recipe.servings}
         prepTime={recipe.prep_time}
         cookTime={recipe.cook_time}
+        saved={recipe.saved}
       />
     );
   });
@@ -47,10 +47,7 @@ const SaveRecipe = (props) => {
       <Card className="my-3">
         <Card.Body>
           <Card.Title>Mmmmmmmm... should we save it?</Card.Title>
-            <>{recipeList}</>
-          <Button variant="primary">Add Note</Button>{" "}
-          <Button variant="danger">Delete</Button>{" "}
-          <Button variant="success">Save</Button>
+          <>{recipeList}</>
         </Card.Body>
       </Card>
     </Container>
