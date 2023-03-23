@@ -7,10 +7,10 @@ import GroceryList from "./GroceryList";
 import Recipe from "./Recipe";
 import LoadingRecipe from "./Recipe/LoadingRecipe";
 import SaveRecipe from "./Recipe/SaveRecipe";
+import GoToTop from "./GoToTop";
 import "./Dashboard.css";
 import RobotChef from "./RobotChef";
-import { welcomeMessage } from "../helpers/welcomeMessage"
-
+import { welcomeMessage } from "../helpers/welcomeMessage";
 
 const Dashboard = (props) => {
   const [activeSection, setActiveSection] = useState("dashboard");
@@ -46,14 +46,20 @@ const Dashboard = (props) => {
               </Button>
             </Card>
           </CardGroup>
-          <span style={{cursor: "pointer"}} variant="primary" onClick={handleShow}>🥔</span>
+          <span
+            style={{ cursor: "pointer" }}
+            variant="primary"
+            onClick={handleShow}
+          >
+            🥔
+          </span>
           <Modal show={show} onHide={handleClose}>
             <Modal.Header closeButton>
               <Modal.Title>Oh heyyyyy, ask me anything!</Modal.Title>
             </Modal.Header>
-              <Modal.Body>
-                <RobotChef />
-              </Modal.Body>
+            <Modal.Body>
+              <RobotChef />
+            </Modal.Body>
           </Modal>
         </Container>
       )}
@@ -62,6 +68,7 @@ const Dashboard = (props) => {
       {activeSection === "recipe" && <Recipe user={props.user}/>}
       {activeSection === "saverecipe" && <SaveRecipe user={props.user}/>}
       {activeSection === "loadingrecipe" && <LoadingRecipe />}
+      <GoToTop />
     </main>
   );
 };
