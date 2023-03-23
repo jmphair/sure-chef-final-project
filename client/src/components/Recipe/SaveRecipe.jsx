@@ -6,8 +6,7 @@ import RecipeItem from "./RecipeItem";
 
 const SaveRecipe = (props) => {
   const [showForm, setShowForm] = useState(false);
-
-  const { recipes } = useRecipeData();
+  const { recipes, setRecipes } = useRecipeData();
 
   const userRecipes =
     recipes.length > 0 ? getNewRecipeForUsers({ recipes }, props.user.id) : [];
@@ -28,6 +27,14 @@ const SaveRecipe = (props) => {
 
     instructions = instructions.slice(0, -2);
 
+    const showOnEdit = (updatedNote) => {
+      console.log("Updated Note: ", updatedNote);
+      const updatedNotes = recipes.map((recipe) =>
+        recipe.id === updatedNote.id ? updatedNote : recipe
+      );
+      setRecipes(updatedNotes);
+    };
+
     return (
       <RecipeItem
         key={recipe.id}
@@ -40,7 +47,7 @@ const SaveRecipe = (props) => {
         cookTime={recipe.cook_time}
         note={recipe.note}
         saved={recipe.saved}
-        showOnEdit={props.showOnEdit}
+        showOnEdit={showOnEdit}
       />
     );
   });
