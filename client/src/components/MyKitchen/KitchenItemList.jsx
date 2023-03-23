@@ -1,10 +1,11 @@
 import { useState } from 'react'
 import KitchenItem from "./KitchenItem";
-import { Container, CardGroup, Accordion, Button } from "react-bootstrap";
+import { Container, CardGroup, Accordion, Button, Modal} from "react-bootstrap";
 import RecipeGenerator from "../RecipeGenerator";
 import KitchenForm from "./KitchenForm";
 import recipeGenerator from "../../hooks/recipeGenerator";
 import RecipeItem from "../Recipe/RecipeItem"
+import LoadingRecipe from './LoadingRecipe'
 import { ingredientParser, instructionParser } from '../../helpers/dataParsers'
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
