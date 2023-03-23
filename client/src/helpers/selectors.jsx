@@ -1,11 +1,15 @@
 /* function to get all the recipes that belong to a specific user */
-export function getRecipesForUsers(state, user_id, saved) {
-  const recipes = state.recipes.filter((recipe) => recipe.user_id === user_id && recipe.saved === saved);
+export function getRecipesForUsers(state, user_id) {
+  console.log("getRecipesForUsers")
+  console.log(state.recipes)
+  const recipes = state.recipes.filter((recipe) => recipe.user_id === user_id && recipe.saved === true);
   return recipes;
 }
 
-export function getNewRecipeForUsers(state, user_id, saved) {
-  const newRecipe = state.recipes.filter((recipe) => recipe.user_id === user_id && recipe.saved !== saved);
+export function getNewRecipeForUsers(state, user_id) {
+  console.log("getNewRecipesForUsers")
+  console.log(state.recipes)
+  const newRecipe = state.recipes.filter((recipe) => recipe.user_id === user_id && recipe.saved !== true);
   return newRecipe;
 }
 

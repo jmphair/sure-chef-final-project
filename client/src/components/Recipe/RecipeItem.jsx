@@ -18,10 +18,9 @@ const RecipeItem = (props) => {
         <Card.Text>Directions: {props.instructions} </Card.Text>
         <Card.Text>Note: </Card.Text>
         
-        {recipes.saved === true && <><Button variant="primary">Edit Note</Button>
+        <Button variant="primary">Edit Note</Button>
         <Button variant="danger">Delete</Button>
-        <Button variant="success">Cook</Button></>
-        }
+        <Button variant="success">Cook</Button>
       
       </Card.Body>
     </Card>

@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
+import Userfront from "@userfront/react";
 
 export default function useRecipeData() {
   const [recipes, setRecipes] = useState([]);
@@ -11,9 +12,19 @@ export default function useRecipeData() {
     prep_time: "",
   });
 
+  const options = {
+    headers: {
+      Accept: "*/*",
+      Authorization: `Bearer ${Userfront.tokens.accessToken}`,
+    },
+  };
+
   useEffect(() => {
     axios
-      .get("/api/recipes")
+      .get("https://api.userfront.com/v0/self", options)
+      .then((response) =>
+        axios.get(`/api/recipes/${response.data.userId}`)
+      )
       .then((response) => {
         setRecipes(response.data.recipes);
         setCurrentRecipe(response.data.recipes[0]);

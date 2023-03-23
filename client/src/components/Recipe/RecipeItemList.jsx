@@ -4,13 +4,13 @@ import { Container, CardGroup } from "react-bootstrap";
 import { getRecipesForUsers } from "../../helpers/selectors";
 import useRecipeData from "../../hooks/useRecipeData";
 
-const RecipeItemList = () => {
+const RecipeItemList = (props) => {
   // Use the useRecipeData hook to get the recipes and currentRecipe from state
   const { recipes, currentRecipe } = useRecipeData();
 
   // Get the recipes for a specific user (in this case, user ID 1) using the getRecipesForUsers function
   const userRecipes =
-    recipes.length > 0 ? getRecipesForUsers({ recipes }, 16) : [];
+    recipes.length > 0 ? getRecipesForUsers({ recipes }, props.user.id) : [];
   // Map over the userRecipes array to create a Recipe component for each recipe
   const recipeList = userRecipes.map((recipe) => {
     

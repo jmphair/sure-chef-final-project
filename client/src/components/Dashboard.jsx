@@ -59,8 +59,8 @@ const Dashboard = (props) => {
       )}
       {activeSection === "mykitchen" && <MyKitchen user={props.user} />}
       {activeSection === "groceryList" && <GroceryList user={props.user} />}
-      {activeSection === "recipe" && <Recipe />}
-      {activeSection === "saverecipe" && <SaveRecipe />}
+      {activeSection === "recipe" && <Recipe user={props.user}/>}
+      {activeSection === "saverecipe" && <SaveRecipe user={props.user}/>}
       {activeSection === "loadingrecipe" && <LoadingRecipe />}
     </main>
   );

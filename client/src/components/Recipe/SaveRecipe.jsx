@@ -1,14 +1,16 @@
+import { useState } from "react";
 import { Card, Button, Container } from "react-bootstrap";
 import { getNewRecipeForUsers } from "../../helpers/selectors";
 import useRecipeData from "../../hooks/useRecipeData";
 import RecipeItem from "./RecipeItem";
 
 const SaveRecipe = (props) => {
+  const [showForm, setShowForm] = useState(false);
 
   const {recipes} = useRecipeData();
 
   const userRecipes =
-  recipes.length > 0 ? getNewRecipeForUsers({ recipes }, 16) : [];
+  recipes.length > 0 ? getNewRecipeForUsers({ recipes }, props.user.id) : [];
 
   const recipeList = userRecipes.map((recipe) => {
     
