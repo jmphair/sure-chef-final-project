@@ -21,26 +21,24 @@ function RequireAuth({ children }) {
     // Redirect to the /login page
     return (
       <>
-        <h1>SureChef</h1>
+        <div className='landing-div'> 
+        <h1 className='landing-hero'>SureChef</h1>
         {activeSection === 'login' && (
         <Container >  
           <Login />
-          <div className="d-grid gap-2">
             <button className="login-button" onClick={() => handleSectionClick("signup")}>
                   Sign up
             </button>
-          </div>
         </Container>)}
         {activeSection === 'signup' && (
           <Container>
             <Signup />
-            <div className="d-grid gap-2">
-            <Button onClick={() => handleSectionClick("login")} variant="primary" size="lg">
-                  Login
-            </Button>
-          </div>
+            <button className="login-button" onClick={() => handleSectionClick("login")}>
+                  Log in
+            </button>
           </Container>
         )}
+        </div>
       </>);
   }
 
