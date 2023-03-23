@@ -8,6 +8,8 @@ const RecipeItemList = (props) => {
   // Use the useRecipeData hook to get the recipes and currentRecipe from state
   const { recipes, currentRecipe } = useRecipeData();
 
+  // console.log("recipeItemList", props) working...
+
   // Get the recipes for a specific user (in this case, user ID 1) using the getRecipesForUsers function
   const userRecipes =
     recipes.length > 0 ? getRecipesForUsers({ recipes }, props.user.id) : [];
@@ -33,12 +35,14 @@ const RecipeItemList = (props) => {
     return (
       <RecipeItem
         key={recipe.id}
+        recipe_id={recipe.id}
         name={recipe.name}
         instructions={instructions}
         ingredients={ingredients}
         servings={recipe.servings}
         prepTime={recipe.prep_time}
         cookTime={recipe.cook_time}
+        showOnEdit={props.showOnEdit}
       />
     );
   });
