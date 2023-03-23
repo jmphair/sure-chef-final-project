@@ -5,7 +5,7 @@ import useRecipeData from "../../hooks/useRecipeData";
 
 const Recipe = (props) => {
   const [showForm, setShowForm] = useState(false);
-  const { recipes, currentRecipe, setRecipes, setCurrentRecipe } = useRecipeData();
+  const { recipes, setRecipes } = useRecipeData();
 
   /* function used in EditForm component to update the state after an item is edited  */
   const showOnEdit = (updatedNote) => {

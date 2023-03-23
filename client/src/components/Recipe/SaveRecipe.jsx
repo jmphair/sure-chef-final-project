@@ -32,12 +32,14 @@ const SaveRecipe = (props) => {
     return (
       <RecipeItem
         key={recipe.id}
+        id={recipe.id}
         name={recipe.name}
         instructions={instructions}
         ingredients={ingredients}
         servings={recipe.servings}
         prepTime={recipe.prep_time}
         cookTime={recipe.cook_time}
+        note={recipe.note}
         saved={recipe.saved}
       />
     );

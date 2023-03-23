@@ -26,7 +26,7 @@ const RecipeItem = (props) => {
         <Card.Text>Cook time: {props.cookTime}</Card.Text>
         <Card.Text>Ingredients: {props.ingredients}</Card.Text>
         <Card.Text>Directions: {props.instructions} </Card.Text>
-        <Card.Text>Note: </Card.Text>
+        <Card.Text>Note: {props.note} </Card.Text>
 
         {props.saved !== undefined ? (
           <>
