@@ -10,6 +10,18 @@ const KitchenItem = (props) => {
   const [showForm, setShowForm] = useState(false);
   const [isSelected, setIsSelected] = useState(false);
 
+  const handleCheckboxChange = () => {
+    setIsSelected(!isSelected);
+    if (isSelected === false) {
+      setIsSelected(true);
+      props.addIngredient(props.name, props.quantity)
+    }
+    if (isSelected === true) {
+      setIsSelected(false);
+      props.removeIngredient(props.name)
+    }
+  };
+
   const handleDelete = (event) => {
     event.preventDefault();
     // Handle item removal here
@@ -28,10 +40,6 @@ const KitchenItem = (props) => {
   /* function to remove the form from view after pressing buttons */
   const handleRevealForm = (event) => {
     setShowForm(!showForm);
-  };
-
-  const handleCheckboxChange = () => {
-    setIsSelected(!isSelected);
   };
 
   return (

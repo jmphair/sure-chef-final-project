@@ -16,6 +16,7 @@ const recipePrompt = (ingredients) => {
 
 router.post("/ask", (req, res) => {
   const prompt = recipePrompt(req.body.prompt);
+  console.log('This is the prompt: ', prompt)
 
   if (prompt == null) {
     throw new Error("Uh oh, no prompt was provided");
