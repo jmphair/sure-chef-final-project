@@ -5,7 +5,7 @@ import Navigation from "./Navigation";
 import MyKitchen from "./MyKitchen";
 import GroceryList from "./GroceryList";
 import Recipe from "./Recipe";
-import LoadingRecipe from "./Recipe/LoadingRecipe";
+// import LoadingRecipe from "./Recipe/LoadingRecipe";
 import SaveRecipe from "./Recipe/SaveRecipe";
 import GoToTop from "./GoToTop";
 import "./Dashboard.css";
@@ -67,7 +67,7 @@ const Dashboard = (props) => {
       {activeSection === "groceryList" && <GroceryList user={props.user} />}
       {activeSection === "recipe" && <Recipe user={props.user} handleSectionClick={handleSectionClick}/>}
       {activeSection === "saverecipe" && <SaveRecipe user={props.user} handleSectionClick={handleSectionClick}/>}
-      {activeSection === "loadingrecipe" && <LoadingRecipe />}
+      {/* {activeSection === "loadingrecipe" && <LoadingRecipe />} */}
       <GoToTop />
     </main>
   );
