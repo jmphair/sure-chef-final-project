@@ -39,7 +39,6 @@ function Navigation(props) {
           </Offcanvas.Header>
           <Offcanvas.Body>
             <Nav className="justify-content-end flex-grow-1 pe-3">
-              <CardGroup>
                 <Card>
                   <Button onClick={() => handleClick("mykitchen")} variant="outline-dark">
                     My Kitchen
@@ -70,7 +69,6 @@ function Navigation(props) {
                     TEMP Loading Recipe
                   </Button>
                 </Card>
-              </CardGroup>
               <Logout />
               <LightSwitchButton />
             </Nav>

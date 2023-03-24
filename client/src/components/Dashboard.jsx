@@ -28,7 +28,6 @@ const Dashboard = (props) => {
       <Navigation onClick={handleSectionClick} />
       {activeSection === "dashboard" && (
         <Container className="my-3">
-          <CardGroup>
             {welcomeMessage(props.user.name)}
             <Card>
               <Button onClick={() => handleSectionClick("mykitchen")} variant="outline-dark">
@@ -45,7 +44,6 @@ const Dashboard = (props) => {
                 My Recipes
               </Button>
             </Card>
-          </CardGroup>
           <span
             style={{ cursor: "pointer" }}
             variant="primary"
