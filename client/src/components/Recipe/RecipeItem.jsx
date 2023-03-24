@@ -4,10 +4,7 @@ import useRecipeData from "../../hooks/useRecipeData";
 import RecipeNoteForm from "./RecipeNoteForm";
 import axios from "axios";
 
-//props are coming from RecipeItemList component
-
 const RecipeItem = (props) => {
-  console.log(props);
   const [showForm, setShowForm] = useState(false);
 
   const { recipes } = useRecipeData();

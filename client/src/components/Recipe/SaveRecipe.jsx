@@ -28,7 +28,6 @@ const SaveRecipe = (props) => {
     instructions = instructions.slice(0, -2);
 
     const showOnEdit = (updatedNote) => {
-      console.log("Updated Note: ", updatedNote);
       const updatedNotes = recipes.map((recipe) =>
         recipe.id === updatedNote.id ? updatedNote : recipe
       );
