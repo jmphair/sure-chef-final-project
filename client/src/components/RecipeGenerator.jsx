@@ -34,7 +34,7 @@ function RecipeGenerator(props) {
         />
         {switchText}
       </Form>
-      <Button onClick={() => props.generateRecipe(recipeRestrictions)} variant="outline-dark">
+      <Button onClick={() => props.generateRecipe(recipeRestrictions, props.user.id)} variant="outline-dark">
         Create Recipe
       </Button>
     </Container>
