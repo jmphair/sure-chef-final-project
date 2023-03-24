@@ -37,6 +37,7 @@ router.delete('/delete', (req, res) => {
   foodItems.getByFoodItemId(foodId)
     .then(dbRes => {
       const id = dbRes.id;
+      //
       foodItems.removeFoodItem(id);
       res.json({ res: dbRes });
     });

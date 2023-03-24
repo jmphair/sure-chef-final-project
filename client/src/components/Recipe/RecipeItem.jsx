@@ -45,8 +45,6 @@ const RecipeItem = (props) => {
     setShowForm(!showForm);
   };
 
-  console.log(props.saved)
-
   return (
     <Card className="my-3">
       {!showForm && (
