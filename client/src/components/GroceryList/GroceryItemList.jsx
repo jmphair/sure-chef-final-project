@@ -29,18 +29,9 @@ const GroceryItemList = (props) => {
 
   return (
     <Container className="my-3">
-      <h3
-        className="my-3"
-        style={{
-          textDecoration: "underline",
-          fontWeight: "bold",
-          textAlign: "center",
-        }}
-      >
-        Grocery List
-      </h3>
+      <h3 className="my-3">Grocery List</h3>
       {props.showForm ? (
-        <div className="kitchen-main" style={{ marginBottom: "20px" }}>
+        <div className="kitchen-main">
           <GroceryForm
             userGroceries={props.userGroceries}
             user={props.user}
@@ -49,13 +40,13 @@ const GroceryItemList = (props) => {
           />
         </div>
       ) : (
-        <div style={{ textAlign: "center", marginBottom: "20px" }}>
+        <div>
           <Button variant="outline-dark" onClick={props.handleAddItem}>
             Add New Item
           </Button>
         </div>
       )}
-      <Accordion>
+      <Accordion alwaysOpen flush>
         <Accordion.Item eventKey="0">
           <Accordion.Header>Refrigerator</Accordion.Header>
           <Accordion.Body>{groceryItemsSort("Refrigerator")}</Accordion.Body>
