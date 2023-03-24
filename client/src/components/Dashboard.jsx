@@ -63,7 +63,7 @@ const Dashboard = (props) => {
           </Modal>
         </Container>
       )}
-      {activeSection === "mykitchen" && <MyKitchen user={props.user} />}
+      {activeSection === "mykitchen" && <MyKitchen user={props.user} handleSectionClick={handleSectionClick} />}
       {activeSection === "groceryList" && <GroceryList user={props.user} />}
       {activeSection === "recipe" && <Recipe user={props.user} handleSectionClick={handleSectionClick}/>}
       {activeSection === "saverecipe" && <SaveRecipe user={props.user} handleSectionClick={handleSectionClick}/>}

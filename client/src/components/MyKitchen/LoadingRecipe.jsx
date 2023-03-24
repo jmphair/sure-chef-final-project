@@ -76,7 +76,7 @@ export default function LoadingRecipe() {
           <Card.Body>
             <Card.Title>Sure Chef! Coming right up!</Card.Title>
             <Card.Text> */}
-      <Canvas orthographic camera={{ zoom: 20 }} colorManagement={false}>
+      <Canvas orthographic camera={{ zoom: 20 }}>
         <color attach="background" args={["black"]} />
         <Dots />
       </Canvas>

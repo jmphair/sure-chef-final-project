@@ -14,7 +14,6 @@ export default function recipeGenerator() {
     setRecipeIngredients((prev) => {
       return [...prev, ingredient]
     })
-    console.log(recipeIngredients)
 
   }
 
@@ -26,7 +25,6 @@ export default function recipeGenerator() {
       }
     })
     setRecipeIngredients(newIngredientList)
-    console.log(recipeIngredients)
   }
 
   const stringifyIngredients = (recipeState) => {
@@ -41,6 +39,7 @@ export default function recipeGenerator() {
   }
 
   const generateRecipe = (restrictions) => {
+    setAnswer(false)
     setLoading(true);
     const requestOptions = {
       headers: { "Content-Type": "application/json" },
@@ -52,12 +51,10 @@ export default function recipeGenerator() {
         // if (!res) {
         //   throw new Error("Something went wrong");
         // }
-        
-        console.log(res);
 
         const { message } = res.data;
-        console.log(JSON.parse(message))
-        setAnswer(JSON.parse(message));
+        console.log(message)
+        setAnswer(message);
         setLoading(false);
         return message
       })

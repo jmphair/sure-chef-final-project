@@ -4,8 +4,9 @@ import { Container, CardGroup, Accordion, Button, Modal} from "react-bootstrap";
 import RecipeGenerator from "../RecipeGenerator";
 import KitchenForm from "./KitchenForm";
 import recipeGenerator from "../../hooks/recipeGenerator";
-import RecipeItem from "../Recipe/RecipeItem"
+import SaveRecipe from "../Recipe/SaveRecipe"
 import LoadingRecipe from './LoadingRecipe'
+import useRecipeData from '../../hooks/useGroceryListItemData';
 import { ingredientParser, instructionParser } from '../../helpers/dataParsers'
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -13,10 +14,11 @@ import { faCirclePlus } from "@fortawesome/free-solid-svg-icons";
 
 const KitchenItemList = (props) => {
   const [show, setShow] = useState(true);
-
-  const handleClose = () => setShow(false);
   const { generateRecipe, addIngredient, removeIngredient, loading, answer } = recipeGenerator()
 
+  const handleClose = () => {
+    setShow(false)
+  };
 
   const kitchenItemsSort = (storageLocation) => {
     const kitchenItemList = props.userKitchenItems.map((kitchenItem) => {
@@ -54,6 +56,7 @@ const KitchenItemList = (props) => {
       )}
       {loading && (
         <Modal show={true}>
+        {console.log(show)}
           <Modal.Header>
             Cookin' something up!
           </Modal.Header>
@@ -62,20 +65,7 @@ const KitchenItemList = (props) => {
           </Modal.Body>
         </Modal>)
       }
-      {answer && (
-        <Modal show={show} onHide={handleClose}>
-          <Modal.Header closeButton> To save the recipe go to your recipes page </Modal.Header>
-        <RecipeItem
-          key={answer.id}
-          name={answer.name}
-          instructions={instructionParser(answer.instructions)}
-          ingredients={ingredientParser(answer.ingredients)}
-          servings={answer.servings}
-          prepTime={answer.prep_time}
-          cookTime={answer.cook_time}
-      />
-      </ Modal>
-      )}
+      {answer && props.handleSectionClick("saverecipe")}
 
       {props.showForm ? (
         <div className="kitchen-main">

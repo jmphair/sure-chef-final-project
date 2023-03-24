@@ -17,6 +17,7 @@ const recipePrompt = (ingredients, type) => {
   if (type === 'strict') {
     prompt = `Give me a recipe that includes only the following ingredients: ${ingredients}, in the following format as a JSON objects: {"name":"string", "instructions":array, "servings":"string", "prep_time":"string", "cook_time":"string", "total_time":"string", "ingredients":[{"ingredient": "quantity as string"}]}`
   }
+
   if (type === 'potato') {
     prompt = ingredients;
   }
@@ -26,7 +27,6 @@ const recipePrompt = (ingredients, type) => {
 
 router.post("/ask", (req, res) => {
   const prompt = recipePrompt(req.body.prompt, req.body.type);
-  console.log('This is the prompt: ', prompt)
 
   if (prompt == null) {
     throw new Error("Uh oh, no prompt was provided");
@@ -39,24 +39,25 @@ router.post("/ask", (req, res) => {
     temperature: 0,
   });
 
-  responsePromise.then((response) => {
-    const completion = response.data.choices[0].text;
-    // converts json response into js object
-    const recipeObj = destr(completion)
-    //turns ingredients array into json to store in database
-    const ingredients = JSON.stringify(recipeObj.ingredients)
-    console.log(recipeObj)
-    console.log(recipeObj)
-    recipes.addRecipe(recipeObj.name, ingredients, recipeObj.instructions, recipeObj.servings, recipeObj.prep_time, recipeObj.cook_time, recipeObj.total_time, false, 16)
-                    //(name, ingredients, instructions, servings, prep_time, cook_time, total_time, saved, user_id)
-
-    return res.status(200).json({
-      success: true,
-      message: completion,
-    });
-  }).catch((error) => {
+  responsePromise
+    .then((response) => {
+      const completion = response.data.choices[0].text;
+      // converts json response into js object
+      const recipeObj = destr(completion)
+      //turns ingredients array into json to store in database
+      const ingredients = JSON.stringify(recipeObj.ingredients)
+      console.log(recipeObj)
+      recipes.addRecipe(recipeObj.name, ingredients, recipeObj.instructions, recipeObj.servings, recipeObj.prep_time, recipeObj.cook_time, recipeObj.total_time, false, 16)
+    .then(dbRes => {
+      return res.status(200).json({
+        success: true,
+        message: dbRes
+      })
+    })
+  .catch((error) => {
     console.log(error.message);
   });
+  })
 });
 
 const configuration = new Configuration({
