@@ -66,24 +66,13 @@ function Dots() {
   );
 }
 
-/* ------------------------------------DOTS 6 END------------------------------------------ */
-
 export default function LoadingRecipe() {
   return (
-    <div>
-      {/* <Container>
-        <Card className="my-3">
-          <Card.Body>
-            <Card.Title>Sure Chef! Coming right up!</Card.Title>
-            <Card.Text> */}
+    <>
       <Canvas orthographic camera={{ zoom: 20 }}>
         <color attach="background" args={["black"]} />
         <Dots />
       </Canvas>
-      {/* </Card.Text>
-          </Card.Body>
-        </Card>
-      </Container> */}
-    </div>
+    </>
   );
 }
