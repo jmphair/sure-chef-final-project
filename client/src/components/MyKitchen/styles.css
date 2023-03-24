@@ -1,3 +1,16 @@
+.modal-content {
+  height: calc(100vh - 100px);
+ }
+
+ .header-text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+}
+
+/* ------------------OLD STYLES--------------------------------- */
+
 /* .kitchen-main {
   height: 100%;
   width: 100%;

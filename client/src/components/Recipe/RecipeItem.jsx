@@ -4,7 +4,8 @@ import useRecipeData from "../../hooks/useRecipeData";
 import RecipeNoteForm from "./RecipeNoteForm";
 import axios from "axios";
 
-//props are coming from RecipeItemList component
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPencil, faTrash } from "@fortawesome/free-solid-svg-icons";
 
 const RecipeItem = (props) => {
   const [showForm, setShowForm] = useState(false);
@@ -32,10 +33,10 @@ const RecipeItem = (props) => {
     axios
       .put("/api/recipes/save", {
         id: props.id,
-        saved: true
+        saved: true,
       })
       .then(() => {
-        props.handleSectionClick("recipe")
+        props.handleSectionClick("recipe");
       })
       .catch((err) => console.log(err));
   };
@@ -63,17 +64,29 @@ const RecipeItem = (props) => {
               <Button variant="primary" onClick={handleRevealForm}>
                 Add Note
               </Button>{" "}
-              <Button variant="danger" onClick={handleDelete}>Delete Recipe</Button>{" "}
-              <Button variant="success"onClick={handleSave}>Save Recipe</Button>
+              <Button variant="danger" onClick={handleDelete}>
+                Delete Recipe
+              </Button>{" "}
+              <Button variant="success" onClick={handleSave}>
+                Save Recipe
+              </Button>
             </>
           ) : (
-            <>
-              <Button variant="primary" onClick={handleRevealForm}>
+            <div className="icons">
+              {/* <Button variant="primary" onClick={handleRevealForm}>
                 Edit Note
-              </Button>{" "}
-              <Button variant="danger" onClick={handleDelete}>Delete Recipe</Button>{" "}
-              <Button variant="success">Cook</Button>
-            </>
+              </Button>{" "} */}
+              <FontAwesomeIcon
+                icon={faPencil}
+                onClick={handleRevealForm}
+                style={{ marginRight: "10px" }}
+              />
+              {/* <Button variant="danger" onClick={handleDelete}>
+                Delete Recipe
+              </Button>{" "} */}
+              <FontAwesomeIcon icon={faTrash} onClick={handleDelete} />
+              {/* <Button variant="success">Cook</Button> */}
+            </div>
           )}
         </Card.Body>
       )}

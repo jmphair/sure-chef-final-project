@@ -42,12 +42,14 @@ const RecipeNoteForm = (props) => {
             onChange={(event) => setNote(event.target.value)}
           />
         </Form.Group>
-        <Button variant="primary" type="submit">
-          Confirm
-        </Button>
-        <Button variant="danger" onClick={props.handleRevealForm}>
-          Cancel
-        </Button>
+        <div class="button-container">
+          <Button variant="primary" type="submit">
+            Confirm
+          </Button>
+          <Button variant="danger" onClick={props.handleRevealForm}>
+            Cancel
+          </Button>
+        </div>
       </Form>
     </Container>
   );

@@ -1,63 +1,84 @@
-import { useState } from 'react'
+import { useState } from "react";
 import KitchenItem from "./KitchenItem";
-import { Container, CardGroup, Accordion, Button, Modal} from "react-bootstrap";
+import {
+  Container,
+  CardGroup,
+  Accordion,
+  Button,
+  Modal,
+} from "react-bootstrap";
 import RecipeGenerator from "../RecipeGenerator";
 import KitchenForm from "./KitchenForm";
 import recipeGenerator from "../../hooks/recipeGenerator";
-import SaveRecipe from "../Recipe/SaveRecipe"
-import LoadingRecipe from './LoadingRecipe'
-import useRecipeData from '../../hooks/useGroceryListItemData';
-import { ingredientParser, instructionParser } from '../../helpers/dataParsers'
+import SaveRecipe from "../Recipe/SaveRecipe";
+import LoadingRecipe from "./LoadingRecipe";
+import useRecipeData from "../../hooks/useGroceryListItemData";
+import { ingredientParser, instructionParser } from "../../helpers/dataParsers";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCirclePlus } from "@fortawesome/free-solid-svg-icons";
+import "./styles.css";
 
 const KitchenItemList = (props) => {
   const [show, setShow] = useState(true);
-  const { generateRecipe, addIngredient, removeIngredient, loading, answer } = recipeGenerator()
+  const { generateRecipe, addIngredient, removeIngredient, loading, answer } =
+    recipeGenerator();
 
   const handleClose = () => {
-    setShow(false)
+    setShow(false);
   };
 
   const kitchenItemsSort = (storageLocation) => {
-    const kitchenItemList = props.userKitchenItems.map((kitchenItem) => {
-      if (storageLocation === kitchenItem.storage_location) {
-        return (
-          <KitchenItem
-            key={kitchenItem.id}
-            id={kitchenItem.id}
-            name={kitchenItem.name}
-            quantity={kitchenItem.quantity}
-            onDelete={props.onDelete}
-            showOnEdit={props.showOnEdit}
-            user={props.user}
-            addIngredient={addIngredient}
-            removeIngredient={removeIngredient}
-          />
-        );
-      }
-    });
+    const kitchenItemList = props.userKitchenItems
+      .map((kitchenItem) => {
+        if (storageLocation === kitchenItem.storage_location) {
+          return (
+            <KitchenItem
+              key={kitchenItem.id}
+              id={kitchenItem.id}
+              name={kitchenItem.name}
+              quantity={kitchenItem.quantity}
+              onDelete={props.onDelete}
+              showOnEdit={props.showOnEdit}
+              user={props.user}
+              addIngredient={addIngredient}
+              removeIngredient={removeIngredient}
+            />
+          );
+        }
+      })
+      .reverse();
     return kitchenItemList;
   };
-  
 
   //////
 
   return (
     <Container className="my-3">
-      <h3
-        className="my-3"
-        style={{
-          textDecoration: "underline",
-          fontWeight: "bold",
-          textAlign: "center",
-        }}
-      >
-        My Kitchen
-      </h3>
+      <h3 className="my-3">My Kitchen</h3>
+     
+      {/* hide recipe generator button when add item form is opened */}
+      {!props.showForm && (
+        <div style={{ marginBottom: "20px", marginTop: "20px" }}>
+          <RecipeGenerator generateRecipe={generateRecipe} user={props.user}/>
+        </div>
+      )}
+      {loading && (
+        <Modal show={true} style={{ marginTop: "0px" }}>
+          <div className="header-container">
+            <Modal.Header className="header-text">
+              Cookin' something up!
+            </Modal.Header>
+          </div>
+          <Modal.Body style={{ height: "100vh" }}>
+            <LoadingRecipe />
+          </Modal.Body>
+        </Modal>
+      )}
+      {answer && props.handleSectionClick("saverecipe")}
+
       {props.showForm ? (
-        <div className="kitchen-main" style={{ marginBottom: "20px" }}>
+        <div className="kitchen-main">
           <KitchenForm
             user={props.user}
             showOnAdd={props.showOnAdd}
@@ -66,15 +87,15 @@ const KitchenItemList = (props) => {
           />
         </div>
       ) : (
-        <div style={{ textAlign: "center" }}>
+        <div>
           <Button variant="outline-dark" onClick={props.handleAddItem}>
             Add New Item
           </Button>
         </div>
 
-        // ADD ICON IF WE WANT INSTEAD OF BUTTON
+        // // ADD ICON IF WE WANT INSTEAD OF BUTTON
 
-        // <div style={{ textAlign: "center" }}>
+        // <div>
         //   <FontAwesomeIcon
         //     icon={faCirclePlus}
         //     size="3x"
@@ -84,26 +105,8 @@ const KitchenItemList = (props) => {
         // </div>
       )}
 
-      {/* hide recipe generator button when add item form is opened */}
-      {!props.showForm && (
-        <div style={{ marginBottom: "20px", marginTop: "20px" }}>
-          <RecipeGenerator generateRecipe={generateRecipe} />
-        </div>
-      )}
-      {loading && (
-        <Modal show={true}>
-        {console.log(show)}
-          <Modal.Header>
-            Cookin' something up!
-          </Modal.Header>
-          <Modal.Body>
-            <LoadingRecipe />
-          </Modal.Body>
-        </Modal>)
-      }
-      {answer && props.handleSectionClick("saverecipe")}
 
-      <Accordion>
+      <Accordion alwaysOpen flush>
         <Accordion.Item eventKey="0">
           <Accordion.Header>Refrigerator</Accordion.Header>
           <Accordion.Body>{kitchenItemsSort("Refrigerator")}</Accordion.Body>
