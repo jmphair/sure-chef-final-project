@@ -42,7 +42,7 @@ const RecipeNoteForm = (props) => {
             onChange={(event) => setNote(event.target.value)}
           />
         </Form.Group>
-        <div class="button-container">
+        <div className="button-container">
           <Button variant="primary" type="submit">
             Confirm
           </Button>

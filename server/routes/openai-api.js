@@ -8,21 +8,21 @@ const { Configuration, OpenAIApi } = require("openai");
 const destr = require('destr');
 
 const recipeRandomizer = (id) => {
-  console.log('the id>>>', id)
+  let prompt = '['
   foodItems.getAllKitchenItemsByUserId(id)
     .then(res => {
       const ingredients = res;
-      let prompt = '['
       ingredients.forEach((ingredient) => {
         prompt += `{${ingredient.name}: ${ingredient.quantity}}, `
       })
-
-
-      console.log(ingredients)
+      prompt = prompt.slice(0, -2)
+      console.log('here it is', prompt)
+      return prompt
     })
+
 }
 
-const recipePrompt = (input, type) => {
+const recipePrompt = (input, type, id) => {
   // [{ingredient: 'pizza slice', quantity: 1}, {ingredient: 'mustard', quantity: 1}, {ingredient: 'beer', quantity: 1}]
   let prompt = ''
 
@@ -34,20 +34,21 @@ const recipePrompt = (input, type) => {
   }
 
   if (type === 'random') {
-    //input is the user id
-    const ingredients = recipeRandomizer(input)
-    prompt = `Give me a recipe that includes some of the following ingredients: ${ingredients}, in the following format as a JSON object and add extra ingredients to the ingredients value: {"name":"string", "instructions":array, "servings":"string", "prep_time":"string", "cook_time":"string", "total_time":"string", "ingredients":[{"ingredient": "quantity as string"}]}`
+    const ingredients = recipeRandomizer(id)
+    return `Give me a recipe that includes some of the following ingredients: ${ingredients}, in the following format as a JSON object and add extra ingredients to the ingredients value: {"name":"string", "instructions":array, "servings":"string", "prep_time":"string", "cook_time":"string", "total_time":"string", "ingredients":[{"ingredient": "quantity as string"}]}`
   }
-
   if (type === 'potato') {
     prompt = input;
   }
 
-  return prompt
+
 }
 
 router.post("/ask", (req, res) => {
-  const prompt = recipePrompt(req.body.prompt, req.body.type);
+  const prompt = recipePrompt(req.body.prompt, req.body.type, req.body.userId);
+  console.log('this is the prompt', prompt)
+
+  const userId = req.body.userId
 
   if (prompt == null) {
     throw new Error("Uh oh, no prompt was provided");
@@ -68,7 +69,7 @@ router.post("/ask", (req, res) => {
       //turns ingredients array into json to store in database
       const ingredients = JSON.stringify(recipeObj.ingredients)
       console.log(recipeObj)
-      recipes.addRecipe(recipeObj.name, ingredients, recipeObj.instructions, recipeObj.servings, recipeObj.prep_time, recipeObj.cook_time, recipeObj.total_time, false, 16)
+      recipes.addRecipe(recipeObj.name, ingredients, recipeObj.instructions, recipeObj.servings, recipeObj.prep_time, recipeObj.cook_time, recipeObj.total_time, false, userId)
     .then(dbRes => {
       return res.status(200).json({
         success: true,

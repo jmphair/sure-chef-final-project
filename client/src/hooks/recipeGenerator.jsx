@@ -37,22 +37,22 @@ export default function recipeGenerator() {
     return stringPrompt;
   };
 
-  const generateRecipe = (restrictions) => {
+  const generateRecipe = (restrictions, userId) => {
     setAnswer(false);
     setLoading(true);
     const requestOptions = {
       headers: { "Content-Type": "application/json" },
     };
-    console.log(recipeIngredients)
     const prompt = stringifyIngredients(recipeIngredients);
     return axios
-      .post("/api/openai/ask", { prompt, type: restrictions }, requestOptions)
+      .post("/api/openai/ask", { prompt, type: restrictions, userId: userId }, requestOptions)
       .then((res) => {
         // if (!res) {
         //   throw new Error("Something went wrong");
         // }
 
         const { message } = res.data;
+        console.log(message)
         setAnswer(message);
         setLoading(false);
         return message;
