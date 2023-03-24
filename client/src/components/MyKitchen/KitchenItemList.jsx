@@ -1,46 +1,55 @@
-import { useState } from 'react'
+import { useState } from "react";
 import KitchenItem from "./KitchenItem";
-import { Container, CardGroup, Accordion, Button, Modal} from "react-bootstrap";
+import {
+  Container,
+  CardGroup,
+  Accordion,
+  Button,
+  Modal,
+} from "react-bootstrap";
 import RecipeGenerator from "../RecipeGenerator";
 import KitchenForm from "./KitchenForm";
 import recipeGenerator from "../../hooks/recipeGenerator";
-import SaveRecipe from "../Recipe/SaveRecipe"
-import LoadingRecipe from './LoadingRecipe'
-import useRecipeData from '../../hooks/useGroceryListItemData';
-import { ingredientParser, instructionParser } from '../../helpers/dataParsers'
+import SaveRecipe from "../Recipe/SaveRecipe";
+import LoadingRecipe from "./LoadingRecipe";
+import useRecipeData from "../../hooks/useGroceryListItemData";
+import { ingredientParser, instructionParser } from "../../helpers/dataParsers";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCirclePlus } from "@fortawesome/free-solid-svg-icons";
+import "./styles.css";
 
 const KitchenItemList = (props) => {
   const [show, setShow] = useState(true);
-  const { generateRecipe, addIngredient, removeIngredient, loading, answer } = recipeGenerator()
+  const { generateRecipe, addIngredient, removeIngredient, loading, answer } =
+    recipeGenerator();
 
   const handleClose = () => {
-    setShow(false)
+    setShow(false);
   };
 
   const kitchenItemsSort = (storageLocation) => {
-    const kitchenItemList = props.userKitchenItems.map((kitchenItem) => {
-      if (storageLocation === kitchenItem.storage_location) {
-        return (
-          <KitchenItem
-            key={kitchenItem.id}
-            id={kitchenItem.id}
-            name={kitchenItem.name}
-            quantity={kitchenItem.quantity}
-            onDelete={props.onDelete}
-            showOnEdit={props.showOnEdit}
-            user={props.user}
-            addIngredient={addIngredient}
-            removeIngredient={removeIngredient}
-          />
-        );
-      }
-    });
+    const kitchenItemList = props.userKitchenItems
+      .map((kitchenItem) => {
+        if (storageLocation === kitchenItem.storage_location) {
+          return (
+            <KitchenItem
+              key={kitchenItem.id}
+              id={kitchenItem.id}
+              name={kitchenItem.name}
+              quantity={kitchenItem.quantity}
+              onDelete={props.onDelete}
+              showOnEdit={props.showOnEdit}
+              user={props.user}
+              addIngredient={addIngredient}
+              removeIngredient={removeIngredient}
+            />
+          );
+        }
+      })
+      .reverse();
     return kitchenItemList;
   };
-  
 
   //////
 
@@ -55,16 +64,17 @@ const KitchenItemList = (props) => {
         </div>
       )}
       {loading && (
-        <Modal show={true}>
-        {console.log(show)}
-          <Modal.Header>
-            Cookin' something up!
-          </Modal.Header>
-          <Modal.Body>
+        <Modal show={true} style={{ marginTop: "0px" }}>
+          <div className="header-container">
+            <Modal.Header className="header-text">
+              Cookin' something up!
+            </Modal.Header>
+          </div>
+          <Modal.Body style={{ height: "100vh" }}>
             <LoadingRecipe />
           </Modal.Body>
-        </Modal>)
-      }
+        </Modal>
+      )}
       {answer && props.handleSectionClick("saverecipe")}
 
       {props.showForm ? (

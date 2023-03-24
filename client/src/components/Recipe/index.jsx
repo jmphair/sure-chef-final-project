@@ -4,12 +4,18 @@ import RecipeItemList from "./RecipeItemList";
 import useRecipeData from "../../hooks/useRecipeData";
 import { getRecipesForUsers } from "../../helpers/selectors";
 
+import "./styles.css";
+
 const Recipe = (props) => {
   const [showForm, setShowForm] = useState(false);
 
   return (
     <Container className="my-3">
-      <RecipeItemList user={props.user} showForm={showForm} handleSectionClick={props.handleSectionClick}/>
+      <RecipeItemList
+        user={props.user}
+        showForm={showForm}
+        handleSectionClick={props.handleSectionClick}
+      />
     </Container>
   );
 };

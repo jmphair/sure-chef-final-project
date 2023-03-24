@@ -10,7 +10,6 @@ const RecipeItemList = (props) => {
 
   /* function used in EditForm component to update the state after an item is edited  */
   const showOnEdit = (updatedNote) => {
-    console.log("Updated Note: ", updatedNote);
     const updatedNotes = recipes.map((recipe) =>
       recipe.id === updatedNote.id ? updatedNote : recipe
     );
@@ -65,7 +64,7 @@ const RecipeItemList = (props) => {
 
   return (
     <Container className="my-3">
-      <h3 className="mb-3">Recipe item list:</h3>
+      <h3 className="heading">My Recipes</h3>
       <CardGroup>
         <>{recipeList}</>
       </CardGroup>
