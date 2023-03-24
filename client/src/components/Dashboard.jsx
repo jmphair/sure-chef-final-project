@@ -5,18 +5,15 @@ import Navigation from "./Navigation";
 import MyKitchen from "./MyKitchen";
 import GroceryList from "./GroceryList";
 import Recipe from "./Recipe";
-// import LoadingRecipe from "./Recipe/LoadingRecipe";
 import SaveRecipe from "./Recipe/SaveRecipe";
 import GoToTop from "./GoToTop";
 import "./Dashboard.css";
 import RobotChef from "./RobotChef";
 import { welcomeMessage } from "../helpers/welcomeMessage";
-import { getCounts } from "../helpers/getCounts";
 
 const Dashboard = (props) => {
   const [activeSection, setActiveSection] = useState("dashboard");
   const [show, setShow] = useState(false);
-  const [myKitchenCount, setMyKitchenCount] = useState(0);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -32,7 +29,6 @@ const Dashboard = (props) => {
         <Container className="my-3">
             {welcomeMessage(props.user.name)}
             <Card>
-              {myKitchenCount}
               <Button onClick={() => handleSectionClick("mykitchen")} variant="outline-dark">
                 My Kitchen
               </Button>
@@ -72,11 +68,10 @@ const Dashboard = (props) => {
           </Modal>
         </Container>
       )}
-      {activeSection === "mykitchen" && <MyKitchen user={props.user} handleSectionClick={handleSectionClick} setMyKitchenCount={setMyKitchenCount}/>}
+      {activeSection === "mykitchen" && <MyKitchen user={props.user} handleSectionClick={handleSectionClick}/>}
       {activeSection === "groceryList" && <GroceryList user={props.user} />}
       {activeSection === "recipe" && <Recipe user={props.user} handleSectionClick={handleSectionClick}/>}
       {activeSection === "saverecipe" && <SaveRecipe user={props.user} handleSectionClick={handleSectionClick}/>}
-      {/* {activeSection === "loadingrecipe" && <LoadingRecipe />} */}
       <GoToTop />
     </main>
   );
