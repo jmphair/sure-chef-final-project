@@ -1,42 +1,52 @@
-import {useState} from 'react'
+import { useState } from "react";
 import { Container, Button, Form } from "react-bootstrap";
+import "./RecipeGenerator.css";
 
 function RecipeGenerator(props) {
-  const [switchState, setSwitchState] = useState(false)
-  const [switchText, setSwitchText] = useState('"Only use the ingredients I select below!"')
-  const [recipeRestrictions, setRecipeRestrictions] = useState('strict')
+  const [switchState, setSwitchState] = useState(false);
+  const [switchText, setSwitchText] = useState(
+    "to use only the ingredients you select, in your recipe!"
+  );
+  const [recipeRestrictions, setRecipeRestrictions] = useState("strict");
 
-  const handleChange=(e)=>{
-
+  const handleChange = (e) => {
     if (switchState === false) {
-      setSwitchState(true)
-      setSwitchText('"Tell me what I could add!"')
-      setRecipeRestrictions('flexible')
+      setSwitchState(true);
+      setSwitchText(
+        "to use the ingredients you select, as well as my suggestions!"
+      );
+      setRecipeRestrictions("flexible");
     }
 
     if (switchState === true) {
-      setSwitchState(false)
-      setSwitchText('"Only use the ingredients I select below!"')
-      setRecipeRestrictions('strict')
+      setSwitchState(false);
+      setSwitchText("to use only the ingredients you select, in your recipe!");
+      setRecipeRestrictions("strict");
     }
-  }
-     
+  };
 
   return (
     <Container>
-      <>Ok {props.user.name}, what's the plan?</>
-      <Form>
-        <Form.Check 
+      <Form className="toggle">
+        <Form.Check
           type="switch"
           id="custom-switch"
           defaultChecked={switchState}
           onChange={handleChange}
         />
-        {switchText}
+        {/* {switchText} */}
       </Form>
-      <Button onClick={() => props.generateRecipe(recipeRestrictions, props.user.id)} variant="outline-dark">
-        Create Recipe
-      </Button>
+      <div className="message">
+        Hey {props.user.name}! Use the toggle to decide {switchText}
+      </div>
+      <div className="create-button">
+        <Button
+          onClick={() => props.generateRecipe(recipeRestrictions)}
+          variant="outline-dark"
+        >
+          Create Recipe
+        </Button>
+      </div>
     </Container>
   );
 }

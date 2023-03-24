@@ -64,15 +64,7 @@ const KitchenItem = (props) => {
                 onChange={handleCheckboxChange}
               />
             </div>
-            <div
-              className="icons"
-              // style={{
-              //   position: "absolute",
-              //   bottom: "0",
-              //   right: "0",
-              //   margin: "10px",
-              // }}
-            >
+            <div className="icons">
               <FontAwesomeIcon
                 icon={faPencil}
                 size="sm"
