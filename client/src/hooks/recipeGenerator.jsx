@@ -37,7 +37,7 @@ export default function recipeGenerator() {
     return stringPrompt;
   };
 
-  const generateRecipe = (restrictions) => {
+  const generateRecipe = (restrictions, userId) => {
     setAnswer(false);
     setLoading(true);
     const requestOptions = {
@@ -45,7 +45,7 @@ export default function recipeGenerator() {
     };
     const prompt = stringifyIngredients(recipeIngredients);
     return axios
-      .post("/api/openai/ask", { prompt, type: restrictions }, requestOptions)
+      .post("/api/openai/ask", { prompt, type: restrictions, userId: userId }, requestOptions)
       .then((res) => {
         // if (!res) {
         //   throw new Error("Something went wrong");

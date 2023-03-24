@@ -11,10 +11,12 @@ import GoToTop from "./GoToTop";
 import "./Dashboard.css";
 import RobotChef from "./RobotChef";
 import { welcomeMessage } from "../helpers/welcomeMessage";
+import { getCounts } from "../helpers/getCounts";
 
 const Dashboard = (props) => {
   const [activeSection, setActiveSection] = useState("dashboard");
   const [show, setShow] = useState(false);
+  const [myKitchenCount, setMyKitchenCount] = useState(0);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -30,6 +32,7 @@ const Dashboard = (props) => {
         <Container className="my-3">
             {welcomeMessage(props.user.name)}
             <Card>
+              {myKitchenCount}
               <Button onClick={() => handleSectionClick("mykitchen")} variant="outline-dark">
                 My Kitchen
               </Button>
@@ -44,13 +47,21 @@ const Dashboard = (props) => {
                 My Recipes
               </Button>
             </Card>
-          <span
-            style={{ cursor: "pointer" }}
-            variant="primary"
-            onClick={handleShow}
-          >
-            🥔
-          </span>
+
+          <div className="veg-footer" style={{textAlign: "center" }}>
+            <>🥬🧅🌶🍅</>
+              <span className="potato"
+                style={{ cursor: "pointer" }}
+                variant="primary"
+                onClick={handleShow}
+              >
+                🥔
+              </span>
+            <>🥕🥦🌽🍠</>
+          </div>
+          <div className="veg-footer" style={{textAlign: "center" }}>
+            Special Thanks To Our Instructors At LHL
+          </div>
           <Modal show={show} onHide={handleClose}>
             <Modal.Header closeButton>
               <Modal.Title>Oh heyyyyy, ask me anything!</Modal.Title>
@@ -61,7 +72,7 @@ const Dashboard = (props) => {
           </Modal>
         </Container>
       )}
-      {activeSection === "mykitchen" && <MyKitchen user={props.user} handleSectionClick={handleSectionClick} />}
+      {activeSection === "mykitchen" && <MyKitchen user={props.user} handleSectionClick={handleSectionClick} setMyKitchenCount={setMyKitchenCount}/>}
       {activeSection === "groceryList" && <GroceryList user={props.user} />}
       {activeSection === "recipe" && <Recipe user={props.user} handleSectionClick={handleSectionClick}/>}
       {activeSection === "saverecipe" && <SaveRecipe user={props.user} handleSectionClick={handleSectionClick}/>}

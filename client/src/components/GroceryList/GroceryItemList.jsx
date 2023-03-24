@@ -27,9 +27,13 @@ const GroceryItemList = (props) => {
     return groceryItemList;
   };
 
+  const count = props.userGroceries.length
+  console.log(count)
+
   return (
     <Container className="my-3">
-      <h3 className="my-3">Grocery List</h3>
+      <h3 className="heading">My Grocery List</h3>
+      <h6 className="heading">Total Ingredients: {count}</h6>
       {props.showForm ? (
         <div className="kitchen-main">
           <GroceryForm
