@@ -1,22 +1,29 @@
-import { useState } from 'react'
+import { useState } from "react";
 import KitchenItem from "./KitchenItem";
-import { Container, CardGroup, Accordion, Button, Modal} from "react-bootstrap";
+import {
+  Container,
+  CardGroup,
+  Accordion,
+  Button,
+  Modal,
+} from "react-bootstrap";
 import RecipeGenerator from "../RecipeGenerator";
 import KitchenForm from "./KitchenForm";
 import recipeGenerator from "../../hooks/recipeGenerator";
-import RecipeItem from "../Recipe/RecipeItem"
-import LoadingRecipe from './LoadingRecipe'
-import { ingredientParser, instructionParser } from '../../helpers/dataParsers'
+import RecipeItem from "../Recipe/RecipeItem";
+import LoadingRecipe from "./LoadingRecipe";
+import { ingredientParser, instructionParser } from "../../helpers/dataParsers";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCirclePlus } from "@fortawesome/free-solid-svg-icons";
+import "./styles.css";
 
 const KitchenItemList = (props) => {
   const [show, setShow] = useState(true);
 
   const handleClose = () => setShow(false);
-  const { generateRecipe, addIngredient, removeIngredient, loading, answer } = recipeGenerator()
-
+  const { generateRecipe, addIngredient, removeIngredient, loading, answer } =
+    recipeGenerator();
 
   const kitchenItemsSort = (storageLocation) => {
     const kitchenItemList = props.userKitchenItems.map((kitchenItem) => {
@@ -38,7 +45,6 @@ const KitchenItemList = (props) => {
     });
     return kitchenItemList;
   };
-  
 
   //////
 
@@ -89,28 +95,33 @@ const KitchenItemList = (props) => {
         </div>
       )}
       {loading && (
-        <Modal show={true}>
-          <Modal.Header>
-            Cookin' something up!
-          </Modal.Header>
-          <Modal.Body>
+        <Modal show={true} style={{ marginTop: "0px" }}>
+          <div className="header-container">
+            <Modal.Header className="header-text">
+              Cookin' something up!
+            </Modal.Header>
+          </div>
+          <Modal.Body style={{ height: "100vh" }}>
             <LoadingRecipe />
           </Modal.Body>
-        </Modal>)
-      }
+        </Modal>
+      )}
       {answer && (
         <Modal show={show} onHide={handleClose}>
-          <Modal.Header closeButton> To save the recipe go to your recipes page </Modal.Header>
-        <RecipeItem
-          key={answer.id}
-          name={answer.name}
-          instructions={instructionParser(answer.instructions)}
-          ingredients={ingredientParser(answer.ingredients)}
-          servings={answer.servings}
-          prepTime={answer.prep_time}
-          cookTime={answer.cook_time}
-      />
-      </ Modal>
+          <Modal.Header closeButton>
+            {" "}
+            To save the recipe go to your recipes page{" "}
+          </Modal.Header>
+          <RecipeItem
+            key={answer.id}
+            name={answer.name}
+            instructions={instructionParser(answer.instructions)}
+            ingredients={ingredientParser(answer.ingredients)}
+            servings={answer.servings}
+            prepTime={answer.prep_time}
+            cookTime={answer.cook_time}
+          />
+        </Modal>
       )}
 
       <Accordion>
