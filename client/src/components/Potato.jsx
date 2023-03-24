@@ -14,7 +14,7 @@ function Potato() {
           <InputGroup className="spotlight__wrapper">
             <input
               type="text"
-              // placeholder='Type your question here.          '
+              placeholder='Type your question here.          '
               className="input-group"
               disabled={loading}
               // style={{

@@ -12,9 +12,7 @@ function RecipeGenerator(props) {
   const handleChange = (e) => {
     if (switchState === false) {
       setSwitchState(true);
-      setSwitchText(
-        "to use the ingredients you select, as well as my suggestions!"
-      );
+      setSwitchText("to use the ingredients you select, as well as my suggestions!");
       setRecipeRestrictions("flexible");
     }
 
@@ -41,7 +39,7 @@ function RecipeGenerator(props) {
       </div>
       <div className="create-button">
         <Button
-          onClick={() => props.generateRecipe(recipeRestrictions)}
+          onClick={() => props.generateRecipe(recipeRestrictions, props.user.id)}
           variant="outline-dark"
         >
           Create Recipe
