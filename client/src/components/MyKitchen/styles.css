@@ -2,12 +2,14 @@
   height: calc(100vh - 100px);
  }
 
- /* .modal-header1 {
+ /* .modal-text {
   display: flex;
   justify-content: center;
   align-items: center;
   font-weight: bold;
 } */
+
+/* ------------------beginning of 1--------------------------------- */
 
 .header-container {
   position: absolute;
@@ -46,8 +48,11 @@
     box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
   }
 }
+/* ------------------End of 1--------------------------------- */
 
-/* .modal-header1::before {
+
+
+/* .modal-text::before {
   content: "";
   position: absolute;
   top: -10px;
@@ -58,7 +63,7 @@
   border-radius: 50%;
 } */
 
-/* .modal-header1 {
+/* .modal-text {
   position: absolute;
   top: 50%;
   left: 50%;
