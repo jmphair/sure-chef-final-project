@@ -3,39 +3,39 @@ import { Container, Button, Form } from "react-bootstrap";
 
 function RecipeGenerator(props) {
   const [switchState, setSwitchState] = useState(false)
-  const [switchText, setSwitchText] = useState('Only use your ingredients')
+  const [switchText, setSwitchText] = useState('"Only use the ingredients I select below!"')
   const [recipeRestrictions, setRecipeRestrictions] = useState('strict')
 
   const handleChange=(e)=>{
 
     if (switchState === false) {
       setSwitchState(true)
-      setSwitchText('You can add extra ingredients')
+      setSwitchText('"Tell me what I could add!"')
       setRecipeRestrictions('flexible')
     }
 
     if (switchState === true) {
       setSwitchState(false)
-      setSwitchText('Only use your ingredients')
+      setSwitchText('"Only use the ingredients I select below!"')
       setRecipeRestrictions('strict')
     }
   }
      
 
   return (
-    <Container style={{ textAlign: "center" }}>
+    <Container>
+      <>Ok {props.user.name}, what's the plan?</>
       <Form>
         <Form.Check 
           type="switch"
           id="custom-switch"
-          label="Check this switch"
           defaultChecked={switchState}
           onChange={handleChange}
         />
         {switchText}
       </Form>
-      <Button onClick={() => props.generateRecipe(recipeRestrictions)} variant="success" size="sm">
-        Generate Recipe
+      <Button onClick={() => props.generateRecipe(recipeRestrictions)} variant="outline-dark">
+        Create Recipe
       </Button>
     </Container>
   );

@@ -41,7 +41,7 @@ const RecipeItemList = (props) => {
       instructions += instruction + `\n`;
     });
 
-    instructions = instructions.slice(0, -2);
+    instructions = instructions.slice(0, -1);
 
     return (
       <RecipeItem

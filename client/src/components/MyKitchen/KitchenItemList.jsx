@@ -44,48 +44,12 @@ const KitchenItemList = (props) => {
 
   return (
     <Container className="my-3">
-      <h3
-        className="my-3"
-        style={{
-          textDecoration: "underline",
-          fontWeight: "bold",
-          textAlign: "center",
-        }}
-      >
-        My Kitchen
-      </h3>
-      {props.showForm ? (
-        <div className="kitchen-main" style={{ marginBottom: "20px" }}>
-          <KitchenForm
-            user={props.user}
-            showOnAdd={props.showOnAdd}
-            handleAddItem={props.handleAddItem}
-            onClick={props.handleAddItem}
-          />
-        </div>
-      ) : (
-        <div style={{ textAlign: "center" }}>
-          <Button variant="outline-dark" onClick={props.handleAddItem}>
-            Add New Item
-          </Button>
-        </div>
-
-        // ADD ICON IF WE WANT INSTEAD OF BUTTON
-
-        // <div style={{ textAlign: "center" }}>
-        //   <FontAwesomeIcon
-        //     icon={faCirclePlus}
-        //     size="3x"
-        //     style={{ "--fa-secondary-color": "#3d81f5" }}
-        //     onClick={props.handleAddItem}
-        //   />
-        // </div>
-      )}
-
+      <h3 className="my-3">My Kitchen</h3>
+     
       {/* hide recipe generator button when add item form is opened */}
       {!props.showForm && (
         <div style={{ marginBottom: "20px", marginTop: "20px" }}>
-          <RecipeGenerator generateRecipe={generateRecipe} />
+          <RecipeGenerator generateRecipe={generateRecipe} user={props.user}/>
         </div>
       )}
       {loading && (
@@ -113,7 +77,36 @@ const KitchenItemList = (props) => {
       </ Modal>
       )}
 
-      <Accordion>
+      {props.showForm ? (
+        <div className="kitchen-main">
+          <KitchenForm
+            user={props.user}
+            showOnAdd={props.showOnAdd}
+            handleAddItem={props.handleAddItem}
+            onClick={props.handleAddItem}
+          />
+        </div>
+      ) : (
+        <div>
+          <Button variant="outline-dark" onClick={props.handleAddItem}>
+            Add New Item
+          </Button>
+        </div>
+
+        // // ADD ICON IF WE WANT INSTEAD OF BUTTON
+
+        // <div>
+        //   <FontAwesomeIcon
+        //     icon={faCirclePlus}
+        //     size="3x"
+        //     style={{ "--fa-secondary-color": "#3d81f5" }}
+        //     onClick={props.handleAddItem}
+        //   />
+        // </div>
+      )}
+
+
+      <Accordion alwaysOpen flush>
         <Accordion.Item eventKey="0">
           <Accordion.Header>Refrigerator</Accordion.Header>
           <Accordion.Body>{kitchenItemsSort("Refrigerator")}</Accordion.Body>
