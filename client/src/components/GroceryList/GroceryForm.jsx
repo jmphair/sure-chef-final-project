@@ -2,16 +2,24 @@ import { useState } from "react";
 import { Form, Button } from "react-bootstrap";
 import axios from "axios";
 
+import { validateForm } from "../../helpers/selectors";
+
 const GroceryForm = (props) => {
   const [name, setName] = useState("");
   const [quantity, setQuantity] = useState("");
   const [storageLocation, setStorageLocation] = useState("");
+  const [nameError, setNameError] = useState(false);
+  const [quantityError, setQuantityError] = useState(false);
   const [storageLocationError, setStorageLocationError] = useState(false);
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    if (storageLocation === "") {
-      setStorageLocationError(true);
+
+    const errors = validateForm(name, quantity, storageLocation);
+    if (errors) {
+      setNameError(errors.name);
+      setQuantityError(errors.quantity);
+      setStorageLocationError(errors.storageLocation);
     } else {
       // Handle form submission here
       axios
@@ -46,7 +54,11 @@ const GroceryForm = (props) => {
             value={name}
             onChange={(event) => setName(event.target.value)}
           />
+          {nameError && (
+            <Form.Text className="text-danger">Please enter a name.</Form.Text>
+          )}
         </Form.Group>
+
         <Form.Group>
           <Form.Label>Quantity:</Form.Label>
           <Form.Control
@@ -54,7 +66,13 @@ const GroceryForm = (props) => {
             value={quantity}
             onChange={(event) => setQuantity(event.target.value)}
           />
+          {quantityError && (
+            <Form.Text className="text-danger">
+              Please enter a quantity.
+            </Form.Text>
+          )}
         </Form.Group>
+
         <Form.Group>
           <Form.Label>Storage Location:</Form.Label>
           <Form.Control
