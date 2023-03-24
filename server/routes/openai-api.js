@@ -3,9 +3,24 @@ const router = express.Router();
 require("dotenv").config();
 
 const recipes = require('../db/queries/recipes');
+const foodItems = require('../db/queries/food_items')
 const { Configuration, OpenAIApi } = require("openai");
 const destr = require('destr');
 
+const recipeRandomizer = (id) => {
+  console.log('the id>>>', id)
+  foodItems.getAllKitchenItemsByUserId(id)
+    .then(res => {
+      const ingredients = res;
+      let prompt = '['
+      ingredients.forEach((ingredient) => {
+        prompt += `{${ingredient.name}: ${ingredient.quantity}}, `
+      })
+
+
+      console.log(ingredients)
+    })
+}
 
 const recipePrompt = (input, type) => {
   // [{ingredient: 'pizza slice', quantity: 1}, {ingredient: 'mustard', quantity: 1}, {ingredient: 'beer', quantity: 1}]
@@ -16,6 +31,12 @@ const recipePrompt = (input, type) => {
   }
   if (type === 'strict') {
     prompt = `Give me a recipe that includes only the following ingredients: ${input}, in the following format as a JSON objects: {"name":"string", "instructions":array, "servings":"string", "prep_time":"string", "cook_time":"string", "total_time":"string", "ingredients":[{"ingredient": "quantity as string"}]}`
+  }
+
+  if (type === 'random') {
+    //input is the user id
+    const ingredients = recipeRandomizer(input)
+    prompt = `Give me a recipe that includes some of the following ingredients: ${ingredients}, in the following format as a JSON object and add extra ingredients to the ingredients value: {"name":"string", "instructions":array, "servings":"string", "prep_time":"string", "cook_time":"string", "total_time":"string", "ingredients":[{"ingredient": "quantity as string"}]}`
   }
 
   if (type === 'potato') {

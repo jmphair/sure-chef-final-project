@@ -43,6 +43,7 @@ export default function recipeGenerator() {
     const requestOptions = {
       headers: { "Content-Type": "application/json" },
     };
+    console.log(recipeIngredients)
     const prompt = stringifyIngredients(recipeIngredients);
     return axios
       .post("/api/openai/ask", { prompt, type: restrictions }, requestOptions)
@@ -64,8 +65,10 @@ export default function recipeGenerator() {
   return {
     addIngredient,
     removeIngredient,
+    setRecipeIngredients,
     generateRecipe,
     loading,
     answer,
+    recipeIngredients
   };
 }

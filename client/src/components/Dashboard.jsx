@@ -52,7 +52,7 @@ const Dashboard = (props) => {
           >
             🥔
           </span>
-          <RandomRecipe />
+          <RandomRecipe user={props.user} />
           <Modal show={show} onHide={handleClose}>
             <Modal.Header closeButton>
               <Modal.Title>Oh heyyyyy, ask me anything!</Modal.Title>
