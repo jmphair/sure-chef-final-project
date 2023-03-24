@@ -46,6 +46,9 @@ const MyKitchen = (props) => {
     setKitchenItems(updatedItems);
   };
 
+  const count = userKitchenItems.length
+  props.setMyKitchenCount(count)
+
   return (
     <Container>
       <KitchenItemList

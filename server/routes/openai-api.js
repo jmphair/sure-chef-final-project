@@ -28,6 +28,8 @@ const recipePrompt = (input, type) => {
 router.post("/ask", (req, res) => {
   const prompt = recipePrompt(req.body.prompt, req.body.type);
 
+  const userId = req.body.userId
+
   if (prompt == null) {
     throw new Error("Uh oh, no prompt was provided");
   }
@@ -47,7 +49,7 @@ router.post("/ask", (req, res) => {
       //turns ingredients array into json to store in database
       const ingredients = JSON.stringify(recipeObj.ingredients)
       console.log(recipeObj)
-      recipes.addRecipe(recipeObj.name, ingredients, recipeObj.instructions, recipeObj.servings, recipeObj.prep_time, recipeObj.cook_time, recipeObj.total_time, false, 16)
+      recipes.addRecipe(recipeObj.name, ingredients, recipeObj.instructions, recipeObj.servings, recipeObj.prep_time, recipeObj.cook_time, recipeObj.total_time, false, userId)
     .then(dbRes => {
       return res.status(200).json({
         success: true,
