@@ -36,6 +36,7 @@ const SaveRecipe = (props) => {
 
     const handleDelete = (id) => {
       setRecipes((prev) => prev.filter((recipe) => recipe.id !== id));
+      props.handleSectionClick("recipe");
     };
 
     return (
