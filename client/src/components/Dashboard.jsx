@@ -44,13 +44,21 @@ const Dashboard = (props) => {
                 My Recipes
               </Button>
             </Card>
-          <span
-            style={{ cursor: "pointer" }}
-            variant="primary"
-            onClick={handleShow}
-          >
-            🥔
-          </span>
+
+          <div className="veg-footer" style={{textAlign: "center" }}>
+            <>🥬🧅🌶🍅</>
+              <span className="potato"
+                style={{ cursor: "pointer" }}
+                variant="primary"
+                onClick={handleShow}
+              >
+                🥔
+              </span>
+            <>🥕🥦🌽🍠</>
+          </div>
+          <div className="veg-footer" style={{textAlign: "center" }}>
+            Special Thanks To Our Instructors At LHL
+          </div>
           <Modal show={show} onHide={handleClose}>
             <Modal.Header closeButton>
               <Modal.Title>Oh heyyyyy, ask me anything!</Modal.Title>

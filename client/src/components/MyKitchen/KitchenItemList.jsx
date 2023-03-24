@@ -51,12 +51,16 @@ const KitchenItemList = (props) => {
     return kitchenItemList;
   };
 
+
+  const count = props.userKitchenItems.length
+  console.log(count)
+
   //////
 
   return (
-    <Container className="my-3">
-      <h3 className="my-3">My Kitchen</h3>
-     
+    <Container>
+      <h3 className="heading">My Kitchen</h3>
+      <h6 className="heading">Total Ingredients: {count}</h6>
       {/* hide recipe generator button when add item form is opened */}
       {!props.showForm && (
         <div style={{ marginBottom: "20px", marginTop: "20px" }}>

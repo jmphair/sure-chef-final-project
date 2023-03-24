@@ -62,9 +62,13 @@ const RecipeItemList = (props) => {
     );
   });
 
+  const count = userRecipes.length
+  console.log(count)
+
   return (
     <Container className="my-3">
-      <h3 className="heading">My Recipes</h3>
+      <h3 className="heading">My Cookbook</h3>
+      <h6 className="heading">Total Recipes: {count}</h6>
       <CardGroup>
         <>{recipeList}</>
       </CardGroup>
