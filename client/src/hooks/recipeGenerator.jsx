@@ -3,7 +3,7 @@ import axios from "axios";
 
 export default function recipeGenerator() {
   const [recipeIngredients, setRecipeIngredients] = useState([]);
-  const [answer, setAnswer] = useState(undefined);
+  const [answer, setAnswer] = useState(false);
   const [loading, setLoading] = useState(false);
 
 
@@ -56,8 +56,10 @@ export default function recipeGenerator() {
         console.log(res);
 
         const { message } = res.data;
-        setAnswer(message);
+        console.log(JSON.parse(message))
+        setAnswer(JSON.parse(message));
         setLoading(false);
+        return message
       })
       .catch((err) => {
         console.error(err, "err");
@@ -71,6 +73,8 @@ export default function recipeGenerator() {
   return {
     addIngredient,
     removeIngredient,
-    generateRecipe
+    generateRecipe,
+    loading,
+    answer
   };
 }
