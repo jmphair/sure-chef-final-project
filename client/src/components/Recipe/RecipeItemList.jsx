@@ -64,7 +64,7 @@ const RecipeItemList = (props) => {
 
   return (
     <Container className="my-3">
-      <h3 className="mb-3">Recipe item list:</h3>
+      <h3 className="heading">My Recipes</h3>
       <CardGroup>
         <>{recipeList}</>
       </CardGroup>

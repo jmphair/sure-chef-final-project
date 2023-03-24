@@ -4,6 +4,9 @@ import useRecipeData from "../../hooks/useRecipeData";
 import RecipeNoteForm from "./RecipeNoteForm";
 import axios from "axios";
 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPencil, faTrash } from "@fortawesome/free-solid-svg-icons";
+
 const RecipeItem = (props) => {
   const [showForm, setShowForm] = useState(false);
 
@@ -69,15 +72,21 @@ const RecipeItem = (props) => {
               </Button>
             </>
           ) : (
-            <>
-              <Button variant="primary" onClick={handleRevealForm}>
+            <div className="icons">
+              {/* <Button variant="primary" onClick={handleRevealForm}>
                 Edit Note
-              </Button>{" "}
-              <Button variant="danger" onClick={handleDelete}>
+              </Button>{" "} */}
+              <FontAwesomeIcon
+                icon={faPencil}
+                onClick={handleRevealForm}
+                style={{ marginRight: "10px" }}
+              />
+              {/* <Button variant="danger" onClick={handleDelete}>
                 Delete Recipe
-              </Button>{" "}
-              <Button variant="success">Cook</Button>
-            </>
+              </Button>{" "} */}
+              <FontAwesomeIcon icon={faTrash} onClick={handleDelete} />
+              {/* <Button variant="success">Cook</Button> */}
+            </div>
           )}
         </Card.Body>
       )}

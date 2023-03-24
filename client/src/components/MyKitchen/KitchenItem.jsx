@@ -14,11 +14,11 @@ const KitchenItem = (props) => {
     setIsSelected(!isSelected);
     if (isSelected === false) {
       setIsSelected(true);
-      props.addIngredient(props.name, props.quantity)
+      props.addIngredient(props.name, props.quantity);
     }
     if (isSelected === true) {
       setIsSelected(false);
-      props.removeIngredient(props.name)
+      props.removeIngredient(props.name);
     }
   };
 
@@ -65,12 +65,13 @@ const KitchenItem = (props) => {
               />
             </div>
             <div
-              style={{
-                position: "absolute",
-                bottom: "0",
-                right: "0",
-                margin: "10px",
-              }}
+              className="icons"
+              // style={{
+              //   position: "absolute",
+              //   bottom: "0",
+              //   right: "0",
+              //   margin: "10px",
+              // }}
             >
               <FontAwesomeIcon
                 icon={faPencil}
