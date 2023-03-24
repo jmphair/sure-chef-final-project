@@ -31,17 +31,17 @@ const Dashboard = (props) => {
           <CardGroup>
             {welcomeMessage(props.user.name)}
             <Card>
-              <Button onClick={() => handleSectionClick("mykitchen")}>
+              <Button onClick={() => handleSectionClick("mykitchen")} variant="outline-dark">
                 My Kitchen
               </Button>
             </Card>
             <Card>
-              <Button onClick={() => handleSectionClick("groceryList")}>
+              <Button onClick={() => handleSectionClick("groceryList")} variant="outline-dark">
                 My Grocery List
               </Button>
             </Card>
             <Card>
-              <Button onClick={() => handleSectionClick("recipe")}>
+              <Button onClick={() => handleSectionClick("recipe")} variant="outline-dark">
                 My Recipes
               </Button>
             </Card>

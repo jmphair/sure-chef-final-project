@@ -41,32 +41,32 @@ function Navigation(props) {
             <Nav className="justify-content-end flex-grow-1 pe-3">
               <CardGroup>
                 <Card>
-                  <Button onClick={() => handleClick("mykitchen")}>
+                  <Button onClick={() => handleClick("mykitchen")} variant="outline-dark">
                     My Kitchen
                   </Button>
                 </Card>
                 <Card>
-                  <Button onClick={() => handleClick("groceryList")}>
+                  <Button onClick={() => handleClick("groceryList")} variant="outline-dark">
                     Grocery List
                   </Button>
                 </Card>
                 <Card>
-                  <Button onClick={() => handleClick("recipe")}>
+                  <Button onClick={() => handleClick("recipe")} variant="outline-dark">
                     Recipes
                   </Button>
                 </Card>
                 <Card>
-                  <Button onClick={() => handleClick("dashboard")}>
+                  <Button onClick={() => handleClick("dashboard")} variant="outline-dark">
                     Dashboard
                   </Button>
                 </Card>
                 <Card>
-                  <Button onClick={() => handleClick("saverecipe")}>
+                  <Button onClick={() => handleClick("saverecipe")} variant="outline-dark">
                     TEMP Save Recipe
                   </Button>
                 </Card>
                 <Card>
-                  <Button onClick={() => handleClick("loadingrecipe")}>
+                  <Button onClick={() => handleClick("loadingrecipe")} variant="outline-dark">
                     TEMP Loading Recipe
                   </Button>
                 </Card>
