@@ -32,10 +32,10 @@ const RecipeItem = (props) => {
     axios
       .put("/api/recipes/save", {
         id: props.id,
-        saved: true
+        saved: true,
       })
       .then(() => {
-        props.handleSectionClick("recipe")
+        props.handleSectionClick("recipe");
       })
       .catch((err) => console.log(err));
   };
@@ -44,8 +44,6 @@ const RecipeItem = (props) => {
   const handleRevealForm = (event) => {
     setShowForm(!showForm);
   };
-
-  console.log(props.saved)
 
   return (
     <Card className="my-3">
@@ -65,15 +63,21 @@ const RecipeItem = (props) => {
               <Button variant="primary" onClick={handleRevealForm}>
                 Add Note
               </Button>{" "}
-              <Button variant="danger" onClick={handleDelete}>Delete Recipe</Button>{" "}
-              <Button variant="success"onClick={handleSave}>Save Recipe</Button>
+              <Button variant="danger" onClick={handleDelete}>
+                Delete Recipe
+              </Button>{" "}
+              <Button variant="success" onClick={handleSave}>
+                Save Recipe
+              </Button>
             </>
           ) : (
             <>
               <Button variant="primary" onClick={handleRevealForm}>
                 Edit Note
               </Button>{" "}
-              <Button variant="danger" onClick={handleDelete}>Delete Recipe</Button>{" "}
+              <Button variant="danger" onClick={handleDelete}>
+                Delete Recipe
+              </Button>{" "}
               <Button variant="success">Cook</Button>
             </>
           )}
