@@ -8,7 +8,7 @@ import Recipe from "./Recipe";
 import SaveRecipe from "./Recipe/SaveRecipe";
 import GoToTop from "./GoToTop";
 import "./Dashboard.css";
-import RobotChef from "./RobotChef";
+import Potato from "./Potato";
 import { welcomeMessage } from "../helpers/welcomeMessage";
 
 const Dashboard = (props) => {
@@ -60,10 +60,10 @@ const Dashboard = (props) => {
           </div>
           <Modal show={show} onHide={handleClose}>
             <Modal.Header closeButton>
-              <Modal.Title>Oh heyyyyy, ask me anything!</Modal.Title>
+              <Modal.Title>You have clicked the potato of destiny, what may I reveal to you?</Modal.Title>
             </Modal.Header>
             <Modal.Body>
-              <RobotChef />
+              <Potato />
             </Modal.Body>
           </Modal>
         </Container>
