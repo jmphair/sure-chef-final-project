@@ -5,19 +5,16 @@ import Navigation from "./Navigation";
 import MyKitchen from "./MyKitchen";
 import GroceryList from "./GroceryList";
 import Recipe from "./Recipe";
-// import LoadingRecipe from "./Recipe/LoadingRecipe";
 import SaveRecipe from "./Recipe/SaveRecipe";
 import RandomRecipe from "./RandomRecipe"
 import GoToTop from "./GoToTop";
 import "./Dashboard.css";
-import RobotChef from "./RobotChef";
+import Potato from "./Potato";
 import { welcomeMessage } from "../helpers/welcomeMessage";
-import { getCounts } from "../helpers/getCounts";
 
 const Dashboard = (props) => {
   const [activeSection, setActiveSection] = useState("dashboard");
   const [show, setShow] = useState(false);
-  const [myKitchenCount, setMyKitchenCount] = useState(0);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -37,7 +34,6 @@ const Dashboard = (props) => {
         <Container className="my-3">
             {welcomeMessage(props.user.name)}
             <Card>
-              {myKitchenCount}
               <Button onClick={() => handleSectionClick("mykitchen")} variant="outline-dark">
                 My Kitchen
               </Button>
@@ -74,20 +70,19 @@ const Dashboard = (props) => {
           </div>
           <Modal show={show} onHide={handleClose}>
             <Modal.Header closeButton>
-              <Modal.Title>Oh heyyyyy, ask me anything!</Modal.Title>
+              <Modal.Title>You have clicked the potato of destiny, what may I reveal to you?</Modal.Title>
             </Modal.Header>
             <Modal.Body>
-              <RobotChef />
+              <Potato />
             </Modal.Body>
           </Modal>
         </Container>
       )}
-      {activeSection === "mykitchen" && <MyKitchen user={props.user} handleSectionClick={handleSectionClick} setMyKitchenCount={setMyKitchenCount}/>}
+      {activeSection === "mykitchen" && <MyKitchen user={props.user} handleSectionClick={handleSectionClick}/>}
       {activeSection === "groceryList" && <GroceryList user={props.user} />}
       {activeSection === "recipe" && <Recipe user={props.user} handleSectionClick={handleSectionClick}/>}
       {activeSection === "saverecipe" && <SaveRecipe user={props.user} handleSectionClick={handleSectionClick}/>}
       {activeSection === "random" && <RandomRecipe user={props.user} handleSectionClick={handleSectionClick} />}
-      {/* {activeSection === "loadingrecipe" && <LoadingRecipe />} */}
       <GoToTop />
     </main>
   );

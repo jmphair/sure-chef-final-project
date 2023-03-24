@@ -3,7 +3,7 @@ import useAiPrompt from '../hooks/useAiPrompt';
 // import loadingGif from "../assets/loading.gif";
 // import lens from "../assets/lens.png";
 
-function RobotChef() {
+function Potato() {
 
   const { loading, answer, sendPrompt, updatePrompt } = useAiPrompt();
 
@@ -14,7 +14,7 @@ function RobotChef() {
           <InputGroup className="spotlight__wrapper">
             <input
               type="text"
-              placeholder='Type your question here.          '
+              // placeholder='Type your question here.          '
               className="input-group"
               disabled={loading}
               // style={{
@@ -31,5 +31,17 @@ function RobotChef() {
   );
 }
 
-export default RobotChef;
+export default Potato;
+
+// .spotlight__wrapper {
+//   display: flex;
+//   flex-direction: column;
+//   align-items: center;
+//   justify-content: space-between;
+//   border-radius: 12px;
+//   border: 1px solid #dfe1e5;
+//   margin: auto;
+//   max-width: 600px;
+//   background-color: #fff;
+// }
 
