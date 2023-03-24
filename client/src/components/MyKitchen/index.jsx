@@ -56,6 +56,7 @@ const MyKitchen = (props) => {
         user={props.user}
         showForm={showForm}
         showOnAdd={showOnAdd}
+        handleSectionClick={props.handleSectionClick}
       />
     </Container>
   );

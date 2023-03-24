@@ -38,6 +38,7 @@ export default function recipeGenerator() {
   };
 
   const generateRecipe = (restrictions) => {
+    setAnswer(false);
     setLoading(true);
     const requestOptions = {
       headers: { "Content-Type": "application/json" },
@@ -51,7 +52,7 @@ export default function recipeGenerator() {
         // }
 
         const { message } = res.data;
-        setAnswer(JSON.parse(message));
+        setAnswer(message);
         setLoading(false);
         return message;
       })

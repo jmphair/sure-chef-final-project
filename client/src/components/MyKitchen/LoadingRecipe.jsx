@@ -69,7 +69,7 @@ function Dots() {
 export default function LoadingRecipe() {
   return (
     <>
-      <Canvas orthographic camera={{ zoom: 20 }} colorManagement={false}>
+      <Canvas orthographic camera={{ zoom: 20 }}>
         <color attach="background" args={["black"]} />
         <Dots />
       </Canvas>
