@@ -7,6 +7,7 @@ import GroceryList from "./GroceryList";
 import Recipe from "./Recipe";
 // import LoadingRecipe from "./Recipe/LoadingRecipe";
 import SaveRecipe from "./Recipe/SaveRecipe";
+import RandomRecipe from "./RandomRecipe"
 import GoToTop from "./GoToTop";
 import "./Dashboard.css";
 import RobotChef from "./RobotChef";
@@ -53,6 +54,7 @@ const Dashboard = (props) => {
           >
             🥔
           </span>
+          <RandomRecipe />
           <Modal show={show} onHide={handleClose}>
             <Modal.Header closeButton>
               <Modal.Title>Oh heyyyyy, ask me anything!</Modal.Title>
