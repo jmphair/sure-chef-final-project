@@ -26,23 +26,25 @@ const KitchenItemList = (props) => {
     recipeGenerator();
 
   const kitchenItemsSort = (storageLocation) => {
-    const kitchenItemList = props.userKitchenItems.map((kitchenItem) => {
-      if (storageLocation === kitchenItem.storage_location) {
-        return (
-          <KitchenItem
-            key={kitchenItem.id}
-            id={kitchenItem.id}
-            name={kitchenItem.name}
-            quantity={kitchenItem.quantity}
-            onDelete={props.onDelete}
-            showOnEdit={props.showOnEdit}
-            user={props.user}
-            addIngredient={addIngredient}
-            removeIngredient={removeIngredient}
-          />
-        );
-      }
-    });
+    const kitchenItemList = props.userKitchenItems
+      .map((kitchenItem) => {
+        if (storageLocation === kitchenItem.storage_location) {
+          return (
+            <KitchenItem
+              key={kitchenItem.id}
+              id={kitchenItem.id}
+              name={kitchenItem.name}
+              quantity={kitchenItem.quantity}
+              onDelete={props.onDelete}
+              showOnEdit={props.showOnEdit}
+              user={props.user}
+              addIngredient={addIngredient}
+              removeIngredient={removeIngredient}
+            />
+          );
+        }
+      })
+      .reverse();
     return kitchenItemList;
   };
 
