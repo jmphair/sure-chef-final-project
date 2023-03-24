@@ -53,6 +53,7 @@ const RecipeItemList = (props) => {
         servings={recipe.servings}
         prepTime={recipe.prep_time}
         cookTime={recipe.cook_time}
+        totalTime={recipe.total_time}
         note={recipe.note}
         saved={recipe.saved}
         showOnEdit={showOnEdit}
