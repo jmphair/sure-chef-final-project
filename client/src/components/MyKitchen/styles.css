@@ -2,11 +2,59 @@
   height: calc(100vh - 100px);
  }
 
- .header-text {
+ /* ------------------KitchenItemList--------------------------------- */
+
+
+ .heading {
   display: flex;
   justify-content: center;
   align-items: center;
   font-weight: bold;
+}
+
+.add-button {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+.container {
+  background-color: #f7f7f7;
+  padding: 20px;
+}
+
+.accordion-item {
+  border: none;
+}
+
+.accordion-header {
+  background-color: #fff;
+  color: #333;
+  border: none;
+  border-bottom: 1px solid #ccc;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.accordion-body {
+  padding: 20px;
+  border: none;
+  border-bottom: 1px solid #ccc;
+}
+
+.btn-outline-dark {
+  background-color: transparent;
+  border-color: #343a40;
+  color: #343a40;
+  padding: 10px 20px;
+  border-radius: 25px;
+  transition: all 0.3s ease;
+}
+
+/* ------------------KitchenItem--------------------------------- */
+
+.icons {
+  cursor: pointer;
 }
 
 /* ------------------OLD STYLES--------------------------------- */

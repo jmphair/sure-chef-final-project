@@ -15,8 +15,6 @@ import LoadingRecipe from "./LoadingRecipe";
 import useRecipeData from "../../hooks/useGroceryListItemData";
 import { ingredientParser, instructionParser } from "../../helpers/dataParsers";
 
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCirclePlus } from "@fortawesome/free-solid-svg-icons";
 import "./styles.css";
 
 const KitchenItemList = (props) => {
@@ -51,11 +49,7 @@ const KitchenItemList = (props) => {
     return kitchenItemList;
   };
 
-
-  const count = props.userKitchenItems.length
-  console.log(count)
-
-  //////
+  const count = props.userKitchenItems.length;
 
   return (
     <Container>
@@ -64,7 +58,7 @@ const KitchenItemList = (props) => {
       {/* hide recipe generator button when add item form is opened */}
       {!props.showForm && (
         <div style={{ marginBottom: "20px", marginTop: "20px" }}>
-          <RecipeGenerator generateRecipe={generateRecipe} user={props.user}/>
+          <RecipeGenerator generateRecipe={generateRecipe} user={props.user} />
         </div>
       )}
       {loading && (
@@ -91,24 +85,12 @@ const KitchenItemList = (props) => {
           />
         </div>
       ) : (
-        <div>
+        <div className="add-button">
           <Button variant="outline-dark" onClick={props.handleAddItem}>
             Add New Item
           </Button>
         </div>
-
-        // // ADD ICON IF WE WANT INSTEAD OF BUTTON
-
-        // <div>
-        //   <FontAwesomeIcon
-        //     icon={faCirclePlus}
-        //     size="3x"
-        //     style={{ "--fa-secondary-color": "#3d81f5" }}
-        //     onClick={props.handleAddItem}
-        //   />
-        // </div>
       )}
-
 
       <Accordion alwaysOpen flush>
         <Accordion.Item eventKey="0">
