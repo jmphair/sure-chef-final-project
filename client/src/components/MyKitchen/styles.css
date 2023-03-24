@@ -2,11 +2,20 @@
   height: calc(100vh - 100px);
  }
 
- .header-text {
+ /* ------------------KitchenItemList--------------------------------- */
+
+
+ .heading {
   display: flex;
   justify-content: center;
   align-items: center;
   font-weight: bold;
+}
+
+.add-button {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
 }
 
 /* ------------------OLD STYLES--------------------------------- */

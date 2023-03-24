@@ -55,12 +55,12 @@ const KitchenItemList = (props) => {
 
   return (
     <Container className="my-3">
-      <h3 className="my-3">My Kitchen</h3>
-     
+      <h3 className="heading">My Kitchen</h3>
+
       {/* hide recipe generator button when add item form is opened */}
       {!props.showForm && (
         <div style={{ marginBottom: "20px", marginTop: "20px" }}>
-          <RecipeGenerator generateRecipe={generateRecipe} user={props.user}/>
+          <RecipeGenerator generateRecipe={generateRecipe} user={props.user} />
         </div>
       )}
       {loading && (
@@ -87,7 +87,7 @@ const KitchenItemList = (props) => {
           />
         </div>
       ) : (
-        <div>
+        <div className="add-button">
           <Button variant="outline-dark" onClick={props.handleAddItem}>
             Add New Item
           </Button>
@@ -104,7 +104,6 @@ const KitchenItemList = (props) => {
         //   />
         // </div>
       )}
-
 
       <Accordion alwaysOpen flush>
         <Accordion.Item eventKey="0">
