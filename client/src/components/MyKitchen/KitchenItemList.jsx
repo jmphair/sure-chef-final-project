@@ -15,8 +15,6 @@ import LoadingRecipe from "./LoadingRecipe";
 import useRecipeData from "../../hooks/useGroceryListItemData";
 import { ingredientParser, instructionParser } from "../../helpers/dataParsers";
 
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCirclePlus } from "@fortawesome/free-solid-svg-icons";
 import "./styles.css";
 
 const KitchenItemList = (props) => {
@@ -52,9 +50,6 @@ const KitchenItemList = (props) => {
   };
 
   const count = props.userKitchenItems.length;
-  console.log(count);
-
-  //////
 
   return (
     <Container>
@@ -95,17 +90,6 @@ const KitchenItemList = (props) => {
             Add New Item
           </Button>
         </div>
-
-        // // ADD ICON IF WE WANT INSTEAD OF BUTTON
-
-        // <div>
-        //   <FontAwesomeIcon
-        //     icon={faCirclePlus}
-        //     size="3x"
-        //     style={{ "--fa-secondary-color": "#3d81f5" }}
-        //     onClick={props.handleAddItem}
-        //   />
-        // </div>
       )}
 
       <Accordion alwaysOpen flush>

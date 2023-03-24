@@ -5,29 +5,28 @@ import "./RecipeGenerator.css";
 function RecipeGenerator(props) {
   const [switchState, setSwitchState] = useState(false);
   const [switchText, setSwitchText] = useState(
-    '"Only use the ingredients I select below!"'
+    "to use only the ingredients you select, in your recipe!"
   );
   const [recipeRestrictions, setRecipeRestrictions] = useState("strict");
 
   const handleChange = (e) => {
     if (switchState === false) {
       setSwitchState(true);
-      setSwitchText('"Tell me what I could add!"');
+      setSwitchText(
+        "to use the ingredients you select, as well as my suggestions!"
+      );
       setRecipeRestrictions("flexible");
     }
 
     if (switchState === true) {
       setSwitchState(false);
-      setSwitchText('"Only use the ingredients I select below!"');
+      setSwitchText("to use only the ingredients you select, in your recipe!");
       setRecipeRestrictions("strict");
     }
   };
 
   return (
     <Container>
-      <div className="message">
-        Ok {props.user.name}, toggle the button below to get started!
-      </div>
       <Form className="toggle">
         <Form.Check
           type="switch"
@@ -35,8 +34,11 @@ function RecipeGenerator(props) {
           defaultChecked={switchState}
           onChange={handleChange}
         />
-        {switchText}
+        {/* {switchText} */}
       </Form>
+      <div className="message">
+        Hey {props.user.name}! Use the toggle to decide {switchText}
+      </div>
       <div className="create-button">
         <Button
           onClick={() => props.generateRecipe(recipeRestrictions)}

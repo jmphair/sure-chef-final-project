@@ -3,6 +3,10 @@
   justify-content: center;
   margin-top: 15px;
 }
+.message {
+  text-align: center;
+
+}
 
 .toggle {
   text-align: center;
