@@ -35,6 +35,10 @@ const SaveRecipe = (props) => {
       setRecipes(updatedNotes);
     };
 
+    const handleDelete = (id) => {
+      setRecipes((prev) => prev.filter((recipe) => recipe.id !== id));
+    };
+
     return (
       <RecipeItem
         key={recipe.id}
@@ -50,6 +54,7 @@ const SaveRecipe = (props) => {
         saved={recipe.saved}
         showOnEdit={showOnEdit}
         handleSectionClick={props.handleSectionClick}
+        onDelete={handleDelete}
       />
     );
   });
