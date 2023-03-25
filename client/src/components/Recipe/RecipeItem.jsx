@@ -47,61 +47,63 @@ const RecipeItem = (props) => {
   };
 
   return (
-    <Card className="my-3">
-      {!showForm && (
-        <Card.Body>
-          <Card.Title>{props.name}</Card.Title>
-          <Card.Text>Servings: {props.servings}</Card.Text>
-          <Card.Text>Prep time: {props.prepTime}</Card.Text>
-          <Card.Text>Cook time: {props.cookTime}</Card.Text>
-          <Card.Text>Total time: {props.totalTime}</Card.Text>
-          <Card.Text>Ingredients: {props.ingredients}</Card.Text>
-          <Card.Text>Directions: {props.instructions} </Card.Text>
-          <Card.Text>Note: {props.note} </Card.Text>
+    <div className="card-container">
+      <Card className="my-3">
+        {!showForm && (
+          <Card.Body>
+            <Card.Title>{props.name}</Card.Title>
+            <Card.Text>Servings: {props.servings}</Card.Text>
+            <Card.Text>Prep time: {props.prepTime}</Card.Text>
+            <Card.Text>Cook time: {props.cookTime}</Card.Text>
+            <Card.Text>Total time: {props.totalTime}</Card.Text>
+            <Card.Text>Ingredients: {props.ingredients}</Card.Text>
+            <Card.Text>Directions: {props.instructions} </Card.Text>
+            <Card.Text>Note: {props.note} </Card.Text>
 
-          {!props.saved ? (
-            <>
-              <Button variant="primary" onClick={handleRevealForm}>
-                Add Note
-              </Button>{" "}
-              <Button variant="danger" onClick={handleDelete}>
-                Delete Recipe
-              </Button>{" "}
-              <Button variant="success" onClick={handleSave}>
-                Save Recipe
-              </Button>
-            </>
-          ) : (
-            <div className="icons">
-              {/* <Button variant="primary" onClick={handleRevealForm}>
+            {!props.saved ? (
+              <>
+                <Button variant="primary" onClick={handleRevealForm}>
+                  Add Note
+                </Button>{" "}
+                <Button variant="danger" onClick={handleDelete}>
+                  Delete Recipe
+                </Button>{" "}
+                <Button variant="success" onClick={handleSave}>
+                  Save Recipe
+                </Button>
+              </>
+            ) : (
+              <div className="icons">
+                {/* <Button variant="primary" onClick={handleRevealForm}>
                 Edit Note
               </Button>{" "} */}
-              <FontAwesomeIcon
-                icon={faPencil}
-                onClick={handleRevealForm}
-                style={{ marginRight: "10px" }}
-              />
-              {/* <Button variant="danger" onClick={handleDelete}>
+                <FontAwesomeIcon
+                  icon={faPencil}
+                  onClick={handleRevealForm}
+                  style={{ marginRight: "10px" }}
+                />
+                {/* <Button variant="danger" onClick={handleDelete}>
                 Delete Recipe
               </Button>{" "} */}
-              <FontAwesomeIcon icon={faTrash} onClick={handleDelete} />
-              {/* <Button variant="success">Cook</Button> */}
-            </div>
-          )}
-        </Card.Body>
-      )}
-      {showForm && (
-        <Card.Body>
-          <RecipeNoteForm
-            handleRevealForm={handleRevealForm}
-            showOnEdit={props.showOnEdit}
-            onDelete={props.onDelete}
-            id={props.id}
-            name={props.name}
-          />
-        </Card.Body>
-      )}
-    </Card>
+                <FontAwesomeIcon icon={faTrash} onClick={handleDelete} />
+                {/* <Button variant="success">Cook</Button> */}
+              </div>
+            )}
+          </Card.Body>
+        )}
+        {showForm && (
+          <Card.Body>
+            <RecipeNoteForm
+              handleRevealForm={handleRevealForm}
+              showOnEdit={props.showOnEdit}
+              onDelete={props.onDelete}
+              id={props.id}
+              name={props.name}
+            />
+          </Card.Body>
+        )}
+      </Card>
+    </div>
   );
 };
 
