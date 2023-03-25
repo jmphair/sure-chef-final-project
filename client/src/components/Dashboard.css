@@ -1,3 +1,30 @@
+/* Styling for the main container */
+main {
+  min-height: 100vh;
+}
+
+/* Styling for the potato emoji */
+.potato {
+  font-size: 1.5rem;
+  margin: 0 5px;
+}
+
+.veg-footer2 {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  padding: 10px;
+  text-align: center;
+}
+.veg-footer1 {
+  position: fixed;
+  left: 0;
+  bottom:17px;
+  width: 100%;
+  padding: 10px;
+  text-align: center;
+}
 /* main {
   height: 100%;
   width: 100%;

@@ -1,3 +1,10 @@
+.add-button {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 15px;
+  border-radius: 20px;
+ }
+
 /* .grocery-main {
   height: 100%;
   width: 100%;

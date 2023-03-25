@@ -2,9 +2,17 @@
   display: flex;
   justify-content: center;
   margin-top: 15px;
+  border-radius: 20px
+
 }
 .message {
   text-align: center;
+}
+
+.create-recipe {
+  border-radius: 20px;
+  background-color: black;
+  color: white;
 
 }
 
