@@ -24,7 +24,7 @@ const Dashboard = (props) => {
 
   return (
     <main>
-      <Navigation onClick={handleSectionClick} />
+      <Navigation user={props.user} onClick={handleSectionClick} />
       {activeSection === "dashboard" && (
         <Container className="my-3">
           {welcomeMessage(props.user.name)}

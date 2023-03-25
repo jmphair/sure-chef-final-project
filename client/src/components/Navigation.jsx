@@ -11,9 +11,12 @@ import {
 import Logout from "./Logout";
 import LightSwitchButton from "./LightSwitchButton.jsx"
 import './Navigation.css'
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCloudMoon } from "@fortawesome/free-solid-svg-icons";
+
 
 function Navigation(props) {
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(true);
 
   const handleClick = (link) => {
     setOpen(false);
@@ -39,9 +42,12 @@ function Navigation(props) {
             </Offcanvas.Title>
           </Offcanvas.Header>
           <Offcanvas.Body>
-            <Nav className="justify-content-end flex-grow-1 pe-3">
+            <Nav className="justify-content-end">
+              <div className='dark-mode'>
+                <FontAwesomeIcon icon={faCloudMoon} />
                 <LightSwitchButton />
-              <Container>
+              </div>
+              <section className ='button-list'>
                   <Button className='nav-button' onClick={() => handleClick("mykitchen")} variant="outline-dark">
                     My Kitchen
                   </Button>
@@ -54,18 +60,21 @@ function Navigation(props) {
                   <Button className='nav-button' onClick={() => handleClick("dashboard")} variant="outline-dark">
                     Dashboard
                   </Button>
-                  <Button className='nav-button' onClick={() => handleClick("saverecipe")} variant="outline-dark">
+                  {/* <Button className='nav-button' onClick={() => handleClick("saverecipe")} variant="outline-dark">
                     TEMP Save Recipe
                   </Button>
                   <Button className='nav-button' onClick={() => handleClick("loadingrecipe")} variant="outline-dark">
                     TEMP Loading Recipe
-                  </Button>
-                </Container>
-              <Container>
-              <Logout />
-              </Container>
+                  </Button> */}
+                </section>
             </Nav>
           </Offcanvas.Body>
+            <div className='logout-container'>
+             <div className='nav-user'>
+              Logged in as <strong>{props.user.name}</strong>
+            </div>
+            <Logout />
+          </div>
         </Navbar.Offcanvas>
       </Container>
     </Navbar>
