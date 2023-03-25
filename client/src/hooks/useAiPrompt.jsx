@@ -24,7 +24,7 @@ export default function useAiPrompt() {
     };
   
     return axios
-      .post("/api/openai/potato", { prompt, type: 'potato' }, requestOptions)
+      .post("/api/ilove/potato", { prompt }, requestOptions)
       .then((res) => {
         // if (!res) {
         //   throw new Error("Something went wrong");

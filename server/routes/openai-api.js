@@ -17,10 +17,6 @@ const recipePrompt = (input, type) => {
     prompt = `Give me a recipe that includes only the following ingredients: ${input}, in the following format as a JSON objects: {"name":"string", "instructions":array, "servings":"string", "prep_time":"string", "cook_time":"string", "total_time":"string", "ingredients":[{"ingredient": "quantity as string"}]}`
   }
 
-  if (type === 'potato') {
-    prompt = input;
-  }
-
   return prompt
 }
 
@@ -60,31 +56,6 @@ router.post("/ask", (req, res) => {
   });
   })
 });
-
-// router.post("/potato", (req, res) => {
-//   const prompt = recipePrompt(req.body.prompt, req.body.type);
-
-//   if (prompt == null) {
-//     throw new Error("Uh oh, no prompt was provided");
-//   }
-
-//   const responsePromise = openai.createCompletion({
-//     model: "text-davinci-003",
-//     prompt,
-//     max_tokens: 1000,
-//     temperature: 0,
-//   });
-
-//   responsePromise.then((response) => {
-//     const completion = response.data.choices[0].text;
-//     return res.status(200).json({
-//       success: true,
-//       message: completion,
-//     });
-//   }).catch((error) => {
-//     console.log(error.message);
-//   });
-// });
 
 const configuration = new Configuration({
   apiKey: process.env.OPENAI_API_KEY,
