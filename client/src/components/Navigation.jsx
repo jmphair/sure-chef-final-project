@@ -16,7 +16,7 @@ import { faCloudMoon } from "@fortawesome/free-solid-svg-icons";
 
 
 function Navigation(props) {
-  const [open, setOpen] = useState(true);
+  const [open, setOpen] = useState(false);
 
   const handleClick = (link) => {
     setOpen(false);
