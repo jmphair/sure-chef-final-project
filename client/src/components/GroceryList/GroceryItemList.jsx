@@ -27,8 +27,8 @@ const GroceryItemList = (props) => {
     return groceryItemList;
   };
 
-  const count = props.userGroceries.length
-  console.log(count)
+  const count = props.userGroceries.length;
+  console.log(count);
 
   return (
     <Container className="my-3">
@@ -44,8 +44,12 @@ const GroceryItemList = (props) => {
           />
         </div>
       ) : (
-        <div>
-          <Button variant="outline-dark" onClick={props.handleAddItem}>
+        <div className="add-button">
+          <Button
+            variant="outline-dark"
+            onClick={props.handleAddItem}
+            style={{ borderRadius: "20px" }}
+          >
             Add New Item
           </Button>
         </div>
