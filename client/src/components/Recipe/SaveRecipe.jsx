@@ -25,7 +25,7 @@ const SaveRecipe = (props) => {
       instructions += instruction + `\n`;
     });
 
-    instructions = instructions.slice(0, -2);
+    instructions = instructions.slice(0, -1);
 
     const showOnEdit = (updatedNote) => {
       const updatedNotes = recipes.map((recipe) =>
