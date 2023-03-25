@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Container, Button, CardGroup, Card, Modal } from "react-bootstrap";
+import potatoDance from "./potatoDance.gif";
 
 import Navigation from "./Navigation";
 import MyKitchen from "./MyKitchen";
@@ -12,11 +13,16 @@ import Potato from "./Potato";
 import { welcomeMessage } from "../helpers/welcomeMessage";
 
 const Dashboard = (props) => {
+  const [showPopup, setShowPopup] = useState(false);
+
   const [activeSection, setActiveSection] = useState("dashboard");
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+  const handlePopup = () => {
+    setShowPopup(!showPopup);
+  };
 
   function handleSectionClick(sectionName) {
     setActiveSection(sectionName);
@@ -52,18 +58,25 @@ const Dashboard = (props) => {
               My Recipes
             </Button>
           </Card>
-          
+
           <div className="veg-footer1" style={{ textAlign: "center" }}>
-          <hr className="solid"/>
+            <hr className="solid" />
             <>🥬🧅🌶🍅</>
             <span
               className="potato"
               style={{ cursor: "pointer" }}
               variant="primary"
               onClick={handleShow}
+              onMouseEnter={handlePopup}
+              onMouseLeave={handlePopup}
             >
               🥔
             </span>
+            {showPopup && (
+              <div className="popup">
+                <img src={potatoDance} alt="Potato" />
+              </div>
+            )}
             <>🥕🥦🌽🍠</>
           </div>
           <div className="veg-footer2" style={{ textAlign: "center" }}>
