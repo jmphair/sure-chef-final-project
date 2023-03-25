@@ -14,14 +14,18 @@ import { welcomeMessage } from "../helpers/welcomeMessage";
 
 const Dashboard = (props) => {
   const [showPopup, setShowPopup] = useState(false);
-
   const [activeSection, setActiveSection] = useState("dashboard");
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-  const handlePopup = () => {
+
+  const handlePopupClick = () => {
     setShowPopup(!showPopup);
+  };
+
+  const handlePopupLeave = () => {
+    setShowPopup(false);
   };
 
   function handleSectionClick(sectionName) {
@@ -64,17 +68,23 @@ const Dashboard = (props) => {
             <>🥬🧅🌶🍅</>
             <span
               className="potato"
-              style={{ cursor: "pointer" }}
+              style={{
+                cursor: "pointer",
+                display: showPopup ? "none" : "inline-block",
+              }}
               variant="primary"
-              onClick={handleShow}
-              onMouseEnter={handlePopup}
-              onMouseLeave={handlePopup}
+              onClick={handlePopupClick}
             >
               🥔
             </span>
             {showPopup && (
-              <div className="popup">
-                <img src={potatoDance} alt="Potato" />
+              <div className="popup" onMouseLeave={handlePopupLeave}>
+                <img
+                  src={potatoDance}
+                  alt="Potato"
+                  onClick={handleShow}
+                  style={{ cursor: "pointer" }}
+                />
               </div>
             )}
             <>🥕🥦🌽🍠</>
