@@ -54,7 +54,7 @@ const LandingPage = () => {
         <p>With SureChef, you can say goodbye to the hassle of staring into an empty fridge and hello to the convenience of having your own personal chef at your fingertips.</p>
         </Card>
         <Card body="false">
-          <h5>Goodbye Waste!</h5>
+          <h5>Minimize Waste</h5>
         <p>Say goodbye to food waste and hello to delicious meals with SureChef. Sign up now and experience the future of meal planning.</p>
         </Card>
       </CardGroup>

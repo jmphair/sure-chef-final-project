@@ -71,8 +71,8 @@ function Navigation(props) {
                 </section>
             </Nav>
           </Offcanvas.Body>
-          <hr className="solid"/>
             <div className='logout-container'>
+            <hr className="solid"/>
              <div className='nav-user'>
               Logged in as <strong>{props.user.name}</strong>
             </div>
