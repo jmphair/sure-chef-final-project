@@ -92,18 +92,30 @@ const RecipeItemList = (props) => {
     <Container className="my-3">
       <h3 className="heading">My Cookbook</h3>
       <h6 className="heading">Total Recipes: {count}</h6>
+      {/* <div className="mb-3">
+        <div className="input-icon">
+          <FontAwesomeIcon icon={faMagnifyingGlass} />
+          <input
+            type="text"
+            className="form-control"
+            id="searchInput"
+            value={searchQuery}
+            onChange={handleSearchInputChange}
+            placeholder="Search for a recipe"
+          />
+        </div>
+      </div> */}
       <div className="mb-3">
-        <label htmlFor="searchInput" className="form-label">
-          Search for a recipe
-        </label>
         <input
           type="text"
-          className="form-control"
+          className="form-control search-input"
           id="searchInput"
           value={searchQuery}
           onChange={handleSearchInputChange}
+          placeholder="&#x1F50D;"
         />
       </div>
+
       <Accordion>{recipeList}</Accordion>
     </Container>
   );
