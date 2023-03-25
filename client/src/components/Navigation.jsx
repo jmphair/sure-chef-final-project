@@ -26,7 +26,9 @@ function Navigation(props) {
   return (
     <Navbar expanded={open} bg="light" expand={false} className="mb-3">
       <Container fluid>
-        <Navbar.Brand> SureChef</Navbar.Brand>
+        <Navbar.Brand style={{ fontFamily: "Astro"}}> 
+        <strong>SureChef</strong>
+        </Navbar.Brand>
         <Navbar.Toggle
           aria-controls="offcanvasNavbar"
           onClick={() => setOpen(true)}
@@ -37,8 +39,8 @@ function Navigation(props) {
           placement="end"
         >
           <Offcanvas.Header closeButton onClick={() => setOpen(false)}>
-            <Offcanvas.Title id="offcanvasNavbarLabel">
-              SureChef
+            <Offcanvas.Title id="offcanvasNavbarLabel" style={{ fontFamily: "Astro"}}>
+              <strong>SureChef</strong>
             </Offcanvas.Title>
           </Offcanvas.Header>
           <Offcanvas.Body>
@@ -70,6 +72,7 @@ function Navigation(props) {
             </Nav>
           </Offcanvas.Body>
             <div className='logout-container'>
+            <hr className="solid"/>
              <div className='nav-user'>
               Logged in as <strong>{props.user.name}</strong>
             </div>

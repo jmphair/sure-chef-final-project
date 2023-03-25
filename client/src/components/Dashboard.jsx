@@ -52,8 +52,9 @@ const Dashboard = (props) => {
               My Recipes
             </Button>
           </Card>
-
+          
           <div className="veg-footer1" style={{ textAlign: "center" }}>
+          <hr className="solid"/>
             <>🥬🧅🌶🍅</>
             <span
               className="potato"

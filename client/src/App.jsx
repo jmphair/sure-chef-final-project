@@ -6,12 +6,12 @@ import { Button, Container } from "react-bootstrap";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import Login from "./components/Login";
-import Logout from "./components/Logout";
 import Signup from "./components/Signup";
 import Dashboard from "./components/Dashboard";
+import LandingPage from "./components/LandingPage";
 
 function RequireAuth({ children }) {
-  const [activeSection, setActiveSection] = useState("login")
+  const [activeSection, setActiveSection] = useState("landingpage")
 
   function handleSectionClick(sectionName) {
     setActiveSection(sectionName);
@@ -22,7 +22,16 @@ function RequireAuth({ children }) {
     return (
       <>
         <div className='landing-div'> 
-        <h1 className='landing-hero'>SureChef</h1>
+        <h1 className='landing-hero' style={{ fontFamily: "Astro"}}>
+          <strong>SureChef</strong>
+          </h1>
+        {activeSection === 'landingpage' && (
+        <Container >  
+          <LandingPage />
+            <button className="login-button" onClick={() => handleSectionClick("login")}>
+                  Start Cooking!
+            </button>
+        </Container>)}
         {activeSection === 'login' && (
         <Container >  
           <Login />

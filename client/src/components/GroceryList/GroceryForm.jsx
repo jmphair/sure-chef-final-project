@@ -92,17 +92,11 @@ const GroceryForm = (props) => {
             </Form.Text>
           )}
         </Form.Group>
-        <div
-          style={{
-            paddingTop: "10px",
-            display: "flex",
-            justifyContent: "space-between",
-          }}
-        >
-          <Button variant="primary" type="submit">
+        <div>
+          <Button className="confirm-add" type="submit">
             Add Item
-          </Button>
-          <Button variant="danger" onClick={props.handleAddItem}>
+          </Button>{" "}
+          <Button className="delete-cancel" onClick={props.handleAddItem}>
             Cancel
           </Button>
         </div>
