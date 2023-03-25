@@ -11,7 +11,7 @@ import Signup from "./components/Signup";
 import Dashboard from "./components/Dashboard";
 
 function RequireAuth({ children }) {
-  const [activeSection, setActiveSection] = useState("login")
+  const [activeSection, setActiveSection] = useState("landingpage")
 
   function handleSectionClick(sectionName) {
     setActiveSection(sectionName);
@@ -23,6 +23,12 @@ function RequireAuth({ children }) {
       <>
         <div className='landing-div'> 
         <h1 className='landing-hero'>SureChef</h1>
+        {activeSection === 'landingpage' && (
+        <Container >  
+            <button className="login-button" onClick={() => handleSectionClick("login")}>
+                  Enter
+            </button>
+        </Container>)}
         {activeSection === 'login' && (
         <Container >  
           <Login />
