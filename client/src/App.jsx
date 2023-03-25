@@ -6,9 +6,9 @@ import { Button, Container } from "react-bootstrap";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import Login from "./components/Login";
-import Logout from "./components/Logout";
 import Signup from "./components/Signup";
 import Dashboard from "./components/Dashboard";
+import LandingPage from "./components/LandingPage";
 
 function RequireAuth({ children }) {
   const [activeSection, setActiveSection] = useState("landingpage")
@@ -25,6 +25,7 @@ function RequireAuth({ children }) {
         <h1 className='landing-hero'>SureChef</h1>
         {activeSection === 'landingpage' && (
         <Container >  
+          <LandingPage />
             <button className="login-button" onClick={() => handleSectionClick("login")}>
                   Enter
             </button>
