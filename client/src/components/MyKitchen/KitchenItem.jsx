@@ -43,33 +43,40 @@ const KitchenItem = (props) => {
   };
 
   return (
-    <Card>
+    <Card className="kitchen-card">
       <Card.Body>
         {!showForm && (
-          <>
-            <div className="kitchen-card">
-              <Form.Check
-                type="checkbox"
-                checked={isSelected}
-                onChange={handleCheckboxChange}
-              />
-              <Card.Title>{props.name}</Card.Title>
-              <Card.Text>x{props.quantity}</Card.Text>
-            </div>
-            <div className="icons">
-              <FontAwesomeIcon
-                icon={faPencil}
-                size="sm"
-                onClick={handleRevealForm}
-                style={{ marginRight: "10px" }}
-              />
-              <FontAwesomeIcon
-                icon={faTrash}
-                size="sm"
-                onClick={handleDelete}
-              />
-            </div>
-          </>
+              <div className="kitchen-card-contents">
+                <div>
+                  <Form.Check
+                    type="checkbox"
+                    checked={isSelected}
+                    onChange={handleCheckboxChange}
+                    className={'icon'}
+                  />
+                </div>
+                <div>
+                  <Card.Title>{props.name} <span className="quantity">x{props.quantity}</span></Card.Title>
+                </div>
+                <div>
+                  <Card.Text></Card.Text>
+                </div>
+                <div>
+                  <FontAwesomeIcon
+                    icon={faPencil}
+                    size="sm"
+                    onClick={handleRevealForm}
+                    style={{ marginRight: "10px" }}
+                    className={'icon'}
+                  />
+                  <FontAwesomeIcon
+                    icon={faTrash}
+                    size="sm"
+                    onClick={handleDelete}
+                    className={'icon'}
+                  />
+                </div>
+              </div>
         )}
         {showForm && (
           <div className="kitchen-main">

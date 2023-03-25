@@ -19,7 +19,7 @@ import "./styles.css";
 
 const KitchenItemList = (props) => {
   const [show, setShow] = useState(true);
-  const { generateRecipe, addIngredient, removeIngredient, loading, answer } =
+  const { recipeIngredients, generateRecipe, addIngredient, removeIngredient, loading, answer } =
     recipeGenerator();
 
   const handleClose = () => {
@@ -51,6 +51,15 @@ const KitchenItemList = (props) => {
 
   const count = props.userKitchenItems.length;
 
+  const displaySelected = () => {
+    let prompt = 'Make me a recipe with '
+    recipeIngredients.forEach(ingredient => {
+      prompt += Object.keys(ingredient)[0]
+      prompt += ', '
+    })
+    return prompt
+  }
+
   return (
     <Container>
       <h3 className="heading">My Kitchen</h3>
@@ -59,6 +68,7 @@ const KitchenItemList = (props) => {
       {!props.showForm && (
         <div style={{ marginBottom: "20px", marginTop: "20px" }}>
           <RecipeGenerator generateRecipe={generateRecipe} user={props.user} />
+          {displaySelected()}
         </div>
       )}
       {loading && (
