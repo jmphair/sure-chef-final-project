@@ -5,9 +5,6 @@
  
  /* ------------------KitchenItemList--------------------------------- */
  
- 
- 
- 
  .heading {
   display: flex;
   justify-content: center;
@@ -48,6 +45,8 @@
   border: none;
   border-bottom: 1px solid #ccc;
  }
+
+
  
 /* ------------------OLD STYLES--------------------------------- */
 

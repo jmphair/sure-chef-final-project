@@ -61,7 +61,7 @@ const GroceryItem = (props) => {
         {!showForm && (
           <>
             <Card.Title>{props.name}</Card.Title>
-            <Card.Text>{props.quantity}</Card.Text>
+            <Card.Text>x{props.quantity}</Card.Text>
             <div
               style={{
                 position: "absolute",
