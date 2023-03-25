@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Container, Button, CardGroup, Card, Modal } from "react-bootstrap";
-import potatoDance from "./potatoDance.gif";
+import potatoDance from "../assets/potatoDance.gif";
 
 import Navigation from "./Navigation";
 import MyKitchen from "./MyKitchen";
@@ -95,8 +95,8 @@ const Dashboard = (props) => {
           <Modal show={show} onHide={handleClose}>
             <Modal.Header closeButton>
               <Modal.Title>
-                You have clicked the potato of destiny, what may I reveal to
-                you?
+                You have clicked the super secret potato of destiny, what may I
+                reveal to you?
               </Modal.Title>
             </Modal.Header>
             <Modal.Body>
