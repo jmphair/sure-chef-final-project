@@ -81,13 +81,13 @@ const RecipeItem = (props) => {
 
             {!props.saved ? (
               <>
-                <Button variant="primary" onClick={handleRevealForm}>
+                <Button className="confirm-add" onClick={handleRevealForm}>
                   Add Note
                 </Button>{" "}
-                <Button variant="danger" onClick={handleDelete}>
+                <Button className="delete-cancel" onClick={handleDelete}>
                   Delete Recipe
                 </Button>{" "}
-                <Button variant="success" onClick={handleSave}>
+                <Button className="success" onClick={handleSave}>
                   Save Recipe
                 </Button>
               </>
@@ -135,10 +135,10 @@ const RecipeItem = (props) => {
         </Modal.Header>
         <Modal.Body>Are you sure you want to save this recipe?</Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onClick={cancelSave}>
+          <Button className="delete-cancel" onClick={cancelSave}>
             Cancel
           </Button>
-          <Button variant="success" onClick={handleSaveConfirm}>
+          <Button className="success" onClick={handleSaveConfirm}>
             Save
           </Button>
         </Modal.Footer>

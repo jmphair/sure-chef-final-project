@@ -20,12 +20,6 @@
 
 /* ----------------RecipeNoteForm Styling --------------------*/
 
-.button-container {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 15px;
-}
-
 .heading {
   display: flex;
   align-items: center;

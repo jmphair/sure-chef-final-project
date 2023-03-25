@@ -43,10 +43,10 @@ const RecipeNoteForm = (props) => {
           />
         </Form.Group>
         <div className="button-container">
-          <Button variant="primary" type="submit">
+          <Button className="confirm-add" type="submit">
             Confirm
-          </Button>
-          <Button variant="danger" onClick={props.handleRevealForm}>
+          </Button>{" "}
+          <Button className="delete-cancel" onClick={props.handleRevealForm}>
             Cancel
           </Button>
         </div>
