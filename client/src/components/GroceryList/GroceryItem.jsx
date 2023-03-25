@@ -2,8 +2,8 @@ import { useState } from "react";
 import { Card, Button } from "react-bootstrap";
 import axios from "axios";
 import EditItemForm from "./EditItemForm";
-import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
-import Popover from 'react-bootstrap/Popover';
+import OverlayTrigger from "react-bootstrap/OverlayTrigger";
+import Popover from "react-bootstrap/Popover";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPencil, faTrash } from "@fortawesome/free-solid-svg-icons";
@@ -12,12 +12,10 @@ const GroceryItem = (props) => {
   const [showForm, setShowForm] = useState(false);
 
   const popover = (
-  <Popover id="popover-basic">
-    <Popover.Body>
-      {props.name} has been moved to your kitchen.
-    </Popover.Body>
-  </Popover>
-);
+    <Popover id="popover-basic">
+      <Popover.Body>{props.name} has been moved to your kitchen.</Popover.Body>
+    </Popover>
+  );
 
   const handleDelete = (event) => {
     event.preventDefault();
@@ -48,7 +46,7 @@ const GroceryItem = (props) => {
       .then(() => {
         setTimeout(() => {
           props.handleShowDelete(props.id);
-        }, 4000)
+        }, 1500);
       })
       .catch((err) => console.log(err));
   };
