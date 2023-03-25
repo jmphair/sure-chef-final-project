@@ -10,6 +10,7 @@ import GoToTop from "./GoToTop";
 import "./Dashboard.css";
 import Potato from "./Potato";
 import { welcomeMessage } from "../helpers/welcomeMessage";
+import RandomRecipe from "./RandomRecipe";
 
 const Dashboard = (props) => {
   const [activeSection, setActiveSection] = useState("dashboard");
@@ -52,7 +53,7 @@ const Dashboard = (props) => {
               My Recipes
             </Button>
           </Card>
-          
+          <RandomRecipe />
           <div className="veg-footer1" style={{ textAlign: "center" }}>
           <hr className="solid"/>
             <>🥬🧅🌶🍅</>

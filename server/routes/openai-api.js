@@ -16,6 +16,9 @@ const recipePrompt = (input, type) => {
   if (type === 'strict') {
     prompt = `Give me a recipe that includes only the following ingredients: ${input}, in the following format as a JSON objects: {"name":"string", "instructions":array, "servings":"string", "prep_time":"string", "cook_time":"string", "total_time":"string", "ingredients":[{"ingredient": "quantity as string"}]}`
   }
+  if (type === 'random') {
+    prompt = `Give me a recipe in the following format as a JSON objects: {"name":"string", "instructions":array, "servings":"string", "prep_time":"string", "cook_time":"string", "total_time":"string", "ingredients":[{"ingredient": "quantity as string"}]}`
+  }
 
   return prompt
 }
