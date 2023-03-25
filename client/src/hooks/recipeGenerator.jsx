@@ -67,5 +67,6 @@ export default function recipeGenerator() {
     generateRecipe,
     loading,
     answer,
+    recipeIngredients
   };
 }
