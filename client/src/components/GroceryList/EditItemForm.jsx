@@ -91,10 +91,10 @@ const EditItemForm = (props) => {
             justifyContent: "space-between",
           }}
         >
-          <Button variant="primary" type="submit">
+          <Button className="confirm-add" type="submit">
             Confirm
           </Button>
-          <Button variant="danger" onClick={props.handleRevealForm}>
+          <Button className="delete-cancel" onClick={props.handleRevealForm}>
             Cancel
           </Button>
         </div>

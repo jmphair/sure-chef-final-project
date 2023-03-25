@@ -100,10 +100,10 @@ const KitchenForm = (props) => {
             justifyContent: "space-between",
           }}
         >
-          <Button variant="primary" type="submit">
+          <Button className="confirm-add" type="submit">
             Add Item
           </Button>
-          <Button variant="danger" onClick={props.handleAddItem}>
+          <Button className="delete-cancel" onClick={props.handleAddItem}>
             Cancel
           </Button>
         </div>

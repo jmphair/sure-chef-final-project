@@ -83,7 +83,7 @@ const GroceryItem = (props) => {
               />
             </div>
             <OverlayTrigger trigger="click" placement="right" overlay={popover}>
-              <Button variant="success" onClick={handleTransfer}>
+              <Button className="success" onClick={handleTransfer}>
                 Purchased
               </Button>
             </OverlayTrigger>
