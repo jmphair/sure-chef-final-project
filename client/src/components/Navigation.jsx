@@ -5,6 +5,7 @@ import {
   Nav,
   Navbar,
   Offcanvas,
+  Image,
   Card,
   CardGroup,
 } from "react-bootstrap";
@@ -13,6 +14,7 @@ import LightSwitchButton from "./LightSwitchButton.jsx"
 import './Navigation.css'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCloudMoon } from "@fortawesome/free-solid-svg-icons";
+import littleRobot from "../assets/littleRobot.gif"
 
 
 function Navigation(props) {
@@ -76,6 +78,7 @@ function Navigation(props) {
              <div className='nav-user'>
               Logged in as <strong>{props.user.name}</strong>
             </div>
+            <Image src={littleRobot} alt="Robot Gif" className="w-50"/>
             <Logout />
           </div>
         </Navbar.Offcanvas>

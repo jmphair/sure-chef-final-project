@@ -75,7 +75,7 @@ const KitchenItemList = (props) => {
         <Modal show={true} style={{ marginTop: "0px" }}>
           <div className="header-container">
             <Modal.Header className="header-text">
-              Cookin' something up!
+              <h4>Sure Chef! I'm cookin' something up!</h4>
             </Modal.Header>
           </div>
           <Modal.Body style={{ height: "100vh" }}>

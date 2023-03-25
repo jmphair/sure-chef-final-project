@@ -1,3 +1,4 @@
+import { Form } from "react-bootstrap";
 import useLightSwitch from "../hooks/useLightSwitch";
 
 function LightSwitchButton(props){
@@ -8,10 +9,10 @@ function LightSwitchButton(props){
     <div>
       <div className="app">
         <div className={`app ${dark}`}>
-          <label className="switch">
-            <input onClick={handleClick} className="LightSwitchButton" type="checkbox"/>
-            <span className="slider round"></span>
-          </label>
+          <Form.Check
+            type="switch"
+            id="custom-switch"
+          />
         </div>
       </div>
     </div>
