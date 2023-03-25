@@ -41,7 +41,7 @@ function Navigation(props) {
           <Offcanvas.Body>
             <Nav className="justify-content-end flex-grow-1 pe-3">
                 <LightSwitchButton />
-
+              <Container>
                   <Button className='nav-button' onClick={() => handleClick("mykitchen")} variant="outline-dark">
                     My Kitchen
                   </Button>
@@ -60,7 +60,10 @@ function Navigation(props) {
                   <Button className='nav-button' onClick={() => handleClick("loadingrecipe")} variant="outline-dark">
                     TEMP Loading Recipe
                   </Button>
+                </Container>
+              <Container>
               <Logout />
+              </Container>
             </Nav>
           </Offcanvas.Body>
         </Navbar.Offcanvas>
