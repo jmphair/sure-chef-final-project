@@ -5,20 +5,20 @@ import "./RecipeGenerator.css";
 function RecipeGenerator(props) {
   const [switchState, setSwitchState] = useState(false);
   const [switchText, setSwitchText] = useState(
-    "to use only the ingredients you select, in your recipe!"
+    'to the "off" position to have only the ingredients you select in your recipe!'
   );
   const [recipeRestrictions, setRecipeRestrictions] = useState("strict");
 
   const handleChange = (e) => {
     if (switchState === false) {
       setSwitchState(true);
-      setSwitchText("to use the ingredients you select, as well as my suggestions!");
+      setSwitchText('to the "on" position to have the ingredients you select, as well as my suggestions!');
       setRecipeRestrictions("flexible");
     }
 
     if (switchState === true) {
       setSwitchState(false);
-      setSwitchText("to use only the ingredients you select, in your recipe!");
+      setSwitchText('to the "off" position to have only the ingredients you select in your recipe!');
       setRecipeRestrictions("strict");
     }
   };
@@ -35,7 +35,7 @@ function RecipeGenerator(props) {
         {/* {switchText} */}
       </Form>
       <div className="message">
-        Hey {props.user.name}! Use the toggle to decide {switchText}
+        Hey {props.user.name}! Set the toggle {switchText}
       </div>
       <div className="create-button">
         <Button

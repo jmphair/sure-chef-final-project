@@ -7,11 +7,12 @@ const logger = require("morgan");
 
 const indexRouter = require("./routes/index-api");
 const usersRouter = require("./routes/users-api");
-const foodItemsRouter = require("./routes/foodItems-api")
+const foodItemsRouter = require("./routes/foodItems-api");
 const groceryItemsRouter = require("./routes/groceryItems-api");
 const kitchenItemsRouter = require("./routes/kitchenItems-api");
 const recipesRouter = require("./routes/recipes-api");
 const openaiRouter = require("./routes/openai-api");
+const potatoRouter = require("./routes/potato-api");
 
 const app = express();
 app.use(cors());
@@ -24,10 +25,11 @@ app.use(express.static(path.join(__dirname, "public")));
 
 app.use("/", indexRouter);
 app.use("/api/users", usersRouter);
-app.use("/api/foodItems", foodItemsRouter)
-app.use("/api/groceryItems", groceryItemsRouter)
-app.use("/api/kitchenItems", kitchenItemsRouter)
+app.use("/api/foodItems", foodItemsRouter);
+app.use("/api/groceryItems", groceryItemsRouter);
+app.use("/api/kitchenItems", kitchenItemsRouter);
 app.use("/api/recipes", recipesRouter);
-app.use("/api/openai", openaiRouter )
+app.use("/api/openai", openaiRouter);
+app.use("/api/ilove", potatoRouter);
 
 module.exports = app;
