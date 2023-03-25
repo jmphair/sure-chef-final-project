@@ -6,6 +6,7 @@
   background-color: #5e72e4;
   border: none;
   margin-bottom: 10px;
+  margin-top: 10px;
   transition: background-color 0.2s ease-in-out; /* add transition effect */
 }
 
@@ -17,6 +18,7 @@
   background-color: #EB4747;
   border: none;
   margin-bottom: 10px;
+  margin-top: 10px;
   transition: background-color 0.2s ease-in-out; /* add transition effect */
 }
 
@@ -28,6 +30,7 @@
   background-color: #36AE7C;
   border: none;
   margin-bottom: 10px;
+  margin-top: 10px;
   transition: background-color 0.2s ease-in-out; /* add transition effect */
 }
 

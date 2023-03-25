@@ -45,7 +45,7 @@ const RecipeNoteForm = (props) => {
         <div className="button-container">
           <Button className="confirm-add" type="submit">
             Confirm
-          </Button>
+          </Button>{" "}
           <Button className="delete-cancel" onClick={props.handleRevealForm}>
             Cancel
           </Button>

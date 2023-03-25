@@ -93,16 +93,10 @@ const KitchenForm = (props) => {
             </Form.Text>
           )}
         </Form.Group>
-        <div
-          style={{
-            paddingTop: "10px",
-            display: "flex",
-            justifyContent: "space-between",
-          }}
-        >
+        <div>
           <Button className="confirm-add" type="submit">
             Add Item
-          </Button>
+          </Button>{" "}
           <Button className="delete-cancel" onClick={props.handleAddItem}>
             Cancel
           </Button>

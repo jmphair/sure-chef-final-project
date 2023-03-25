@@ -84,16 +84,10 @@ const EditItemForm = (props) => {
             </Form.Text>
           )}
         </Form.Group>
-        <div
-          style={{
-            paddingTop: "10px",
-            display: "flex",
-            justifyContent: "space-between",
-          }}
-        >
+        <div>
           <Button className="confirm-add" type="submit">
             Confirm
-          </Button>
+          </Button>{" "}
           <Button className="delete-cancel" onClick={props.handleRevealForm}>
             Cancel
           </Button>
