@@ -86,7 +86,11 @@ const KitchenItemList = (props) => {
         </div>
       ) : (
         <div className="add-button">
-          <Button variant="outline-dark" onClick={props.handleAddItem}>
+          <Button
+            variant="outline-dark"
+            onClick={props.handleAddItem}
+            style={{ borderRadius: "20px" }}
+          >
             Add New Item
           </Button>
         </div>

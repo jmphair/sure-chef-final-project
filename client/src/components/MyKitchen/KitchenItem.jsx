@@ -47,22 +47,14 @@ const KitchenItem = (props) => {
       <Card.Body>
         {!showForm && (
           <>
-            <div>
-              <Card.Title>{props.name}</Card.Title>
-              <Card.Text>{props.quantity}</Card.Text>
-            </div>
-            <div
-              style={{
-                display: "flex",
-                alignItems: "center",
-                marginLeft: "10px",
-              }}
-            >
+            <div className="kitchen-card">
               <Form.Check
                 type="checkbox"
                 checked={isSelected}
                 onChange={handleCheckboxChange}
               />
+              <Card.Title>{props.name}</Card.Title>
+              <Card.Text>x{props.quantity}</Card.Text>
             </div>
             <div className="icons">
               <FontAwesomeIcon

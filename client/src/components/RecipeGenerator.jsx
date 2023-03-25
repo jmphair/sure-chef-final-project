@@ -12,13 +12,17 @@ function RecipeGenerator(props) {
   const handleChange = (e) => {
     if (switchState === false) {
       setSwitchState(true);
-      setSwitchText('to the "on" position to have the ingredients you select, as well as my suggestions!');
+      setSwitchText(
+        'to the "on" position to have the ingredients you select, as well as my suggestions!'
+      );
       setRecipeRestrictions("flexible");
     }
 
     if (switchState === true) {
       setSwitchState(false);
-      setSwitchText('to the "off" position to have only the ingredients you select in your recipe!');
+      setSwitchText(
+        'to the "off" position to have only the ingredients you select in your recipe!'
+      );
       setRecipeRestrictions("strict");
     }
   };
@@ -39,8 +43,11 @@ function RecipeGenerator(props) {
       </div>
       <div className="create-button">
         <Button
-          onClick={() => props.generateRecipe(recipeRestrictions, props.user.id)}
+          onClick={() =>
+            props.generateRecipe(recipeRestrictions, props.user.id)
+          }
           variant="outline-dark"
+          className={"create-recipe"}
         >
           Create Recipe
         </Button>
