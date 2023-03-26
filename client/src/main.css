@@ -38,8 +38,48 @@
   background-color: #2d8f5e; /* darken background on hover */
 }
 
+#light {
+  background-color: #ffffff;
+}
+
+#dark {
+  background-color: #323232;
+}
+
+.switch {
+  display: flex;
+  width: 100vw;
+  height: 100px;
+  justify-content: center;
+  align-items: center;
+}
+
+.switch label {
+  margin: 10px;
+}
+
+#light .switch label {
+  color: black;
+}
+
+#dark .switch label {
+  color: white;
+}
+
 .greeting {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+/* .dashboard {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+} */
+
+.dark-mode-toggle {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }

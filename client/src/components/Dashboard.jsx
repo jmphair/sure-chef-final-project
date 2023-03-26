@@ -39,19 +39,20 @@ const Dashboard = (props) => {
             <div className="greeting">
               {welcomeMessage(props.user.name)}
             </div>
-                {/* <div>
-                  <ReactSwitch onChange={toggleTheme} checked={theme === "dark"} />
-                  <label> {theme === "light" ? "Light Mode" : "Dark Mode"} </label>
-                </div> */}
-                <Form>
-                  <Form.Check
-                    type="switch"
-                    onChange={toggleTheme}
-                    checked={theme === "dark"} 
-                  />
-                </Form>
+            <div className="dark-mode-toggle">
+              {/* <div>
+                <ReactSwitch onChange={toggleTheme} checked={theme === "dark"} />
                 <label> {theme === "light" ? "Light Mode" : "Dark Mode"} </label>
-              
+              </div> */}
+              <Form>
+                <Form.Check
+                  type="switch"
+                  onChange={toggleTheme}
+                  checked={theme === "dark"} 
+                />
+              </Form>
+              <label> {theme === "light" ? "Light Mode" : "Dark Mode"} </label>
+            </div>
             <Card>
               <Button
                 onClick={() => handleSectionClick("mykitchen")}
