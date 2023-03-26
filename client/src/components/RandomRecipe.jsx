@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import recipeGenerator from "../hooks/recipeGenerator";
+import { ingredientParser, instructionParser } from "../helpers/dataParsers";
 import axios from "axios";
 import {
   Container,
@@ -13,7 +14,8 @@ import "./Dashboard.css";
 
 const RandomRecipe = (props) => {
   const [randomRecipe, setRandomRecipe] = useState(false)
-  const { generateRecipe, answer } = recipeGenerator()
+  const [save, setSave] = useState(false)
+  const { generateRecipe, answer, loading, addIngredient } = recipeGenerator()
 
 
   useEffect(() => {
@@ -32,6 +34,7 @@ const RandomRecipe = (props) => {
     })
     .then((res) => {
       console.log(res)
+      setSave(true)
     })
     
   }
@@ -39,11 +42,17 @@ const RandomRecipe = (props) => {
 
   return (
     <>
-      {console.log(randomRecipe)}
+    {loading && 'Finding you some inspiration...'}
       {/* {randomRecipe.name} */}
       {answer.name}
-      {props.user.id}
-      {answer.name && <Button onClick={saveRecipe}>Save</Button>}
+      {answer.ingredients && ingredientParser(answer.ingredients)}
+      {answer.instructions && instructionParser(answer.instructions)}
+      {answer.servings}
+      {answer.prep_time}
+      {answer.cook_time}
+      {answer.total_time}
+      {!save && answer.name && <Button onClick={saveRecipe}>Save</Button>}
+      {save && <Button>Saved!</Button>}
     </>
   )
 };
