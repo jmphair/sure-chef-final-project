@@ -42,8 +42,8 @@ const RandomRecipe = (props) => {
   return (
     <Accordion className='recipe-accordion'>
       {loading && (
-        <Accordion.Item className='dash-card-search' eventKey="0">
-          <Accordion.Header >
+        <Accordion.Item className='recipe-item' eventKey="0">
+          <Accordion.Header className='dash-card-recipe-header'>
             <Spinner animation="grow" />
             {randomRecipePrompt()}
           </Accordion.Header>
@@ -51,12 +51,34 @@ const RandomRecipe = (props) => {
       )}
       {answer.name && (
         <Accordion.Item className='dash-card-recipe' eventKey="0">
-          <Accordion.Header className='dash-card-recipe-header'>Chef's recommendation: {answer.name}</Accordion.Header>
-          <Accordion.Body>
-            {!save && answer.name && <Button onClick={saveRecipe}>Save</Button>}
-            {save && <Button>Saved!</Button>}
-            {ingredientParser(answer.ingredients)}
-            <div><em><strong>About Chef's recommendation:</strong> Chef's recommendation looks through your kitchen and provides you with a unique recipe recommendation based on your ingredients.</em></div>
+          <Accordion.Header className='dash-card-recipe-header'>Chef's Recommendation: {answer.name}</Accordion.Header>
+          <Accordion.Body className='recipe-body'>
+            <div >
+              <div>Chef's Recommendation</div>
+              <div className='recipe-title'><strong>{answer.name}</strong></div>
+            </div>
+            <div classname='save-state'>
+              <div>
+                {!save && answer.name && <Button onClick={saveRecipe}>Save</Button>}
+                {save && <Button>Saved!</Button>}
+              </div>
+            </div>
+            <div className='cook-times'>
+              <div><strong>Prep time</strong>   {answer.prep_time}</div>
+              <div><strong>Cook time</strong>   {answer.cook_time}</div>
+              <div><strong>Total time</strong>  {answer.total_time}</div>
+            </div>
+            <div className='cook-times'>
+              <div><strong>Serves</strong> {answer.servings}</div>
+            </div>
+            <div className='ingredients'>
+            <strong>Ingredients</strong> {ingredientParser(answer.ingredients)}
+            </div>
+            <div className='instructions'>
+            <strong>Directions</strong> {answer.instructions && instructionParser(answer.instructions)}
+            </div>
+            <hr className="solid"/>
+            <div><em><strong>About Chef's Recommendation:</strong> Chef's Recommendation looks through your kitchen and provides you with a unique recipe recommendation based on your ingredients.</em></div>
           </Accordion.Body>
         </Accordion.Item>
       )}
@@ -65,14 +87,4 @@ const RandomRecipe = (props) => {
 };
 
 export default RandomRecipe;
-
-// {answer.ingredients && ingredientParser(answer.ingredients)}
-//         {answer.instructions && instructionParser(answer.instructions)}
-//         {answer.servings}
-//         {answer.prep_time}
-//         {answer.cook_time}
-//         {answer.total_time}
-//         {!save && answer.name && <Button onClick={saveRecipe}>Save</Button>}
-//         {save && <Button>Saved!</Button>}
-
 
