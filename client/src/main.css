@@ -181,22 +181,22 @@
 }
 
 #dark .accordion-item {
-  background-color: #878787;
+  background-color: rgb(192, 191, 191);
   color: white;
 }
 
 #dark .accordion-header {
-  background-color: #878787;
+  background-color: rgb(192, 191, 191);
   color: white;
 }
 
 #dark .accordion-body {
-  background-color: #878787;
+  background-color: rgb(192, 191, 191);
   color: white;
 }
 
 #dark .accordion-button {
-  background-color: #878787;
+  background-color: rgb(192, 191, 191);
   color: white;
 }
 

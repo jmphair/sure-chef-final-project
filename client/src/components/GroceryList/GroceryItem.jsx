@@ -56,7 +56,7 @@ const GroceryItem = (props) => {
   };
 
   return (
-    <Card>
+    <Card className="grocery-card">
       <Card.Body>
         {!showForm && (
           <div className="grocery-card-contents">
