@@ -59,7 +59,7 @@ const GroceryItem = (props) => {
     <Card>
       <Card.Body>
         {!showForm && (
-          <>
+          <div className="grocery-card-contents">
             <Card.Title>{props.name}</Card.Title>
             <Card.Text>x{props.quantity}</Card.Text>
             <div
@@ -75,11 +75,13 @@ const GroceryItem = (props) => {
                 size="sm"
                 onClick={handleRevealForm}
                 style={{ marginRight: "10px" }}
+                className={'icon'}
               />
               <FontAwesomeIcon
                 icon={faTrash}
                 size="sm"
                 onClick={handleDelete}
+                className={'icon'}
               />
             </div>
             <OverlayTrigger trigger="click" placement="right" overlay={popover}>
@@ -87,7 +89,7 @@ const GroceryItem = (props) => {
                 Purchased
               </Button>
             </OverlayTrigger>
-          </>
+          </div>
         )}
         {showForm && (
           <div className="kitchen-main">

@@ -74,7 +74,7 @@ const Dashboard = (props) => {
             <Card className="dash-card">
               <div
               className="dash-div"
-                onClick={() => handleSectionClick("mykitchen")}
+                onClick={() => handleSectionClick("groceryList")}
                 >
                 My Grocery List
               </div>
@@ -82,7 +82,7 @@ const Dashboard = (props) => {
             <Card className="dash-card">
               <div
               className="dash-div"
-                onClick={() => handleSectionClick("mykitchen")}
+                onClick={() => handleSectionClick("recipe")}
                 >
                 My Recipes
               </div>
