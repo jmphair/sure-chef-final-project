@@ -1,6 +1,9 @@
 import { useState } from "react";
 import { Container, Button, CardGroup, Card, Modal } from "react-bootstrap";
 import potatoDance from "../assets/potatoDance.gif";
+import kitchen from "../assets/kitchen.png";
+import recipe from "../assets/recipe.png";
+import grocery from "../assets/grocery.png";
 
 import Navigation from "./Navigation";
 import MyKitchen from "./MyKitchen";
@@ -39,28 +42,37 @@ const Dashboard = (props) => {
         <Container className="my-3">
           {welcomeMessage(props.user.name)}
           <Card className="dash-card">
-            <div
-              className="dash-div"
-              onClick={() => handleSectionClick("mykitchen")}
-            >
-              My Kitchen
-            </div>
+            <Card.Img src={kitchen} alt="Card image" />
+            <Card.ImgOverlay>
+              <div
+                className="dash-div"
+                onClick={() => handleSectionClick("mykitchen")}
+              >
+                My Kitchen
+              </div>
+            </Card.ImgOverlay>
           </Card>
           <Card className="dash-card">
-            <div
-              className="dash-div"
-              onClick={() => handleSectionClick("mykitchen")}
-            >
-              My Grocery List
-            </div>
+            <Card.Img src={grocery} alt="Card image" />
+            <Card.ImgOverlay>
+              <div
+                className="dash-div"
+                onClick={() => handleSectionClick("groceryList")}
+              >
+                My Grocery List
+              </div>
+            </Card.ImgOverlay>
           </Card>
           <Card className="dash-card">
-            <div
-              className="dash-div"
-              onClick={() => handleSectionClick("mykitchen")}
-            >
-              My Recipes
-            </div>
+            <Card.Img src={recipe} alt="Card image" />
+            <Card.ImgOverlay>
+              <div
+                className="dash-div"
+                onClick={() => handleSectionClick("recipes")}
+              >
+                Recipes
+              </div>
+            </Card.ImgOverlay>
           </Card>
 
           <div className="veg-footer1" style={{ textAlign: "center" }}>

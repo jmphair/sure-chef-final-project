@@ -5,10 +5,16 @@ main {
 
 .dash-card {
   margin-top: 10px;
-  height: 100px;
+  height: 150px;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  flex-direction: row-reverse;
+}
+
+.dash-card img {
+  margin-top: 20px;
+  width: 130px;
+  height: 130px;
+  justify-content: left;
 }
 
 .dash-card:hover {
@@ -20,8 +26,13 @@ main {
 }
 
 .dash-div {
-    cursor: pointer;
-    font-size: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  flex-direction: column;
+  cursor: pointer;
+  font-size: 24px;
   }
 
 
