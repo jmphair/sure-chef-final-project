@@ -88,8 +88,8 @@ const Dashboard = (props) => {
               </div>
             </Card>
   
-            <div className="veg-footer1" style={{ textAlign: "center" }}>
-                  <hr className="solid" />
+            <div className="veg-footer1">
+                  <hr className="solid-dash" />
               <>🥬🧅🌶🍅</>
               <span
                 className="potato"
@@ -113,9 +113,7 @@ const Dashboard = (props) => {
               </div>
             )}
             <>🥕🥦🌽🍠</>
-            </div>
-            <div className="veg-footer2" style={{ textAlign: "center" }}>
-              Special Thanks To Our Instructors At LHL
+            <p className="thanks">Special thanks to our instructors, mentors, and coordinators at LHL!</p>
             </div>
             <Modal show={show} onHide={handleClose}>
               <Modal.Header closeButton>

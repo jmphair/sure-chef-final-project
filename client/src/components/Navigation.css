@@ -19,3 +19,7 @@
 .nav-user{
   padding: 20px
 }
+
+hr.solid-nav {
+  border-top: 2px solid #999;
+}
