@@ -3,7 +3,26 @@ main {
   min-height: 100vh;
 }
 
-/* Styling for the potato emoji */
+.dash-card {
+  margin-top: 10px;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.dash-card:hover {
+  background-color: black;
+}
+
+.dash-card:hover .dash-div {
+  color: white;
+}
+
+.dash-div {
+    cursor: pointer;
+    font-size: 24px;
+  }
 
 
 .veg-footer2 {
