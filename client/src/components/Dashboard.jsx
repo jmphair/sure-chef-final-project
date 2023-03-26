@@ -38,29 +38,29 @@ const Dashboard = (props) => {
       {activeSection === "dashboard" && (
         <Container className="my-3">
           {welcomeMessage(props.user.name)}
-          <Card>
-            <Button
+          <Card className="dash-card">
+            <div
+              className="dash-div"
               onClick={() => handleSectionClick("mykitchen")}
-              variant="outline-dark"
             >
               My Kitchen
-            </Button>
+            </div>
           </Card>
-          <Card>
-            <Button
-              onClick={() => handleSectionClick("groceryList")}
-              variant="outline-dark"
+          <Card className="dash-card">
+            <div
+              className="dash-div"
+              onClick={() => handleSectionClick("mykitchen")}
             >
               My Grocery List
-            </Button>
+            </div>
           </Card>
-          <Card>
-            <Button
-              onClick={() => handleSectionClick("recipe")}
-              variant="outline-dark"
+          <Card className="dash-card">
+            <div
+              className="dash-div"
+              onClick={() => handleSectionClick("mykitchen")}
             >
               My Recipes
-            </Button>
+            </div>
           </Card>
 
           <div className="veg-footer1" style={{ textAlign: "center" }}>
