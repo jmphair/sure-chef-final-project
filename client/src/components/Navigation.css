@@ -3,13 +3,6 @@
   font-size: 150%
 }
 
-.dark-mode {
-  display:flex;
-  flex-direction: row;
-  padding-left: 20px;
-  gap: 10px
-}
-
 .button-list{
   display: flex;
   flex-direction: column;

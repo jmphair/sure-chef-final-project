@@ -58,7 +58,7 @@ const Dashboard = (props) => {
                 <Form.Check
                   type="switch"
                   onChange={toggleTheme}
-                  checked={theme === "dark"} 
+                  checked={theme === "dark"}
                 />
               </Form>
               <label> {theme === "light" ? "Light Mode" : "Dark Mode"} </label>

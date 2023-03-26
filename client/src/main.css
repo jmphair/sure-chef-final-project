@@ -38,31 +38,28 @@
   background-color: #2d8f5e; /* darken background on hover */
 }
 
+
+/********** DARK MODE THEME STYLING **********/
+
 #light {
   background-color: #ffffff;
 }
 
 #dark {
-  background-color: #323232;
+  background-color: #4a4a4a;
 }
 
-.switch {
+.dark-mode-toggle {
   display: flex;
-  width: 100vw;
-  height: 100px;
+  flex-direction: row;
   justify-content: center;
-  align-items: center;
 }
 
-.switch label {
-  margin: 10px;
-}
-
-#light .switch label {
+#light .dark-mode-toggle label {
   color: black;
 }
 
-#dark .switch label {
+#dark .dark-mode-toggle label {
   color: white;
 }
 
@@ -72,14 +69,28 @@
   align-items: center;
 }
 
-/* .dashboard {
-  display: flex;
-  width: 100vw;
-  height: 100vh;
-} */
+#light .greeting {
+  color: black;
+}
 
-.dark-mode-toggle {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
+#dark .greeting {
+  color: white;
+}
+
+#light .dashboard {
+  background-color: #ffffff;
+}
+
+#dark .dashboard {
+  background-color: #4a4a4a;
+}
+
+#light .nav-header {
+  background-color: #f7f7f7;
+  color: black;
+}
+
+#dark .nav-header {
+  background-color: #4a4a4a;
+  color: white;
 }
