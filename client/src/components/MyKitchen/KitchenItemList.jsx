@@ -61,15 +61,19 @@ const KitchenItemList = (props) => {
   }
 
   return (
-    <Container>
+    <Container className="kitchen-container">
       <h3 className="heading">My Kitchen</h3>
       <h6 className="heading">Total Ingredients: {count}</h6>
       {/* hide recipe generator button when add item form is opened */}
       {!props.showForm && (
-        <div style={{ marginBottom: "20px", marginTop: "20px" }}>
-          <RecipeGenerator generateRecipe={generateRecipe} user={props.user} />
-          {displaySelected()}
-        </div>
+        <>
+          <div style={{ marginBottom: "20px", marginTop: "20px" }}>
+            <RecipeGenerator generateRecipe={generateRecipe} user={props.user} />
+          </div>
+          <div className="message">
+            {displaySelected()}
+          </div>
+        </>
       )}
       {loading && (
         <Modal show={true} style={{ marginTop: "0px" }}>
@@ -97,9 +101,9 @@ const KitchenItemList = (props) => {
       ) : (
         <div className="add-button">
           <Button
+            className="button"
             variant="outline-dark"
             onClick={props.handleAddItem}
-            style={{ borderRadius: "20px" }}
           >
             Add New Item
           </Button>

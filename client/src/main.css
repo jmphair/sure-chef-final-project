@@ -42,7 +42,7 @@
 /********** DARK MODE THEME STYLING **********/
 
 #light {
-  background-color: #ffffff;
+  background-color: #f7f7f7;
 }
 
 #dark {
@@ -56,7 +56,7 @@
 }
 
 #light .dark-mode-toggle label {
-  color: black;
+  color: #333;
 }
 
 #dark .dark-mode-toggle label {
@@ -70,7 +70,7 @@
 }
 
 #light .greeting {
-  color: black;
+  color: #333;
 }
 
 #dark .greeting {
@@ -92,8 +92,8 @@
 }
 
 #light .nav-header {
-  background-color: #f7f7f7;
-  color: black;
+  background-color: #dcdbdb;
+  color: #333;
 }
 
 #dark .nav-header {
@@ -110,8 +110,8 @@
 
 #light .navbar-brand {
   margin: 0.5em;
-  background-color: #f7f7f7;
-  color: black;
+  background-color: #dcdbdb;
+  color: #333;
 }
 
 #dark .navbar-brand {
@@ -138,11 +138,74 @@
 }
 
 #light .thanks {
-  color: black;
+  color: #333;
 }
 
 #dark .thanks {
   color: white;
 }
 
+#dark .container {
+  background-color: #5d5d5d;
 
+}
+
+#light .container {
+  background-color: #f7f7f7;
+}
+
+#light .heading {
+  color: #333;
+}
+
+#dark .heading {
+  color: white;
+}
+
+#light .message {
+  color: #333;
+}
+
+#dark .message {
+  color: white;
+}
+
+#dark .button {
+  border-color: white;
+  color: white;
+}
+
+#dark .create-button {
+  color: white;
+  border: white;
+}
+
+#dark .accordion-item {
+  background-color: #878787;
+  color: white;
+}
+
+#dark .accordion-header {
+  background-color: #878787;
+  color: white;
+}
+
+#dark .accordion-body {
+  background-color: #878787;
+  color: white;
+}
+
+#dark .accordion-button {
+  background-color: #878787;
+  color: white;
+}
+
+#dark .kitchen-card-contents {
+  background-color: #878787;
+  color: white;
+}
+
+#dark .kitchen-card {
+  background-color: #878787;
+  color: white;
+}

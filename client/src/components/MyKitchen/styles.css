@@ -18,6 +18,7 @@
   justify-content: center;
   margin-bottom: 15px;
  }
+
  .container {
   background-color: #f7f7f7;
   padding: 20px;
@@ -27,7 +28,6 @@
  .accordion-item {
   border: none;
  }
- 
  
  .accordion-header {
   background-color: #fff;
