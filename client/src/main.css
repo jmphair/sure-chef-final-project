@@ -37,3 +37,9 @@
 .success:hover {
   background-color: #2d8f5e; /* darken background on hover */
 }
+
+.greeting {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

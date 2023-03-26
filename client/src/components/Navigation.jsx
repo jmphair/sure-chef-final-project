@@ -5,15 +5,13 @@ import {
   Nav,
   Navbar,
   Offcanvas,
-  Image,
-  Card,
-  CardGroup,
+  Image
 } from "react-bootstrap";
 import Logout from "./Logout";
-import LightSwitchButton from "./LightSwitchButton.jsx"
+// import LightSwitchButton from "./LightSwitchButton.jsx"
 import './Navigation.css'
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCloudMoon } from "@fortawesome/free-solid-svg-icons";
+// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+// import { faCloudMoon } from "@fortawesome/free-solid-svg-icons";
 import littleRobot from "../assets/littleRobot.gif"
 
 
@@ -47,10 +45,10 @@ function Navigation(props) {
           </Offcanvas.Header>
           <Offcanvas.Body>
             <Nav className="justify-content-end">
-              <div className='dark-mode'>
+              {/* <div className='dark-mode'>
                 <FontAwesomeIcon icon={faCloudMoon} />
                 <LightSwitchButton />
-              </div>
+              </div> */}
               <section className ='button-list'>
                   <Button className='nav-button' onClick={() => handleClick("mykitchen")} variant="outline-dark">
                     My Kitchen

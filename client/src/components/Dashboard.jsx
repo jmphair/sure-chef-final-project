@@ -1,5 +1,5 @@
 import { useState, createContext } from "react";
-import { Container, Button, CardGroup, Card, Modal } from "react-bootstrap";
+import { Container, Button, Form, Card, Modal } from "react-bootstrap";
 
 import Navigation from "./Navigation";
 import MyKitchen from "./MyKitchen";
@@ -10,7 +10,7 @@ import GoToTop from "./GoToTop";
 import "./Dashboard.css";
 import Potato from "./Potato";
 import { welcomeMessage } from "../helpers/welcomeMessage";
-import ReactSwitch from "react-switch";
+// import ReactSwitch from "react-switch";
 
 export const ThemeContext = createContext(null);
 
@@ -35,8 +35,23 @@ const Dashboard = (props) => {
       <main className="App" id={theme}>
         <Navigation user={props.user} onClick={handleSectionClick} />
         {activeSection === "dashboard" && (
-          <Container className="my-3">
-            {welcomeMessage(props.user.name)}
+          <Container className="dashboard">
+            <div className="greeting">
+              {welcomeMessage(props.user.name)}
+            </div>
+                {/* <div>
+                  <ReactSwitch onChange={toggleTheme} checked={theme === "dark"} />
+                  <label> {theme === "light" ? "Light Mode" : "Dark Mode"} </label>
+                </div> */}
+                <Form>
+                  <Form.Check
+                    type="switch"
+                    onChange={toggleTheme}
+                    checked={theme === "dark"} 
+                  />
+                </Form>
+                <label> {theme === "light" ? "Light Mode" : "Dark Mode"} </label>
+              
             <Card>
               <Button
                 onClick={() => handleSectionClick("mykitchen")}
@@ -63,11 +78,7 @@ const Dashboard = (props) => {
             </Card>
             
             <div className="veg-footer1" style={{ textAlign: "center" }}>
-              <div className="switch">
-                <label> {theme === "light" ? "Light Mode" : "Dark Mode"} </label>
-                <ReactSwitch onChange={toggleTheme} checked={theme === "dark"}/>
-              </div>
-            <hr className="solid"/>
+                <hr className="solid"/>
               <>🥬🧅🌶🍅</>
               <span
                 className="potato"
