@@ -1,16 +1,15 @@
 import { useState, useEffect } from "react";
 import recipeGenerator from "../hooks/recipeGenerator";
 import { ingredientParser, instructionParser } from "../helpers/dataParsers";
+import { randomRecipePrompt } from "../helpers/randomizers";
 import axios from "axios";
 import {
-  Container,
-  CardGroup,
   Accordion,
   Button,
-  Modal,
+  Spinner,
 } from "react-bootstrap";
 
-import "./Dashboard.css";
+import "./RandomRecipe.css";
 
 const RandomRecipe = (props) => {
   const [randomRecipe, setRandomRecipe] = useState(false)
@@ -41,20 +40,39 @@ const RandomRecipe = (props) => {
 
 
   return (
-    <>
-    {loading && 'Finding you some inspiration...'}
-      {/* {randomRecipe.name} */}
-      {answer.name}
-      {answer.ingredients && ingredientParser(answer.ingredients)}
-      {answer.instructions && instructionParser(answer.instructions)}
-      {answer.servings}
-      {answer.prep_time}
-      {answer.cook_time}
-      {answer.total_time}
-      {!save && answer.name && <Button onClick={saveRecipe}>Save</Button>}
-      {save && <Button>Saved!</Button>}
-    </>
+    <Accordion className='recipe-accordion'>
+      {loading && (
+        <Accordion.Item className='dash-card-search' eventKey="0">
+          <Accordion.Header >
+            <Spinner animation="grow" />
+            {randomRecipePrompt()}
+          </Accordion.Header>
+        </Accordion.Item>
+      )}
+      {answer.name && (
+        <Accordion.Item className='dash-card-recipe' eventKey="0">
+          <Accordion.Header className='dash-card-recipe-header'>Chef's recommendation: {answer.name}</Accordion.Header>
+          <Accordion.Body>
+            {!save && answer.name && <Button onClick={saveRecipe}>Save</Button>}
+            {save && <Button>Saved!</Button>}
+            {ingredientParser(answer.ingredients)}
+            <div><em><strong>About Chef's recommendation:</strong> Chef's recommendation looks through your kitchen and provides you with a unique recipe recommendation based on your ingredients.</em></div>
+          </Accordion.Body>
+        </Accordion.Item>
+      )}
+    </Accordion>
   )
 };
 
 export default RandomRecipe;
+
+// {answer.ingredients && ingredientParser(answer.ingredients)}
+//         {answer.instructions && instructionParser(answer.instructions)}
+//         {answer.servings}
+//         {answer.prep_time}
+//         {answer.cook_time}
+//         {answer.total_time}
+//         {!save && answer.name && <Button onClick={saveRecipe}>Save</Button>}
+//         {save && <Button>Saved!</Button>}
+
+

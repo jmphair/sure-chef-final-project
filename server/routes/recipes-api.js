@@ -35,7 +35,6 @@ router.put('/update', (req, res) => {
 
   recipes.updateRecipeNote(recipeNote, recipeId)
     .then((dbRes) => {
-      console.log(dbRes, 'succes')
       return res.json({ res: dbRes });
     }) 
 });
