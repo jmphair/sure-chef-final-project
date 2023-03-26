@@ -46,7 +46,7 @@
 }
 
 #dark {
-  background-color: #4a4a4a;
+  background-color: #5d5d5d;
 }
 
 .dark-mode-toggle {
@@ -82,7 +82,13 @@
 }
 
 #dark .dashboard {
-  background-color: #4a4a4a;
+  background-color: #5d5d5d;
+}
+
+.nav-header {
+  display: flex;
+  flex-direction: row;
+  align-content: center;
 }
 
 #light .nav-header {
@@ -91,6 +97,38 @@
 }
 
 #dark .nav-header {
-  background-color: #4a4a4a;
+  background-color: #515151;
   color: white;
+}
+
+.navbar-brand {
+  display: flex;
+  align-self: center;
+  font-family: "Astro";
+  background-color: #5d5d5d;
+}
+
+#light .navbar-brand {
+  margin: 0.5em;
+  background-color: #f7f7f7;
+  color: black;
+}
+
+#dark .navbar-brand {
+  margin: 0.5em;
+  background-color: #515151;
+  color: white;
+}
+
+.navbar-toggler {
+  margin: 0.5em;
+  border: none;
+}
+
+#light .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(0, 0, 0, 0.5)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+#dark .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255, 255, 255)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
 }

@@ -25,9 +25,7 @@ function Navigation(props) {
 
   return (
     <Navbar expanded={open} expand={false} className="nav-header">
-      <Navbar.Brand style={{ fontFamily: "Astro"}}> 
-      <strong>SureChef</strong>
-      </Navbar.Brand>
+      <Navbar.Brand><strong>SureChef</strong></Navbar.Brand>
       <Navbar.Toggle
         aria-controls="offcanvasNavbar"
         onClick={() => setOpen(true)}
