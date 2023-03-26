@@ -53,7 +53,7 @@ const Dashboard = (props) => {
               My Recipes
             </Button>
           </Card>
-          <RandomRecipe />
+          <RandomRecipe user={props.user} />
           <div className="veg-footer1" style={{ textAlign: "center" }}>
           <hr className="solid"/>
             <>🥬🧅🌶🍅</>

@@ -1,32 +1,31 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
 require("dotenv").config();
 
-const recipes = require('../db/queries/recipes');
+const recipes = require("../db/queries/recipes");
 const { Configuration, OpenAIApi } = require("openai");
-const destr = require('destr');
-
+const destr = require("destr");
 
 const recipePrompt = (input, type) => {
-  let prompt = ''
+  let prompt = "";
 
-  if (type === 'flexible') {
-    prompt = `Give me a recipe that includes the following ingredients: ${input}, in the following format as a JSON object and add extra ingredients to the ingredients value: {"name":"string", "instructions":array, "servings":"string", "prep_time":"string", "cook_time":"string", "total_time":"string", "ingredients":[{"ingredient": "quantity as string"}]}`
+  if (type === "flexible") {
+    prompt = `Give me a recipe that includes the following ingredients: ${input}, in the following format as a JSON object and add extra ingredients to the ingredients value: {"name":"string", "instructions":array, "servings":"string", "prep_time":"string", "cook_time":"string", "total_time":"string", "ingredients":[{"ingredient": "quantity as string"}]}`;
   }
-  if (type === 'strict') {
-    prompt = `Give me a recipe that includes only the following ingredients: ${input}, in the following format as a JSON objects: {"name":"string", "instructions":array, "servings":"string", "prep_time":"string", "cook_time":"string", "total_time":"string", "ingredients":[{"ingredient": "quantity as string"}]}`
+  if (type === "strict") {
+    prompt = `Give me a recipe that includes only the following ingredients: ${input}, in the following format as a JSON objects: {"name":"string", "instructions":array, "servings":"string", "prep_time":"string", "cook_time":"string", "total_time":"string", "ingredients":[{"ingredient": "quantity as string"}]}`;
   }
-  if (type === 'random') {
-    prompt = `Give me a recipe in the following format as a JSON objects: {"name":"string", "instructions":array, "servings":"string", "prep_time":"string", "cook_time":"string", "total_time":"string", "ingredients":[{"ingredient": "quantity as string"}]}`
+  if (type === "random") {
+    prompt = `Give me a recipe in the following format as a JSON objects: {"name":"string", "instructions":array, "servings":"string", "prep_time":"string", "cook_time":"string", "total_time":"string", "ingredients":[{"ingredient": "quantity as string"}]}`;
   }
 
-  return prompt
-}
+  return prompt;
+};
 
 router.post("/ask", (req, res) => {
   const prompt = recipePrompt(req.body.prompt, req.body.type);
 
-  const userId = req.body.userId
+  const userId = req.body.userId;
 
   if (prompt == null) {
     throw new Error("Uh oh, no prompt was provided");
@@ -39,25 +38,36 @@ router.post("/ask", (req, res) => {
     temperature: 0,
   });
 
-  responsePromise
-    .then((response) => {
-      const completion = response.data.choices[0].text;
-      // converts json response into js object
-      const recipeObj = destr(completion)
-      //turns ingredients array into json to store in database
-      const ingredients = JSON.stringify(recipeObj.ingredients)
-      console.log(recipeObj)
-      recipes.addRecipe(recipeObj.name, ingredients, recipeObj.instructions, recipeObj.servings, recipeObj.prep_time, recipeObj.cook_time, recipeObj.total_time, false, userId)
-    .then(dbRes => {
-      return res.status(200).json({
-        success: true,
-        message: dbRes
+
+  responsePromise.then((response) => {
+    const completion = response.data.choices[0].text;
+    // converts json response into js object
+    const recipeObj = destr(completion);
+    //turns ingredients array into json to store in database
+    const ingredients = JSON.stringify(recipeObj.ingredients);
+    console.log(recipeObj);
+    recipes
+      .addRecipe(
+        recipeObj.name,
+        ingredients,
+        recipeObj.instructions,
+        recipeObj.servings,
+        recipeObj.prep_time,
+        recipeObj.cook_time,
+        recipeObj.total_time,
+        false,
+        userId
+      )
+      .then((dbRes) => {
+        return res.status(200).json({
+          success: true,
+          message: dbRes,
+        });
       })
-    })
-  .catch((error) => {
-    console.log(error.message);
+      .catch((error) => {
+        console.log(error.message);
+      });
   });
-  })
 });
 
 const configuration = new Configuration({

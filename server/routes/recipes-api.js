@@ -12,13 +12,31 @@ router.get('/:id', (req, res) => {
   });
 });
 
+router.post('/:id', (req, res) => {
+  const userId = req.params.id
+  const name = req.body.name
+  const ingredients = JSON.stringify(req.body.ingredients);
+  const instructions = req.body.instructions;
+
+  const servings = req.body.servings
+  const prepTime = req.body.prepTime
+  const cookTime = req.body.cookTime;
+  const totalTime = req.body.totalTime;
+  const saved = true;
+  console.log(userId, name, ingredients, instructions, servings, prepTime, cookTime, totalTime)
+  recipes.addRecipe(name, ingredients, instructions, servings, prepTime, cookTime, totalTime, saved, userId)
+    .then(dbRes => res.json({ res: dbRes }))
+
+});
+
 router.put('/update', (req, res) => {
   const recipeId = req.body.id;
   const recipeNote = req.body.note;
 
   recipes.updateRecipeNote(recipeNote, recipeId)
     .then((dbRes) => {
-      res.json({ res: dbRes });
+      console.log(dbRes, 'succes')
+      return res.json({ res: dbRes });
     }) 
 });
 
