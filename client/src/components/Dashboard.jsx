@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Container, Button, CardGroup, Card, Modal } from "react-bootstrap";
+import potatoDance from "../assets/potatoDance.gif";
 
 import Navigation from "./Navigation";
 import MyKitchen from "./MyKitchen";
@@ -13,11 +14,20 @@ import { welcomeMessage } from "../helpers/welcomeMessage";
 import RandomRecipe from "./RandomRecipe";
 
 const Dashboard = (props) => {
+  const [showPopup, setShowPopup] = useState(false);
   const [activeSection, setActiveSection] = useState("dashboard");
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+
+  const handlePopupClick = () => {
+    setShowPopup(!showPopup);
+  };
+
+  const handlePopupLeave = () => {
+    setShowPopup(false);
+  };
 
   function handleSectionClick(sectionName) {
     setActiveSection(sectionName);
@@ -53,18 +63,31 @@ const Dashboard = (props) => {
               My Recipes
             </Button>
           </Card>
-          <RandomRecipe user={props.user} />
+<RandomRecipe user={props.user} />
           <div className="veg-footer1" style={{ textAlign: "center" }}>
-          <hr className="solid"/>
+            <hr className="solid" />
             <>🥬🧅🌶🍅</>
             <span
               className="potato"
-              style={{ cursor: "pointer" }}
+              style={{
+                cursor: "pointer",
+                display: showPopup ? "none" : "inline-block",
+              }}
               variant="primary"
-              onClick={handleShow}
+              onClick={handlePopupClick}
             >
               🥔
             </span>
+            {showPopup && (
+              <div className="popup" onMouseLeave={handlePopupLeave}>
+                <img
+                  src={potatoDance}
+                  alt="Potato"
+                  onClick={handleShow}
+                  style={{ cursor: "pointer" }}
+                />
+              </div>
+            )}
             <>🥕🥦🌽🍠</>
           </div>
           <div className="veg-footer2" style={{ textAlign: "center" }}>
@@ -73,8 +96,8 @@ const Dashboard = (props) => {
           <Modal show={show} onHide={handleClose}>
             <Modal.Header closeButton>
               <Modal.Title>
-                You have clicked the potato of destiny, what may I reveal to
-                you?
+                You have clicked the super secret potato of destiny, what may I
+                reveal to you?
               </Modal.Title>
             </Modal.Header>
             <Modal.Body>
