@@ -20,7 +20,7 @@ const Dashboard = (props) => {
   const [showPopup, setShowPopup] = useState(false);
   const [activeSection, setActiveSection] = useState("dashboard");
   const [show, setShow] = useState(false);
-  const [theme, setTheme] = useState("dark")
+  const [theme, setTheme] = useState("light")
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);

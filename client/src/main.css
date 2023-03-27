@@ -2,6 +2,16 @@
   background-color: #f7f7f7;
 }
 
+.landing-container {
+  width: auto;
+  height: auto;
+}
+
+.landing-hero {
+  font-family: "Astro";
+  margin: 5px;
+}
+
 .landing-text {
   font-weight: lighter;
 }

@@ -9,6 +9,7 @@ main {
   display: flex;
   justify-content: center;
   align-items: center;
+  border: none;
 }
 
 .dash-card:hover {

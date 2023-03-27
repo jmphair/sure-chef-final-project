@@ -46,7 +46,7 @@ const LandingPage = () => {
       <hr className="solid"/>
       <Card className="intro-card">
         <h3>Simple, Useful, Fun</h3>
-        <em><h5 className="landing-text">Our methodology from day one.</h5></em>
+        <h5 className="landing-text">Our methodology from day one.</h5>
         <p>While robot assistants may not come standard in every kitchen just yet, we think that SureChef is a step in the right direction.</p>
       </Card>
       <hr className="solid"/>    
@@ -64,8 +64,6 @@ const LandingPage = () => {
         <p>Say goodbye to food waste and hello to delicious meals with SureChef. Sign up now to see the future of meal planning.</p>
         </Card>
       </CardGroup>
-      <hr className="solid"/>
-
     </Container>
   );
 };

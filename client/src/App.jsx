@@ -22,28 +22,28 @@ function RequireAuth({ children }) {
     return (
       <Container className="app-container">
         <div className='landing-div'> 
-        <h1 className='landing-hero' style={{ fontFamily: "Astro"}}>
+        <h1 className='landing-hero'>
           <strong>SureChef</strong>
           </h1>
         {activeSection === 'landingpage' && (
-        <div>  
+        <div>
+          <button className="login-button" onClick={() => handleSectionClick("login")}>
+            Start Cooking!
+          </button>  
           <LandingPage />
-            <button className="login-button" onClick={() => handleSectionClick("login")}>
-                  Start Cooking!
-            </button>
         </div>)}
         {activeSection === 'login' && (
         <div>  
           <Login />
             <button className="login-button" onClick={() => handleSectionClick("signup")}>
-                  Sign up
+              Sign up
             </button>
         </div>)}
         {activeSection === 'signup' && (
           <div>
             <Signup />
             <button className="login-button" onClick={() => handleSectionClick("login")}>
-                  Log in
+              Log in
             </button>
           </div>
         )}

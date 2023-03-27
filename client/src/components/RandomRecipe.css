@@ -3,7 +3,6 @@
   height: 100px;
 }
 
-
 .recipe-title {
   font-size: 140%;
   margin-bottom: 10px;
@@ -12,6 +11,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  border-radius: 10px;
 }
 
 .dash-card-recipe {
@@ -19,11 +19,11 @@
   background-color: none;
 }
 
-.recipe-body {
+/* .recipe-body {
   border: solid;
   border-color: grey;
   border-width: 0px 1px 1px 1px;
-}
+} */
 
 .dash-card-recipe-header {
   display: flex;
@@ -32,33 +32,41 @@
   align-items: center;
   height: 100px;
   font-size: 50px;
-  background-color: none;
+  border-radius: 10px;
+  border: 1px;
+  border-color: rgb(209, 209, 209);
+  background: none;
 }
 
 .cook-times {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  padding: 20px 0px 20px 40px;
+  padding: 10px 20px 10px;
 }
 
 .ingredients {
-  margin: 20px 10px 20px 10px;
+  margin: 10px 20px 10px;
   text-align: left;
 }
 .instructions {
-  margin: 20px 10px 20px 10px;
+  margin: 10px 20px 10px;
   text-align: left;
 }
-.recipe-body:hover {
-  box-shadow: 0 0 11px rgba(33,33,33,.2); 
 
+.about-chef-rec {
+  margin: 10px 20px 10px;
+  text-align: left;
 }
 
-.recipe-accordion:hover {
+/* .recipe-body:hover {
+  box-shadow: 0 0 11px rgba(33,33,33,.2); 
+} */
+
+/* .recipe-accordion:hover {
   box-shadow: 0 0 11px rgba(33,33,33,.2); 
 
-}
+} */
 .dash-card-recipe-header:hover {
 
 }
