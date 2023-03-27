@@ -61,11 +61,11 @@
   border-style: solid;
   border-color: #333;
   border-width: 1px;
-  border-radius: 4px;
-  margin-bottom: 10px;
+  border-radius: 5px;
+  margin-bottom: 15px;
   text-align: center;
   min-height: 90px;
-  padding: 5px 2px 2px 2px;
+  padding: 5px 5px 2px 5px;
   background-color: white;
 
  }
