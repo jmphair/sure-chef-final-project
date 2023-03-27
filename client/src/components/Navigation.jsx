@@ -13,7 +13,7 @@ import './Navigation.css'
 // import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 // import { faCloudMoon } from "@fortawesome/free-solid-svg-icons";
 import littleRobot from "../assets/littleRobot.gif"
-
+// import { ThemeContext } from "./Dashboard";
 
 function Navigation(props) {
   const [open, setOpen] = useState(false);
@@ -24,6 +24,9 @@ function Navigation(props) {
   };
 
   return (
+    // This is work around testing...
+    // <ThemeContext.Consumer> 
+    //   {({theme, toggleTheme}) => (
     <Navbar expanded={open} expand={false} className="nav-header">
       <Navbar.Brand><strong>SureChef</strong></Navbar.Brand>
       <Navbar.Toggle
@@ -78,6 +81,8 @@ function Navigation(props) {
         </div>
       </Navbar.Offcanvas>
     </Navbar>
+    //   )}
+    // </ThemeContext.Consumer>
   );
 }
 
