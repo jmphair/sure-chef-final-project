@@ -43,7 +43,7 @@
 
  .grocery-card-contents {
   display: grid;
-  grid-template-columns: 10% 60% 20% 10%;
+  grid-template-columns: 25% 60% 15%;
   text-align: center;
  }
 
@@ -52,6 +52,9 @@
   margin-bottom: 5px;
  }
 
+ .text-adjust {
+   padding-top: 6px
+ }
  .grocery-card:hover  {
   box-shadow: 0 0 11px rgba(33,33,33,.2); 
  }
@@ -67,3 +70,18 @@
  .icon:hover{
   transform: scale(1.2)
  }
+
+
+ @media only screen and (min-width: 800px) {
+  .a-body{
+    display: grid;
+    grid-template-columns: 50% 50%;
+  }
+}
+
+@media only screen and (min-width: 1300px) {
+  .a-body{
+    display: grid;
+    grid-template-columns: 33% 33% 33%;
+  }
+}
