@@ -23,3 +23,7 @@
 hr.solid-nav {
   border-top: 2px solid #999;
 }
+
+.offcanvas-title {
+  font-family: "Astro";
+}

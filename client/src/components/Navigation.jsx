@@ -1,19 +1,14 @@
 import { useState } from "react";
 import {
   Button,
-  Container,
   Nav,
   Navbar,
   Offcanvas,
   Image
 } from "react-bootstrap";
 import Logout from "./Logout";
-// import LightSwitchButton from "./LightSwitchButton.jsx"
 import './Navigation.css'
-// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-// import { faCloudMoon } from "@fortawesome/free-solid-svg-icons";
 import littleRobot from "../assets/littleRobot.gif"
-// import { ThemeContext } from "./Dashboard";
 
 function Navigation(props) {
   const [open, setOpen] = useState(false);
@@ -24,32 +19,26 @@ function Navigation(props) {
   };
 
   return (
-    // This is work around testing...
-    // <ThemeContext.Consumer> 
-    //   {({theme, toggleTheme}) => (
-    <Navbar expanded={open} expand={false} className="nav-header">
-      <Navbar.Brand><strong>SureChef</strong></Navbar.Brand>
+    <Navbar expanded={open} expand={false} className="nav-header" id={props.theme}>
+      <Navbar.Brand id={props.theme}><strong>SureChef</strong></Navbar.Brand>
       <Navbar.Toggle
+        id={props.theme}
         aria-controls="offcanvasNavbar"
         onClick={() => setOpen(true)}
       />
       <Navbar.Offcanvas
-        id="offcanvasNavbar"
+        id={props.theme}
         aria-labelledby="offcanvasNavbarLabel"
         placement="end"
       >
         <Offcanvas.Header closeButton onClick={() => setOpen(false)}>
-          <Offcanvas.Title id="offcanvasNavbarLabel" style={{ fontFamily: "Astro"}}>
+          <Offcanvas.Title >
             <strong>SureChef</strong>
           </Offcanvas.Title>
         </Offcanvas.Header>
         <Offcanvas.Body>
-          <Nav className="justify-content-end">
-            {/* <div className='dark-mode'>
-              <FontAwesomeIcon icon={faCloudMoon} />
-              <LightSwitchButton />
-            </div> */}
-            <section className ='button-list'>
+          <Nav id={props.theme} className="justify-content-end">
+            <section id={props.theme} className ='button-list'>
                 <Button className='nav-button' onClick={() => handleClick("mykitchen")} variant="outline-dark">
                   My Kitchen
                 </Button>
@@ -71,9 +60,9 @@ function Navigation(props) {
               </section>
           </Nav>
         </Offcanvas.Body>
-          <div className='logout-container'>
+          <div className='logout-container' id={props.theme}>
           <hr className="solid-nav"/>
-            <div className='nav-user'>
+            <div className='nav-user' id={props.theme}>
             Logged in as <strong>{props.user.name}</strong>
           </div>
           <Image src={littleRobot} alt="Robot Gif" className="w-50"/>
@@ -81,8 +70,6 @@ function Navigation(props) {
         </div>
       </Navbar.Offcanvas>
     </Navbar>
-    //   )}
-    // </ThemeContext.Consumer>
   );
 }
 

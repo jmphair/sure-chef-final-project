@@ -43,7 +43,7 @@ const Dashboard = (props) => {
   return (
     <ThemeContext.Provider value={{ theme, setTheme }}>
       <main className="App" id={theme}>
-        <Navigation user={props.user} onClick={handleSectionClick} />
+        <Navigation user={props.user} onClick={handleSectionClick} theme={theme}/>
         {activeSection === "dashboard" && (
           <Container className="dashboard">
             <div className="greeting">
