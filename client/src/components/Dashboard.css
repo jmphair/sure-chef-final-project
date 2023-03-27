@@ -51,16 +51,23 @@ main {
   left: 0;
   bottom: 0;
   width: 100%;
-  padding: 10px;
   text-align: center;
+  background-color: white;
+  padding-top: 0px;
+  z-index: -1;
+
 }
+
 .veg-footer1 {
   position: fixed;
   left: 0;
-  bottom:17px;
+  bottom: 21px; 
   width: 100%;
-  padding: 10px;
   text-align: center;
+  background-color: white;
+  z-index: -1;
+
 }
+
 
 
