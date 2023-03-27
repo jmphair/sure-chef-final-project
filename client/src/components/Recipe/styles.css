@@ -27,6 +27,10 @@
   font-weight: bold;
 }
 
+.recipe-title {
+  text-align: center;
+}
+
 /* ----------------RecipeItemList Styling --------------------*/
 
 .plated {

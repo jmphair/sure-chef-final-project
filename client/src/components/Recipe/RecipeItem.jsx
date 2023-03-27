@@ -70,14 +70,14 @@ const RecipeItem = (props) => {
       <Card className="my-3">
         {!showForm && (
           <Card.Body>
-            <Card.Title>{props.name}</Card.Title>
-            <Card.Text>Servings: {props.servings}</Card.Text>
-            <Card.Text>Prep time: {props.prepTime}</Card.Text>
-            <Card.Text>Cook time: {props.cookTime}</Card.Text>
-            <Card.Text>Total time: {props.totalTime}</Card.Text>
-            <Card.Text>Ingredients: {props.ingredients}</Card.Text>
-            <Card.Text>Directions: {props.instructions} </Card.Text>
-            <Card.Text>Note: {props.note} </Card.Text>
+            <Card.Title className="recipe-title">{props.name}</Card.Title>
+            <Card.Text><strong>Servings: </strong>{props.servings}</Card.Text>
+            <Card.Text><strong>Prep time: </strong>{props.prepTime}</Card.Text>
+            <Card.Text><strong>Cook time: </strong>{props.cookTime}</Card.Text>
+            <Card.Text><strong>Total time: </strong>{props.totalTime}</Card.Text>
+            <Card.Text><strong>Ingredients: </strong>{props.ingredients}</Card.Text>
+            <Card.Text><strong>Directions: </strong>{props.instructions}</Card.Text>
+            <Card.Text><strong>Note: </strong>{props.note}</Card.Text>
 
             {!props.saved ? (
               <>
