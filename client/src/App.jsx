@@ -20,35 +20,35 @@ function RequireAuth({ children }) {
   if (!Userfront.tokens.accessToken) {
     // Redirect to the /login page
     return (
-      <>
+      <Container className="app-container">
         <div className='landing-div'> 
         <h1 className='landing-hero' style={{ fontFamily: "Astro"}}>
           <strong>SureChef</strong>
           </h1>
         {activeSection === 'landingpage' && (
-        <Container >  
+        <div>  
           <LandingPage />
             <button className="login-button" onClick={() => handleSectionClick("login")}>
                   Start Cooking!
             </button>
-        </Container>)}
+        </div>)}
         {activeSection === 'login' && (
-        <Container >  
+        <div>  
           <Login />
             <button className="login-button" onClick={() => handleSectionClick("signup")}>
                   Sign up
             </button>
-        </Container>)}
+        </div>)}
         {activeSection === 'signup' && (
-          <Container>
+          <div>
             <Signup />
             <button className="login-button" onClick={() => handleSectionClick("login")}>
                   Log in
             </button>
-          </Container>
+          </div>
         )}
         </div>
-      </>);
+      </Container>);
   }
 
   return children;
@@ -90,7 +90,7 @@ function App() {
   }, [])
 
   return (
-    <main className="App">
+    <main className="app-container">
       <RequireAuth>
         <Dashboard user={user} />
       </RequireAuth>

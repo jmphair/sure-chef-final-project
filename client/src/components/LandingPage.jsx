@@ -16,7 +16,7 @@ const LandingPage = () => {
   };
 
   return (
-    <Container>
+    <Container className="landing-container" id="light">
       <Carousel activeIndex={index} onSelect={handleSelect}>
         <Carousel.Item>
           <Image
