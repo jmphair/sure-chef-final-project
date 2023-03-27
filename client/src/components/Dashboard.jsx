@@ -68,7 +68,7 @@ const Dashboard = (props) => {
             <Card.ImgOverlay>
               <div
                 className="dash-div"
-                onClick={() => handleSectionClick("recipes")}
+                onClick={() => handleSectionClick("recipe")}
               >
                 Recipes
               </div>
