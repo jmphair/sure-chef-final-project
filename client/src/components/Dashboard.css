@@ -3,12 +3,23 @@ main {
   min-height: 100vh;
 }
 
+.greeting {
+  margin-top: 10px;
+}
+
 .dash-card {
   margin-top: 10px;
-  height: 100px;
+  height: 150px;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  flex-direction: row-reverse;
+  border: none;
+}
+
+.dash-card img {
+  margin-top: 20px;
+  width: 130px;
+  height: 130px;
+  justify-content: left;
   border: none;
 }
 
@@ -21,17 +32,39 @@ main {
 }
 
 .dash-div {
+  display: flex;
+  justify-content: flex-start;
+  height: 100vh;
+  cursor: pointer;
+  font-size: 24px;
+}
+
+@media only screen and (min-width: 550px) {
+  .dash-div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    flex-direction: column;
     cursor: pointer;
     font-size: 24px;
-  }
+    }
+}
 
 .veg-footer1 {
   position: fixed;
   left: 0;
-  bottom:17px;
+  bottom: 21px; 
   width: 100%;
-  padding: 10px;
   text-align: center;
+  z-index: 0;
+
+}
+
+.random-recipe { 
+  position: relative;
+
+  z-index: 1;
 }
 
 hr.solid-dash {

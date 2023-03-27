@@ -3,6 +3,7 @@ import { useState } from "react";
 import { Container, CardGroup, Card, Accordion } from "react-bootstrap";
 import { getRecipesForUsers } from "../../helpers/selectors";
 import useRecipeData from "../../hooks/useRecipeData";
+import plated from "../../assets/plated.png";
 
 const RecipeItemList = (props) => {
   // Use the useRecipeData hook to get the recipes and currentRecipe from state
@@ -90,6 +91,7 @@ const RecipeItemList = (props) => {
 
   return (
     <Container className="my-3">
+      <img src={plated} className="plated" />
       <h3 className="heading">My Cookbook</h3>
       <h6 className="heading">Total Recipes: {count}</h6>
       <div className="mb-3">
