@@ -30,16 +30,3 @@ function Potato() {
 }
 
 export default Potato;
-
-// .spotlight__wrapper {
-//   display: flex;
-//   flex-direction: column;
-//   align-items: center;
-//   justify-content: space-between;
-//   border-radius: 12px;
-//   border: 1px solid #dfe1e5;
-//   margin: auto;
-//   max-width: 600px;
-//   background-color: #fff;
-// }
-

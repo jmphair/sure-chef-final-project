@@ -51,12 +51,12 @@ function Navigation(props) {
                 <Button className='nav-button' onClick={() => handleClick("dashboard")} variant="outline-dark">
                   Dashboard
                 </Button>
-                <Button className='nav-button' onClick={() => handleClick("saverecipe")} variant="outline-dark">
+                {/* <Button className='nav-button' onClick={() => handleClick("saverecipe")} variant="outline-dark">
                   TEMP Save Recipe
                 </Button>
                 <Button className='nav-button' onClick={() => handleClick("loadingrecipe")} variant="outline-dark">
                   TEMP Loading Recipe
-                </Button>
+                </Button> */}
               </section>
           </Nav>
         </Offcanvas.Body>
