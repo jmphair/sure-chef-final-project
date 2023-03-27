@@ -1,6 +1,69 @@
-.add-button {
+ /* ------------------KitchenItemList--------------------------------- */
+
+.heading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+ }
+ 
+ 
+ .add-button {
   display: flex;
   justify-content: center;
   margin-bottom: 15px;
-  border-radius: 20px;
+ }
+
+ .container {
+  background-color: #f7f7f7;
+  padding: 20px;
+ }
+ 
+ 
+ .accordion-item {
+  border: none;
+ }
+ 
+ .accordion-header {
+  background-color: #fff;
+  color: #333;
+  border: none;
+  border-bottom: 1px solid #ccc;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-weight: bold;
+ }
+ 
+ 
+ .accordion-body {
+  padding: 20px;
+  border: none;
+  border-bottom: 1px solid #ccc;
+ }
+
+ .grocery-card-contents {
+  display: grid;
+  grid-template-columns: 10% 60% 20% 10%;
+  text-align: center;
+ }
+
+ .grocery-card {
+  margin-top: 5px;
+  margin-bottom: 5px;
+ }
+
+ .grocery-card:hover  {
+  box-shadow: 0 0 11px rgba(33,33,33,.2); 
+ }
+
+ .quantity {
+  font-size: 13px;
+ }
+
+ .icons{
+    display: flex;
+    justify-content: space-around;
+ }
+ .icon:hover{
+  transform: scale(1.2)
  }

@@ -32,7 +32,7 @@ const GroceryItemList = (props) => {
   console.log(count);
 
   return (
-    <Container className="my-3">
+    <Container>
       <img
         src={blueberries}
         className="blueberries"
@@ -52,6 +52,7 @@ const GroceryItemList = (props) => {
       ) : (
         <div className="add-button">
           <Button
+            className="button"
             variant="outline-dark"
             onClick={props.handleAddItem}
             style={{ borderRadius: "20px" }}
