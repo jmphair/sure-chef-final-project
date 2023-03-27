@@ -1,6 +1,9 @@
 import { useState, createContext } from "react";
 import { Container, Button, Form, Card, Modal } from "react-bootstrap";
 import potatoDance from "../assets/potatoDance.gif";
+import kitchen from "../assets/kitchen.png";
+import recipe from "../assets/recipe.png";
+import grocery from "../assets/grocery.png";
 
 import Navigation from "./Navigation";
 import MyKitchen from "./MyKitchen";
@@ -20,7 +23,7 @@ const Dashboard = (props) => {
   const [showPopup, setShowPopup] = useState(false);
   const [activeSection, setActiveSection] = useState("dashboard");
   const [show, setShow] = useState(false);
-  const [theme, setTheme] = useState("dark")
+  const [theme, setTheme] = useState("dark");
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -38,18 +41,20 @@ const Dashboard = (props) => {
   }
 
   const toggleTheme = () => {
-    setTheme((curr) => (curr === "light" ? "dark" : "light"))
+    setTheme((curr) => (curr === "light" ? "dark" : "light"));
   };
 
   return (
     <ThemeContext.Provider value={{ theme, setTheme }}>
       <main className="App" id={theme}>
-        <Navigation user={props.user} onClick={handleSectionClick} theme={theme}/>
+        <Navigation
+          user={props.user}
+          onClick={handleSectionClick}
+          theme={theme}
+        />
         {activeSection === "dashboard" && (
           <Container className="dashboard">
-            <div className="greeting">
-              {welcomeMessage(props.user.name)}
-            </div>
+            <div className="greeting">{welcomeMessage(props.user.name)}</div>
             <div className="dark-mode-toggle">
               {/* <div>
                 <ReactSwitch onChange={toggleTheme} checked={theme === "dark"} />
@@ -65,62 +70,76 @@ const Dashboard = (props) => {
               <label> {theme === "light" ? "Light Mode" : "Dark Mode"} </label>
             </div>
             <Card className="dash-card">
-              <div
-              className="dash-div"
-                onClick={() => handleSectionClick("mykitchen")}
+              <Card.Img src={kitchen} alt="Card image" />
+              <Card.ImgOverlay>
+                <div
+                  className="dash-div"
+                  onClick={() => handleSectionClick("mykitchen")}
                 >
-                My Kitchen
-              </div>
+                  My Kitchen
+                </div>
+              </Card.ImgOverlay>
             </Card>
             <Card className="dash-card">
-              <div
-              className="dash-div"
-                onClick={() => handleSectionClick("groceryList")}
+              <Card.Img src={grocery} alt="Card image" />
+              <Card.ImgOverlay>
+                <div
+                  className="dash-div"
+                  onClick={() => handleSectionClick("groceryList")}
                 >
-                My Grocery List
-              </div>
+                  My Grocery List
+                </div>
+              </Card.ImgOverlay>
             </Card>
             <Card className="dash-card">
-              <div
-              className="dash-div"
-                onClick={() => handleSectionClick("recipe")}
+              <Card.Img src={recipe} alt="Card image" />
+              <Card.ImgOverlay>
+                <div
+                  className="dash-div"
+                  onClick={() => handleSectionClick("recipe")}
                 >
-                My Recipes
-              </div>
+                  My Recipes
+                </div>
+              </Card.ImgOverlay>
             </Card>
-            <RandomRecipe user={props.user} />  
+            <div className="random-recipe">
+              <RandomRecipe user={props.user} />
+            </div>
             <div className="veg-footer1">
-                  <hr className="solid-dash" />
+              <hr className="solid-dash" />
               <>🥬🧅🌶🍅</>
               <span
                 className="potato"
                 style={{
-                cursor: "pointer",
-                display: showPopup ? "none" : "inline-block",
-              }}
+                  cursor: "pointer",
+                  display: showPopup ? "none" : "inline-block",
+                }}
                 variant="primary"
                 onClick={handlePopupClick}
               >
                 🥔
               </span>
               {showPopup && (
-              <div className="popup" onMouseLeave={handlePopupLeave}>
-                <img
-                  src={potatoDance}
-                  alt="Potato"
-                  onClick={handleShow}
-                  style={{ cursor: "pointer" }}
-                />
-              </div>
-            )}
-            <>🥕🥦🌽🍠</>
-            <p className="thanks">Special thanks to our instructors, mentors, and coordinators at LHL!</p>
+                <div className="popup" onMouseLeave={handlePopupLeave}>
+                  <img
+                    src={potatoDance}
+                    alt="Potato"
+                    onClick={handleShow}
+                    style={{ cursor: "pointer" }}
+                  />
+                </div>
+              )}
+              <>🥕🥦🌽🍠</>
+              <p className="thanks">
+                Special thanks to our instructors, mentors, and coordinators at
+                LHL!
+              </p>
             </div>
             <Modal show={show} onHide={handleClose}>
               <Modal.Header closeButton>
                 <Modal.Title>
-                  You have clicked the super secret potato of destiny, what may I
-                  reveal to you?
+                  You have clicked the super secret potato of destiny, what may
+                  I reveal to you?
                 </Modal.Title>
               </Modal.Header>
               <Modal.Body>
@@ -130,14 +149,20 @@ const Dashboard = (props) => {
           </Container>
         )}
         {activeSection === "mykitchen" && (
-          <MyKitchen user={props.user} handleSectionClick={handleSectionClick} />
+          <MyKitchen
+            user={props.user}
+            handleSectionClick={handleSectionClick}
+          />
         )}
         {activeSection === "groceryList" && <GroceryList user={props.user} />}
         {activeSection === "recipe" && (
           <Recipe user={props.user} handleSectionClick={handleSectionClick} />
         )}
         {activeSection === "saverecipe" && (
-          <SaveRecipe user={props.user} handleSectionClick={handleSectionClick} />
+          <SaveRecipe
+            user={props.user}
+            handleSectionClick={handleSectionClick}
+          />
         )}
         <GoToTop />
       </main>
