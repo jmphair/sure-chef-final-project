@@ -102,7 +102,9 @@ const Dashboard = (props) => {
                 </div>
               </Card.ImgOverlay>
             </Card>
-            <RandomRecipe user={props.user} />
+            <div className="random-recipe">
+              <RandomRecipe user={props.user} />
+            </div>
             <div className="veg-footer1">
               <hr className="solid-dash" />
               <>🥬🧅🌶🍅</>

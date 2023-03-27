@@ -3,6 +3,10 @@ main {
   min-height: 100vh;
 }
 
+.greeting {
+  margin-top: 10px;
+}
+
 .dash-card {
   margin-top: 10px;
   height: 150px;
@@ -51,9 +55,14 @@ main {
   bottom: 21px; 
   width: 100%;
   text-align: center;
-  background-color: white;
-  z-index: -1;
+  z-index: 0;
 
+}
+
+.random-recipe { 
+  position: relative;
+
+  z-index: 1;
 }
 
 hr.solid-dash {
