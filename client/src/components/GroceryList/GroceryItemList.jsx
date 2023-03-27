@@ -62,19 +62,27 @@ const GroceryItemList = (props) => {
         <Accordion alwaysOpen flush>
           <Accordion.Item eventKey="0">
             <Accordion.Header>Refrigerator</Accordion.Header>
-            <Accordion.Body>{groceryItemsSort("Refrigerator")}</Accordion.Body>
+            <Accordion.Body>
+              <div className="a-body">{groceryItemsSort("Refrigerator")}</div>
+            </Accordion.Body>
           </Accordion.Item>
           <Accordion.Item eventKey="1">
             <Accordion.Header>Freezer</Accordion.Header>
-            <Accordion.Body>{groceryItemsSort("Freezer")}</Accordion.Body>
+            <Accordion.Body>
+              <div className="a-body">{groceryItemsSort("Freezer")}</div>
+            </Accordion.Body>
           </Accordion.Item>
           <Accordion.Item eventKey="2">
             <Accordion.Header>Pantry</Accordion.Header>
-            <Accordion.Body>{groceryItemsSort("Pantry")}</Accordion.Body>
+            <Accordion.Body>
+              <div className="a-body">{groceryItemsSort("Pantry")}</div>
+            </Accordion.Body>
           </Accordion.Item>
           <Accordion.Item eventKey="3">
             <Accordion.Header>Other</Accordion.Header>
-            <Accordion.Body>{groceryItemsSort("Other")}</Accordion.Body>
+            <Accordion.Body>
+              <div className="a-body">{groceryItemsSort("Other")}</div>
+            </Accordion.Body>
           </Accordion.Item>
         </Accordion>
       </Container>

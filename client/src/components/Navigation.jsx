@@ -20,7 +20,7 @@ function Navigation(props) {
 
   return (
     <Navbar expanded={open} expand={false} className="nav-header" id={props.theme}>
-      <Navbar.Brand id={props.theme}><strong>SureChef</strong></Navbar.Brand>
+      <div className='navbar-brand nav-title' id={props.theme}><strong>SureChef</strong></div>
       <Navbar.Toggle
         id={props.theme}
         aria-controls="offcanvasNavbar"
@@ -31,8 +31,8 @@ function Navigation(props) {
         aria-labelledby="offcanvasNavbarLabel"
         placement="end"
       >
-        <Offcanvas.Header closeButton onClick={() => setOpen(false)}>
-          <Offcanvas.Title >
+        <Offcanvas.Header className='close-button' closeButton onClick={() => setOpen(false)}>
+          <Offcanvas.Title className='nav-title'>
             <strong>SureChef</strong>
           </Offcanvas.Title>
         </Offcanvas.Header>

@@ -51,13 +51,25 @@
 
  .kitchen-card-contents {
   display: grid;
-  grid-template-columns: 10% 60% 20% 10%;
+  grid-template-columns: 10% 60% 15% 15%;
   text-align: center;
  }
 
  .kitchen-card {
-  margin-top: 5px;
-  margin-bottom: 5px;
+  margin: 5px
+ }
+
+ .cart{
+  border-style: solid;
+  border-color: #333;
+  border-width: 1px;
+  border-radius: 5px;
+  margin-bottom: 15px;
+  text-align: center;
+  min-height: 90px;
+  padding: 5px 5px 2px 5px;
+  background-color: white;
+
  }
 
  .kitchen-card:hover  {
@@ -72,6 +84,7 @@
     display: flex;
     justify-content: space-around;
  }
+ 
  .icon:hover{
   transform: scale(1.2)
  }
@@ -102,5 +115,21 @@
     width: 120px;
     height: 120px;
   }
+
 }
+
+@media only screen and (min-width: 1000px) {
+  .a-body{
+    display: grid;
+    grid-template-columns: 50% 50%;
+  }
+}
+
+@media only screen and (min-width: 1300px) {
+  .a-body{
+    display: grid;
+    grid-template-columns: 33% 33% 33%;
+  }
+}
+
 

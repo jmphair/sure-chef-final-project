@@ -27,3 +27,23 @@ hr.solid-nav {
 .offcanvas-title {
   font-family: "Astro";
 }
+
+.nav-title {
+  font-family: "Astro";
+}
+
+.navbar-brand {
+  display: flex;
+  align-self: center;
+  font-family: "Astro";
+
+  background-color: #5d5d5d;
+}
+
+.close-button{
+  padding: 10px 25px 0px 20px
+}
+
+.nav-title {
+  padding-top: 15px
+}

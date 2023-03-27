@@ -20,35 +20,35 @@ function RequireAuth({ children }) {
   if (!Userfront.tokens.accessToken) {
     // Redirect to the /login page
     return (
-      <>
+      <Container className="app-container">
         <div className='landing-div'> 
-        <h1 className='landing-hero' style={{ fontFamily: "Astro"}}>
-          <strong>SureChef</strong>
+          <h1 className='landing-hero'>
+            <strong>SureChef</strong>
           </h1>
-        {activeSection === 'landingpage' && (
-        <Container >  
-          <LandingPage />
+          {activeSection === 'landingpage' && (
+          <div>
             <button className="login-button" onClick={() => handleSectionClick("login")}>
-                  Start Cooking!
-            </button>
-        </Container>)}
-        {activeSection === 'login' && (
-        <Container >  
-          <Login />
-            <button className="login-button" onClick={() => handleSectionClick("signup")}>
-                  Sign up
-            </button>
-        </Container>)}
-        {activeSection === 'signup' && (
-          <Container>
-            <Signup />
-            <button className="login-button" onClick={() => handleSectionClick("login")}>
-                  Log in
-            </button>
-          </Container>
-        )}
+              Start Cooking!
+            </button>  
+            <LandingPage />
+          </div>)}
+          {activeSection === 'login' && (
+          <div className='login-div'>  
+            <Login />
+              <button className="login-button" onClick={() => handleSectionClick("signup")}>
+                Sign up
+              </button>
+          </div>)}
+          {activeSection === 'signup' && (
+            <div className='login-div'>
+              <Signup />
+              <button className="login-button" onClick={() => handleSectionClick("login")}>
+                Log in
+              </button>
+            </div>
+          )}
         </div>
-      </>);
+      </Container>);
   }
 
   return children;
@@ -90,7 +90,7 @@ function App() {
   }, [])
 
   return (
-    <main className="App">
+    <main className="app-container">
       <RequireAuth>
         <Dashboard user={user} />
       </RequireAuth>

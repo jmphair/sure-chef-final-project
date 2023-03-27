@@ -48,6 +48,7 @@ const KitchenItemList = (props) => {
               user={props.user}
               addIngredient={addIngredient}
               removeIngredient={removeIngredient}
+              className="accordion-item"
             />
           );
         }
@@ -59,11 +60,16 @@ const KitchenItemList = (props) => {
   const count = props.userKitchenItems.length;
 
   const displaySelected = () => {
-    let prompt = "Make me a recipe with ";
+    let prompt = "No ingredients selected  ";
+    if (recipeIngredients[0]) {
+      prompt = "Make me a recipe with ";
+    }
     recipeIngredients.forEach((ingredient) => {
       prompt += Object.keys(ingredient)[0];
       prompt += ", ";
     });
+    prompt = prompt.slice(0, -2);
+    prompt += ".";
     return prompt;
   };
 
@@ -80,17 +86,22 @@ const KitchenItemList = (props) => {
         {/* hide recipe generator button when add item form is opened */}
         {!props.showForm && (
           <>
-            <div style={{ marginBottom: "20px", marginTop: "20px" }}>
+            <div style={{ marginTop: "20px" }}>
               <RecipeGenerator
                 generateRecipe={generateRecipe}
                 user={props.user}
               />
             </div>
-            <div className="message">{displaySelected()}</div>
+            <div className="cart">
+              <strong>Recipe ingredients</strong>
+              <div>
+                <em>{displaySelected()}</em>
+              </div>
+            </div>
           </>
         )}
         {loading && (
-          <Modal show={true} style={{ marginTop: "0px" }}>
+          <Modal show={true} centered>
             <div className="header-container">
               <Modal.Header className="header-text">
                 <h4>Sure Chef! I'm cookin' something up!</h4>
@@ -127,19 +138,27 @@ const KitchenItemList = (props) => {
         <Accordion alwaysOpen flush>
           <Accordion.Item eventKey="0">
             <Accordion.Header>Refrigerator</Accordion.Header>
-            <Accordion.Body>{kitchenItemsSort("Refrigerator")}</Accordion.Body>
+            <Accordion.Body>
+              <div className="a-body">{kitchenItemsSort("Refrigerator")}</div>
+            </Accordion.Body>
           </Accordion.Item>
           <Accordion.Item eventKey="1">
             <Accordion.Header>Freezer</Accordion.Header>
-            <Accordion.Body>{kitchenItemsSort("Freezer")}</Accordion.Body>
+            <Accordion.Body>
+              <div className="a-body">{kitchenItemsSort("Freezer")}</div>
+            </Accordion.Body>
           </Accordion.Item>
           <Accordion.Item eventKey="2">
             <Accordion.Header>Pantry</Accordion.Header>
-            <Accordion.Body>{kitchenItemsSort("Pantry")}</Accordion.Body>
+            <Accordion.Body>
+              <div className="a-body">{kitchenItemsSort("Pantry")}</div>
+            </Accordion.Body>
           </Accordion.Item>
           <Accordion.Item eventKey="3">
             <Accordion.Header>Other</Accordion.Header>
-            <Accordion.Body>{kitchenItemsSort("Other")}</Accordion.Body>
+            <Accordion.Body>
+              <div className="a-body">{kitchenItemsSort("Other")}</div>
+            </Accordion.Body>
           </Accordion.Item>
         </Accordion>
       </Container>
