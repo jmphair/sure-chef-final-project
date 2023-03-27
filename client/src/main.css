@@ -2,6 +2,15 @@
   background-color: #f7f7f7;
 }
 
+.landing-text {
+  font-weight: lighter;
+}
+
+.intro-card {
+  border: none;
+  background: none;
+}
+
 .btn {
   border-radius: 20px;
 }
