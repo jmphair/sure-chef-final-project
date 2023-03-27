@@ -24,15 +24,6 @@ main {
     font-size: 24px;
   }
 
-
-.veg-footer2 {
-  position: fixed;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  padding: 10px;
-  text-align: center;
-}
 .veg-footer1 {
   position: fixed;
   left: 0;
@@ -40,4 +31,9 @@ main {
   width: 100%;
   padding: 10px;
   text-align: center;
+}
+
+hr.solid-dash {
+  border-top: 2px solid #999;
+  margin: 2em;
 }

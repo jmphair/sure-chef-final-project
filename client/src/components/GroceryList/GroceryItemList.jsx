@@ -31,7 +31,7 @@ const GroceryItemList = (props) => {
   console.log(count);
 
   return (
-    <Container className="my-3">
+    <Container>
       <h3 className="heading">My Grocery List</h3>
       <h6 className="heading">Total Ingredients: {count}</h6>
       {props.showForm ? (
@@ -46,6 +46,7 @@ const GroceryItemList = (props) => {
       ) : (
         <div className="add-button">
           <Button
+            className="button"
             variant="outline-dark"
             onClick={props.handleAddItem}
             style={{ borderRadius: "20px" }}

@@ -25,6 +25,7 @@
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.9.0",
     "react-scripts": "^5.0.1",
+    "react-switch": "^7.0.0",
     "react-three-fiber": "^6.0.13",
     "three": "^0.150.1",
     "three-instanced-uniforms-mesh": "^0.47.0",

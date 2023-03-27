@@ -37,3 +37,202 @@
 .success:hover {
   background-color: #2d8f5e; /* darken background on hover */
 }
+
+
+/********** DARK MODE THEME STYLING **********/
+
+#light {
+  background-color: #f7f7f7;
+}
+
+#dark {
+  background-color: #5d5d5d;
+}
+
+.dark-mode-toggle {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+#light .dark-mode-toggle label {
+  color: #333;
+}
+
+#dark .dark-mode-toggle label {
+  color: white;
+}
+
+.greeting {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#light .greeting {
+  color: #333;
+}
+
+#dark .greeting {
+  color: white;
+}
+
+#light .dashboard {
+  background-color: #ffffff;
+}
+
+#dark .dashboard {
+  background-color: #5d5d5d;
+}
+
+.nav-header {
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+}
+
+#light .nav-header {
+  background-color: #dcdbdb;
+  color: #333;
+}
+
+#dark .nav-header {
+  background-color: #515151;
+  color: white;
+}
+
+.navbar-brand {
+  display: flex;
+  align-self: center;
+  font-family: "Astro";
+  background-color: #5d5d5d;
+}
+
+#light .navbar-brand {
+  margin: 0.5em;
+  background-color: #dcdbdb;
+  color: #333;
+}
+
+#dark .navbar-brand {
+  margin: 0.5em;
+  background-color: #515151;
+  color: white;
+}
+
+.navbar-toggler {
+  margin: 0.5em;
+  border: none;
+}
+
+#light .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(0, 0, 0, 0.5)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+#dark .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255, 255, 255)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+}
+
+#dark .dash-card {
+  background-color: rgb(192, 191, 191);
+}
+
+#light .thanks {
+  color: #333;
+}
+
+#dark .thanks {
+  color: white;
+}
+
+#dark .container {
+  background-color: #5d5d5d;
+
+}
+
+#light .container {
+  background-color: #f7f7f7;
+}
+
+#light .heading {
+  color: #333;
+}
+
+#dark .heading {
+  color: white;
+}
+
+#light .message {
+  color: #333;
+}
+
+#dark .message {
+  color: white;
+}
+
+#dark .button {
+  border-color: white;
+  color: white;
+}
+
+#dark .create-button {
+  color: white;
+  border: white;
+}
+
+#dark .accordion-item {
+  background-color: rgb(192, 191, 191);
+  color: white;
+}
+
+#dark .accordion-header {
+  background-color: rgb(192, 191, 191);
+  color: white;
+}
+
+#dark .accordion-body {
+  background-color: rgb(192, 191, 191);
+  color: white;
+}
+
+#dark .accordion-button {
+  background-color: rgb(192, 191, 191);
+  color: white;
+}
+
+#dark .kitchen-card-contents {
+  background-color: #878787;
+  color: white;
+}
+
+#dark .kitchen-card {
+  background-color: #878787;
+  color: white;
+}
+
+#dark .grocery-card-contents {
+  background-color: #878787;
+  color: white;
+}
+
+#dark .grocery-card {
+  background-color: #878787;
+  color: white;
+}
+
+#dark .card-body {
+  background-color: #878787;
+  color: white;
+}
+
+#dark .offcanvas-title {
+  color: white;
+}
+
+#dark .nav-button {
+  color: white;
+}
+
+#dark .nav-user {
+  color: white;
+}

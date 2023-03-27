@@ -1,19 +1,14 @@
 import { useState } from "react";
 import {
   Button,
-  Container,
   Nav,
   Navbar,
   Offcanvas,
-  Card,
-  CardGroup,
+  Image
 } from "react-bootstrap";
 import Logout from "./Logout";
-import LightSwitchButton from "./LightSwitchButton.jsx"
 import './Navigation.css'
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCloudMoon } from "@fortawesome/free-solid-svg-icons";
-
+import littleRobot from "../assets/littleRobot.gif"
 
 function Navigation(props) {
   const [open, setOpen] = useState(false);
@@ -24,62 +19,56 @@ function Navigation(props) {
   };
 
   return (
-    <Navbar expanded={open} bg="light" expand={false} className="mb-3">
-      <Container fluid>
-        <Navbar.Brand style={{ fontFamily: "Astro"}}> 
-        <strong>SureChef</strong>
-        </Navbar.Brand>
-        <Navbar.Toggle
-          aria-controls="offcanvasNavbar"
-          onClick={() => setOpen(true)}
-        />
-        <Navbar.Offcanvas
-          id="offcanvasNavbar"
-          aria-labelledby="offcanvasNavbarLabel"
-          placement="end"
-        >
-          <Offcanvas.Header closeButton onClick={() => setOpen(false)}>
-            <Offcanvas.Title id="offcanvasNavbarLabel" style={{ fontFamily: "Astro"}}>
-              <strong>SureChef</strong>
-            </Offcanvas.Title>
-          </Offcanvas.Header>
-          <Offcanvas.Body>
-            <Nav className="justify-content-end">
-              <div className='dark-mode'>
-                <FontAwesomeIcon icon={faCloudMoon} />
-                <LightSwitchButton />
-              </div>
-              <section className ='button-list'>
-                  <Button className='nav-button' onClick={() => handleClick("mykitchen")} variant="outline-dark">
-                    My Kitchen
-                  </Button>
-                  <Button className='nav-button' onClick={() => handleClick("groceryList")} variant="outline-dark">
-                    Grocery List
-                  </Button>
-                  <Button className='nav-button' onClick={() => handleClick("recipe")} variant="outline-dark">
-                    Recipes
-                  </Button>
-                  <Button className='nav-button' onClick={() => handleClick("dashboard")} variant="outline-dark">
-                    Dashboard
-                  </Button>
-                  {/* <Button className='nav-button' onClick={() => handleClick("saverecipe")} variant="outline-dark">
-                    TEMP Save Recipe
-                  </Button>
-                  <Button className='nav-button' onClick={() => handleClick("loadingrecipe")} variant="outline-dark">
-                    TEMP Loading Recipe
-                  </Button> */}
-                </section>
-            </Nav>
-          </Offcanvas.Body>
-            <div className='logout-container'>
-            <hr className="solid"/>
-             <div className='nav-user'>
-              Logged in as <strong>{props.user.name}</strong>
-            </div>
-            <Logout />
+    <Navbar expanded={open} expand={false} className="nav-header" id={props.theme}>
+      <Navbar.Brand id={props.theme}><strong>SureChef</strong></Navbar.Brand>
+      <Navbar.Toggle
+        id={props.theme}
+        aria-controls="offcanvasNavbar"
+        onClick={() => setOpen(true)}
+      />
+      <Navbar.Offcanvas
+        id={props.theme}
+        aria-labelledby="offcanvasNavbarLabel"
+        placement="end"
+      >
+        <Offcanvas.Header closeButton onClick={() => setOpen(false)}>
+          <Offcanvas.Title >
+            <strong>SureChef</strong>
+          </Offcanvas.Title>
+        </Offcanvas.Header>
+        <Offcanvas.Body>
+          <Nav id={props.theme} className="justify-content-end">
+            <section id={props.theme} className ='button-list'>
+                <Button className='nav-button' onClick={() => handleClick("mykitchen")} variant="outline-dark">
+                  My Kitchen
+                </Button>
+                <Button className='nav-button' onClick={() => handleClick("groceryList")} variant="outline-dark">
+                  Grocery List
+                </Button>
+                <Button className='nav-button' onClick={() => handleClick("recipe")} variant="outline-dark">
+                  Recipes
+                </Button>
+                <Button className='nav-button' onClick={() => handleClick("dashboard")} variant="outline-dark">
+                  Dashboard
+                </Button>
+                {/* <Button className='nav-button' onClick={() => handleClick("saverecipe")} variant="outline-dark">
+                  TEMP Save Recipe
+                </Button>
+                <Button className='nav-button' onClick={() => handleClick("loadingrecipe")} variant="outline-dark">
+                  TEMP Loading Recipe
+                </Button> */}
+              </section>
+          </Nav>
+        </Offcanvas.Body>
+          <div className='logout-container' id={props.theme}>
+          <hr className="solid-nav"/>
+            <div className='nav-user' id={props.theme}>
+            Logged in as <strong>{props.user.name}</strong>
           </div>
-        </Navbar.Offcanvas>
-      </Container>
+          <Image src={littleRobot} alt="Robot Gif" className="w-50"/>
+          <Logout />
+        </div>
+      </Navbar.Offcanvas>
     </Navbar>
   );
 }
