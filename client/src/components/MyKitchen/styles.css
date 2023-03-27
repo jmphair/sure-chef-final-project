@@ -72,3 +72,21 @@
  .icon:hover{
   transform: scale(1.2)
  }
+
+.container {
+  padding-top: 0px;
+}
+
+.spices {
+  width: 100px;
+  height: 100px;
+}
+
+
+@media only screen and (min-width: 550px) {
+  .spices {
+    width: 150px;
+    height: 135px;
+  }
+}
+

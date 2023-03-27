@@ -14,13 +14,20 @@ import SaveRecipe from "../Recipe/SaveRecipe";
 import LoadingRecipe from "./LoadingRecipe";
 import useRecipeData from "../../hooks/useGroceryListItemData";
 import { ingredientParser, instructionParser } from "../../helpers/dataParsers";
+import spices from "../../assets/spices.png";
 
 import "./styles.css";
 
 const KitchenItemList = (props) => {
   const [show, setShow] = useState(true);
-  const { recipeIngredients, generateRecipe, addIngredient, removeIngredient, loading, answer } =
-    recipeGenerator();
+  const {
+    recipeIngredients,
+    generateRecipe,
+    addIngredient,
+    removeIngredient,
+    loading,
+    answer,
+  } = recipeGenerator();
 
   const handleClose = () => {
     setShow(false);
@@ -52,16 +59,18 @@ const KitchenItemList = (props) => {
   const count = props.userKitchenItems.length;
 
   const displaySelected = () => {
-    let prompt = 'Make me a recipe with '
-    recipeIngredients.forEach(ingredient => {
-      prompt += Object.keys(ingredient)[0]
-      prompt += ', '
-    })
-    return prompt
-  }
+    let prompt = "Make me a recipe with ";
+    recipeIngredients.forEach((ingredient) => {
+      prompt += Object.keys(ingredient)[0];
+      prompt += ", ";
+    });
+    return prompt;
+  };
 
   return (
     <Container>
+      <img src={spices} className="spices" />
+
       <h3 className="heading">My Kitchen</h3>
       <h6 className="heading">Total Ingredients: {count}</h6>
       {/* hide recipe generator button when add item form is opened */}

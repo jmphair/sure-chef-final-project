@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { Container, Button } from "react-bootstrap";
+import spices from "../../assets/spices.png";
 
 // import RecipeGenerator from "../RecipeGenerator";
 import KitchenItemList from "./KitchenItemList";
@@ -48,6 +49,9 @@ const MyKitchen = (props) => {
 
   return (
     <Container>
+      {/* <div>
+        <img src={spices} />
+      </div> */}
       <KitchenItemList
         onDelete={handleDelete}
         handleAddItem={handleAddItem}
