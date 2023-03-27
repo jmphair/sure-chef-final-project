@@ -57,6 +57,19 @@
   margin-bottom: 5px;
  }
 
+ .cart{
+  border-style: solid;
+  border-color: #333;
+  border-width: 1px;
+  border-radius: 4px;
+  margin-bottom: 10px;
+  text-align: center;
+  min-height: 90px;
+  padding: 5px 2px 2px 2px;
+  background-color: white;
+
+ }
+
  .kitchen-card:hover  {
   box-shadow: 0 0 11px rgba(33,33,33,.2); 
  }

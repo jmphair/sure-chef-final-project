@@ -52,11 +52,16 @@ const KitchenItemList = (props) => {
   const count = props.userKitchenItems.length;
 
   const displaySelected = () => {
-    let prompt = 'Make me a recipe with '
+    let prompt = 'No ingredients selected  '
+    if (recipeIngredients[0]) {
+      prompt = 'Make me a recipe with '
+    }
     recipeIngredients.forEach(ingredient => {
       prompt += Object.keys(ingredient)[0]
       prompt += ', '
     })
+    prompt = prompt.slice(0, -2)
+    prompt += '.'
     return prompt
   }
 
@@ -67,11 +72,14 @@ const KitchenItemList = (props) => {
       {/* hide recipe generator button when add item form is opened */}
       {!props.showForm && (
         <>
-          <div style={{ marginBottom: "20px", marginTop: "20px" }}>
+          <div style={{ marginTop: "20px" }}>
             <RecipeGenerator generateRecipe={generateRecipe} user={props.user} />
           </div>
-          <div className="message">
-            {displaySelected()}
+          <div className="cart">
+            <strong>Recipe ingredients</strong>
+            <div>
+              <em>{displaySelected()}</em> 
+            </div>
           </div>
         </>
       )}
