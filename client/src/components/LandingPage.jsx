@@ -16,7 +16,7 @@ const LandingPage = () => {
   };
 
   return (
-    <Container>
+    <Container className="landing-container" id="light">
       <Carousel activeIndex={index} onSelect={handleSelect}>
         <Carousel.Item>
           <Image
@@ -44,23 +44,23 @@ const LandingPage = () => {
         </Carousel.Item>
       </Carousel>
       <hr className="solid"/>
-      <Card>
-        <h5>Simple, Useful, Fun</h5>
-        <p>Our methodology from day one.</p>
+      <Card className="intro-card">
+        <h3>Simple, Useful, Fun</h3>
+        <h5 className="landing-text">Our methodology from day one.</h5>
         <p>While robot assistants may not come standard in every kitchen just yet, we think that SureChef is a step in the right direction.</p>
       </Card>
       <hr className="solid"/>    
       <CardGroup body="false">
-        <Card body="false">
-        <h5>Keep Track</h5>  
+        <Card body="false" className="intro-card">
+        <h5 className="landing-text">Keep Track</h5>  
         <p>SureChef helps you keep track of your kitchen inventory and generates recipe ideas based on the ingredients you have on hand.</p>
         </Card>
-        <Card body="false">
-        <h5>Get Creative</h5>  
+        <Card body="false" className="intro-card">
+        <h5 className="landing-text">Get Creative</h5>  
         <p>No more hassle of staring into an empty fridge, experience the convenience of having your own personal chef at your fingertips.</p>
         </Card>
-        <Card body="false">
-          <h5>Minimize Waste</h5>
+        <Card body="false" className="intro-card">
+          <h5 className="landing-text">Minimize Waste</h5>
         <p>Say goodbye to food waste and hello to delicious meals with SureChef. Sign up now to see the future of meal planning.</p>
         </Card>
       </CardGroup>

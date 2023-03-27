@@ -97,7 +97,7 @@ const KitchenItemList = (props) => {
         </>
       )}
       {loading && (
-        <Modal show={true} style={{ marginTop: "0px" }}>
+        <Modal show={true} centered>
           <div className="header-container">
             <Modal.Header className="header-text">
               <h4>Sure Chef! I'm cookin' something up!</h4>

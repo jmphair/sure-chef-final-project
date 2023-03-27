@@ -42,16 +42,16 @@ const RandomRecipe = (props) => {
   return (
     <Accordion className='recipe-accordion'>
       {loading && (
-        <Accordion.Item className='recipe-item' eventKey="0">
+        <Accordion.Item className='dash-card-recipe' eventKey="0">
           <Accordion.Header className='dash-card-recipe-header'>
-            <Spinner animation="grow" />
-            {randomRecipePrompt()}
+            <Spinner animation="grow"/>
+            <> {randomRecipePrompt()}</>
           </Accordion.Header>
         </Accordion.Item>
       )}
       {answer.name && (
         <Accordion.Item className='dash-card-recipe' eventKey="0">
-          <Accordion.Header className='dash-card-recipe-header'>Chef's Recommendation: {answer.name}</Accordion.Header>
+          <Accordion.Header className='dash-card-recipe-header'>Chef's Recommendation: {answer.name} </Accordion.Header>
           <Accordion.Body className='recipe-body'>
             <div >
               <div>Chef's Recommendation</div>
@@ -64,21 +64,19 @@ const RandomRecipe = (props) => {
               </div>
             </div>
             <div className='cook-times'>
-              <div><strong>Prep time</strong>   {answer.prep_time}</div>
-              <div><strong>Cook time</strong>   {answer.cook_time}</div>
-              <div><strong>Total time</strong>  {answer.total_time}</div>
-            </div>
-            <div className='cook-times'>
-              <div><strong>Serves</strong> {answer.servings}</div>
+              <div><strong>Serves: </strong>{answer.servings}</div>
+              <div><strong>Prep time: </strong>{answer.prep_time}</div>
+              <div><strong>Cook time: </strong>{answer.cook_time}</div>
+              <div><strong>Total time: </strong>{answer.total_time}</div>
             </div>
             <div className='ingredients'>
-            <strong>Ingredients</strong> {ingredientParser(answer.ingredients)}
+            <strong>Ingredients: </strong>{ingredientParser(answer.ingredients)}
             </div>
             <div className='instructions'>
-            <strong>Directions</strong> {answer.instructions && instructionParser(answer.instructions)}
+            <strong>Directions: </strong>{answer.instructions && instructionParser(answer.instructions)}
             </div>
             <hr className="solid"/>
-            <div><em><strong>About Chef's Recommendation:</strong> Chef's Recommendation looks through your kitchen and provides you with a unique recipe recommendation based on your ingredients.</em></div>
+            <div className='about-chef-rec'><em><strong>About Chef's Recommendation: </strong>Chef's Recommendation looks through your kitchen and provides you with a unique recipe recommendation based on your ingredients.</em></div>
           </Accordion.Body>
         </Accordion.Item>
       )}

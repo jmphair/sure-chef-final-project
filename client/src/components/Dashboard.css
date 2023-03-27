@@ -12,6 +12,7 @@ main {
   height: 150px;
   display: flex;
   flex-direction: row-reverse;
+  border: none;
 }
 
 .dash-card img {
@@ -19,6 +20,7 @@ main {
   width: 130px;
   height: 130px;
   justify-content: left;
+  border: none;
 }
 
 .dash-card:hover {
@@ -32,7 +34,6 @@ main {
 .dash-div {
   display: flex;
   justify-content: flex-start;
-  height: 100vh;
   cursor: pointer;
   font-size: 24px;
 }
@@ -50,13 +51,12 @@ main {
 }
 
 .veg-footer1 {
-  position: fixed;
+  padding-top: 3em;
   left: 0;
   bottom: 21px; 
   width: 100%;
   text-align: center;
   z-index: 0;
-
 }
 
 .random-recipe { 

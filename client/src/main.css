@@ -1,3 +1,31 @@
+.app-container {
+  background-color: #f7f7f7;
+}
+
+.landing-container {
+  display: flex;
+  flex-direction: column;
+  margin-top: 1em;
+}
+
+.login-div {
+  padding-top: 4em;
+}
+
+.landing-hero {
+  padding-top: 1em;
+  font-family: "Astro";
+}
+
+.landing-text {
+  font-weight: lighter;
+}
+
+.intro-card {
+  border: none;
+  background: none;
+}
+
 .btn {
   border-radius: 20px;
 }

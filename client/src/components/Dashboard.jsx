@@ -23,7 +23,7 @@ const Dashboard = (props) => {
   const [showPopup, setShowPopup] = useState(false);
   const [activeSection, setActiveSection] = useState("dashboard");
   const [show, setShow] = useState(false);
-  const [theme, setTheme] = useState("dark");
+  const [theme, setTheme] = useState("light")
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -69,6 +69,9 @@ const Dashboard = (props) => {
               </Form>
               <label> {theme === "light" ? "Light Mode" : "Dark Mode"} </label>
             </div>
+            <div className="random-recipe">
+              <RandomRecipe user={props.user} />
+            </div>
             <Card className="dash-card">
               <Card.Img src={kitchen} alt="Card image" />
               <Card.ImgOverlay>
@@ -102,9 +105,6 @@ const Dashboard = (props) => {
                 </div>
               </Card.ImgOverlay>
             </Card>
-            <div className="random-recipe">
-              <RandomRecipe user={props.user} />
-            </div>
             <div className="veg-footer1">
               <hr className="solid-dash" />
               <>🥬🧅🌶🍅</>
@@ -135,7 +135,7 @@ const Dashboard = (props) => {
                 LHL!
               </p>
             </div>
-            <Modal show={show} onHide={handleClose}>
+            <Modal show={show} onHide={handleClose} centered>
               <Modal.Header closeButton>
                 <Modal.Title>
                   You have clicked the super secret potato of destiny, what may
