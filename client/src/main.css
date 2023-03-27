@@ -3,13 +3,18 @@
 }
 
 .landing-container {
-  width: auto;
-  height: auto;
+  display: flex;
+  flex-direction: column;
+  margin-top: 1em;
+}
+
+.login-div {
+  padding-top: 4em;
 }
 
 .landing-hero {
+  padding-top: 1em;
   font-family: "Astro";
-  margin: 5px;
 }
 
 .landing-text {
