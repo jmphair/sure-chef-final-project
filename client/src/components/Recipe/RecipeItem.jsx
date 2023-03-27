@@ -115,7 +115,7 @@ const RecipeItem = (props) => {
           </Card.Body>
         )}
       </Card>
-      <Modal show={showDeleteModal} onHide={cancelDelete}>
+      <Modal show={showDeleteModal} onHide={cancelDelete} centered>
         <Modal.Header closeButton>
           <Modal.Title>Confirm deletion</Modal.Title>
         </Modal.Header>
@@ -129,7 +129,7 @@ const RecipeItem = (props) => {
           </Button>
         </Modal.Footer>
       </Modal>
-      <Modal show={showSaveModal} onHide={cancelDelete}>
+      <Modal show={showSaveModal} onHide={cancelDelete} centered>
         <Modal.Header closeButton>
           <Modal.Title>Confirm save</Modal.Title>
         </Modal.Header>

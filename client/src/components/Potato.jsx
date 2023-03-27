@@ -8,7 +8,6 @@ function Potato() {
   const { loading, answer, sendPrompt, updatePrompt } = useAiPrompt();
 
   return (
-    <Container>
       <Card body>
         <div className="app-container">
           <InputGroup className="spotlight__wrapper">
@@ -27,7 +26,6 @@ function Potato() {
           </InputGroup>
         </div>
       </Card>
-    </Container>
   );
 }
 
