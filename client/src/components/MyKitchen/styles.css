@@ -10,6 +10,7 @@
   justify-content: center;
   align-items: center;
   font-weight: bold;
+  margin-top: 20px;
  }
  
  
@@ -22,6 +23,7 @@
  .container {
   background-color: #f7f7f7;
   padding: 20px;
+  position: relative;
  }
  
  
@@ -45,6 +47,7 @@
   border: none;
   border-bottom: 1px solid #ccc;
  }
+
 
  .kitchen-card-contents {
   display: grid;
@@ -86,20 +89,31 @@
   transform: scale(1.2)
  }
 
-.container {
-  padding-top: 0px;
-}
-
 .spices {
-  width: 100px;
-  height: 100px;
+  position: absolute;
+  top: 0px;
+  left:40px;
+  z-index: 1;
+  width: 60px;
+  height:60px;
 }
 
 
 @media only screen and (min-width: 550px) {
   .spices {
-    width: 200px;
-    height: 200px;
+    top: 5px;
+    left:40px;
+    width: 100px;
+    height: 100px;
+  }
+}
+
+@media only screen and (min-width: 991px) {
+  .spices {
+    top: 0px;
+    left:140px;
+    width: 120px;
+    height: 120px;
   }
 
 }
