@@ -48,6 +48,7 @@ const KitchenItemList = (props) => {
               user={props.user}
               addIngredient={addIngredient}
               removeIngredient={removeIngredient}
+              className="accordion-item"
             />
           );
         }
@@ -133,19 +134,19 @@ const KitchenItemList = (props) => {
       <Accordion alwaysOpen flush>
         <Accordion.Item eventKey="0">
           <Accordion.Header>Refrigerator</Accordion.Header>
-          <Accordion.Body>{kitchenItemsSort("Refrigerator")}</Accordion.Body>
+          <Accordion.Body ><div className='a-body'>{kitchenItemsSort("Refrigerator")}</div></Accordion.Body>
         </Accordion.Item>
         <Accordion.Item eventKey="1">
           <Accordion.Header>Freezer</Accordion.Header>
-          <Accordion.Body>{kitchenItemsSort("Freezer")}</Accordion.Body>
+          <Accordion.Body><div className='a-body'>{kitchenItemsSort("Freezer")}</div></Accordion.Body>
         </Accordion.Item>
         <Accordion.Item eventKey="2">
           <Accordion.Header>Pantry</Accordion.Header>
-          <Accordion.Body>{kitchenItemsSort("Pantry")}</Accordion.Body>
+          <Accordion.Body><div className='a-body'>{kitchenItemsSort("Pantry")}</div></Accordion.Body>
         </Accordion.Item>
         <Accordion.Item eventKey="3">
           <Accordion.Header>Other</Accordion.Header>
-          <Accordion.Body>{kitchenItemsSort("Other")}</Accordion.Body>
+          <Accordion.Body><div className='a-body'>{kitchenItemsSort("Other")}</div></Accordion.Body>
         </Accordion.Item>
       </Accordion>
     </Container>

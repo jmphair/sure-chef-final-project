@@ -7,6 +7,7 @@ import Popover from "react-bootstrap/Popover";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPencil, faTrash } from "@fortawesome/free-solid-svg-icons";
+import './styles.css'
 
 const GroceryItem = (props) => {
   const [showForm, setShowForm] = useState(false);
@@ -59,17 +60,19 @@ const GroceryItem = (props) => {
     <Card className="grocery-card">
       <Card.Body>
         {!showForm && (
+          
           <div className="grocery-card-contents">
-            <Card.Title>{props.name}</Card.Title>
-            <Card.Text>x{props.quantity}</Card.Text>
-            <div
-              style={{
-                position: "absolute",
-                bottom: "0",
-                right: "0",
-                margin: "10px",
-              }}
-            >
+            <div>
+              <OverlayTrigger trigger="click" placement="right" overlay={popover}>
+                <Button  onClick={handleTransfer}>
+                  Purchased
+                </Button>
+              </OverlayTrigger>
+            </div>
+            <div className='text-adjust'>
+              <Card.Title>{props.name} <span className="quantity">x{props.quantity}</span></Card.Title>
+            </div>
+            <div className='text-adjust'>
               <FontAwesomeIcon
                 icon={faPencil}
                 size="sm"
@@ -84,11 +87,6 @@ const GroceryItem = (props) => {
                 className={'icon'}
               />
             </div>
-            <OverlayTrigger trigger="click" placement="right" overlay={popover}>
-              <Button className="success" onClick={handleTransfer}>
-                Purchased
-              </Button>
-            </OverlayTrigger>
           </div>
         )}
         {showForm && (
