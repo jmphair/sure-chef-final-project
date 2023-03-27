@@ -94,11 +94,12 @@ const RecipeItem = (props) => {
             ) : (
               <div className="icons">
                 <FontAwesomeIcon
+                  className="icon"
                   icon={faPencil}
                   onClick={handleRevealForm}
                   style={{ marginRight: "10px" }}
                 />
-                <FontAwesomeIcon icon={faTrash} onClick={handleDelete} />
+                <FontAwesomeIcon className="icon" icon={faTrash} onClick={handleDelete} />
               </div>
             )}
           </Card.Body>
