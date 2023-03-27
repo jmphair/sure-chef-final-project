@@ -27,13 +27,23 @@ main {
 
 .dash-div {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
-  flex-direction: column;
+  justify-content: flex-start;
+  height: 100vh;
   cursor: pointer;
   font-size: 24px;
-  }
+}
+
+@media only screen and (min-width: 550px) {
+  .dash-div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    flex-direction: column;
+    cursor: pointer;
+    font-size: 24px;
+    }
+}
 
 
 .veg-footer2 {
@@ -52,3 +62,5 @@ main {
   padding: 10px;
   text-align: center;
 }
+
+
