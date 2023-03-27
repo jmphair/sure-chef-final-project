@@ -14,6 +14,7 @@ import GoToTop from "./GoToTop";
 import "./Dashboard.css";
 import Potato from "./Potato";
 import { welcomeMessage } from "../helpers/welcomeMessage";
+import RandomRecipe from "./RandomRecipe";
 
 const Dashboard = (props) => {
   const [showPopup, setShowPopup] = useState(false);
@@ -74,7 +75,7 @@ const Dashboard = (props) => {
               </div>
             </Card.ImgOverlay>
           </Card>
-
+<RandomRecipe user={props.user} />
           <div className="veg-footer1" style={{ textAlign: "center" }}>
             <hr className="solid" />
             <>🥬🧅🌶🍅</>
