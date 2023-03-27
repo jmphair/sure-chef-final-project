@@ -1,6 +1,7 @@
 import GroceryItem from "./GroceryItem";
 import GroceryForm from "./GroceryForm";
 import blueberries from "../../assets/blueberries.png";
+import "./styles.css";
 
 import { Container, CardGroup, Accordion, Button } from "react-bootstrap";
 
@@ -33,11 +34,7 @@ const GroceryItemList = (props) => {
 
   return (
     <>
-      <img
-        src={blueberries}
-        className="blueberries"
-        style={{ width: "140px", height: "170px" }}
-      />
+      <img src={blueberries} className="blueberries" />
       <Container>
         <h3 className="heading">My Grocery List</h3>
         <h6 className="heading">Total Ingredients: {count}</h6>

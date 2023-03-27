@@ -72,7 +72,7 @@ const KitchenItemList = (props) => {
       <img
         src={spices}
         className="spices"
-        style={{ width: "115px", height: "115px" }}
+        // style={{ width: "115px", height: "115px" }}
       />
       <Container className="kitchen-container">
         <h3 className="heading">My Kitchen</h3>

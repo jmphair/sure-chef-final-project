@@ -4,6 +4,7 @@ import { Container, CardGroup, Card, Accordion } from "react-bootstrap";
 import { getRecipesForUsers } from "../../helpers/selectors";
 import useRecipeData from "../../hooks/useRecipeData";
 import plated from "../../assets/plated.png";
+import "./styles.css";
 
 const RecipeItemList = (props) => {
   // Use the useRecipeData hook to get the recipes and currentRecipe from state
@@ -90,23 +91,25 @@ const RecipeItemList = (props) => {
   const count = userRecipes.length;
 
   return (
-    <Container className="my-3">
+    <>
       <img src={plated} className="plated" />
-      <h3 className="heading">My Cookbook</h3>
-      <h6 className="heading">Total Recipes: {count}</h6>
-      <div className="mb-3">
-        <input
-          type="text"
-          className="form-control search-input"
-          id="searchInput"
-          value={searchQuery}
-          onChange={handleSearchInputChange}
-          placeholder="&#x1F50D;"
-        />
-      </div>
+      <Container className="my-3">
+        <h3 className="heading">My Cookbook</h3>
+        <h6 className="heading">Total Recipes: {count}</h6>
+        <div className="mb-3">
+          <input
+            type="text"
+            className="form-control search-input"
+            id="searchInput"
+            value={searchQuery}
+            onChange={handleSearchInputChange}
+            placeholder="&#x1F50D;"
+          />
+        </div>
 
-      <Accordion>{recipeList}</Accordion>
-    </Container>
+        <Accordion>{recipeList}</Accordion>
+      </Container>
+    </>
   );
 };
 
