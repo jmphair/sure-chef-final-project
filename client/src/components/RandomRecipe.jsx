@@ -57,7 +57,7 @@ const RandomRecipe = (props) => {
               <div>Chef's Recommendation</div>
               <div className='recipe-title'><strong>{answer.name}</strong></div>
             </div>
-            <div classname='save-state'>
+            <div className='save-state'>
               <div>
                 {!save && answer.name && <Button onClick={saveRecipe}>Save</Button>}
                 {save && <Button>Saved!</Button>}
