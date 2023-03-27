@@ -10,6 +10,7 @@
   justify-content: center;
   align-items: center;
   font-weight: bold;
+  margin-top: 20px;
  }
  
  
@@ -22,6 +23,7 @@
  .container {
   background-color: #f7f7f7;
   padding: 20px;
+  position: relative;
  }
  
  
@@ -45,6 +47,7 @@
   border: none;
   border-bottom: 1px solid #ccc;
  }
+
 
  .kitchen-card-contents {
   display: grid;
@@ -78,8 +81,12 @@
 }
 
 .spices {
-  width: 100px;
-  height: 100px;
+  position: absolute;
+  top: 0px;
+  left:50px;
+  z-index: 1;
+  /* width: 115px;
+  height: 115px; */
 }
 
 

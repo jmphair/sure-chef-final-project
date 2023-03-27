@@ -68,77 +68,82 @@ const KitchenItemList = (props) => {
   };
 
   return (
-    <Container className="kitchen-container">
-      <img src={spices} className="spices" />
+    <>
+      <img
+        src={spices}
+        className="spices"
+        style={{ width: "115px", height: "115px" }}
+      />
+      <Container className="kitchen-container">
+        <h3 className="heading">My Kitchen</h3>
+        <h6 className="heading">Total Ingredients: {count}</h6>
+        {/* hide recipe generator button when add item form is opened */}
+        {!props.showForm && (
+          <>
+            <div style={{ marginBottom: "20px", marginTop: "20px" }}>
+              <RecipeGenerator
+                generateRecipe={generateRecipe}
+                user={props.user}
+              />
+            </div>
+            <div className="message">{displaySelected()}</div>
+          </>
+        )}
+        {loading && (
+          <Modal show={true} style={{ marginTop: "0px" }}>
+            <div className="header-container">
+              <Modal.Header className="header-text">
+                <h4>Sure Chef! I'm cookin' something up!</h4>
+              </Modal.Header>
+            </div>
+            <Modal.Body style={{ height: "100vh" }}>
+              <LoadingRecipe />
+            </Modal.Body>
+          </Modal>
+        )}
+        {answer && props.handleSectionClick("saverecipe")}
 
-      <h3 className="heading">My Kitchen</h3>
-      <h6 className="heading">Total Ingredients: {count}</h6>
-      {/* hide recipe generator button when add item form is opened */}
-      {!props.showForm && (
-        <>
-          <div style={{ marginBottom: "20px", marginTop: "20px" }}>
-            <RecipeGenerator
-              generateRecipe={generateRecipe}
+        {props.showForm ? (
+          <div className="kitchen-main">
+            <KitchenForm
               user={props.user}
+              showOnAdd={props.showOnAdd}
+              handleAddItem={props.handleAddItem}
+              onClick={props.handleAddItem}
             />
           </div>
-          <div className="message">{displaySelected()}</div>
-        </>
-      )}
-      {loading && (
-        <Modal show={true} style={{ marginTop: "0px" }}>
-          <div className="header-container">
-            <Modal.Header className="header-text">
-              <h4>Sure Chef! I'm cookin' something up!</h4>
-            </Modal.Header>
+        ) : (
+          <div className="add-button">
+            <Button
+              className="button"
+              variant="outline-dark"
+              onClick={props.handleAddItem}
+            >
+              Add New Item
+            </Button>
           </div>
-          <Modal.Body style={{ height: "100vh" }}>
-            <LoadingRecipe />
-          </Modal.Body>
-        </Modal>
-      )}
-      {answer && props.handleSectionClick("saverecipe")}
+        )}
 
-      {props.showForm ? (
-        <div className="kitchen-main">
-          <KitchenForm
-            user={props.user}
-            showOnAdd={props.showOnAdd}
-            handleAddItem={props.handleAddItem}
-            onClick={props.handleAddItem}
-          />
-        </div>
-      ) : (
-        <div className="add-button">
-          <Button
-            className="button"
-            variant="outline-dark"
-            onClick={props.handleAddItem}
-          >
-            Add New Item
-          </Button>
-        </div>
-      )}
-
-      <Accordion alwaysOpen flush>
-        <Accordion.Item eventKey="0">
-          <Accordion.Header>Refrigerator</Accordion.Header>
-          <Accordion.Body>{kitchenItemsSort("Refrigerator")}</Accordion.Body>
-        </Accordion.Item>
-        <Accordion.Item eventKey="1">
-          <Accordion.Header>Freezer</Accordion.Header>
-          <Accordion.Body>{kitchenItemsSort("Freezer")}</Accordion.Body>
-        </Accordion.Item>
-        <Accordion.Item eventKey="2">
-          <Accordion.Header>Pantry</Accordion.Header>
-          <Accordion.Body>{kitchenItemsSort("Pantry")}</Accordion.Body>
-        </Accordion.Item>
-        <Accordion.Item eventKey="3">
-          <Accordion.Header>Other</Accordion.Header>
-          <Accordion.Body>{kitchenItemsSort("Other")}</Accordion.Body>
-        </Accordion.Item>
-      </Accordion>
-    </Container>
+        <Accordion alwaysOpen flush>
+          <Accordion.Item eventKey="0">
+            <Accordion.Header>Refrigerator</Accordion.Header>
+            <Accordion.Body>{kitchenItemsSort("Refrigerator")}</Accordion.Body>
+          </Accordion.Item>
+          <Accordion.Item eventKey="1">
+            <Accordion.Header>Freezer</Accordion.Header>
+            <Accordion.Body>{kitchenItemsSort("Freezer")}</Accordion.Body>
+          </Accordion.Item>
+          <Accordion.Item eventKey="2">
+            <Accordion.Header>Pantry</Accordion.Header>
+            <Accordion.Body>{kitchenItemsSort("Pantry")}</Accordion.Body>
+          </Accordion.Item>
+          <Accordion.Item eventKey="3">
+            <Accordion.Header>Other</Accordion.Header>
+            <Accordion.Body>{kitchenItemsSort("Other")}</Accordion.Body>
+          </Accordion.Item>
+        </Accordion>
+      </Container>
+    </>
   );
 };
 

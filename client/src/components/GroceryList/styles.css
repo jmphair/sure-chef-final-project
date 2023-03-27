@@ -6,6 +6,13 @@
   align-items: center;
   font-weight: bold;
  }
+
+ .blueberries {
+  position: absolute;
+  top: 0px;
+  left:50px;
+  z-index: 1;
+ }
  
  
  .add-button {
@@ -17,6 +24,8 @@
  .container {
   background-color: #f7f7f7;
   padding: 20px;
+  position: relative;
+
  }
  
  
