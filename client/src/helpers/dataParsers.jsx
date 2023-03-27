@@ -3,8 +3,8 @@ export function ingredientParser(recipeIngredients) {
   let ingredients = ""
 
   recipeIngredients.forEach(ingredient => {
-    ingredients += Object.keys(ingredient)[0] + ' x '
-    ingredients += Object.values(ingredient)[0] + ', '
+    ingredients += Object.keys(ingredient)[0] + ": "
+    ingredients += Object.values(ingredient)[0] + ", "
   })
 
   ingredients = ingredients.slice(0, -2);
