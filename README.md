@@ -27,15 +27,15 @@ So why wait for the future of robotic cooking assistants when you can start usin
 
 Landing Page Screenshot:
 
-!["Landing Page Screenshot."]()
+!["Landing Page Screenshot."](https://github.com/jmphair/sure-chef-final-project/blob/main/docs/LandingPage.png?raw=true)
 
 Dashboard GIF:
 
-!["Landing Page Screenshot."]()
+!["Landing Page Screenshot."](https://github.com/jmphair/sure-chef-final-project/blob/main/docs/Dash-Nav-DarkMode.gif?raw=true)
 
 Generate Recipe GIF:
 
-!["Landing Page Screenshot."]()
+!["Landing Page Screenshot."](https://github.com/jmphair/sure-chef-final-project/blob/main/docs/Generate-Recipe.gif?raw=true)
 
 ## Getting Started
 
