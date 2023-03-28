@@ -31,18 +31,23 @@ Check back soon for a page demo!
 
 ## Getting Started
 
-- TBD
+1. Fork this repo, then clone your fork of this repo.
+2. Install dependencies using the `npm install` command.
+3. Install dev-dependencies using the `npm install --save-dev` command.
+4. Create the `.env` by using `.env.example` as a reference: `cp .env.example .env`
+5. Update the .env file with your correct local information.
+7. Follow commands below when you're ready to view locally.
 
 ## Commands
+
+DB Changes? Remember to:
+- npm run db:reset
 
 Run Client:
 - npm run dev
 
 Run Server:
 - npm run devStart
-
-DB Changes? Remember to:
-- npm run db:reset
 
 ## Dependencies
 
