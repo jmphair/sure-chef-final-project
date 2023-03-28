@@ -25,9 +25,17 @@ So why wait for the future of robotic cooking assistants when you can start usin
 
 ## Page Demo Details
 
-Check back soon for a page demo!
+Landing Page Screenshot:
 
-!["Screenshot/Gif."]()
+!["Landing Page Screenshot."]()
+
+Dashboard GIF:
+
+!["Landing Page Screenshot."]()
+
+Generate Recipe GIF:
+
+!["Landing Page Screenshot."]()
 
 ## Getting Started
 
