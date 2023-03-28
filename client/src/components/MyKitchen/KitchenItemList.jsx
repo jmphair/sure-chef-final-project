@@ -86,12 +86,7 @@ const KitchenItemList = (props) => {
         {/* hide recipe generator button when add item form is opened */}
         {!props.showForm && (
           <>
-            <div style={{ marginTop: "20px" }}>
-              <RecipeGenerator
-                generateRecipe={generateRecipe}
-                user={props.user}
-              />
-            </div>
+
             <div className="cart">
               <strong>Recipe ingredients</strong>
               <div>
@@ -124,14 +119,12 @@ const KitchenItemList = (props) => {
             />
           </div>
         ) : (
-          <div className="add-button">
-            <Button
-              className="button"
-              variant="outline-dark"
-              onClick={props.handleAddItem}
-            >
-              Add New Item
-            </Button>
+          <div>
+                        <RecipeGenerator
+              generateRecipe={generateRecipe}
+              user={props.user}
+              handleAddItem={props.handleAddItem}
+            />            
           </div>
         )}
 
