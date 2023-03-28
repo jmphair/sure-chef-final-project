@@ -77,7 +77,7 @@ const RecipeItem = (props) => {
             <Card.Text><strong>Total time: </strong>{props.totalTime}</Card.Text>
             <Card.Text><strong>Ingredients: </strong>{props.ingredients}</Card.Text>
             <Card.Text><strong>Directions: </strong>{props.instructions}</Card.Text>
-            <Card.Text><strong>Note: </strong>{props.note}</Card.Text>
+            {props.note && (<Card.Text><strong>Note: </strong>{props.note}</Card.Text>)}
 
             {!props.saved ? (
               <>
