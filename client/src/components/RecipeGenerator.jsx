@@ -29,17 +29,19 @@ function RecipeGenerator(props) {
 
   return (
     <Container>
-      <Form className="toggle">
-        <Form.Check
-          type="switch"
-          id="custom-switch"
-          defaultChecked={switchState}
-          onChange={handleChange}
-        />
-        {/* {switchText} */}
-      </Form>
-      <div className="message">
-        Hey {props.user.name}! Set the toggle {switchText}
+      <div className='toggle-strict'>
+        <Form className="toggle">
+          <Form.Check
+            type="switch"
+            id="custom-switch"
+            defaultChecked={switchState}
+            onChange={handleChange}
+          />
+          {/* {switchText} */}
+        </Form>
+        <div className="message">
+          Hey {props.user.name}! Set the toggle {switchText}
+        </div>
       </div>
       <div className="create-button">
         <Button
@@ -51,6 +53,13 @@ function RecipeGenerator(props) {
           >
           Create Recipe
         </Button>
+        <Button
+            className="button"
+            variant="outline-dark"
+            onClick={props.handleAddItem}
+          >
+            Add New Item
+          </Button>
       </div>
     </Container>
   );
