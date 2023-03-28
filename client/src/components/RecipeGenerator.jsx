@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Container, Button, Form } from "react-bootstrap";
 import "./RecipeGenerator.css";
+import FancyButton from "./FancyButton";
 
 function RecipeGenerator(props) {
   const [switchState, setSwitchState] = useState(false);
@@ -42,15 +43,15 @@ function RecipeGenerator(props) {
         Hey {props.user.name}! Set the toggle {switchText}
       </div>
       <div className="create-button">
-        <Button
+        <span
           onClick={() =>
             props.generateRecipe(recipeRestrictions, props.user.id)
           }
           variant="outline-dark"
-          className="button"
-          >
-          Create Recipe
-        </Button>
+          className="create-recipe"
+        >
+          <FancyButton />
+        </span>
       </div>
     </Container>
   );

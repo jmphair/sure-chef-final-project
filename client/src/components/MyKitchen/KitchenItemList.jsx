@@ -16,6 +16,8 @@ import useRecipeData from "../../hooks/useGroceryListItemData";
 import { ingredientParser, instructionParser } from "../../helpers/dataParsers";
 import spices from "../../assets/spices.png";
 
+// import FancyButton from "../FancyButton";
+
 import "./styles.css";
 
 const KitchenItemList = (props) => {
@@ -87,6 +89,7 @@ const KitchenItemList = (props) => {
         {!props.showForm && (
           <>
             <div style={{ marginTop: "20px" }}>
+              {/* <FancyButton /> */}
               <RecipeGenerator
                 generateRecipe={generateRecipe}
                 user={props.user}
