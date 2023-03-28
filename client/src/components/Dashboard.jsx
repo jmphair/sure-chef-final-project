@@ -23,7 +23,7 @@ const Dashboard = (props) => {
   const [showPopup, setShowPopup] = useState(false);
   const [activeSection, setActiveSection] = useState("dashboard");
   const [show, setShow] = useState(false);
-  const [theme, setTheme] = useState("light")
+  const [theme, setTheme] = useState("light");
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -73,17 +73,6 @@ const Dashboard = (props) => {
               <RandomRecipe user={props.user} />
             </div>
             <Card className="dash-card">
-              <Card.Img src={kitchen} alt="Card image" />
-              <Card.ImgOverlay>
-                <div
-                  className="dash-div"
-                  onClick={() => handleSectionClick("mykitchen")}
-                >
-                  My Kitchen
-                </div>
-              </Card.ImgOverlay>
-            </Card>
-            <Card className="dash-card">
               <Card.Img src={grocery} alt="Card image" />
               <Card.ImgOverlay>
                 <div
@@ -91,6 +80,17 @@ const Dashboard = (props) => {
                   onClick={() => handleSectionClick("groceryList")}
                 >
                   My Grocery List
+                </div>
+              </Card.ImgOverlay>
+            </Card>
+            <Card className="dash-card">
+              <Card.Img src={kitchen} alt="Card image" />
+              <Card.ImgOverlay>
+                <div
+                  className="dash-div"
+                  onClick={() => handleSectionClick("mykitchen")}
+                >
+                  My Kitchen
                 </div>
               </Card.ImgOverlay>
             </Card>
