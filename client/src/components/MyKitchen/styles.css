@@ -102,10 +102,10 @@
 
 @media only screen and (min-width: 550px) {
   .spices {
-    top: 5px;
+    top: 0px;
     left:40px;
-    width: 100px;
-    height: 100px;
+    width: 90px;
+    height: 90px;
   }
 }
 
@@ -113,8 +113,8 @@
   .spices {
     top: 0px;
     left:140px;
-    width: 120px;
-    height: 120px;
+    width: 100px;
+    height: 100px;
   }
 
 }
