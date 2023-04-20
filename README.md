@@ -37,6 +37,12 @@ Generate Recipe GIF:
 
 !["Landing Page Screenshot."](https://github.com/jmphair/sure-chef-final-project/blob/main/docs/Generate-Recipe.gif?raw=true)
 
+## Watch Our Presentation
+
+Here's a 5 minute overview of what we built:
+
+!["Final presentation video."](https://vimeo.com/817319968)
+
 ## Getting Started
 
 1. Fork this repo, then clone your fork of this repo.
