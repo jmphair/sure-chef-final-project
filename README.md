@@ -41,7 +41,7 @@ Generate Recipe GIF:
 
 Here's a 5 minute overview of what we built:
 
-!["Final presentation video."](https://vimeo.com/817319968)
+[!["Final presentation video."] (https://github.com/jmphair/sure-chef-final-project/blob/main/docs/presentation.png?raw=true)](https://vimeo.com/817319968)
 
 ## Getting Started
 
